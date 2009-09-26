@@ -13,7 +13,7 @@
 @implementation QueryExecResultsTest
 
 -(void) testShouldPass{
-	STAssertTrue(YES, @"This sohould bu true");
+	STAssertTrue(YES, @"This sohould be true");
 }
 
 -(QueryExec*) connectToPubsDatabase{
