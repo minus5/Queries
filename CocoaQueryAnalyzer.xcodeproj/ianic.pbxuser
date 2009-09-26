@@ -1737,8 +1737,9 @@
 	18FABD1F106E01F8008BD369 /* QueryExecResultsTest.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1533, 1131}}";
-			sepNavSelRange = "{1565, 0}";
-			sepNavVisRange = "{91, 2349}";
+			sepNavSelRange = "{249, 0}";
+			sepNavVisRange = "{0, 2008}";
+			sepNavWindowFrame = "{{15, 99}, {953, 1074}}";
 		};
 	};
 	18FABD4A106E07B7008BD369 /* PBXBookmark */ = {
@@ -1775,6 +1776,26 @@
 		vrLen = 2349;
 		vrLoc = 91;
 	};
+	18FE0218106E249600FC5DF0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 18FABD1F106E01F8008BD369 /* QueryExecResultsTest.m */;
+		name = "QueryExecResultsTest.m: 16";
+		rLen = 0;
+		rLoc = 249;
+		rType = 0;
+		vrLen = 2058;
+		vrLoc = 90;
+	};
+	18FE0219106E249600FC5DF0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 18FABD1F106E01F8008BD369 /* QueryExecResultsTest.m */;
+		name = "QueryExecResultsTest.m: 16";
+		rLen = 0;
+		rLoc = 249;
+		rType = 0;
+		vrLen = 2008;
+		vrLoc = 0;
+	};
 	1DDD58150DA1D0A300B32029 /* English */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1576, 84952}}";
@@ -1809,7 +1830,7 @@
 		activeArchitecturePreference = x86_64;
 		activeBuildConfigurationName = Debug;
 		activeExecutable = 18E378201062ADF900E2DC80 /* CocoaQueryAnalyzer */;
-		activeTarget = 18FABC40106DF761008BD369 /* Tests  */;
+		activeTarget = 8D1107260486CEB800E47090 /* CocoaQueryAnalyzer */;
 		addToTargets = (
 			18FABC40106DF761008BD369 /* Tests  */,
 		);
@@ -2123,6 +2144,8 @@
 			18FABDA1106E0E5F008BD369 = 18FABDA1106E0E5F008BD369 /* PBXTextBookmark */;
 			18FABDA2106E0E5F008BD369 = 18FABDA2106E0E5F008BD369 /* PBXTextBookmark */;
 			18FABDA3106E0E5F008BD369 = 18FABDA3106E0E5F008BD369 /* PBXTextBookmark */;
+			18FE0218106E249600FC5DF0 /* PBXTextBookmark */ = 18FE0218106E249600FC5DF0 /* PBXTextBookmark */;
+			18FE0219106E249600FC5DF0 /* PBXTextBookmark */ = 18FE0219106E249600FC5DF0 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 18E3782D1062AE1800E2DC80 /* Source Control */;
 		userBookmarkGroup = 18FAB9CD106A8280008BD369 /* PBXBookmarkGroup */;
