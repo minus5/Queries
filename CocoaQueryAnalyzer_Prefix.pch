@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'CocoaQueryAnalyzer' target in the 'CocoaQueryAnalyzer' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
