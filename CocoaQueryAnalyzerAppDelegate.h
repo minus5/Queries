@@ -7,6 +7,7 @@
 	NSWindow *window;
 	
 	IBOutlet NSTableView  *tableView;
+	IBOutlet NSOutlineView *outlineView;
 	
 	IBOutlet NSTextView *queryText;	
 	IBOutlet NSTextView *logTextView;	
@@ -28,6 +29,8 @@
 	IBOutlet NSWindow *connectionSettingsWindow;
 	
 	QueryExec *queryExec;
+	
+	NSMutableDictionary *cache;
 }
 
 @property (assign) IBOutlet NSWindow *window;

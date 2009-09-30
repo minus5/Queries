@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18891C191073572A0027C68F /* DatabaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 18891C181073572A0027C68F /* DatabaseObject.m */; };
+		18891C1E107357A60027C68F /* DatabaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 18891C181073572A0027C68F /* DatabaseObject.m */; };
+		18891C2B107357E30027C68F /* DatabaseObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18891C2A107357E30027C68F /* DatabaseObjectTest.m */; };
 		18AAFAAF1067A6C9001B5362 /* ColumnMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AAFAAE1067A6C9001B5362 /* ColumnMetadata.m */; };
 		18E3790910638EA400E2DC80 /* QueryExec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E3790810638EA400E2DC80 /* QueryExec.m */; };
 		18FAB9FE106B452B008BD369 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FAB9FD106B452B008BD369 /* libsybdb.a */; };
@@ -26,6 +29,9 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		18891C171073572A0027C68F /* DatabaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseObject.h; sourceTree = "<group>"; };
+		18891C181073572A0027C68F /* DatabaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseObject.m; sourceTree = "<group>"; };
+		18891C2A107357E30027C68F /* DatabaseObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseObjectTest.m; sourceTree = "<group>"; };
 		18AAFAAD1067A6C9001B5362 /* ColumnMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnMetadata.h; sourceTree = "<group>"; };
 		18AAFAAE1067A6C9001B5362 /* ColumnMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnMetadata.m; sourceTree = "<group>"; };
 		18E3790710638EA400E2DC80 /* QueryExec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryExec.h; sourceTree = "<group>"; };
@@ -77,6 +83,8 @@
 				18E3790810638EA400E2DC80 /* QueryExec.m */,
 				18AAFAAD1067A6C9001B5362 /* ColumnMetadata.h */,
 				18AAFAAE1067A6C9001B5362 /* ColumnMetadata.m */,
+				18891C171073572A0027C68F /* DatabaseObject.h */,
+				18891C181073572A0027C68F /* DatabaseObject.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -105,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				18FABD1F106E01F8008BD369 /* QueryExecResultsTest.m */,
+				18891C2A107357E30027C68F /* DatabaseObjectTest.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -264,6 +273,8 @@
 				18FABD20106E01F8008BD369 /* QueryExecResultsTest.m in Sources */,
 				18FABD29106E04D3008BD369 /* QueryExec.m in Sources */,
 				18FABD2C106E04F7008BD369 /* ColumnMetadata.m in Sources */,
+				18891C191073572A0027C68F /* DatabaseObject.m in Sources */,
+				18891C2B107357E30027C68F /* DatabaseObjectTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +286,7 @@
 				256AC3DA0F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m in Sources */,
 				18E3790910638EA400E2DC80 /* QueryExec.m in Sources */,
 				18AAFAAF1067A6C9001B5362 /* ColumnMetadata.m in Sources */,
+				18891C1E107357A60027C68F /* DatabaseObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

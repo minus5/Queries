@@ -5,7 +5,9 @@
 @synthesize window;
 
 - (void)awakeFromNib{
-	[queryText setFont: [NSFont fontWithName: @"Monaco" size: 13.0]];
+	[queryText setFont: [NSFont fontWithName: @"Monaco" size: 12.0]];
+	cache = [NSMutableDictionary dictionary];
+	[cache retain];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -27,6 +29,11 @@
 													password: [passwordTextField stringValue] ];
 		
 		[queryExec login];
+		
+		[queryExec execute: @"exec cocoa_query_analyzer.database_objects"];
+		cache = [NSMutableDictionary dictionary];
+		[cache retain];
+		[self bindResult];
 						
 		[NSApp endSheet:connectionSettingsWindow];
 		[connectionSettingsWindow orderOut:sender];				
@@ -90,6 +97,7 @@
 	[self removeAllColumns];							
 	[self addColumns];						
 	[tableView reloadData];	
+	[outlineView reloadData];
 }
 
 -(void) addColumns{
@@ -155,6 +163,72 @@
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {		
 	return [queryExec rowValue: rowIndex: [[aTableColumn identifier] integerValue]];
 }
+
+
+// Data Source methods
+
+-(NSArray*) objectsForParent: (NSString*) parentId
+{
+	
+	if ([cache objectForKey:parentId] != nil){
+		NSLog(@"found in cache");
+		return [cache objectForKey:parentId];
+	}
+	
+	NSMutableArray *selected = [NSMutableArray array];		
+	NSLog(@"searching for childs of: %@", parentId);
+	
+	for(int i=0; i<[queryExec rowsCount]; i++)
+	{
+		NSArray *row = [[queryExec rows] objectAtIndex:i];			
+		if ([[row objectAtIndex:1] isEqualToString: parentId]){
+			[selected addObject:row];
+		}
+	}	
+	
+	[selected	retain];
+	[cache setObject:selected forKey:parentId];
+	
+	return selected;
+}
+
+
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item {
+	NSArray *selected = [self objectsForParent: (item == nil ? @"" : [item objectAtIndex:0])];
+	return [selected count];
+}
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item {
+	return ![[item objectAtIndex:3 ] isEqualToString: @"0"];
+}
+
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item {
+	NSArray *selected = [self objectsForParent: (item == nil ? @"" : [item objectAtIndex:0])];
+	return [selected objectAtIndex:index];
+}
+
+- (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item {
+//	if ([[tableColumn identifier] isEqualToString: @"objectsCount"])
+//	{
+//		NSString *objectsCount = [item objectAtIndex:3];
+//		if (![objectsCount isEqualToString:	@"0"]){			
+//			return [item objectAtIndex:3];
+//		}else
+//		{
+//			return nil;
+//		}
+//	}
+//	else {
+		return [item objectAtIndex:2];
+//	}	
+}
+
+// Delegate methods
+- (BOOL)outlineView:(NSOutlineView *)outlineView shouldEditTableColumn:(NSTableColumn *)tableColumn item:(id)item {
+	return NO;
+}
+
+
 
 
 @end
