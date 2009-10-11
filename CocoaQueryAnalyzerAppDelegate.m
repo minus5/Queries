@@ -5,45 +5,87 @@
 @synthesize window;
 
 - (void)awakeFromNib{
-	[queryText setFont: [NSFont fontWithName: @"Monaco" size: 12.0]];
-	cache = [NSMutableDictionary dictionary];
-	[cache retain];
+	[queryText setFont: [NSFont fontWithName: @"Monaco" size: 12.0]];  	
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+	queries = [NSMutableArray	array];
+	[queries retain];
 	[self connectionSettings: nil];
 }
 
 -(IBAction) connectionSettings: (id) sender{
 	[NSApp beginSheet:connectionSettingsWindow modalForWindow:window
 			modalDelegate:nil didEndSelector:nil contextInfo:nil];
-}
+}                                                  
 
--(IBAction) connect: (id) sender{
-	@try{			
-		[queryExec dealloc];
-		queryExec = [QueryExec alloc];
-		[queryExec initWithCredentials: [serverNameTextField stringValue] 
+-(IBAction) newQuery: (id) sender{        
+	@try{
+		QueryExec *newQuery = [QueryExec alloc];
+		[newQuery initWithCredentials: [serverNameTextField stringValue] 
 											databaseName: [databaseNameTextField stringValue] 
 													userName: [userNameTextField stringValue] 
 													password: [passwordTextField stringValue] ];
+	
+		[newQuery login];	                
 		
-		[queryExec login];
+		[queries addObject: newQuery];				
+		[self changeQuery: newQuery];
+		
+  }@catch(NSException *exception){     
+		[self logMessage: [NSString stringWithFormat: @"Failed connecting to: %@\n", [queryExec connectionName]]];
+		[self logMessage: [NSString stringWithFormat:@"%@", [exception reason]]];
+		@throw;
+	}
+} 
+      
+-(int) currentQueryIndex{
+	return [queries indexOfObject: queryExec];	
+}  
+
+-(void) changeQuery: (QueryExec*) new{
+	[self saveCurrentQueryTextAndSelection];
+	queryExec = new;
+	[queryText setString: [queryExec queryText]];
+	[self bindResult];	
+}
+
+-(IBAction) previousQuery: (id) sender{ 
+	int currentIndex = [self currentQueryIndex];
+	if (--currentIndex >= 0){
+		[self changeQuery: [queries objectAtIndex: currentIndex]];
+	} 
+}                    
+
+-(IBAction) nextQuery: (id) sender{  
+	int currentIndex = [self currentQueryIndex];
+	if (++currentIndex < [queries count]){                        
+		[self changeQuery: [queries objectAtIndex: currentIndex]];
+	}
+}  
+
+-(void) saveCurrentQueryTextAndSelection{
+	[queryExec setQueryText: [queryText string]];
+	[queryExec setSelection: [queryText selectedRange]];
+}                  
+
+-(IBAction) connect: (id) sender{
+	@try{		 		
+		[self newQuery: nil];		
 		
 		[queryExec execute: @"exec cocoa_query_analyzer.database_objects"];
-		cache = [NSMutableDictionary dictionary];
+		[cache release];		
+		cache = [NSMutableDictionary dictionary];		
 		[cache retain];
 		[self bindResult];
 						
 		[NSApp endSheet:connectionSettingsWindow];
-		[connectionSettingsWindow orderOut:sender];				
-		[window setTitle: [queryExec connectionName]];
+		[connectionSettingsWindow orderOut:sender];						
     
 		[self logMessage: [NSString stringWithFormat: @"Connected to: %@\n", [queryExec connectionName]]]; 
 	}@catch(NSException *exception){
 		[self logMessage: [NSString stringWithFormat: @"Failed connecting to: %@\n", [queryExec connectionName]]];
-		[self logMessage: [NSString stringWithFormat:@"%@", [exception reason]]];
-		
+		[self logMessage: [NSString stringWithFormat:@"%@", [exception reason]]];		
 	}	
 }
 
@@ -65,19 +107,11 @@
 	[previousResultMenu setEnabled: [queryExec hasPreviosResults]];
 	[nextResultMenu setEnabled: [queryExec hasNextResults]];
 }
-
--(NSString*) query{
-	NSString *q = [queryText string];		
-	NSRange selection = [queryText selectedRange];
-	if(selection.length > 0){
-		q = [q substringWithRange: selection];
-	}		
-	return q;
-}
-
+   
 - (IBAction) executeQuery: (id) sender {	
-	
-	[queryExec execute: [self query]];				
+	 
+	[self saveCurrentQueryTextAndSelection];
+	[queryExec execute];				
 	
 	if ([queryExec hasResults]) {
 		[self bindResult];
@@ -90,9 +124,14 @@
 		}
 		[logTextView insertText: @"\n"];
 	}
+}                                               
+
+-(void) setWindowTitle{    	
+	[window setTitle: [NSString stringWithFormat: @"Query: %d | %@ | Results: %d/%d | Rows: %d", [self currentQueryIndex] + 1,  [queryExec connectionName], [queryExec currentResult] + 1, [queryExec resultsCount], [queryExec rowsCount]]];
 }
 
--(void) bindResult{
+-(void) bindResult{		
+	[self setWindowTitle];
 	[self enableButtons];
 	[self removeAllColumns];							
 	[self addColumns];						
@@ -165,14 +204,14 @@
 }
 
 
-// Data Source methods
+// Outline view Data Source methods
 
 -(NSArray*) objectsForParent: (NSString*) parentId
 {
 	
 	if ([cache objectForKey:parentId] != nil){
-		NSLog(@"found in cache");
-		return [cache objectForKey:parentId];
+		NSArray *item = [cache objectForKey:parentId]; 
+		return item;
 	}
 	
 	NSMutableArray *selected = [NSMutableArray array];		
@@ -184,11 +223,8 @@
 		if ([[row objectAtIndex:1] isEqualToString: parentId]){
 			[selected addObject:row];
 		}
-	}	
-	
-	[selected	retain];
-	[cache setObject:selected forKey:parentId];
-	
+	}		
+	[cache setObject:selected forKey:parentId];	
 	return selected;
 }
 
@@ -208,27 +244,13 @@
 }
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item {
-//	if ([[tableColumn identifier] isEqualToString: @"objectsCount"])
-//	{
-//		NSString *objectsCount = [item objectAtIndex:3];
-//		if (![objectsCount isEqualToString:	@"0"]){			
-//			return [item objectAtIndex:3];
-//		}else
-//		{
-//			return nil;
-//		}
-//	}
-//	else {
-		return [item objectAtIndex:2];
-//	}	
+	return [item objectAtIndex:2];
 }
 
 // Delegate methods
 - (BOOL)outlineView:(NSOutlineView *)outlineView shouldEditTableColumn:(NSTableColumn *)tableColumn item:(id)item {
 	return NO;
 }
-
-
 
 
 @end

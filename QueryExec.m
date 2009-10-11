@@ -1,10 +1,11 @@
 #import "QueryExec.h"
 
-@implementation QueryExec
+@implementation QueryExec                                
+
+@synthesize queryText, selection, currentResult;
 
 QueryExec *active;
 int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char *msgtext, char *srvname, char *procname, int line)
-//-(int) msg_handler: (DBPROCESS *)dbproc: (DBINT) msgno: (int) msgstate: (int) severity: (char*) msgtext: (char*) srvname: (char*) procname: (int) line
 {									
 	enum {changed_database = 5701, changed_language = 5703 };	
 	
@@ -245,13 +246,29 @@ struct COL
 	[results retain];
 }
 
--(BOOL) execute: (NSString*) query{
-			
-	@try{	
+-(NSString*) queryFromQueryTextAndSelection{
+	NSString *query;
+	if(selection.length > 0){
+		query = [queryText substringWithRange: selection];
+	}else{
+		query = queryText;
+	}	
+	return query;
+}                                      
+
+-(BOOL) execute: (NSString*) query{  
+	[self setQueryText: query];
+	[self setSelection: NSMakeRange(0, 0)];	
+	return [self execute];		
+}  
+
+-(BOOL) execute{			
+	@try{
+		active = self;
 		currentResult = 0;
 		dbsettime(30);			
-		[self executeQuery: query];		
-		[self readResults];		
+		[self executeQuery: [self queryFromQueryTextAndSelection]];		
+		[self readResults];				
 		return YES;
 	}
 	@catch (NSException *exception) {
@@ -324,10 +341,13 @@ struct COL
 	}
 }
 
+-(void) logout{
+	dbclose(dbproc);
+	dbexit();	
+}
 
 -(void) dealloc{
-	dbclose(dbproc);
-	dbexit();
+	[self logout];
 	[super dealloc];
 }
 
@@ -358,7 +378,9 @@ struct COL
 		_serverName = [[NSString alloc] initWithString: serverName];
 		_databaseName = [[NSString alloc] initWithString: databaseName];
 		_userName = [[NSString alloc] initWithString:userName];
-		_password = [[NSString alloc] initWithString: password];	
+		_password = [[NSString alloc] initWithString: password];
+		queryText = @"";
+		selection = NSMakeRange(0, 0);
 		active = self;
 	}
 	

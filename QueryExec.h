@@ -28,9 +28,15 @@
 	NSMutableArray *results;
 	int currentResult;
 	
+	NSString *_queryText;
+	NSRange _selection;
+	 
 	DBPROCESS *dbproc;
-
 }
+
+@property (copy) NSString *queryText; 
+@property NSRange selection; 
+@property (readonly) int currentResult;
 
 -(id) initWithCredentials: (NSString*) serverName 
 						 databaseName: (NSString*) databaseName 
@@ -38,15 +44,18 @@
 								 password: (NSString*) password;
 
 -(void) login;
+-(void) logout;
 
+-(NSString*) queryFromQueryTextAndSelection;
 -(BOOL) execute: (NSString*) query;
+-(BOOL) execute;
+	
 -(void) executeQuery: (NSString*) query;
 -(NSArray*) readResultMetadata: (struct COL**) pcolumns;
 -(NSArray*) readResultData: (struct COL*) columns;
 -(void) freeResultBuffers: (struct COL*) columns;
 -(void) readResultMessages;
 -(void) readResults;
-
 
 -(void) logMessage: (NSString*) message;
 -(BOOL) hasMessages;
@@ -63,6 +72,6 @@
 -(NSArray*) columns;
 -(NSArray*) rows;
 -(int) rowsCount;
--(NSString*) rowValue: (int) rowIndex: (int) columnIndex;
-
+-(NSString*) rowValue: (int) rowIndex: (int) columnIndex;   
+                                              
 @end

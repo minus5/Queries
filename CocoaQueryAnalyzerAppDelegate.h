@@ -31,30 +31,36 @@
 	QueryExec *queryExec;
 	
 	NSMutableDictionary *cache;
+	
+	NSMutableArray *queries;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 
--(NSString*) query;
-
 -(void) bindResult;
-
--(void)removeAllColumns;
+-(void) setWindowTitle;
+-(void) removeAllColumns;
 
 -(void) addColumns;
-
 -(void) addColumn:(ColumnMetadata*) meta;
 
 -(IBAction) executeQuery: (id) sender;
 
 -(IBAction) nextResult: (id) sender;
-
 -(IBAction) previousResult: (id) sender;
 
 -(IBAction) connect: (id) sender;
 
 -(IBAction) connectionSettings: (id) sender;
 
+-(IBAction) newQuery: (id) sender;
+-(int) currentQueryIndex;
+-(IBAction) previousQuery: (id) sender;
+-(IBAction) nextQuery: (id) sender;
+-(void) changeQuery: (QueryExec*) new;
+
 - (void) logMessage: (NSString*) message;
+
+-(void) saveCurrentQueryTextAndSelection;
 
 @end
