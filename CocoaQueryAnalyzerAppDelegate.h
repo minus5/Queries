@@ -57,10 +57,17 @@
 -(int) currentQueryIndex;
 -(IBAction) previousQuery: (id) sender;
 -(IBAction) nextQuery: (id) sender;
+-(IBAction) closeQuery: (id) sender;
 -(void) changeQuery: (QueryExec*) new;
+-(QueryExec*) createQuery;
 
 - (void) logMessage: (NSString*) message;
 
 -(void) saveCurrentQueryTextAndSelection;
 
+- (IBAction)openDocument:(id)sender;
+- (IBAction)saveDocument:(id)sender;
+- (IBAction)newDocument:(id)sender;
+- (IBAction)performClose:(id)sender;
+	
 @end

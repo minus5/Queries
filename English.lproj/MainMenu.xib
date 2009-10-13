@@ -12,8 +12,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="657"/>
 			<integer value="623"/>
+			<integer value="657"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -182,8 +182,6 @@
 					</object>
 					<object class="NSMenuItem" id="379814623">
 						<reference key="NSMenu" ref="649796088"/>
-						<bool key="NSIsDisabled">YES</bool>
-						<bool key="NSIsHidden">YES</bool>
 						<string key="NSTitle">File</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
@@ -198,7 +196,8 @@
 								<object class="NSMenuItem" id="705341025">
 									<reference key="NSMenu" ref="720053764"/>
 									<string key="NSTitle">New</string>
-									<string key="NSKeyEquiv"/>
+									<string key="NSKeyEquiv">n</string>
+									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
@@ -206,7 +205,8 @@
 								<object class="NSMenuItem" id="722745758">
 									<reference key="NSMenu" ref="720053764"/>
 									<string key="NSTitle">Open…</string>
-									<string key="NSKeyEquiv"/>
+									<string key="NSKeyEquiv">o</string>
+									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
@@ -331,7 +331,7 @@
 								<object class="NSMenuItem" id="40691033">
 									<reference key="NSMenu" ref="216091942"/>
 									<string key="NSTitle">Connection</string>
-									<string key="NSKeyEquiv">o</string>
+									<string key="NSKeyEquiv">C</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
@@ -358,8 +358,21 @@
 								</object>
 								<object class="NSMenuItem" id="446660772">
 									<reference key="NSMenu" ref="216091942"/>
+									<bool key="NSIsDisabled">YES</bool>
+									<bool key="NSIsHidden">YES</bool>
 									<string key="NSTitle">New Query</string>
 									<string key="NSKeyEquiv">n</string>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
+								<object class="NSMenuItem" id="583053960">
+									<reference key="NSMenu" ref="216091942"/>
+									<bool key="NSIsDisabled">YES</bool>
+									<bool key="NSIsHidden">YES</bool>
+									<string key="NSTitle">Close Query</string>
+									<string key="NSKeyEquiv">w</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
@@ -817,6 +830,7 @@
 					</object>
 					<object class="NSMenuItem" id="302598603">
 						<reference key="NSMenu" ref="649796088"/>
+						<bool key="NSIsDisabled">YES</bool>
 						<string key="NSTitle">Format</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -2833,14 +2847,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">saveDocument:</string>
-						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="1023925487"/>
-					</object>
-					<int key="connectionID">362</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">saveDocumentAs:</string>
 						<reference key="source" ref="1014"/>
 						<reference key="destination" ref="117038363"/>
@@ -3518,6 +3524,30 @@
 						<reference key="destination" ref="173625410"/>
 					</object>
 					<int key="connectionID">746</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">closeQuery:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="583053960"/>
+					</object>
+					<int key="connectionID">751</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="972006081"/>
+						<reference key="destination" ref="976324537"/>
+					</object>
+					<int key="connectionID">752</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">saveDocument:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="1023925487"/>
+					</object>
+					<int key="connectionID">754</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -4635,6 +4665,7 @@
 							<reference ref="845635601"/>
 							<reference ref="586376034"/>
 							<reference ref="666616300"/>
+							<reference ref="583053960"/>
 						</object>
 						<reference key="parent" ref="94477040"/>
 					</object>
@@ -5119,6 +5150,11 @@
 						<reference key="object" ref="586376034"/>
 						<reference key="parent" ref="216091942"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">750</int>
+						<reference key="object" ref="583053960"/>
+						<reference key="parent" ref="216091942"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -5448,6 +5484,7 @@
 					<string>74.ImportedFromIB2</string>
 					<string>75.IBPluginDependency</string>
 					<string>75.ImportedFromIB2</string>
+					<string>750.IBPluginDependency</string>
 					<string>77.IBPluginDependency</string>
 					<string>77.ImportedFromIB2</string>
 					<string>78.IBPluginDependency</string>
@@ -5599,10 +5636,10 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{50, 296}, {954, 779}}</string>
+					<string>{{104, 217}, {954, 779}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{50, 296}, {954, 779}}</string>
+					<string>{{104, 217}, {954, 779}}</string>
 					<integer value="1"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<boolean value="YES"/>
@@ -5799,6 +5836,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
@@ -5834,7 +5872,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">746</int>
+			<int key="maxID">754</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -5846,17 +5884,27 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>closeQuery:</string>
 							<string>connect:</string>
 							<string>connectionSettings:</string>
 							<string>executeQuery:</string>
+							<string>newDocument:</string>
 							<string>newQuery:</string>
 							<string>nextQuery:</string>
 							<string>nextResult:</string>
+							<string>openDocument:</string>
+							<string>performClose:</string>
 							<string>previousQuery:</string>
 							<string>previousResult:</string>
+							<string>saveDocument:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>

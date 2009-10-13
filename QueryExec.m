@@ -391,4 +391,5 @@ struct COL
 	return [NSString stringWithFormat: @"%@@%@:%@", _userName, _serverName, _databaseName];
 }
 
+
 @end
