@@ -20,24 +20,29 @@
 }                                                  
 
 -(IBAction) newQuery: (id) sender{        
+		QueryExec *newQuery = [self createQuery];
+		if (newQuery != nil){
+	    [queries addObject: newQuery];				
+			[self changeQuery: newQuery];		      
+		}
+}                    
+
+-(QueryExec*) createQuery{	
 	@try{
 		QueryExec *newQuery = [QueryExec alloc];
 		[newQuery initWithCredentials: [serverNameTextField stringValue] 
 											databaseName: [databaseNameTextField stringValue] 
 													userName: [userNameTextField stringValue] 
-													password: [passwordTextField stringValue] ];
-	
-		[newQuery login];	                
-		
-		[queries addObject: newQuery];				
-		[self changeQuery: newQuery];
-		
-  }@catch(NSException *exception){     
+													password: [passwordTextField stringValue] ];	
+		[newQuery login];                                                                                  		
+		[self logMessage: [NSString stringWithFormat: @"Connected to: %@\n", [newQuery connectionName]]]; 
+		return newQuery;
+	}@catch(NSException *exception){
 		[self logMessage: [NSString stringWithFormat: @"Failed connecting to: %@\n", [queryExec connectionName]]];
 		[self logMessage: [NSString stringWithFormat:@"%@", [exception reason]]];
-		@throw;
-	}
-} 
+		return nil;
+	}	
+}
       
 -(int) currentQueryIndex{
 	return [queries indexOfObject: queryExec];	
@@ -67,26 +72,41 @@
 -(void) saveCurrentQueryTextAndSelection{
 	[queryExec setQueryText: [queryText string]];
 	[queryExec setSelection: [queryText selectedRange]];
-}                  
+}     
+
+-(IBAction) closeQuery: (id) sender{
+	int index = [self currentQueryIndex];
+	if (index > 0){                        
+		QueryExec *removed = queryExec;      
+		[self previousQuery: nil];
+		[queries removeObjectAtIndex: index];		
+		[removed release];
+	}	
+}
 
 -(IBAction) connect: (id) sender{
-	@try{		 		
-		[self newQuery: nil];		
-		
-		[queryExec execute: @"exec cocoa_query_analyzer.database_objects"];
-		[cache release];		
-		cache = [NSMutableDictionary dictionary];		
-		[cache retain];
-		[self bindResult];
-						
-		[NSApp endSheet:connectionSettingsWindow];
-		[connectionSettingsWindow orderOut:sender];						
-    
-		[self logMessage: [NSString stringWithFormat: @"Connected to: %@\n", [queryExec connectionName]]]; 
-	}@catch(NSException *exception){
-		[self logMessage: [NSString stringWithFormat: @"Failed connecting to: %@\n", [queryExec connectionName]]];
-		[self logMessage: [NSString stringWithFormat:@"%@", [exception reason]]];		
-	}	
+
+		QueryExec *newQuery = [self createQuery];
+		if (newQuery != nil){                   
+			if (queryExec != nil){
+				[queries replaceObjectAtIndex: [self currentQueryIndex] withObject: newQuery];   
+				[queryExec release];
+				queryExec = newQuery;
+				[self saveCurrentQueryTextAndSelection];
+			}else{						
+	    	[queries addObject: newQuery];				
+			}
+			[self changeQuery: newQuery];		       			
+			/*
+			[queryExec execute: @"exec cocoa_query_analyzer.database_objects"];
+			[cache release];		
+			cache = [NSMutableDictionary dictionary];		
+			[cache retain];
+			[self bindResult];
+			*/			
+			[NSApp endSheet:connectionSettingsWindow];
+			[connectionSettingsWindow orderOut:sender];						    			
+		}
 }
 
 - (void) logMessage: (NSString*) message{
@@ -105,7 +125,8 @@
 
 -(void) enableButtons{
 	[previousResultMenu setEnabled: [queryExec hasPreviosResults]];
-	[nextResultMenu setEnabled: [queryExec hasNextResults]];
+	[nextResultMenu setEnabled: [queryExec hasNextResults]];   
+	//TODO dodaj i previous/next query buttons
 }
    
 - (IBAction) executeQuery: (id) sender {	
@@ -250,6 +271,32 @@
 // Delegate methods
 - (BOOL)outlineView:(NSOutlineView *)outlineView shouldEditTableColumn:(NSTableColumn *)tableColumn item:(id)item {
 	return NO;
+}
+
+
+- (IBAction)openDocument:(id)sender {
+	NSOpenPanel *panel = [NSOpenPanel openPanel];
+	if ([panel runModal] == NSOKButton) {
+		NSString *fileName = [panel filename];
+		NSString *fileContents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
+		[queryText setString:fileContents];
+	}
+}
+
+- (IBAction)saveDocument:(id)sender {
+	NSSavePanel *panel = [NSSavePanel savePanel];
+			[panel setRequiredFileType:@""];
+			if ([panel runModal] == NSOKButton) {
+				[[queryText string] writeToFile:[panel filename]
+															 atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+			}
+}
+
+- (IBAction)newDocument:(id)sender{
+	[self newQuery:sender];
+}
+- (IBAction)performClose:(id)sender{
+	[self closeQuery:sender];
 }
 
 
