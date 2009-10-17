@@ -2,7 +2,7 @@
 
 @implementation QueryExec                                
 
-@synthesize queryText, selection, currentResult;
+@synthesize queryText, selection, currentResultIndex, messages;
 
 QueryExec *active;
 int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char *msgtext, char *srvname, char *procname, int line)
@@ -16,8 +16,8 @@ int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char
 	if (msgno > 0) {
 		[message appendFormat: @"Msg %ld, Level %d, State %d\n", (long) msgno, severity, msgstate];
 		
-		if (strlen(srvname) > 0)
-			[message appendFormat:@"Server '%s', ", srvname];
+		// if (strlen(srvname) > 0)
+		// 	[message appendFormat:@"Server '%s', ", srvname];
 		if (strlen(procname) > 0)
 			[message appendFormat:@"Procedure '%s', ", procname];
 		if (line > 0)
@@ -25,10 +25,13 @@ int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char
 	}	
 	[message appendFormat:@"\n%s\n", msgtext];
 	NSLog(@"%@", message);
-	[active logMessage:message];
-	
+		
 	if (severity > 10) {						
+		[active logMessage:message];
 		[NSException raise:@"Exception" format: @"error: severity %d\n", severity];
+	}                           
+	else{
+		[active logMessage:message];
 	}
 	
 	return 0;							
@@ -38,7 +41,7 @@ int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dbe
 {	
 	NSMutableString *message = [NSMutableString stringWithCapacity:0];
 	if (dberr) {							
-		[message appendFormat:@"Msg %d, Level %d\n", dberr, severity];
+		[message appendFormat:@"Error Msg %d, Level %d\n", dberr, severity];
 		[message appendFormat:@"%s\n", dberrstr];
 	}	
 	else {
@@ -198,7 +201,7 @@ struct COL
 	struct COL *pcol;
 	int ncols = dbnumcols(dbproc);		
 
-	for (pcol=columns; pcol - columns < ncols; pcol++) {
+	for (pcol=columns; pcol - columns < ncols; pcol++) {     
 		free(pcol->buffer);
 	}
 	free(columns);
@@ -221,8 +224,9 @@ struct COL
 -(void) readResults{
 	RETCODE erc;		 
 	
-	[results dealloc];
+	[results release];
 	results = [NSMutableArray array];
+	[results retain];
 	
 	while ((erc = dbresults(dbproc)) != NO_MORE_RESULTS) {
 		
@@ -230,10 +234,12 @@ struct COL
 		@try {
 			NSArray *columnNames = [self readResultMetadata: &columns];
 			NSArray *rows = [self readResultData: columns];
-			[self readResultMessages];
-			[results addObject: [NSArray arrayWithObjects: columnNames, rows, nil]];		
-			[columnNames retain];
-			[rows retain];
+			[self readResultMessages];       			
+			if (!([columnNames count] == 0 && [rows count] == 0)){
+				[results addObject: [NSArray arrayWithObjects: columnNames, rows, nil]];					
+				[columnNames retain];
+				[rows retain];
+			}
 		}
 		@catch (NSException *e) {
 			@throw;
@@ -241,9 +247,7 @@ struct COL
 		@finally {
 			[self freeResultBuffers: columns];
 		}																
-	}	
-	
-	[results retain];
+	}			
 }
 
 -(NSString*) queryFromQueryTextAndSelection{
@@ -263,30 +267,44 @@ struct COL
 }  
 
 -(BOOL) execute{			
-	@try{
+	@try{     
+		[messages release];
+		messages = [NSMutableArray array];
+		[messages retain];
+		
 		active = self;
-		currentResult = 0;
-		dbsettime(30);			
+		currentResultIndex = 0;
+		
+		if (dbproc == nil){ 
+			[self logMessage: @"Reconnecting..."];
+			[self login];
+		}		
+		
+		//dbsettime(30);			
 		[self executeQuery: [self queryFromQueryTextAndSelection]];		
-		[self readResults];				
+		[self readResults];
+		
+		if ([messages count] == 0){
+			[self logMessage: @"Command(s) completed successfully."];
+		}		
+						
 		return YES;
 	}
-	@catch (NSException *exception) {
-		dbcancel(dbproc);
-		dbcanquery(dbproc);
+	@catch (NSException *exception) {    
+		[self logout];
 		[self logMessage: [NSString stringWithFormat:@"%@", [exception reason]]];
 		return NO;
 	}
 }
 
 -(void) nextResult{
-	if (currentResult < [results count] - 1)
-		currentResult++;
+	if (currentResultIndex < [results count] - 1)
+		currentResultIndex++;
 }
 
 -(void) previousResult{
-	if(currentResult > 0)
-		currentResult--;
+	if(currentResultIndex > 0)
+		currentResultIndex--;
 }
 
 -(BOOL) hasResults{
@@ -298,16 +316,16 @@ struct COL
 }
 
 -(BOOL) hasNextResults{
-	return [self hasResults] && currentResult < [results count] - 1;
+	return [self hasResults] && currentResultIndex < [results count] - 1;
 }
 
 -(BOOL) hasPreviosResults{
-	return [self hasResults] && currentResult > 0;
+	return [self hasResults] && currentResultIndex > 0;
 }
 
 -(NSArray*) columns{
 	if ([self hasResults]){
-		return [[results objectAtIndex:currentResult] objectAtIndex: 0];
+		return [[results objectAtIndex:currentResultIndex] objectAtIndex: 0];
 	}
 	else {
 		return nil;
@@ -316,12 +334,12 @@ struct COL
 
 -(NSArray*) rows{
 	if ([self hasResults]){
-		return [[results objectAtIndex:currentResult] objectAtIndex: 1];
+		return [[results objectAtIndex:currentResultIndex] objectAtIndex: 1];
 	}
 	else {
 		return nil;
 	}
-}
+}                
 
 -(int) rowsCount{
 	if ([self hasResults]){
@@ -339,31 +357,36 @@ struct COL
 	else {
 		return nil;
 	}
+}                                                  
+
+-(NSString*) resultAsString{ 
+	NSMutableString *r = [NSMutableString string];
+	for(id row in [self rows]){		
+		[r appendFormat: @"%@", [row objectAtIndex:0]];
+	}   
+	return r;
 }
 
 -(void) logout{
-	dbclose(dbproc);
-	dbexit();	
+	//dbcancel(dbproc);
+	//dbcanquery(dbproc);
+	dbclose(dbproc);			
+	dbexit();	      
+	dbproc = nil;
 }
 
--(void) dealloc{
-	[self logout];
+-(void) dealloc{    
+	NSLog(@"QueryExec dealloc");
+	[self logout]; 
+	[messages release];
+	[results release];	
 	[super dealloc];
 }
-
 
 -(void) logMessage: (NSString*) message{
 	if ([message length] > 5){
 		[messages addObject: message];
 	}
-}
-
--(BOOL) hasMessages{
-	return [messages count] > 0;
-}
-
--(NSArray*) getMessages{
-	return messages;
 }
 
 -(id) initWithCredentials: (NSString*) serverName 
@@ -374,7 +397,8 @@ struct COL
 	self = [super init];
 	
 	if(self){
-		messages = [[NSMutableArray	alloc] init];
+		messages = [NSMutableArray array];
+		[messages retain];
 		_serverName = [[NSString alloc] initWithString: serverName];
 		_databaseName = [[NSString alloc] initWithString: databaseName];
 		_userName = [[NSString alloc] initWithString:userName];
@@ -390,6 +414,5 @@ struct COL
 -(NSString*) connectionName{
 	return [NSString stringWithFormat: @"%@@%@:%@", _userName, _serverName, _databaseName];
 }
-
 
 @end

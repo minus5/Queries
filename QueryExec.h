@@ -23,10 +23,12 @@
 	NSString *_serverName;
 	NSString *_databaseName;
 	NSString *_userName;
-	NSString *_password;
+	NSString *_password;     
+	
 	NSMutableArray *messages;
 	NSMutableArray *results;
-	int currentResult;
+	
+	int currentResultIndex;
 	
 	NSString *_queryText;
 	NSRange _selection;
@@ -36,7 +38,8 @@
 
 @property (copy) NSString *queryText; 
 @property NSRange selection; 
-@property (readonly) int currentResult;
+@property (readonly) int currentResultIndex;
+@property (readonly) NSArray *messages;
 
 -(id) initWithCredentials: (NSString*) serverName 
 						 databaseName: (NSString*) databaseName 
@@ -58,11 +61,9 @@
 -(void) readResults;
 
 -(void) logMessage: (NSString*) message;
--(BOOL) hasMessages;
--(NSArray*) getMessages;
 
 -(NSString*) connectionName;
-
+                    
 -(int) resultsCount;
 -(void) nextResult;
 -(void) previousResult;
@@ -73,5 +74,6 @@
 -(NSArray*) rows;
 -(int) rowsCount;
 -(NSString*) rowValue: (int) rowIndex: (int) columnIndex;   
-                                              
+-(NSString*) resultAsString;
+
 @end

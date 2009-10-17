@@ -20,16 +20,20 @@
 	IBOutlet NSMenuItem *nextResultMenu;
 	IBOutlet NSMenuItem *previousResultMenu;
 	
-	NSArray *results;
+/*	NSArray *results;
 	NSArray *columnNames;
-	NSArray *dataRows;
+	NSArray *dataRows;                                         
+	*/
 	
-	int currentResult;
+	
+//int currentResult; ovo je vjerojatno greskom zavrsilo ovdje
 	
 	IBOutlet NSWindow *connectionSettingsWindow;
 	
 	QueryExec *queryExec;
+	QueryExec *sidebarQueryExec;
 	
+	NSArray *dbObjectsResults;	
 	NSMutableDictionary *cache;
 	
 	NSMutableArray *queries;
@@ -37,9 +41,13 @@
 
 @property (assign) IBOutlet NSWindow *window;
 
+
+
+
 -(void) bindResult;
 -(void) setWindowTitle;
--(void) removeAllColumns;
+-(void) removeAllColumns; 
+-(void) showMessages;
 
 -(void) addColumns;
 -(void) addColumn:(ColumnMetadata*) meta;
@@ -60,14 +68,20 @@
 -(IBAction) closeQuery: (id) sender;
 -(void) changeQuery: (QueryExec*) new;
 -(QueryExec*) createQuery;
+-(QueryExec*) createQueryExec;
 
 - (void) logMessage: (NSString*) message;
 
 -(void) saveCurrentQueryTextAndSelection;
 
+-(void) fillSidebar;
+- (NSArray*) selectedSidebarItem;
+
 - (IBAction)openDocument:(id)sender;
 - (IBAction)saveDocument:(id)sender;
 - (IBAction)newDocument:(id)sender;
 - (IBAction)performClose:(id)sender;
+
+-(IBAction) explain: (id) sender;
 	
 @end

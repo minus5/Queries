@@ -25,16 +25,11 @@
 	    [queries addObject: newQuery];				
 			[self changeQuery: newQuery];		      
 		}
-}                    
+}   
 
 -(QueryExec*) createQuery{	
 	@try{
-		QueryExec *newQuery = [QueryExec alloc];
-		[newQuery initWithCredentials: [serverNameTextField stringValue] 
-											databaseName: [databaseNameTextField stringValue] 
-													userName: [userNameTextField stringValue] 
-													password: [passwordTextField stringValue] ];	
-		[newQuery login];                                                                                  		
+		QueryExec *newQuery = [self createQueryExec];
 		[self logMessage: [NSString stringWithFormat: @"Connected to: %@\n", [newQuery connectionName]]]; 
 		return newQuery;
 	}@catch(NSException *exception){
@@ -43,6 +38,16 @@
 		return nil;
 	}	
 }
+
+-(QueryExec*) createQueryExec{
+	QueryExec *newQuery = [QueryExec alloc];
+	[newQuery initWithCredentials: [serverNameTextField stringValue] 
+										databaseName: [databaseNameTextField stringValue] 
+												userName: [userNameTextField stringValue] 
+												password: [passwordTextField stringValue] ];	
+	[newQuery login];
+	return newQuery;
+}                 
       
 -(int) currentQueryIndex{
 	return [queries indexOfObject: queryExec];	
@@ -80,12 +85,12 @@
 		QueryExec *removed = queryExec;      
 		[self previousQuery: nil];
 		[queries removeObjectAtIndex: index];		
+		//[removed logout];		
 		[removed release];
 	}	
 }
 
 -(IBAction) connect: (id) sender{
-
 		QueryExec *newQuery = [self createQuery];
 		if (newQuery != nil){                   
 			if (queryExec != nil){
@@ -93,20 +98,33 @@
 				[queryExec release];
 				queryExec = newQuery;
 				[self saveCurrentQueryTextAndSelection];
-			}else{						
+			}else{										
 	    	[queries addObject: newQuery];				
+				[self fillSidebar];
 			}
 			[self changeQuery: newQuery];		       			
-			/*
-			[queryExec execute: @"exec cocoa_query_analyzer.database_objects"];
-			[cache release];		
-			cache = [NSMutableDictionary dictionary];		
-			[cache retain];
-			[self bindResult];
-			*/			
+			
 			[NSApp endSheet:connectionSettingsWindow];
 			[connectionSettingsWindow orderOut:sender];						    			
 		}
+}
+
+-(void) fillSidebar{         
+	@try{
+		[sidebarQueryExec release];
+	  sidebarQueryExec = [self createQueryExec];
+		[sidebarQueryExec retain];
+		[sidebarQueryExec execute: @"exec cocoa_query_analyzer.database_objects"];
+		[dbObjectsResults release];
+		dbObjectsResults = [sidebarQueryExec rows];
+		[dbObjectsResults retain];
+		[cache release];		
+		cache = [NSMutableDictionary dictionary];		
+		[cache retain];
+		[outlineView reloadData];
+	}@catch(NSException *exception){    
+		NSLog(@"error in fillSidebar: %@", exception);
+	}
 }
 
 - (void) logMessage: (NSString*) message{
@@ -132,32 +150,30 @@
 - (IBAction) executeQuery: (id) sender {	
 	 
 	[self saveCurrentQueryTextAndSelection];
-	[queryExec execute];				
+	[queryExec execute];						
+	[self bindResult];
 	
-	if ([queryExec hasResults]) {
-		[self bindResult];
-	}			
-			
-  if([queryExec hasMessages]){
-		NSArray *messages = [queryExec getMessages];
-		for(int i=0; i<[messages count]; i++){
-		  [logTextView insertText: [messages objectAtIndex: i]];	
-		}
-		[logTextView insertText: @"\n"];
-	}
 }                                               
 
 -(void) setWindowTitle{    	
-	[window setTitle: [NSString stringWithFormat: @"Query: %d | %@ | Results: %d/%d | Rows: %d", [self currentQueryIndex] + 1,  [queryExec connectionName], [queryExec currentResult] + 1, [queryExec resultsCount], [queryExec rowsCount]]];
+	[window setTitle: [NSString stringWithFormat: @"Query: %d | %@ | Results: %d/%d | Rows: %d", [self currentQueryIndex] + 1,  [queryExec connectionName], [queryExec currentResultIndex] + 1, [queryExec resultsCount], [queryExec rowsCount]]];
+} 
+
+-(void) showMessages{
+	[logTextView setString:@""];
+	for(id message in [queryExec messages]){			
+		[logTextView insertText: message];	
+	}   
+	[logTextView insertText: @"\n"];		
 }
 
 -(void) bindResult{		
 	[self setWindowTitle];
-	[self enableButtons];
+	[self enableButtons];         
+	[self showMessages];
 	[self removeAllColumns];							
-	[self addColumns];						
-	[tableView reloadData];	
-	[outlineView reloadData];
+	[self addColumns];							
+	[tableView reloadData];	      	
 }
 
 -(void) addColumns{
@@ -224,8 +240,7 @@
 	return [queryExec rowValue: rowIndex: [[aTableColumn identifier] integerValue]];
 }
 
-
-// Outline view Data Source methods
+#pragma mark Sidebar data source methods
 
 -(NSArray*) objectsForParent: (NSString*) parentId
 {
@@ -238,9 +253,9 @@
 	NSMutableArray *selected = [NSMutableArray array];		
 	NSLog(@"searching for childs of: %@", parentId);
 	
-	for(int i=0; i<[queryExec rowsCount]; i++)
+	for(int i=0; i<[dbObjectsResults count]; i++)
 	{
-		NSArray *row = [[queryExec rows] objectAtIndex:i];			
+		NSArray *row = [dbObjectsResults objectAtIndex:i];			
 		if ([[row objectAtIndex:1] isEqualToString: parentId]){
 			[selected addObject:row];
 		}
@@ -248,7 +263,6 @@
 	[cache setObject:selected forKey:parentId];	
 	return selected;
 }
-
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item {
 	NSArray *selected = [self objectsForParent: (item == nil ? @"" : [item objectAtIndex:0])];
@@ -268,11 +282,42 @@
 	return [item objectAtIndex:2];
 }
 
-// Delegate methods
 - (BOOL)outlineView:(NSOutlineView *)outlineView shouldEditTableColumn:(NSTableColumn *)tableColumn item:(id)item {
 	return NO;
 }
 
+#pragma mark show selected database object            
+
+- (NSArray*) selectedSidebarItem
+{
+    int row = [outlineView selectedRow];
+    if( row >= 0 )
+        return [outlineView itemAtRow: row];
+    else
+        return nil;
+}                               
+ 
+-(IBAction) explain: (id) sender{                         
+	NSArray *rowData = [self selectedSidebarItem];  
+	NSString *fullName = [rowData objectAtIndex: 5];
+	NSString *objectType = [rowData objectAtIndex: 6];
+	NSLog(@"class of objectType is: %@", [objectType class]);
+	if (![objectType isEqualToString: @"NULL"]){
+		if ([objectType isEqualToString: @"U"]){
+			[self newQuery: nil];
+			[queryText setString: [NSString stringWithFormat: @"exec sp_help '%@'", fullName]];
+			[self executeQuery: nil];
+			[self nextResult: nil];
+		}else{
+			if ([sidebarQueryExec execute: [NSString stringWithFormat: @"exec sp_helpText '%@'", fullName]]){
+				[self newQuery: nil]; 
+				[queryText setString: [sidebarQueryExec resultAsString]];
+			}
+		}	
+	}
+}                                         
+
+#pragma mark open save documnet
 
 - (IBAction)openDocument:(id)sender {
 	NSOpenPanel *panel = [NSOpenPanel openPanel];
