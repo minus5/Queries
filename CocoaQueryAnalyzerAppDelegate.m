@@ -1,12 +1,26 @@
 #import "CocoaQueryAnalyzerAppDelegate.h"
 
+#import "NoodleLineNumberView.h"
+#import "NoodleLineNumberMarker.h"
+#import "MarkerLineNumberView.h"
+
+
 @implementation CocoaQueryAnalyzerAppDelegate
 
 @synthesize window;
 
 - (void)awakeFromNib{
-	[queryText setFont: [NSFont fontWithName: @"Monaco" size: 12.0]];  	
+	//[queryText setFont: [NSFont fontWithName: @"Monaco" size: 12.0]];  		
 	[tabBarResults setDisableTabClose: 1];
+		
+	queryTextLineNumberView = [[MarkerLineNumberView alloc] initWithScrollView:queryTextScrollView];
+  [queryTextScrollView setVerticalRulerView:queryTextLineNumberView];
+  [queryTextScrollView setHasHorizontalRuler:NO];
+  [queryTextScrollView setHasVerticalRuler:YES];
+  [queryTextScrollView setRulersVisible:YES];  
+  [queryText setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];      
+
+	[logTextView setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];      	 
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -18,6 +32,10 @@
 			modalDelegate:nil didEndSelector:nil contextInfo:nil];
 }        
 
+- (void)textDidChange:(NSNotification *)aNotification{
+	[self saveCurrentQueryTextAndSelection];            
+	[queryExec setIsEdited: TRUE];
+}
 
 - (void)tabView:(NSTabView *)aTabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem
 { 
@@ -75,10 +93,6 @@
 	return newQuery;
 }                 
       
--(int) currentQueryIndex{
-	return 0;//[queries indexOfObject: queryExec];	
-}  
-
 -(void) changeQuery: (QueryExec*) new{
 	[self saveCurrentQueryTextAndSelection];
 	queryExec = new;
@@ -96,13 +110,41 @@
 
 -(void) saveCurrentQueryTextAndSelection{
 	[queryExec setQueryText: [queryText string]];
-	[queryExec setSelection: [queryText selectedRange]];
-}     
+	[queryExec setSelection: [queryText selectedRange]];	
+}                          
+
+-(void) closeAlertEnded:(NSAlert *) alert code:(int) choice context:(void *) v{
+	if (choice == NSAlertOtherReturn){
+		return;
+	}	
+	if (choice == NSAlertDefaultReturn){
+		if (![self saveQuery]){ 
+			return; 
+		}
+	}
+	[tabView removeTabViewItem:[tabView selectedTabViewItem]];
+}
 
 -(IBAction) closeQuery: (id) sender{     
-	if ([[tabView tabViewItems] count] > 1){
-		[tabView removeTabViewItem:[tabView selectedTabViewItem]];
-	}	
+	if ([[tabView tabViewItems] count] == 1){
+		return;
+	}
+	if ([queryExec isEdited]){          
+		NSString *message = [NSString stringWithFormat: @"Do you want to save the changes you made in document '%@'?", [queryExec connectionName] ];
+		NSAlert *alert = [NSAlert alertWithMessageText: message
+			defaultButton: @"Save"
+			alternateButton: @"Dont't Save"
+			otherButton: @"Cancel"
+      informativeTextWithFormat: @"Your changes will be lost if you don't save them."];
+			
+		[alert beginSheetModalForWindow: window
+			modalDelegate :self
+			didEndSelector: @selector(closeAlertEnded:code:context:)
+			contextInfo: NULL ];
+			
+	  return;
+	}        		
+	[tabView removeTabViewItem:[tabView selectedTabViewItem]];	
 }
 
 -(IBAction) connect: (id) sender{
@@ -360,12 +402,32 @@
 }
 
 - (IBAction)saveDocument:(id)sender {
-	NSSavePanel *panel = [NSSavePanel savePanel];
-			[panel setRequiredFileType:@""];
-			if ([panel runModal] == NSOKButton) {
-				[[queryText string] writeToFile:[panel filename]
-															 atomically:YES encoding:NSUTF8StringEncoding error:NULL];
-			}
+	[self saveQuery];
+}     
+
+- (BOOL) saveQuery{
+	
+	NSString *fileName = [queryExec fileName];
+
+	if (fileName == nil){
+		NSSavePanel *panel = [NSSavePanel savePanel];
+		[panel setRequiredFileType:@""];
+		if ([panel runModal] == NSOKButton) {
+			fileName = [panel filename];
+			[queryExec setFileName: fileName];
+		}else{
+			return NO;
+		}			
+	}
+	
+	[[queryText string] writeToFile: fileName 
+		atomically:YES 
+		encoding:NSUTF8StringEncoding error:NULL];
+		
+	[self saveCurrentQueryTextAndSelection];
+	[queryExec setIsEdited: NO];            
+	
+	return YES;
 }
 
 - (IBAction)newDocument:(id)sender{
@@ -374,6 +436,5 @@
 - (IBAction)performClose:(id)sender{
 	[self closeQuery:sender];
 }
-
 
 @end

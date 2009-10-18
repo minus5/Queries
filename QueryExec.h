@@ -25,6 +25,8 @@
 	NSString *_userName;
 	NSString *_password;     
 	
+	NSString *fileName;     
+	
 	NSMutableArray *messages;
 	NSMutableArray *results;
 	
@@ -32,14 +34,19 @@
 	
 	NSString *_queryText;
 	NSRange _selection;
+	BOOL isEdited;
+	BOOL isProcessing;
 	 
 	DBPROCESS *dbproc;
 }
-
+                    
+@property BOOL isEdited;
+@property BOOL isProcessing;
 @property (copy) NSString *queryText; 
 @property NSRange selection; 
 @property (readonly) int currentResultIndex;
 @property (readonly) NSArray *messages;
+@property (copy) NSString *fileName;
 
 -(id) initWithCredentials: (NSString*) serverName 
 						 databaseName: (NSString*) databaseName 

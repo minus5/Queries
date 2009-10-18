@@ -2,7 +2,8 @@
 
 @implementation QueryExec                                
 
-@synthesize queryText, selection, currentResultIndex, messages;
+@synthesize queryText, selection, currentResultIndex, messages, fileName;
+@synthesize isEdited, isProcessing;
 
 QueryExec *active;
 int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char *msgtext, char *srvname, char *procname, int line)
@@ -39,6 +40,16 @@ int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char
 
 int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dberrstr, char *oserrstr)
 {	
+	if ([[NSString stringWithFormat: @"%s", dberrstr] isEqualToString: @"Data conversion resulted in overflow"]){
+		NSLog(@"ignoring message 'Data conversion resulted in overflow'");
+		return INT_CANCEL;
+	}
+	
+	if ([[NSString stringWithFormat: @"%s", dberrstr] isEqualToString: @"Server name not found in configuration files"]){
+		NSLog(@"ignoring message 'Server name not found in configuration files'");
+		return INT_CANCEL;
+	}	
+		
 	NSMutableString *message = [NSMutableString stringWithCapacity:0];
 	if (dberr) {							
 		[message appendFormat:@"Error Msg %d, Level %d\n", dberr, severity];
@@ -48,9 +59,9 @@ int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dbe
 		[message appendFormat:@"DB-LIBRARY error:\n\t"];
 		[message appendFormat:@"%s\n", dberrstr];
 	}
-	NSLog(@"%@", message);
-	[active logMessage:message];
+	//NSLog(@"%@", message);   
 	
+	[active logMessage:message];	
 	return INT_CANCEL;						
 }
 struct COL 						
@@ -223,11 +234,7 @@ struct COL
 
 -(void) readResults{
 	RETCODE erc;		 
-	
-	[results release];
-	results = [NSMutableArray array];
-	[results retain];
-	
+			
 	while ((erc = dbresults(dbproc)) != NO_MORE_RESULTS) {
 		
 		struct COL *columns;		
@@ -268,9 +275,15 @@ struct COL
 
 -(BOOL) execute{			
 	@try{     
+		[self setIsProcessing: TRUE]; 
+		
 		[messages release];
 		messages = [NSMutableArray array];
 		[messages retain];
+		
+		[results release];
+		results = [NSMutableArray array];
+		[results retain];
 		
 		active = self;
 		currentResultIndex = 0;
@@ -280,20 +293,26 @@ struct COL
 			[self login];
 		}		
 		
-		//dbsettime(30);			
-		[self executeQuery: [self queryFromQueryTextAndSelection]];		
-		[self readResults];
+		dbsettime(30);			  
+		NSArray *queries = [[self queryFromQueryTextAndSelection] componentsSeparatedByString: @"GO"];
+		for(id query in queries){
+			[self executeQuery: query];		
+			[self readResults];
+		}
 		
 		if ([messages count] == 0){
 			[self logMessage: @"Command(s) completed successfully."];
-		}		
-						
+		}
+										
 		return YES;
 	}
 	@catch (NSException *exception) {    
 		[self logout];
 		[self logMessage: [NSString stringWithFormat:@"%@", [exception reason]]];
 		return NO;
+	} 
+	@finally{
+		[self setIsProcessing: FALSE];
 	}
 }
 

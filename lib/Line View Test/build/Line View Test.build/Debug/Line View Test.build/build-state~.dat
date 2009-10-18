@@ -1,0 +1,68 @@
+TLine View Test
+v7
+r1
+cCheck dependencies
+
+N/Users/ianic/Downloads/Line View Test-1/Credits.rtf
+c0000000048F391BC0000000000002E5F
+t1223922108
+s11871
+
+N/Users/ianic/Downloads/Line View Test-1/English.lproj/InfoPlist.strings
+c0000000048E9380C000000000000005C
+t1223243788
+s92
+
+N/Users/ianic/Downloads/Line View Test-1/English.lproj/MainMenu.nib
+c0000000048EBBAB00000000000000088
+t1223408304
+s136
+
+N/Users/ianic/Downloads/Line View Test-1/build/Debug/Line View Test.app
+t2
+s0
+
+N/Users/ianic/Downloads/Line View Test-1/build/Debug/Line View Test.app/Contents/Info.plist
+t2
+s0
+
+N/Users/ianic/Downloads/Line View Test-1/build/Debug/Line View Test.app/Contents/PkgInfo
+t2
+s0
+
+N/Users/ianic/Downloads/Line View Test-1/build/Debug/Line View Test.app/Contents/Resources/Credits.rtf
+t2
+s0
+
+N/Users/ianic/Downloads/Line View Test-1/build/Debug/Line View Test.app/Contents/Resources/English.lproj/InfoPlist.strings
+t2
+s0
+
+N/Users/ianic/Downloads/Line View Test-1/build/Debug/Line View Test.app/Contents/Resources/English.lproj/MainMenu.nib
+t2
+s0
+
+NInfo.plist
+c0000000048F3922400000000000003C9
+t1223922212
+s969
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies277554931#277554931#0(86"[BEROR]error: There is no SDK with the name or path '/Developer/SDKs/MacOSX10.4u.sdk'1(4@78"error: There is no SDK with the name or path '/Developer/SDKs/MacOSX10.4u.sdk'277554931#18446744073709551615#0#0(1@0"0(0#1#0"4300882208#0"0#
+
+CCopyStringsFile "/Users/ianic/Downloads/Line View Test-1/build/Debug/Line View Test.app/Contents/Resources/English.lproj/InfoPlist.strings" English.lproj/InfoPlist.strings
+r0
+
+CCpResource "build/Debug/Line View Test.app/Contents/Resources/Credits.rtf" Credits.rtf
+r0
+
+CProcessInfoPlistFile "/Users/ianic/Downloads/Line View Test-1/build/Debug/Line View Test.app/Contents/Info.plist" Info.plist
+r0
+
+CStripNIB "/Users/ianic/Downloads/Line View Test-1/English.lproj/MainMenu.nib"
+r0
+
+CTouch "/Users/ianic/Downloads/Line View Test-1/build/Debug/Line View Test.app"
+r0
+

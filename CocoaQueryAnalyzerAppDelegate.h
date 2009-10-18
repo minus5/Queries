@@ -3,6 +3,8 @@
 #import <QueryExec.h>
 #import <PSMTabBarControl/PSMTabBarControl.h>  
 
+@class NoodleLineNumberView;
+
 @interface CocoaQueryAnalyzerAppDelegate : NSObject <NSApplicationDelegate> {
 	
 	NSWindow *window;
@@ -11,6 +13,9 @@
 	IBOutlet NSOutlineView *outlineView;
 	
 	IBOutlet NSTextView *queryText;	
+	IBOutlet NSScrollView *queryTextScrollView;
+	NoodleLineNumberView	*queryTextLineNumberView;
+	
 	IBOutlet NSTextView *logTextView;	
 	
 	IBOutlet NSTextField *serverNameTextField;
@@ -39,7 +44,10 @@
 
 @property (assign) IBOutlet NSWindow *window;                                                  
 
-//tabView delegate                     
+//textView delegates
+- (void)textDidChange:(NSNotification *)aNotification;
+
+//tabView delegates
 - (void)tabView:(NSTabView *)aTabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem;
 - (void)tabView:(NSTabView *)aTabView didCloseTabViewItem:(NSTabViewItem *)tabViewItem;
 - (NSString *)tabView:(NSTabView *)aTabView toolTipForTabViewItem:(NSTabViewItem *)tabViewItem;
@@ -61,7 +69,6 @@
 -(IBAction) connectionSettings: (id) sender;
 
 -(IBAction) newQuery: (id) sender;
--(int) currentQueryIndex;
 -(IBAction) previousQuery: (id) sender;
 -(IBAction) nextQuery: (id) sender;
 -(IBAction) closeQuery: (id) sender;
@@ -80,10 +87,11 @@
 - (IBAction)saveDocument:(id)sender;
 - (IBAction)newDocument:(id)sender;
 - (IBAction)performClose:(id)sender;
-
--(IBAction) explain: (id) sender;
+- (BOOL) saveQuery;
+- (IBAction) explain: (id) sender;
 
 
 -(IBAction) showResults: (id) sender;
 -(IBAction) showMessages: (id) sender;	
+
 @end
