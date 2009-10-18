@@ -131,7 +131,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 316";
 		rLen = 0;
-		rLoc = 8771;
+		rLoc = 8787;
 		rType = 0;
 		vrLen = 1156;
 		vrLoc = 2677;
@@ -141,7 +141,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 328";
 		rLen = 0;
-		rLoc = 9366;
+		rLoc = 9382;
 		rType = 0;
 		vrLen = 1306;
 		vrLoc = 3664;
@@ -151,7 +151,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 153";
 		rLen = 0;
-		rLoc = 4303;
+		rLoc = 4307;
 		rType = 0;
 		vrLen = 1247;
 		vrLoc = 3664;
@@ -161,7 +161,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 153";
 		rLen = 0;
-		rLoc = 4303;
+		rLoc = 4307;
 		rType = 0;
 		vrLen = 1247;
 		vrLoc = 3664;
@@ -171,7 +171,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 153";
 		rLen = 0;
-		rLoc = 4303;
+		rLoc = 4307;
 		rType = 0;
 		vrLen = 1247;
 		vrLoc = 3664;
@@ -201,7 +201,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 148";
 		rLen = 0;
-		rLoc = 4214;
+		rLoc = 4218;
 		rType = 0;
 		vrLen = 558;
 		vrLoc = 4016;
@@ -228,7 +228,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 153";
 		rLen = 0;
-		rLoc = 4303;
+		rLoc = 4307;
 		rType = 0;
 		vrLen = 1306;
 		vrLoc = 3664;
@@ -762,7 +762,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 148";
 		rLen = 0;
-		rLoc = 4241;
+		rLoc = 4245;
 		rType = 0;
 		vrLen = 665;
 		vrLoc = 8141;
@@ -772,7 +772,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 336";
 		rLen = 0;
-		rLoc = 9705;
+		rLoc = 9721;
 		rType = 0;
 		vrLen = 705;
 		vrLoc = 7999;
@@ -792,7 +792,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 336";
 		rLen = 0;
-		rLoc = 9705;
+		rLoc = 9721;
 		rType = 0;
 		vrLen = 1579;
 		vrLoc = 7609;
@@ -802,7 +802,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 334";
 		rLen = 0;
-		rLoc = 9703;
+		rLoc = 9719;
 		rType = 0;
 		vrLen = 1877;
 		vrLoc = 7713;
@@ -812,7 +812,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 334";
 		rLen = 0;
-		rLoc = 9703;
+		rLoc = 9719;
 		rType = 0;
 		vrLen = 1850;
 		vrLoc = 7713;
@@ -822,7 +822,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 334";
 		rLen = 0;
-		rLoc = 9703;
+		rLoc = 9719;
 		rType = 0;
 		vrLen = 1850;
 		vrLoc = 7713;
@@ -832,7 +832,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 334";
 		rLen = 0;
-		rLoc = 9703;
+		rLoc = 9719;
 		rType = 0;
 		vrLen = 1850;
 		vrLoc = 7713;
@@ -842,7 +842,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 334";
 		rLen = 0;
-		rLoc = 9694;
+		rLoc = 9710;
 		rType = 0;
 		vrLen = 1817;
 		vrLoc = 7764;
@@ -852,7 +852,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 334";
 		rLen = 0;
-		rLoc = 9694;
+		rLoc = 9710;
 		rType = 0;
 		vrLen = 1790;
 		vrLoc = 7764;
@@ -862,7 +862,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 338";
 		rLen = 0;
-		rLoc = 9888;
+		rLoc = 9906;
 		rType = 0;
 		vrLen = 1865;
 		vrLoc = 7765;
@@ -872,7 +872,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 338";
 		rLen = 0;
-		rLoc = 9894;
+		rLoc = 9912;
 		rType = 0;
 		vrLen = 668;
 		vrLoc = 8143;
@@ -901,7 +901,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 338";
 		rLen = 0;
-		rLoc = 9899;
+		rLoc = 9917;
 		rType = 0;
 		vrLen = 1769;
 		vrLoc = 0;
@@ -911,7 +911,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 338";
 		rLen = 0;
-		rLoc = 9904;
+		rLoc = 9922;
 		rType = 0;
 		vrLen = 1688;
 		vrLoc = 0;
@@ -921,7 +921,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 339";
 		rLen = 0;
-		rLoc = 9930;
+		rLoc = 9948;
 		rType = 0;
 		vrLen = 1688;
 		vrLoc = 0;
@@ -931,7 +931,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 339";
 		rLen = 0;
-		rLoc = 9930;
+		rLoc = 9948;
 		rType = 0;
 		vrLen = 1688;
 		vrLoc = 0;
@@ -941,7 +941,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 339";
 		rLen = 0;
-		rLoc = 9930;
+		rLoc = 9948;
 		rType = 0;
 		vrLen = 711;
 		vrLoc = 976;
@@ -951,7 +951,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 339";
 		rLen = 0;
-		rLoc = 9930;
+		rLoc = 9948;
 		rType = 0;
 		vrLen = 2144;
 		vrLoc = 0;
@@ -961,7 +961,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 344";
 		rLen = 0;
-		rLoc = 10131;
+		rLoc = 10149;
 		rType = 0;
 		vrLen = 2144;
 		vrLoc = 0;
@@ -980,7 +980,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 344";
 		rLen = 0;
-		rLoc = 10130;
+		rLoc = 10148;
 		rType = 0;
 		vrLen = 2377;
 		vrLoc = 7704;
@@ -990,7 +990,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 308";
 		rLen = 0;
-		rLoc = 8771;
+		rLoc = 8787;
 		rType = 0;
 		vrLen = 2105;
 		vrLoc = 7985;
@@ -1000,7 +1000,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 308";
 		rLen = 0;
-		rLoc = 8771;
+		rLoc = 8787;
 		rType = 0;
 		vrLen = 2145;
 		vrLoc = 7945;
@@ -1010,7 +1010,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 308";
 		rLen = 0;
-		rLoc = 8771;
+		rLoc = 8787;
 		rType = 0;
 		vrLen = 2145;
 		vrLoc = 7945;
@@ -1020,7 +1020,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 314";
 		rLen = 0;
-		rLoc = 9294;
+		rLoc = 9310;
 		rType = 0;
 		vrLen = 2180;
 		vrLoc = 7945;
@@ -1030,7 +1030,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 347";
 		rLen = 0;
-		rLoc = 10216;
+		rLoc = 10234;
 		rType = 0;
 		vrLen = 2229;
 		vrLoc = 7987;
@@ -1040,7 +1040,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 348";
 		rLen = 0;
-		rLoc = 10277;
+		rLoc = 10295;
 		rType = 0;
 		vrLen = 2289;
 		vrLoc = 7988;
@@ -1050,7 +1050,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 348";
 		rLen = 0;
-		rLoc = 10277;
+		rLoc = 10295;
 		rType = 0;
 		vrLen = 953;
 		vrLoc = 8534;
@@ -1088,7 +1088,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 348";
 		rLen = 0;
-		rLoc = 10277;
+		rLoc = 10295;
 		rType = 0;
 		vrLen = 2137;
 		vrLoc = 8140;
@@ -1098,7 +1098,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 302";
 		rLen = 0;
-		rLoc = 8811;
+		rLoc = 8827;
 		rType = 0;
 		vrLen = 2137;
 		vrLoc = 8140;
@@ -1108,7 +1108,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 302";
 		rLen = 0;
-		rLoc = 8811;
+		rLoc = 8827;
 		rType = 0;
 		vrLen = 2169;
 		vrLoc = 8108;
@@ -1118,7 +1118,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 302";
 		rLen = 0;
-		rLoc = 8811;
+		rLoc = 8827;
 		rType = 0;
 		vrLen = 2289;
 		vrLoc = 7988;
@@ -1128,7 +1128,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 302";
 		rLen = 0;
-		rLoc = 8811;
+		rLoc = 8827;
 		rType = 0;
 		vrLen = 2289;
 		vrLoc = 7988;
@@ -1138,7 +1138,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 302";
 		rLen = 0;
-		rLoc = 8811;
+		rLoc = 8827;
 		rType = 0;
 		vrLen = 953;
 		vrLoc = 8534;
@@ -1148,7 +1148,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 306";
 		rLen = 0;
-		rLoc = 9035;
+		rLoc = 9051;
 		rType = 0;
 		vrLen = 2289;
 		vrLoc = 7988;
@@ -1158,7 +1158,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 348";
 		rLen = 0;
-		rLoc = 10312;
+		rLoc = 10330;
 		rType = 0;
 		vrLen = 2324;
 		vrLoc = 7988;
@@ -1168,7 +1168,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 348";
 		rLen = 0;
-		rLoc = 10312;
+		rLoc = 10330;
 		rType = 0;
 		vrLen = 2324;
 		vrLoc = 7988;
@@ -1178,7 +1178,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 348";
 		rLen = 0;
-		rLoc = 10312;
+		rLoc = 10330;
 		rType = 0;
 		vrLen = 2324;
 		vrLoc = 7988;
@@ -1188,7 +1188,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 348";
 		rLen = 0;
-		rLoc = 10312;
+		rLoc = 10330;
 		rType = 0;
 		vrLen = 2324;
 		vrLoc = 7988;
@@ -1198,7 +1198,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 348";
 		rLen = 0;
-		rLoc = 10312;
+		rLoc = 10330;
 		rType = 0;
 		vrLen = 2324;
 		vrLoc = 7988;
@@ -1208,7 +1208,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 348";
 		rLen = 0;
-		rLoc = 10302;
+		rLoc = 10320;
 		rType = 0;
 		vrLen = 2314;
 		vrLoc = 7988;
@@ -1218,7 +1218,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 348";
 		rLen = 0;
-		rLoc = 10302;
+		rLoc = 10320;
 		rType = 0;
 		vrLen = 2305;
 		vrLoc = 7988;
@@ -1228,7 +1228,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 348";
 		rLen = 0;
-		rLoc = 10303;
+		rLoc = 10321;
 		rType = 0;
 		vrLen = 2059;
 		vrLoc = 8091;
@@ -1238,7 +1238,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 348";
 		rLen = 0;
-		rLoc = 10303;
+		rLoc = 10321;
 		rType = 0;
 		vrLen = 2163;
 		vrLoc = 8140;
@@ -1248,7 +1248,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 348";
 		rLen = 0;
-		rLoc = 10303;
+		rLoc = 10321;
 		rType = 0;
 		vrLen = 2163;
 		vrLoc = 8140;
@@ -1258,7 +1258,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 348";
 		rLen = 0;
-		rLoc = 10303;
+		rLoc = 10321;
 		rType = 0;
 		vrLen = 2156;
 		vrLoc = 8140;
@@ -1268,7 +1268,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 299";
 		rLen = 0;
-		rLoc = 8656;
+		rLoc = 8672;
 		rType = 0;
 		vrLen = 987;
 		vrLoc = 8470;
@@ -1278,7 +1278,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 299";
 		rLen = 0;
-		rLoc = 8656;
+		rLoc = 8672;
 		rType = 0;
 		vrLen = 902;
 		vrLoc = 8365;
@@ -1288,7 +1288,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 299";
 		rLen = 0;
-		rLoc = 8656;
+		rLoc = 8672;
 		rType = 0;
 		vrLen = 2310;
 		vrLoc = 7988;
@@ -1298,7 +1298,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 299";
 		rLen = 0;
-		rLoc = 8656;
+		rLoc = 8672;
 		rType = 0;
 		vrLen = 2310;
 		vrLoc = 7988;
@@ -1308,7 +1308,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 346";
 		rLen = 0;
-		rLoc = 10106;
+		rLoc = 10124;
 		rType = 0;
 		vrLen = 2001;
 		vrLoc = 8091;
@@ -1318,7 +1318,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 346";
 		rLen = 0;
-		rLoc = 10106;
+		rLoc = 10124;
 		rType = 0;
 		vrLen = 2121;
 		vrLoc = 7985;
@@ -1328,7 +1328,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 346";
 		rLen = 0;
-		rLoc = 10106;
+		rLoc = 10124;
 		rType = 0;
 		vrLen = 2121;
 		vrLoc = 7985;
@@ -1338,7 +1338,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 346";
 		rLen = 0;
-		rLoc = 10106;
+		rLoc = 10124;
 		rType = 0;
 		vrLen = 2121;
 		vrLoc = 7985;
@@ -1348,7 +1348,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 346";
 		rLen = 0;
-		rLoc = 10106;
+		rLoc = 10124;
 		rType = 0;
 		vrLen = 2121;
 		vrLoc = 7985;
@@ -1358,7 +1358,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 346";
 		rLen = 0;
-		rLoc = 10106;
+		rLoc = 10124;
 		rType = 0;
 		vrLen = 2121;
 		vrLoc = 7985;
@@ -1368,7 +1368,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 346";
 		rLen = 0;
-		rLoc = 10106;
+		rLoc = 10124;
 		rType = 0;
 		vrLen = 2121;
 		vrLoc = 7985;
@@ -1378,7 +1378,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 346";
 		rLen = 0;
-		rLoc = 10106;
+		rLoc = 10124;
 		rType = 0;
 		vrLen = 2121;
 		vrLoc = 7985;
@@ -1388,7 +1388,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 306";
 		rLen = 0;
-		rLoc = 9005;
+		rLoc = 9021;
 		rType = 0;
 		vrLen = 741;
 		vrLoc = 3933;
@@ -1418,7 +1418,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 346";
 		rLen = 0;
-		rLoc = 10106;
+		rLoc = 10124;
 		rType = 0;
 		vrLen = 2121;
 		vrLoc = 7985;
@@ -1487,7 +1487,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 147";
 		rLen = 0;
-		rLoc = 4219;
+		rLoc = 4223;
 		rType = 0;
 		vrLen = 688;
 		vrLoc = 3956;
@@ -1694,7 +1694,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 123";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3697;
 		rType = 0;
 		vrLen = 1919;
 		vrLoc = 3174;
@@ -1704,7 +1704,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 123";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3697;
 		rType = 0;
 		vrLen = 1919;
 		vrLoc = 3174;
@@ -1714,7 +1714,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 123";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3697;
 		rType = 0;
 		vrLen = 1919;
 		vrLoc = 3174;
@@ -1724,7 +1724,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 123";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3697;
 		rType = 0;
 		vrLen = 1919;
 		vrLoc = 3174;
@@ -1734,7 +1734,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 123";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3697;
 		rType = 0;
 		vrLen = 1887;
 		vrLoc = 3174;
@@ -1744,7 +1744,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 123";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3697;
 		rType = 0;
 		vrLen = 1887;
 		vrLoc = 3174;
@@ -1754,7 +1754,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 357";
 		rLen = 0;
-		rLoc = 10380;
+		rLoc = 10398;
 		rType = 0;
 		vrLen = 1905;
 		vrLoc = 3055;
@@ -1764,7 +1764,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 357";
 		rLen = 0;
-		rLoc = 10386;
+		rLoc = 10404;
 		rType = 0;
 		vrLen = 1998;
 		vrLoc = 2853;
@@ -1774,7 +1774,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 349";
 		rLen = 0;
-		rLoc = 10159;
+		rLoc = 10177;
 		rType = 0;
 		vrLen = 2059;
 		vrLoc = 2726;
@@ -1784,7 +1784,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 164";
 		rLen = 0;
-		rLoc = 4792;
+		rLoc = 4796;
 		rType = 0;
 		vrLen = 622;
 		vrLoc = 4415;
@@ -1811,7 +1811,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 349";
 		rLen = 0;
-		rLoc = 10159;
+		rLoc = 10177;
 		rType = 0;
 		vrLen = 2091;
 		vrLoc = 2784;
@@ -1874,6 +1874,359 @@
 		rType = 0;
 		vrLen = 1522;
 		vrLoc = 87;
+	};
+	189E6F96108A581C00851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 18E3790810638EA400E2DC80 /* QueryExec.m */;
+		name = "QueryExec.m: 419";
+		rLen = 0;
+		rLoc = 10789;
+		rType = 0;
+		vrLen = 540;
+		vrLoc = 10120;
+	};
+	189E6F97108A581C00851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 18E3790710638EA400E2DC80 /* QueryExec.h */;
+		name = "QueryExec.h: 42";
+		rLen = 0;
+		rLoc = 751;
+		rType = 0;
+		vrLen = 438;
+		vrLoc = 537;
+	};
+	189E6F98108A581C00851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 18E3790710638EA400E2DC80 /* QueryExec.h */;
+		name = "QueryExec.h: 42";
+		rLen = 0;
+		rLoc = 751;
+		rType = 0;
+		vrLen = 437;
+		vrLoc = 537;
+	};
+	189E6FC5108A629B00851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 18E3790710638EA400E2DC80 /* QueryExec.h */;
+		name = "QueryExec.h: 42";
+		rLen = 0;
+		rLoc = 751;
+		rType = 0;
+		vrLen = 1522;
+		vrLoc = 87;
+	};
+	189E6FD5108A6E0600851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 18E3790710638EA400E2DC80 /* QueryExec.h */;
+		name = "QueryExec.h: 42";
+		rLen = 0;
+		rLoc = 751;
+		rType = 0;
+		vrLen = 1525;
+		vrLoc = 0;
+	};
+	189E6FD6108A6E0600851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.h */;
+		name = "CocoaQueryAnalyzerAppDelegate.h: 41";
+		rLen = 0;
+		rLoc = 1031;
+		rType = 0;
+		vrLen = 1729;
+		vrLoc = 0;
+	};
+	189E6FD7108A6E0600851992 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "'queries' undeclared (first use in this function)";
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 74;
+		rType = 1;
+	};
+	189E6FD8108A6E0600851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 75";
+		rLen = 0;
+		rLoc = 2428;
+		rType = 0;
+		vrLen = 2223;
+		vrLoc = 1243;
+	};
+	189E7017108A7CE600851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 379";
+		rLen = 0;
+		rLoc = 11362;
+		rType = 0;
+		vrLen = 2386;
+		vrLoc = 525;
+	};
+	189E7018108A7CE600851992 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Expected specifier-qualifier-list before 'PSMTabBarControl'";
+		fRef = 256AC3D80F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.h */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 42;
+		rType = 1;
+	};
+	189E7019108A7CE600851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.h */;
+		name = "CocoaQueryAnalyzerAppDelegate.h: 3";
+		rLen = 0;
+		rLoc = 120;
+		rType = 0;
+		vrLen = 1773;
+		vrLoc = 0;
+	};
+	189E701E108A7CF500851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.h */;
+		name = "CocoaQueryAnalyzerAppDelegate.h: 4";
+		rLen = 0;
+		rLoc = 120;
+		rType = 0;
+		vrLen = 1741;
+		vrLoc = 0;
+	};
+	189E7057108A7EF000851992 /* CocoaQueryAnalyzerAppDelegate.h:4 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 256AC3D80F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.h */;
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 4;
+		modificationTime = 277522183.531239;
+		originalNumberOfMultipleMatches = 1;
+		state = 0;
+	};
+	189E705B108A7EF200851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.h */;
+		name = "CocoaQueryAnalyzerAppDelegate.h: 4";
+		rLen = 0;
+		rLoc = 120;
+		rType = 0;
+		vrLen = 1776;
+		vrLoc = 0;
+	};
+	189E705C108A7EF200851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.h */;
+		name = "CocoaQueryAnalyzerAppDelegate.h: 4";
+		rLen = 0;
+		rLoc = 120;
+		rType = 0;
+		vrLen = 1741;
+		vrLoc = 0;
+	};
+	189E7060108A7F3100851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.h */;
+		name = "CocoaQueryAnalyzerAppDelegate.h: 4";
+		rLen = 0;
+		rLoc = 120;
+		rType = 0;
+		vrLen = 1776;
+		vrLoc = 0;
+	};
+	189E7063108A7F3F00851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.h */;
+		name = "CocoaQueryAnalyzerAppDelegate.h: 4";
+		rLen = 0;
+		rLoc = 120;
+		rType = 0;
+		vrLen = 1776;
+		vrLoc = 0;
+	};
+	189E7072108A89AD00851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.h */;
+		name = "CocoaQueryAnalyzerAppDelegate.h: 99";
+		rLen = 0;
+		rLoc = 2462;
+		rType = 0;
+		vrLen = 1777;
+		vrLoc = 0;
+	};
+	189E707C108A8B5D00851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.h */;
+		name = "CocoaQueryAnalyzerAppDelegate.h: 102";
+		rLen = 0;
+		rLoc = 2540;
+		rType = 0;
+		vrLen = 1812;
+		vrLoc = 0;
+	};
+	189E707D108A8B5D00851992 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Passing argument 1 of 'stringWithFormat:' from incompatible pointer type";
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 210;
+		rType = 1;
+	};
+	189E707E108A8B5D00851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 213";
+		rLen = 0;
+		rLoc = 6556;
+		rType = 0;
+		vrLen = 1968;
+		vrLoc = 5091;
+	};
+	189E7082108A8C2700851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 398";
+		rLen = 0;
+		rLoc = 11958;
+		rType = 0;
+		vrLen = 1918;
+		vrLoc = 4870;
+	};
+	189E7086108A8D2000851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 399";
+		rLen = 0;
+		rLoc = 12035;
+		rType = 0;
+		vrLen = 2058;
+		vrLoc = 4621;
+	};
+	189E708A108A8E1A00851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 409";
+		rLen = 0;
+		rLoc = 12247;
+		rType = 0;
+		vrLen = 1927;
+		vrLoc = 4395;
+	};
+	189E7091108A985400851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 409";
+		rLen = 0;
+		rLoc = 12247;
+		rType = 0;
+		vrLen = 1888;
+		vrLoc = 4395;
+	};
+	189E7097108A9FFD00851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 409";
+		rLen = 0;
+		rLoc = 12233;
+		rType = 0;
+		vrLen = 2295;
+		vrLoc = 600;
+	};
+	189E709B108AA1A700851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 410";
+		rLen = 0;
+		rLoc = 12331;
+		rType = 0;
+		vrLen = 2208;
+		vrLoc = 688;
+	};
+	189E709F108AA1E000851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 369";
+		rLen = 0;
+		rLoc = 11103;
+		rType = 0;
+		vrLen = 2096;
+		vrLoc = 10228;
+	};
+	189E70A0108AA1E000851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 369";
+		rLen = 0;
+		rLoc = 11103;
+		rType = 0;
+		vrLen = 2216;
+		vrLoc = 10108;
+	};
+	189E70A3108AA1F400851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 366";
+		rLen = 0;
+		rLoc = 10982;
+		rType = 0;
+		vrLen = 2216;
+		vrLoc = 10108;
+	};
+	189E70A4108AA1F400851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 366";
+		rLen = 0;
+		rLoc = 10982;
+		rType = 0;
+		vrLen = 2216;
+		vrLoc = 10108;
+	};
+	189E70A7108AA26200851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 333";
+		rLen = 0;
+		rLoc = 9832;
+		rType = 0;
+		vrLen = 2407;
+		vrLoc = 9163;
+	};
+	189E70A9108AA27900851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 369";
+		rLen = 0;
+		rLoc = 11107;
+		rType = 0;
+		vrLen = 2407;
+		vrLoc = 9163;
+	};
+	189E70AC108AA44E00851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 367";
+		rLen = 0;
+		rLoc = 11069;
+		rType = 0;
+		vrLen = 2459;
+		vrLoc = 9433;
+	};
+	189E70B0108AA70B00851992 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
+		name = "CocoaQueryAnalyzerAppDelegate.m: 338";
+		rLen = 0;
+		rLoc = 10074;
+		rType = 0;
+		vrLen = 2459;
+		vrLoc = 9433;
 	};
 	18AAFAAD1067A6C9001B5362 /* ColumnMetadata.h */ = {
 		uiCtxt = {
@@ -1956,17 +2309,17 @@
 	};
 	18E3790710638EA400E2DC80 /* QueryExec.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {620, 1040}}";
+			sepNavIntBoundsRect = "{{0, 0}, {899, 1053}}";
 			sepNavSelRange = "{751, 0}";
-			sepNavVisRange = "{87, 1522}";
+			sepNavVisRange = "{537, 437}";
 			sepNavWindowFrame = "{{426, 52}, {953, 1074}}";
 		};
 	};
 	18E3790810638EA400E2DC80 /* QueryExec.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {899, 5590}}";
-			sepNavSelRange = "{10754, 0}";
-			sepNavVisRange = "{9869, 363}";
+			sepNavIntBoundsRect = "{{0, 0}, {899, 5525}}";
+			sepNavSelRange = "{10789, 0}";
+			sepNavVisRange = "{10120, 540}";
 			sepNavWindowFrame = "{{426, 52}, {953, 1074}}";
 		};
 	};
@@ -1975,7 +2328,7 @@
 		fRef = 256AC3D80F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.h */;
 		name = "CocoaQueryAnalyzerAppDelegate.h: 70";
 		rLen = 73;
-		rLoc = 1582;
+		rLoc = 1623;
 		rType = 0;
 		vrLen = 990;
 		vrLoc = 667;
@@ -1995,7 +2348,7 @@
 		fRef = 256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */;
 		name = "CocoaQueryAnalyzerAppDelegate.m: 248";
 		rLen = 0;
-		rLoc = 7107;
+		rLoc = 7123;
 		rType = 0;
 		vrLen = 1513;
 		vrLoc = 6812;
@@ -2082,17 +2435,17 @@
 	};
 	256AC3D80F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1049, 962}}";
-			sepNavSelRange = "{1582, 73}";
-			sepNavVisRange = "{667, 990}";
+			sepNavIntBoundsRect = "{{0, 0}, {677, 1326}}";
+			sepNavSelRange = "{2540, 0}";
+			sepNavVisRange = "{0, 1812}";
 			sepNavWindowFrame = "{{61, 57}, {953, 1074}}";
 		};
 	};
 	256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1692, 4537}}";
-			sepNavSelRange = "{10159, 0}";
-			sepNavVisRange = "{2784, 2091}";
+			sepNavIntBoundsRect = "{{0, 0}, {936, 5317}}";
+			sepNavSelRange = "{10074, 0}";
+			sepNavVisRange = "{9433, 2459}";
 			sepNavWindowFrame = "{{37, 78}, {953, 1074}}";
 		};
 	};
@@ -2112,6 +2465,7 @@
 			18FABC40106DF761008BD369 /* Tests  */,
 		);
 		breakpoints = (
+			189E7057108A7EF000851992 /* CocoaQueryAnalyzerAppDelegate.h:4 */,
 		);
 		codeSenseManager = 18E3782E1062AE1800E2DC80 /* Code sense */;
 		executables = (
@@ -2180,7 +2534,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					867,
+					466,
 					20,
 					48,
 					43,
@@ -2254,7 +2608,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					1320,
+					402,
 					60,
 					20,
 					48,
@@ -2458,6 +2812,40 @@
 			189E6BF41089EFA200851992 /* PBXTextBookmark */ = 189E6BF41089EFA200851992 /* PBXTextBookmark */;
 			189E6BF51089EFEA00851992 /* PBXTextBookmark */ = 189E6BF51089EFEA00851992 /* PBXTextBookmark */;
 			189E6BFA1089F02A00851992 /* PBXTextBookmark */ = 189E6BFA1089F02A00851992 /* PBXTextBookmark */;
+			189E6F96108A581C00851992 /* PBXTextBookmark */ = 189E6F96108A581C00851992 /* PBXTextBookmark */;
+			189E6F97108A581C00851992 /* PBXTextBookmark */ = 189E6F97108A581C00851992 /* PBXTextBookmark */;
+			189E6F98108A581C00851992 /* PBXTextBookmark */ = 189E6F98108A581C00851992 /* PBXTextBookmark */;
+			189E6FC5108A629B00851992 /* PBXTextBookmark */ = 189E6FC5108A629B00851992 /* PBXTextBookmark */;
+			189E6FD5108A6E0600851992 /* PBXTextBookmark */ = 189E6FD5108A6E0600851992 /* PBXTextBookmark */;
+			189E6FD6108A6E0600851992 /* PBXTextBookmark */ = 189E6FD6108A6E0600851992 /* PBXTextBookmark */;
+			189E6FD7108A6E0600851992 /* XCBuildMessageTextBookmark */ = 189E6FD7108A6E0600851992 /* XCBuildMessageTextBookmark */;
+			189E6FD8108A6E0600851992 /* PBXTextBookmark */ = 189E6FD8108A6E0600851992 /* PBXTextBookmark */;
+			189E7017108A7CE600851992 /* PBXTextBookmark */ = 189E7017108A7CE600851992 /* PBXTextBookmark */;
+			189E7018108A7CE600851992 /* XCBuildMessageTextBookmark */ = 189E7018108A7CE600851992 /* XCBuildMessageTextBookmark */;
+			189E7019108A7CE600851992 /* PBXTextBookmark */ = 189E7019108A7CE600851992 /* PBXTextBookmark */;
+			189E701E108A7CF500851992 /* PBXTextBookmark */ = 189E701E108A7CF500851992 /* PBXTextBookmark */;
+			189E705B108A7EF200851992 /* PBXTextBookmark */ = 189E705B108A7EF200851992 /* PBXTextBookmark */;
+			189E705C108A7EF200851992 /* PBXTextBookmark */ = 189E705C108A7EF200851992 /* PBXTextBookmark */;
+			189E7060108A7F3100851992 /* PBXTextBookmark */ = 189E7060108A7F3100851992 /* PBXTextBookmark */;
+			189E7063108A7F3F00851992 /* PBXTextBookmark */ = 189E7063108A7F3F00851992 /* PBXTextBookmark */;
+			189E7072108A89AD00851992 /* PBXTextBookmark */ = 189E7072108A89AD00851992 /* PBXTextBookmark */;
+			189E707C108A8B5D00851992 /* PBXTextBookmark */ = 189E707C108A8B5D00851992 /* PBXTextBookmark */;
+			189E707D108A8B5D00851992 /* XCBuildMessageTextBookmark */ = 189E707D108A8B5D00851992 /* XCBuildMessageTextBookmark */;
+			189E707E108A8B5D00851992 /* PBXTextBookmark */ = 189E707E108A8B5D00851992 /* PBXTextBookmark */;
+			189E7082108A8C2700851992 /* PBXTextBookmark */ = 189E7082108A8C2700851992 /* PBXTextBookmark */;
+			189E7086108A8D2000851992 /* PBXTextBookmark */ = 189E7086108A8D2000851992 /* PBXTextBookmark */;
+			189E708A108A8E1A00851992 /* PBXTextBookmark */ = 189E708A108A8E1A00851992 /* PBXTextBookmark */;
+			189E7091108A985400851992 /* PBXTextBookmark */ = 189E7091108A985400851992 /* PBXTextBookmark */;
+			189E7097108A9FFD00851992 /* PBXTextBookmark */ = 189E7097108A9FFD00851992 /* PBXTextBookmark */;
+			189E709B108AA1A700851992 /* PBXTextBookmark */ = 189E709B108AA1A700851992 /* PBXTextBookmark */;
+			189E709F108AA1E000851992 /* PBXTextBookmark */ = 189E709F108AA1E000851992 /* PBXTextBookmark */;
+			189E70A0108AA1E000851992 /* PBXTextBookmark */ = 189E70A0108AA1E000851992 /* PBXTextBookmark */;
+			189E70A3108AA1F400851992 /* PBXTextBookmark */ = 189E70A3108AA1F400851992 /* PBXTextBookmark */;
+			189E70A4108AA1F400851992 /* PBXTextBookmark */ = 189E70A4108AA1F400851992 /* PBXTextBookmark */;
+			189E70A7108AA26200851992 /* PBXTextBookmark */ = 189E70A7108AA26200851992 /* PBXTextBookmark */;
+			189E70A9108AA27900851992 /* PBXTextBookmark */ = 189E70A9108AA27900851992 /* PBXTextBookmark */;
+			189E70AC108AA44E00851992 /* PBXTextBookmark */ = 189E70AC108AA44E00851992 /* PBXTextBookmark */;
+			189E70B0108AA70B00851992 /* PBXTextBookmark */ = 189E70B0108AA70B00851992 /* PBXTextBookmark */;
 			18EA080C1084F72900BC5B06 = 18EA080C1084F72900BC5B06 /* PBXTextBookmark */;
 			18EA080D1084F72900BC5B06 = 18EA080D1084F72900BC5B06 /* PBXTextBookmark */;
 			18EA080E1084F72900BC5B06 = 18EA080E1084F72900BC5B06 /* PBXTextBookmark */;

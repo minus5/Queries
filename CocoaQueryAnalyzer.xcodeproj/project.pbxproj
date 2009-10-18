@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189E6FB6108A626800851992 /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189E6FB5108A626800851992 /* PSMTabBarControl.framework */; };
+		189E6FC1108A628000851992 /* PSMTabBarControl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 189E6FB5108A626800851992 /* PSMTabBarControl.framework */; };
 		18AAFAAF1067A6C9001B5362 /* ColumnMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AAFAAE1067A6C9001B5362 /* ColumnMetadata.m */; };
 		18E3790910638EA400E2DC80 /* QueryExec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E3790810638EA400E2DC80 /* QueryExec.m */; };
 		18FAB9FE106B452B008BD369 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FAB9FD106B452B008BD369 /* libsybdb.a */; };
@@ -22,10 +24,24 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		189E6FC7108A629B00851992 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				189E6FC1108A628000851992 /* PSMTabBarControl.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		189E6FB5108A626800851992 /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = lib/maccode/Utilities/PSMTabBarControl/build/Release/PSMTabBarControl.framework; sourceTree = "<group>"; };
 		18AAFAAD1067A6C9001B5362 /* ColumnMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnMetadata.h; sourceTree = "<group>"; };
 		18AAFAAE1067A6C9001B5362 /* ColumnMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnMetadata.m; sourceTree = "<group>"; };
 		18E3790710638EA400E2DC80 /* QueryExec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryExec.h; sourceTree = "<group>"; };
@@ -62,6 +78,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				18FAB9FE106B452B008BD369 /* libsybdb.a in Frameworks */,
+				189E6FB6108A626800851992 /* PSMTabBarControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +114,7 @@
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				18FABC6C106DF859008BD369 /* SenTestingKit.framework */,
+				189E6FB5108A626800851992 /* PSMTabBarControl.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -188,6 +206,7 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
+				189E6FC7108A629B00851992 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -370,6 +389,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"$(SRCROOT)/lib/maccode/Utilities/PSMTabBarControl/build/Release\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -396,6 +416,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"$(SRCROOT)/lib/maccode/Utilities/PSMTabBarControl/build/Release\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

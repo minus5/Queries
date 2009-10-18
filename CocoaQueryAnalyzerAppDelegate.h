@@ -1,6 +1,7 @@
 #import <Cocoa/Cocoa.h>
 #import <ColumnMetadata.h>
 #import <QueryExec.h>
+#import <PSMTabBarControl/PSMTabBarControl.h>  
 
 @interface CocoaQueryAnalyzerAppDelegate : NSObject <NSApplicationDelegate> {
 	
@@ -19,15 +20,7 @@
 	
 	IBOutlet NSMenuItem *nextResultMenu;
 	IBOutlet NSMenuItem *previousResultMenu;
-	
-/*	NSArray *results;
-	NSArray *columnNames;
-	NSArray *dataRows;                                         
-	*/
-	
-	
-//int currentResult; ovo je vjerojatno greskom zavrsilo ovdje
-	
+		
 	IBOutlet NSWindow *connectionSettingsWindow;
 	
 	QueryExec *queryExec;
@@ -36,16 +29,22 @@
 	NSArray *dbObjectsResults;	
 	NSMutableDictionary *cache;
 	
-	NSMutableArray *queries;
+
+	IBOutlet NSTabView *tabView;  
+	IBOutlet NSTabView *tabViewResults;
+	IBOutlet PSMTabBarControl *tabBarResults;
+	
+	int queryCounter;	
 }
 
-@property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSWindow *window;                                                  
 
-
-
+//tabView delegate                     
+- (void)tabView:(NSTabView *)aTabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem;
+- (void)tabView:(NSTabView *)aTabView didCloseTabViewItem:(NSTabViewItem *)tabViewItem;
+- (NSString *)tabView:(NSTabView *)aTabView toolTipForTabViewItem:(NSTabViewItem *)tabViewItem;
 
 -(void) bindResult;
--(void) setWindowTitle;
 -(void) removeAllColumns; 
 -(void) showMessages;
 
@@ -83,5 +82,8 @@
 - (IBAction)performClose:(id)sender;
 
 -(IBAction) explain: (id) sender;
-	
+
+
+-(IBAction) showResults: (id) sender;
+-(IBAction) showMessages: (id) sender;	
 @end

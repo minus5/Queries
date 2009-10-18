@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>ActivePerspectiveName</key>
-	<string>Debug</string>
+	<string>Project</string>
 	<key>AllowedModules</key>
 	<array>
 		<dict>
@@ -258,7 +258,7 @@
 							<key>PBXSmartGroupTreeModuleColumnWidthsKey</key>
 							<array>
 								<real>22</real>
-								<real>235</real>
+								<real>211</real>
 							</array>
 							<key>PBXSmartGroupTreeModuleColumnsKey_v4</key>
 							<array>
@@ -271,21 +271,21 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
-								<string>080E96DDFE201D6D7F000001</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
-								<string>1DDD58140DA1D0A300B32029</string>
+								<string>29B97323FDCFA39411CA2CEA</string>
 								<string>1C37FBAC04509CD000000102</string>
+								<string>189E6FC4108A629B00851992</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>13</integer>
-									<integer>10</integer>
+									<integer>7</integer>
+									<integer>4</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {257, 1065}}</string>
+							<string>{{0, 0}, {233, 1065}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -295,30 +295,34 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {274, 1083}}</string>
+						<string>{{0, 0}, {250, 1083}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>SCMStatusColumn</string>
 							<real>22</real>
 							<string>MainColumn</string>
-							<real>235</real>
+							<real>211</real>
 						</array>
+						<key>RubberWindowFrame</key>
+						<string>960 54 960 1124 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
 					<key>Proportion</key>
-					<string>274pt</string>
+					<string>250pt</string>
 				</dict>
 				<dict>
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>18E3785010636B3100E2DC80</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>QueryExec.h</string>
+								<string>CocoaQueryAnalyzerAppDelegate.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -326,11 +330,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>18E3785110636B3100E2DC80</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>QueryExec.h</string>
+										<string>CocoaQueryAnalyzerAppDelegate.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>189E6BFA1089F02A00851992</string>
+										<string>189E70B0108AA70B00851992</string>
 										<key>history</key>
 										<array>
 											<string>18FE0235106E254A00FC5DF0</string>
@@ -340,12 +344,12 @@
 											<string>18891C8C107399680027C68F</string>
 											<string>1806DEB610828E14007DCA35</string>
 											<string>189DCB8010835DA300CC4555</string>
-											<string>18EA080C1084F72900BC5B06</string>
 											<string>18EA080D1084F72900BC5B06</string>
 											<string>189E69DB1087AD0F00851992</string>
-											<string>189E6BED1089EF9200851992</string>
 											<string>189E6BEE1089EF9200851992</string>
-											<string>189E6BEF1089EF9200851992</string>
+											<string>189E6FD5108A6E0600851992</string>
+											<string>189E707C108A8B5D00851992</string>
+											<string>189E70A3108AA1F400851992</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -359,7 +363,9 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {681, 946}}</string>
+								<string>{{0, 0}, {705, 946}}</string>
+								<key>RubberWindowFrame</key>
+								<string>960 54 960 1124 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -382,7 +388,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1106, 275}}</string>
+										<string>{{10, 27}, {705, 105}}</string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -459,7 +465,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {681, 105}}</string>
+										<string>{{10, 27}, {705, 105}}</string>
+										<key>RubberWindowFrame</key>
+										<string>960 54 960 1124 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXBuildResultsModule</string>
@@ -468,7 +476,7 @@
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>681pt</string>
+					<string>705pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -543,8 +551,6 @@
 					<dict>
 						<key>Frame</key>
 						<string>{{0, 0}, {960, 558}}</string>
-						<key>RubberWindowFrame</key>
-						<string>960 54 960 1124 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXDebugCLIModule</string>
@@ -619,11 +625,7 @@
 							</array>
 							<key>Frame</key>
 							<string>{{469, 0}, {491, 254}}</string>
-							<key>RubberWindowFrame</key>
-							<string>960 54 960 1124 0 0 1920 1178 </string>
 						</dict>
-						<key>RubberWindowFrame</key>
-						<string>960 54 960 1124 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXDebugSessionModule</string>
@@ -687,7 +689,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>189E6BFB1089F02A00851992</string>
+		<string>189E70B1108AA70B00851992</string>
 		<string>189E69E81087AD0F00851992</string>
 		<string>189E69E91087AD0F00851992</string>
 		<string>/Users/ianic/Work/CocoaQueryAnalyzer/CocoaQueryAnalyzer.xcodeproj</string>

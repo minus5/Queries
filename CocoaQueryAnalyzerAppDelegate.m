@@ -6,24 +6,50 @@
 
 - (void)awakeFromNib{
 	[queryText setFont: [NSFont fontWithName: @"Monaco" size: 12.0]];  	
+	[tabBarResults setDisableTabClose: 1];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	queries = [NSMutableArray	array];
-	[queries retain];
-	[self connectionSettings: nil];
+	[self connectionSettings: nil];       
 }
 
 -(IBAction) connectionSettings: (id) sender{
 	[NSApp beginSheet:connectionSettingsWindow modalForWindow:window
 			modalDelegate:nil didEndSelector:nil contextInfo:nil];
-}                                                  
+}        
+
+
+- (void)tabView:(NSTabView *)aTabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem
+{ 
+	[self changeQuery: [tabViewItem identifier]];	
+}     
+
+- (void)tabView:(NSTabView *)aTabView didCloseTabViewItem:(NSTabViewItem *)tabViewItem
+{       
+	[[tabViewItem identifier] release];
+	NSLog(@"didCloseTabViewItem: %@", [tabViewItem label]);
+} 
+
+- (NSString *)tabView:(NSTabView *)aTabView toolTipForTabViewItem:(NSTabViewItem *)tabViewItem{
+	if (aTabView == tabView){
+		return [[tabViewItem identifier] connectionName];
+	}else{
+		return nil;
+	}
+}
+
+-(void) addNewQueryTab: (QueryExec*) newQuery{
+	NSString *label = [NSString stringWithFormat: @"Query %d", ++queryCounter];			
+	NSTabViewItem *newItem = [[[NSTabViewItem alloc] initWithIdentifier:newQuery] autorelease];
+	[newItem setLabel: label];
+	[tabView addTabViewItem:newItem];
+	[tabView selectTabViewItem:newItem]; 
+}                                     
 
 -(IBAction) newQuery: (id) sender{        
 		QueryExec *newQuery = [self createQuery];
 		if (newQuery != nil){
-	    [queries addObject: newQuery];				
-			[self changeQuery: newQuery];		      
+			[self addNewQueryTab: newQuery];										      
 		}
 }   
 
@@ -50,7 +76,7 @@
 }                 
       
 -(int) currentQueryIndex{
-	return [queries indexOfObject: queryExec];	
+	return 0;//[queries indexOfObject: queryExec];	
 }  
 
 -(void) changeQuery: (QueryExec*) new{
@@ -61,17 +87,11 @@
 }
 
 -(IBAction) previousQuery: (id) sender{ 
-	int currentIndex = [self currentQueryIndex];
-	if (--currentIndex >= 0){
-		[self changeQuery: [queries objectAtIndex: currentIndex]];
-	} 
+	[tabView selectPreviousTabViewItem: nil];
 }                    
 
--(IBAction) nextQuery: (id) sender{  
-	int currentIndex = [self currentQueryIndex];
-	if (++currentIndex < [queries count]){                        
-		[self changeQuery: [queries objectAtIndex: currentIndex]];
-	}
+-(IBAction) nextQuery: (id) sender{     
+	[tabView selectNextTabViewItem: nil];
 }  
 
 -(void) saveCurrentQueryTextAndSelection{
@@ -79,14 +99,9 @@
 	[queryExec setSelection: [queryText selectedRange]];
 }     
 
--(IBAction) closeQuery: (id) sender{
-	int index = [self currentQueryIndex];
-	if (index > 0){                        
-		QueryExec *removed = queryExec;      
-		[self previousQuery: nil];
-		[queries removeObjectAtIndex: index];		
-		//[removed logout];		
-		[removed release];
+-(IBAction) closeQuery: (id) sender{     
+	if ([[tabView tabViewItems] count] > 1){
+		[tabView removeTabViewItem:[tabView selectedTabViewItem]];
 	}	
 }
 
@@ -94,12 +109,12 @@
 		QueryExec *newQuery = [self createQuery];
 		if (newQuery != nil){                   
 			if (queryExec != nil){
-				[queries replaceObjectAtIndex: [self currentQueryIndex] withObject: newQuery];   
+				[[tabView selectedTabViewItem] setIdentifier: newQuery];
 				[queryExec release];
 				queryExec = newQuery;
-				[self saveCurrentQueryTextAndSelection];
+				[self saveCurrentQueryTextAndSelection];				
 			}else{										
-	    	[queries addObject: newQuery];				
+				[self addNewQueryTab: newQuery];
 				[self fillSidebar];
 			}
 			[self changeQuery: newQuery];		       			
@@ -114,7 +129,7 @@
 		[sidebarQueryExec release];
 	  sidebarQueryExec = [self createQueryExec];
 		[sidebarQueryExec retain];
-		[sidebarQueryExec execute: @"exec cocoa_query_analyzer.database_objects"];
+		[sidebarQueryExec execute: @"exec sp_cqa_database_objects"];
 		[dbObjectsResults release];
 		dbObjectsResults = [sidebarQueryExec rows];
 		[dbObjectsResults retain];
@@ -155,25 +170,40 @@
 	
 }                                               
 
--(void) setWindowTitle{    	
-	[window setTitle: [NSString stringWithFormat: @"Query: %d | %@ | Results: %d/%d | Rows: %d", [self currentQueryIndex] + 1,  [queryExec connectionName], [queryExec currentResultIndex] + 1, [queryExec resultsCount], [queryExec rowsCount]]];
-} 
-
 -(void) showMessages{
 	[logTextView setString:@""];
 	for(id message in [queryExec messages]){			
 		[logTextView insertText: message];	
 	}   
 	[logTextView insertText: @"\n"];		
+} 
+
+-(IBAction) showResults: (id) sender{
+	[tabViewResults selectTabViewItemAtIndex: 0];	
+}
+-(IBAction) showMessages: (id) sender{
+	[tabViewResults selectTabViewItemAtIndex: 1];
+}
+
+
+-(void) setResultsTabLabel{
+	NSString *resultsTabLabel = @"Results";
+	if ([queryExec resultsCount] > 1){
+		resultsTabLabel = [NSString stringWithFormat:@"Results %d of %d", [queryExec currentResultIndex] + 1, [queryExec resultsCount]];
+	}
+	[[tabViewResults tabViewItemAtIndex: 0] setLabel: resultsTabLabel];
+		
+	[queryExec hasResults] ? [self showResults: nil] : [self showMessages:nil];
 }
 
 -(void) bindResult{		
-	[self setWindowTitle];
+	[self setResultsTabLabel];
 	[self enableButtons];         
 	[self showMessages];
 	[self removeAllColumns];							
 	[self addColumns];							
-	[tableView reloadData];	      	
+	[tableView reloadData];	      			       
+	[[tabView selectedTabViewItem] setLabel:[queryExec connectionName]];
 }
 
 -(void) addColumns{
@@ -270,7 +300,7 @@
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item {
-	return ![[item objectAtIndex:3 ] isEqualToString: @"0"];
+	return [[item objectAtIndex:3 ] isEqualToString: @"NULL"];
 }
 
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item {
@@ -299,17 +329,18 @@
  
 -(IBAction) explain: (id) sender{                         
 	NSArray *rowData = [self selectedSidebarItem];  
-	NSString *fullName = [rowData objectAtIndex: 5];
-	NSString *objectType = [rowData objectAtIndex: 6];
+	NSString *databaseName = [rowData objectAtIndex: 4];
+	NSString *fullName = [rowData objectAtIndex: 3];
+	NSString *objectType = [rowData objectAtIndex: 5];
 	NSLog(@"class of objectType is: %@", [objectType class]);
 	if (![objectType isEqualToString: @"NULL"]){
-		if ([objectType isEqualToString: @"U"]){
+		if ([objectType isEqualToString: @"tables"]){
 			[self newQuery: nil];
-			[queryText setString: [NSString stringWithFormat: @"exec sp_help '%@'", fullName]];
+			[queryText setString: [NSString stringWithFormat: @"use %@\nexec sp_help '%@'", databaseName, fullName]];
 			[self executeQuery: nil];
 			[self nextResult: nil];
 		}else{
-			if ([sidebarQueryExec execute: [NSString stringWithFormat: @"exec sp_helpText '%@'", fullName]]){
+			if ([sidebarQueryExec execute: [NSString stringWithFormat: @"use %@\nexec sp_helpText '%@'", databaseName, fullName]]){
 				[self newQuery: nil]; 
 				[queryText setString: [sidebarQueryExec resultAsString]];
 			}

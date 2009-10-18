@@ -1,0 +1,50 @@
+begin try
+	drop table #tmpObjects
+end try
+begin catch
+end catch 
+
+--select * from master.sys.databases where state = 0
+
+create table #tmpObjects (database_name varchar(255), schema_name varchar(255), object_name varchar(255), type varchar(2))
+declare @sql nvarchar(4000)
+declare @database_id int, @database_name varchar(255)
+set @database_id = 0
+
+
+while @database_id is not null 
+begin
+	select top 1 
+		@database_id = database_id,
+		@database_name = name
+	from master.sys.databases 
+	where database_id > @database_id and [state] = 0
+	order by database_id
+
+	if @@rowcount > 0
+	begin 
+		set @sql = replace('
+		insert into #tmpObjects (database_name , schema_name, object_name, type)
+		select 
+			''pubs'' database_name,
+			schemas.name schema_name,
+			objects.name object_name,
+			objects.type
+		from pubs.sys.objects 
+			inner join pubs.sys.schemas on schemas.schema_id = objects.schema_id
+		where 
+			type in (''U'', ''V'', ''P'', ''TF'', ''IF'', ''FN'') 
+			and not (type = ''P''	and objects.name like ''dt_%'') --hide ms source safe procedures
+		', 'pubs', @database_name)
+
+		exec sp_executesql @sql
+		print @sql
+	end
+	else
+		select @database_id = null
+	
+end
+
+select * from #tmpObjects order by database_name, schema_name
+
+drop table #tmpObjects
