@@ -39,10 +39,17 @@
 	IBOutlet NSTabView *tabViewResults;
 	IBOutlet PSMTabBarControl *tabBarResults;
 	
-	int queryCounter;	
+	int queryCounter;	       
+	
+	int shouldTerminate;
 }
 
 @property (assign) IBOutlet NSWindow *window;                                                  
+
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender;
+-(void) applicationShouldTerminateAlertEnded:(NSAlert *) alert code:(int) choice context:(void *) v;
+-(BOOL) hasEditedQueries;
+
 
 //textView delegates
 - (void)textDidChange:(NSNotification *)aNotification;

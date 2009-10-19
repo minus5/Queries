@@ -25,6 +25,40 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	[self connectionSettings: nil];       
+}      
+             
+-(void) applicationShouldTerminateAlertEnded:(NSAlert *) alert code:(int) choice context:(void *) v{
+	if (choice == NSAlertAlternateReturn){   
+		[NSApp replyToApplicationShouldTerminate: NSTerminateCancel];
+	}else{
+		[NSApp replyToApplicationShouldTerminate: NSTerminateNow];
+	}			
+}                         
+
+-(BOOL) hasEditedQueries{
+	for(id item in [tabView tabViewItems]){
+		if ([[item identifier] isEdited])
+			return TRUE;
+	}
+	return FALSE;
+}
+
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender{  	
+	if ([self hasEditedQueries]){
+		NSAlert *alert = [NSAlert alertWithMessageText: @"You have unsaved queries. Quit anyway?"
+			defaultButton: @"Quit"
+			alternateButton: @"Don't Quit"
+      otherButton: nil								
+      informativeTextWithFormat: @"Your changes will be lost if you don't save them."];
+			
+		[alert beginSheetModalForWindow: window
+			modalDelegate :self
+			didEndSelector: @selector(applicationShouldTerminateAlertEnded:code:context:)
+			contextInfo: NULL ];
+			
+		return NSTerminateLater;				  
+	}	
+	return NSTerminateNow;
 }
 
 -(IBAction) connectionSettings: (id) sender{
@@ -133,7 +167,7 @@
 		NSString *message = [NSString stringWithFormat: @"Do you want to save the changes you made in document '%@'?", [queryExec connectionName] ];
 		NSAlert *alert = [NSAlert alertWithMessageText: message
 			defaultButton: @"Save"
-			alternateButton: @"Dont't Save"
+			alternateButton: @"Don't Save"
 			otherButton: @"Cancel"
       informativeTextWithFormat: @"Your changes will be lost if you don't save them."];
 			
