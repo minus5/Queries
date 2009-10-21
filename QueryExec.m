@@ -289,14 +289,15 @@ struct COL
 		currentResultIndex = 0;
 		
 		if (dbproc == nil){ 
-			[self logMessage: @"Reconnecting..."];
+			NSLog(@"Reconnecting...");
 			[self login];
 		}		
 		
 		dbsettime(30);			  
 		NSArray *queries = [[self queryFromQueryTextAndSelection] componentsSeparatedByString: @"GO"];
 		for(id query in queries){
-			[self executeQuery: query];		
+			NSLog(@"executing query: %@", query);
+			[self executeQuery: query];				
 			[self readResults];
 		}
 		

@@ -3,6 +3,10 @@
 #import <QueryExec.h>
 #import <PSMTabBarControl/PSMTabBarControl.h>  
 
+#import "NoodleLineNumberView.h"
+#import "NoodleLineNumberMarker.h"
+#import "MarkerLineNumberView.h"
+
 @class NoodleLineNumberView;
 
 @interface CocoaQueryAnalyzerAppDelegate : NSObject <NSApplicationDelegate> {
@@ -39,9 +43,20 @@
 	IBOutlet NSTabView *tabViewResults;
 	IBOutlet PSMTabBarControl *tabBarResults;
 	
-	int queryCounter;	       
-	
+	int queryCounter;	       	
 	int shouldTerminate;
+	
+	
+	//syntax coloring internals
+	IBOutlet NSTextField*			syntaxColoringStatus;									// Status display for things like syntax coloring or background syntax checks.			
+	NSTextView*								syntaxColoringTextView;	
+	BOOL											syntaxColoringAuto;										// Automatically refresh syntax coloring when text is changed?
+	BOOL											syntaxColoringMaintainIndentation;	  // Keep new lines indented at same depth as their predecessor?
+	BOOL											syntaxColoringBusy;										// Set while recolorRange is busy, so we don't recursively call recolorRange.
+	NSRange										syntaxColoringAffectedCharRange;
+	NSString*									syntaxColoringReplacementString;	
+	NSUndoManager							*syntaxColoringUndoManger;
+	NSDictionary							*syntaxColoringDictionary;
 }
 
 @property (assign) IBOutlet NSWindow *window;                                                  

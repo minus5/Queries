@@ -2,23 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>currentDocument</key>
-	<string>CocoaQueryAnalyzerAppDelegate.m</string>
 	<key>documents</key>
 	<array>
 		<dict>
 			<key>filename</key>
 			<string>CocoaQueryAnalyzerAppDelegate.h</string>
 			<key>lastUsed</key>
-			<date>2009-10-18T16:04:24Z</date>
+			<date>2009-10-19T07:18:02Z</date>
+			<key>selected</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>CocoaQueryAnalyzerAppDelegate.m</string>
 			<key>lastUsed</key>
-			<date>2009-10-18T16:04:24Z</date>
-			<key>selected</key>
-			<true/>
+			<date>2009-10-19T07:18:01Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -36,99 +34,19 @@
 			<key>filename</key>
 			<string>QueryExec.h</string>
 			<key>lastUsed</key>
-			<date>2009-10-18T11:11:26Z</date>
+			<date>2009-10-19T07:18:02Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>QueryExec.m</string>
 			<key>lastUsed</key>
-			<date>2009-10-18T15:39:29Z</date>
+			<date>2009-10-19T07:18:02Z</date>
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
 	<integer>294</integer>
 	<key>metaData</key>
-	<dict>
-		<key>CocoaQueryAnalyzerAppDelegate.h</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>100</integer>
-				<key>line</key>
-				<integer>49</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>CocoaQueryAnalyzerAppDelegate.m</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>25</integer>
-				<key>line</key>
-				<integer>169</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>137</integer>
-		</dict>
-		<key>QueryExec.h</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>0</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>QueryExec.m</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>2</integer>
-				<key>line</key>
-				<integer>50</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>1</integer>
-				<key>line</key>
-				<integer>47</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>2</integer>
-				<key>line</key>
-				<integer>50</integer>
-			</dict>
-		</dict>
-	</dict>
-	<key>openDocuments</key>
-	<array>
-		<string>QueryExec.m</string>
-		<string>QueryExec.h</string>
-		<string>CocoaQueryAnalyzerAppDelegate.m</string>
-		<string>CocoaQueryAnalyzerAppDelegate.h</string>
-	</array>
+	<dict/>
 	<key>showFileHierarchyDrawer</key>
 	<false/>
 	<key>showFileHierarchyPanel</key>

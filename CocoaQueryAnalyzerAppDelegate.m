@@ -1,9 +1,5 @@
 #import "CocoaQueryAnalyzerAppDelegate.h"
-
-#import "NoodleLineNumberView.h"
-#import "NoodleLineNumberMarker.h"
-#import "MarkerLineNumberView.h"
-
+#import <AppDelegate+SyntaxHighlight.h>
 
 @implementation CocoaQueryAnalyzerAppDelegate
 
@@ -21,6 +17,9 @@
   [queryText setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];      
 
 	[logTextView setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];      	 
+		
+	syntaxColoringTextView = queryText;	
+	[self syntaxColoringInit];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {

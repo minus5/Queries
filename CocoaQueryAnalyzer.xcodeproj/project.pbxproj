@@ -10,6 +10,10 @@
 		183BEF8A108B5883001977ED /* MarkerLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BEF85108B5883001977ED /* MarkerLineNumberView.m */; };
 		183BEF8B108B5883001977ED /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BEF87108B5883001977ED /* NoodleLineNumberMarker.m */; };
 		183BEF8C108B5883001977ED /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BEF89108B5883001977ED /* NoodleLineNumberView.m */; };
+		1866A658108EF1D400548865 /* AppDelegate+SyntaxHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 1866A653108EF1D400548865 /* AppDelegate+SyntaxHighlight.m */; };
+		1866A659108EF1D400548865 /* NSArray+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 1866A655108EF1D400548865 /* NSArray+Color.m */; };
+		1866A65A108EF1D400548865 /* NSScanner+SkipUpToCharset.m in Sources */ = {isa = PBXBuildFile; fileRef = 1866A657108EF1D400548865 /* NSScanner+SkipUpToCharset.m */; };
+		1866A660108EF2E200548865 /* TSQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1866A65F108EF2E200548865 /* TSQL.plist */; };
 		189E6FB6108A626800851992 /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189E6FB5108A626800851992 /* PSMTabBarControl.framework */; };
 		189E6FC1108A628000851992 /* PSMTabBarControl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 189E6FB5108A626800851992 /* PSMTabBarControl.framework */; };
 		18AAFAAF1067A6C9001B5362 /* ColumnMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AAFAAE1067A6C9001B5362 /* ColumnMetadata.m */; };
@@ -50,6 +54,13 @@
 		183BEF87108B5883001977ED /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberMarker.m; path = "lib/Line View Test/NoodleLineNumberMarker.m"; sourceTree = "<group>"; };
 		183BEF88108B5883001977ED /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberView.h; path = "lib/Line View Test/NoodleLineNumberView.h"; sourceTree = "<group>"; };
 		183BEF89108B5883001977ED /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberView.m; path = "lib/Line View Test/NoodleLineNumberView.m"; sourceTree = "<group>"; };
+		1866A652108EF1D400548865 /* AppDelegate+SyntaxHighlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+SyntaxHighlight.h"; path = "SyntaxHighlight/AppDelegate+SyntaxHighlight.h"; sourceTree = "<group>"; };
+		1866A653108EF1D400548865 /* AppDelegate+SyntaxHighlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+SyntaxHighlight.m"; path = "SyntaxHighlight/AppDelegate+SyntaxHighlight.m"; sourceTree = "<group>"; };
+		1866A654108EF1D400548865 /* NSArray+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Color.h"; path = "SyntaxHighlight/NSArray+Color.h"; sourceTree = "<group>"; };
+		1866A655108EF1D400548865 /* NSArray+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Color.m"; path = "SyntaxHighlight/NSArray+Color.m"; sourceTree = "<group>"; };
+		1866A656108EF1D400548865 /* NSScanner+SkipUpToCharset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSScanner+SkipUpToCharset.h"; path = "SyntaxHighlight/NSScanner+SkipUpToCharset.h"; sourceTree = "<group>"; };
+		1866A657108EF1D400548865 /* NSScanner+SkipUpToCharset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSScanner+SkipUpToCharset.m"; path = "SyntaxHighlight/NSScanner+SkipUpToCharset.m"; sourceTree = "<group>"; };
+		1866A65F108EF2E200548865 /* TSQL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TSQL.plist; path = SyntaxHighlight/TSQL.plist; sourceTree = "<group>"; };
 		189E6FB5108A626800851992 /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = lib/maccode/Utilities/PSMTabBarControl/build/Release/PSMTabBarControl.framework; sourceTree = "<group>"; };
 		18AAFAAD1067A6C9001B5362 /* ColumnMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnMetadata.h; sourceTree = "<group>"; };
 		18AAFAAE1067A6C9001B5362 /* ColumnMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnMetadata.m; sourceTree = "<group>"; };
@@ -97,6 +108,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1866A60F108EED9600548865 /* SyntaxHighlight */,
 				183BEEE9108B2923001977ED /* LineNumberView */,
 				256AC3D80F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* CocoaQueryAnalyzerAppDelegate.m */,
@@ -142,6 +154,19 @@
 			name = LineNumberView;
 			sourceTree = "<group>";
 		};
+		1866A60F108EED9600548865 /* SyntaxHighlight */ = {
+			isa = PBXGroup;
+			children = (
+				1866A652108EF1D400548865 /* AppDelegate+SyntaxHighlight.h */,
+				1866A653108EF1D400548865 /* AppDelegate+SyntaxHighlight.m */,
+				1866A654108EF1D400548865 /* NSArray+Color.h */,
+				1866A655108EF1D400548865 /* NSArray+Color.m */,
+				1866A656108EF1D400548865 /* NSScanner+SkipUpToCharset.h */,
+				1866A657108EF1D400548865 /* NSScanner+SkipUpToCharset.m */,
+			);
+			name = SyntaxHighlight;
+			sourceTree = "<group>";
+		};
 		18FABD09106DF8A8008BD369 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +210,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1866A65F108EF2E200548865 /* TSQL.plist */,
 				8D1107310486CEB800E47090 /* CocoaQueryAnalyzer-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -277,6 +303,7 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				1866A660108EF2E200548865 /* TSQL.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +347,9 @@
 				183BEF8A108B5883001977ED /* MarkerLineNumberView.m in Sources */,
 				183BEF8B108B5883001977ED /* NoodleLineNumberMarker.m in Sources */,
 				183BEF8C108B5883001977ED /* NoodleLineNumberView.m in Sources */,
+				1866A658108EF1D400548865 /* AppDelegate+SyntaxHighlight.m in Sources */,
+				1866A659108EF1D400548865 /* NSArray+Color.m in Sources */,
+				1866A65A108EF1D400548865 /* NSScanner+SkipUpToCharset.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
