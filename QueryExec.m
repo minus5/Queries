@@ -27,13 +27,13 @@ int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char
 	[message appendFormat:@"\n%s\n", msgtext];
 	NSLog(@"%@", message);
 		
-	if (severity > 10) {						
+	// if (severity > 10) {						
+	// 	[active logMessage:message];
+	// 	[NSException raise:@"Exception" format: @"error: severity %d\n", severity];
+	// }                           
+	// else{
 		[active logMessage:message];
-		[NSException raise:@"Exception" format: @"error: severity %d\n", severity];
-	}                           
-	else{
-		[active logMessage:message];
-	}
+	// }
 	
 	return 0;							
 }

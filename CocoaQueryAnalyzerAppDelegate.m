@@ -130,6 +130,7 @@
 	[self saveCurrentQueryTextAndSelection];
 	queryExec = new;
 	[queryText setString: [queryExec queryText]];
+	[self recolorCompleteFile: nil];
 	[self bindResult];	
 }
 
@@ -197,6 +198,10 @@
 			[NSApp endSheet:connectionSettingsWindow];
 			[connectionSettingsWindow orderOut:sender];						    			
 		}
+}                   
+
+-(IBAction) reloadSidebar: (id) sender{
+	[self fillSidebar];
 }
 
 -(void) fillSidebar{         

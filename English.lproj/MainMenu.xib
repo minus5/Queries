@@ -12,8 +12,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="657"/>
 			<integer value="371"/>
+			<integer value="657"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -360,6 +360,15 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
+								<object class="NSMenuItem" id="1018941851">
+									<reference key="NSMenu" ref="216091942"/>
+									<string key="NSTitle">Reload Objects</string>
+									<string key="NSKeyEquiv">R</string>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
 								<object class="NSMenuItem" id="838565833">
 									<reference key="NSMenu" ref="216091942"/>
 									<bool key="NSIsDisabled">YES</bool>
@@ -558,6 +567,34 @@
 									<reference key="NSMenu" ref="789758025"/>
 									<string key="NSTitle">Select All</string>
 									<string key="NSKeyEquiv">a</string>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
+								<object class="NSMenuItem" id="268220888">
+									<reference key="NSMenu" ref="789758025"/>
+									<bool key="NSIsDisabled">YES</bool>
+									<bool key="NSIsSeparator">YES</bool>
+									<string key="NSTitle"/>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
+								<object class="NSMenuItem" id="425453107">
+									<reference key="NSMenu" ref="789758025"/>
+									<string key="NSTitle">Shift Left</string>
+									<string key="NSKeyEquiv">[</string>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
+								<object class="NSMenuItem" id="355029542">
+									<reference key="NSMenu" ref="789758025"/>
+									<string key="NSTitle">Shift Right</string>
+									<string key="NSKeyEquiv">]</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
@@ -2000,7 +2037,7 @@
 																					<string>public.url</string>
 																				</object>
 																			</object>
-																			<string key="NSFrameSize">{10, 14}</string>
+																			<string key="NSFrameSize">{0, 0}</string>
 																			<reference key="NSSuperview" ref="921476958"/>
 																			<int key="NSViewLayerContentsRedrawPolicy">2</int>
 																			<object class="NSTextContainer" key="NSTextContainer" id="1057697555">
@@ -2019,7 +2056,7 @@
 																					<nil key="NSDelegate"/>
 																				</object>
 																				<reference key="NSTextView" ref="816777249"/>
-																				<double key="NSWidth">10</double>
+																				<double key="NSWidth">0.0</double>
 																				<int key="NSTCFlags">1</int>
 																			</object>
 																			<object class="NSTextViewSharedData" key="NSSharedData">
@@ -2076,7 +2113,6 @@
 																			</object>
 																			<int key="NSTVFlags">7</int>
 																			<string key="NSMaxSize">{1893, 1e+07}</string>
-																			<string key="NSMinize">{0, 0}</string>
 																			<nil key="NSDelegate"/>
 																		</object>
 																	</object>
@@ -3810,6 +3846,30 @@
 					</object>
 					<int key="connectionID">807</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">indentSelection:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="355029542"/>
+					</object>
+					<int key="connectionID">816</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">unindentSelection:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="425453107"/>
+					</object>
+					<int key="connectionID">817</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">reloadSidebar:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="1018941851"/>
+					</object>
+					<int key="connectionID">819</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -3998,6 +4058,9 @@
 							<reference ref="507821607"/>
 							<reference ref="288088188"/>
 							<reference ref="82994268"/>
+							<reference ref="268220888"/>
+							<reference ref="425453107"/>
+							<reference ref="355029542"/>
 						</object>
 						<reference key="parent" ref="952259628"/>
 					</object>
@@ -4917,6 +4980,7 @@
 							<reference ref="40691033"/>
 							<reference ref="1070089164"/>
 							<reference ref="312533113"/>
+							<reference ref="1018941851"/>
 						</object>
 						<reference key="parent" ref="94477040"/>
 					</object>
@@ -5532,6 +5596,26 @@
 						<reference key="object" ref="409871654"/>
 						<reference key="parent" ref="423448847"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">811</int>
+						<reference key="object" ref="268220888"/>
+						<reference key="parent" ref="789758025"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">812</int>
+						<reference key="object" ref="425453107"/>
+						<reference key="parent" ref="789758025"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">813</int>
+						<reference key="object" ref="355029542"/>
+						<reference key="parent" ref="789758025"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">818</int>
+						<reference key="object" ref="1018941851"/>
+						<reference key="parent" ref="216091942"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -5899,6 +5983,10 @@
 					<string>81.IBPluginDependency</string>
 					<string>81.ImportedFromIB2</string>
 					<string>81.editorWindowContentRectSynchronizationRect</string>
+					<string>811.IBPluginDependency</string>
+					<string>812.IBPluginDependency</string>
+					<string>813.IBPluginDependency</string>
+					<string>818.IBPluginDependency</string>
 					<string>83.IBPluginDependency</string>
 					<string>83.ImportedFromIB2</string>
 					<string>92.IBPluginDependency</string>
@@ -6281,6 +6369,10 @@
 					<integer value="1"/>
 					<string>{{145, 474}, {199, 203}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
@@ -6302,7 +6394,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">810</int>
+			<int key="maxID">819</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -6327,12 +6419,14 @@
 							<string>performClose:</string>
 							<string>previousQuery:</string>
 							<string>previousResult:</string>
+							<string>reloadSidebar:</string>
 							<string>saveDocument:</string>
 							<string>showMessages:</string>
 							<string>showResults:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -6365,6 +6459,7 @@
 							<string>queryText</string>
 							<string>queryTextScrollView</string>
 							<string>serverNameTextField</string>
+							<string>syntaxColoringStatus</string>
 							<string>tabBarResults</string>
 							<string>tabView</string>
 							<string>tabViewResults</string>
@@ -6384,6 +6479,7 @@
 							<string>NSTextView</string>
 							<string>NSScrollView</string>
 							<string>NSTextField</string>
+							<string>NSTextField</string>
 							<string>PSMTabBarControl</string>
 							<string>NSTabView</string>
 							<string>NSTabView</string>
@@ -6395,6 +6491,28 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">CocoaQueryAnalyzerAppDelegate.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">CocoaQueryAnalyzerAppDelegate</string>
+					<object class="NSMutableDictionary" key="actions">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>indentSelection:</string>
+							<string>recolorCompleteFile:</string>
+							<string>unindentSelection:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">SyntaxHighlight/AppDelegate+SyntaxHighlight.h</string>
 					</object>
 				</object>
 			</object>

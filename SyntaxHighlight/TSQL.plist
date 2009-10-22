@@ -7,7 +7,7 @@
 	<array>
 
 	<!-- This is our tag configuration -->
-
+	<!--
 		<dict>
 			<key>Color</key>
 			<array>
@@ -26,16 +26,31 @@
 			<key>Type</key>
 			<string>Tag</string>
 		</dict>
-
+	-->
 	<!-- This is our quotes configuration -->
 
 		<dict>
 			<key>Color</key>
+			<!--
 			<array>
             <real>0.349020</real>
             <real>0.521569</real>
             <real>0.784314</real>
 			</array>
+						
+			<array>
+            <real>1</real>
+            <real>0</real>
+            <real>0</real>
+			</array>
+			-->
+			<array>
+            <real>0.894118</real>
+            <real>0.015686</real>
+            <real>0.015686</real>
+			</array>
+			
+
 			<key>Start</key>
 			<string>'</string>
 			<key>End</key>
@@ -271,6 +286,96 @@
 			<key>Type</key>
 			<string>Keywords</string>
 		</dict>
+
+	<dict>
+			<key>Charset</key>
+			<string>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@_1234567890</string>
+			<key>Color</key>
+			<array>
+            <real>1</real>
+            <real>0</real>
+            <real>1</real>
+			</array>
+			<key>Keywords</key>
+			<array>
+
+
+<string>@@char_convert</string>
+<string>@@client_csname</string>
+<string>@@client_csid</string>
+<string>@@connections</string>
+<string>@@cpu_busy</string>
+<string>@@error</string>
+<string>@@identity</string>
+<string>@@idle</string>
+<string>@@io_busy</string>
+<string>@@isolation</string>
+<string>@@langid</string>
+<string>@@language</string>
+<string>@@maxcharlen</string>
+<string>@@max_connections</string>
+<string>@@ncharsize</string>
+<string>@@nestlevel</string>
+<string>@@pack_received</string>
+<string>@@pack_sent</string>
+<string>@@packet_errors</string>
+<string>@@procid</string>
+<string>@@rowcount</string>
+<string>@@servername</string>
+<string>@@spid</string>
+<string>@@sqlstatus</string>
+<string>@@textcolid</string>
+<string>@@textdbid</string>
+<string>@@textobjid</string>
+<string>@@textptr</string>
+<string>@@textsize</string>
+<string>@@textts</string>
+<string>@@thresh_hysteresis</string>
+<string>@@timeticks</string>
+<string>@@total_errors</string>
+<string>@@total_read</string>
+<string>@@total_write</string>
+<string>@@tranchained</string>
+<string>@@trancount</string>
+<string>@@transtate</string>
+<string>@@version</string>
+
+<string>getdate</string>
+
+	</array>
+			<key>Name</key>
+			<string>GlobalVariables</string>
+			<key>Type</key>
+			<string>Keywords</string>
+		</dict>
+		
+
+<dict>
+			<key>Charset</key>
+			<string>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@_1234567890</string>
+			<key>Color</key>
+			<array>
+            <real>0.431373</real>
+            <real>0.137255</real>
+            <real>0.145098</real>
+			</array>
+			<key>Keywords</key>
+			<array>
+
+
+<string>sp_help</string>
+<string>sp_who</string>
+<string>sp_helptext</string>
+
+
+	</array>
+			<key>Name</key>
+			<string>BuildInFunctions</string>
+			<key>Type</key>
+			<string>Keywords</string>
+		</dict>
+		
+		
 
 	<!-- This is our comment configuration -->
 

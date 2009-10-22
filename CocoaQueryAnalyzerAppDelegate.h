@@ -116,4 +116,6 @@
 -(IBAction) showResults: (id) sender;
 -(IBAction) showMessages: (id) sender;	
 
+-(IBAction) reloadSidebar: (id) sender;
+
 @end
