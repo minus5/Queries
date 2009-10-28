@@ -1,7 +1,9 @@
 #import "QueryController.h"
 
 @implementation QueryController
-                   
+
+@synthesize isEdited;
+
 - (void) dealloc{    
 	[results release];
 	[messages release];
@@ -13,8 +15,17 @@
 }
 
 - (void) awakeFromNib{
-	syntaxColoringTextView = textView;
+	queryTextLineNumberView = [[MarkerLineNumberView alloc] initWithScrollView:queryTextScrollView];
+  [queryTextScrollView setVerticalRulerView:queryTextLineNumberView];
+  [queryTextScrollView setHasHorizontalRuler:NO];
+  [queryTextScrollView setHasVerticalRuler:YES];
+  [queryTextScrollView setRulersVisible:YES];  
+  [queryText setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];  
+	
+	syntaxColoringTextView = queryText;
 	[self syntaxColoringInit];
+	[self showResultsCount];
+	[self setIsEdited: NO];
 }
 
 - (IBAction)resultsMessagesSegmentControlClicked:(id)sender
@@ -25,20 +36,42 @@
 - (IBAction) showResults: (id) sender{
 	[resultsTabView	selectTabViewItemAtIndex: 0];
 	[resultsMessagesSegmentedControll setSelectedSegment:0];
+  [self showResultsCount];
 }
 
 - (IBAction) showMessages: (id) sender{
 	[resultsTabView	selectTabViewItemAtIndex: 1];
 	[resultsMessagesSegmentedControll setSelectedSegment:1];
+	[self showResultsCount];
+}
+
+- (void) showResultsCount{
+	[resultsCountBox setHidden: ([results count] < 2)];	
+	if (![resultsCountBox isHidden]){
+	  [resultsCountLabel setStringValue: [NSString stringWithFormat: @"Results %d of %d", currentResultIndex + 1, [results count]]];
+	}	
+}
+
+
+- (IBAction) nextResult: (id) sender {
+	if (currentResultIndex < [results count] - 1)
+		currentResultIndex++;
+	[self reloadResults];  
+}
+
+- (IBAction) previousResult: (id) sender {
+	if(currentResultIndex > 0)
+		currentResultIndex--;
+	[self reloadResults];
 }
 
 - (NSString*) queryString{          
-	NSRange selection = [textView selectedRange]; 
-	NSString *queryText = [textView string];                
+	NSRange selection = [queryText selectedRange]; 
+	NSString *query = [queryText string];                
 	if(selection.length > 0){
-		return [queryText substringWithRange: selection];
+		return [query substringWithRange: selection];
 	}else{
-		return queryText;
+		return query;
 	}
 }    
 
@@ -51,6 +84,13 @@
 	[messages retain];
 	currentResultIndex = 0;
 	[self reloadResults];
+	[self reloadMessages];
+	if ([self hasResults])
+		[self showResults: nil];
+	else {
+		[self showMessages: nil];
+	}
+
 }                                       
 
 - (BOOL) hasResults{
@@ -94,10 +134,19 @@
 }
 
 - (void) reloadResults{
-	[self removeAllColumns];							
+ 	[self removeAllColumns];							
 	[self addColumns];							
 	[tableView reloadData];
+	[self showResultsCount];
 }
+
+-(void) reloadMessages{
+	[logTextView setString:@""];
+	for(id message in messages){			
+		[logTextView insertText: message];	
+	}   
+	[logTextView insertText: @"\n"];		
+} 
 
 - (void) addColumns{
 	NSArray *columns = [self columns];
@@ -163,5 +212,31 @@
 	return [self rowValue: rowIndex: [[aTableColumn identifier] integerValue]];
 }
 
+
+- (void) textDidChange: (NSNotification *) aNotification{
+	[self setIsEdited: TRUE];
+}
+
+- (BOOL) saveQuery{
+		
+	if (!fileName){
+		NSSavePanel *panel = [NSSavePanel savePanel];
+		[panel setRequiredFileType:@"sql"];
+		if ([panel runModal] == NSOKButton) {
+			fileName = [panel filename];	
+			[fileName retain];
+		}else{
+			return NO;
+		}			
+	}
+	
+	[[queryText string] writeToFile: fileName 
+		atomically:YES 
+		encoding:NSUTF8StringEncoding error:NULL];
+		
+	[self setIsEdited: NO];            
+	
+	return YES;
+}
 
 @end

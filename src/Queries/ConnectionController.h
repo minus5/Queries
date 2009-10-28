@@ -29,6 +29,9 @@
 - (IBAction) showResults: (id) sender;
 - (IBAction) showMessages: (id) sender;
 
+- (IBAction) nextResult: (id) sender;
+- (IBAction) previousResult: (id) sender;
+
 - (IBAction) changeConnection: (id) sender;
 - (void) didChangeConnection: (TdsConnection*) connection;
 
@@ -38,6 +41,8 @@
 -(IBAction) reloadDbObjects: (id) sender;
 
 -(IBAction) executeQuery: (id) sender;
+
+- (IBAction) saveDocument: (id) sender;
 
 @end
 

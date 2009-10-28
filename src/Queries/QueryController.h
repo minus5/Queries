@@ -1,6 +1,11 @@
 #import <Cocoa/Cocoa.h>
 #import "ColumnMetadata.h"
 
+#import "NoodleLineNumberView.h"
+#import "NoodleLineNumberMarker.h"
+#import "MarkerLineNumberView.h"
+@class NoodleLineNumberView;
+
 #define _WINDEF_
 #define TDS50 0
 #include <sqlfront.h>	
@@ -10,13 +15,22 @@
 
 	IBOutlet NSTabView *resultsTabView;
 	IBOutlet NSSegmentedControl *resultsMessagesSegmentedControll;
-	IBOutlet NSTextView	*textView;
+	IBOutlet NSTextView	*queryText;
+	IBOutlet NSTextView	*logTextView;
 	IBOutlet NSTableView *tableView;
+	IBOutlet NSBox *resultsCountBox;
+	IBOutlet NSTextField *resultsCountLabel;
+	
+	IBOutlet NSScrollView *queryTextScrollView;
+	NoodleLineNumberView	*queryTextLineNumberView;
 	
 	NSArray *results;
 	NSArray *messages;
-	int currentResultIndex;
+	int currentResultIndex;  
+	BOOL isEdited;
+	NSString *fileName;
 	
+
 	
 	////syntax highlighting internals
 	IBOutlet NSTextField*			syntaxColoringStatus;									// Status display for things like syntax coloring or background syntax checks.			
@@ -30,9 +44,15 @@
 	NSDictionary							*syntaxColoringDictionary;	
 }
 
+@property BOOL isEdited;
+
 - (IBAction) resultsMessagesSegmentControlClicked:(id)sender;
 - (IBAction) showResults: (id) sender;
 - (IBAction) showMessages: (id) sender;
+- (void) showResultsCount;
+
+- (IBAction) nextResult: (id) sender;
+- (IBAction) previousResult: (id) sender;
 
 - (NSString*) queryString;
 - (void) setResults: (NSArray*) r andMessages: (NSArray*) m;
@@ -44,12 +64,15 @@
 - (NSString*) rowValue: (int) rowIndex: (int) columnIndex;
 
 - (void) reloadResults;
+- (void) reloadMessages;
 - (void) addColumns;
 - (void) addColumn:(ColumnMetadata*) meta;
 - (void) removeAllColumns;
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView;
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex;
+
+- (BOOL) saveQuery; 
 
 @end
 

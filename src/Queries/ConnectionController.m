@@ -16,7 +16,7 @@
 	if (newQuerycontroller)
 	{		
 		NSTabViewItem *newTabViewItem = [[NSTabViewItem alloc] initWithIdentifier: newQuerycontroller];
-		[newTabViewItem setLabel: [NSString stringWithFormat:@"TabItem: %d", ++queryTabsCounter]];
+		[newTabViewItem setLabel: [NSString stringWithFormat:@"Query: %d", ++queryTabsCounter]];
 		[newTabViewItem setView: [newQuerycontroller view]];	
 		[queryTabs addTabViewItem:newTabViewItem];
 		[queryTabs selectTabViewItem:newTabViewItem];
@@ -64,6 +64,7 @@
 - (void) didChangeConnection: (TdsConnection*) connection{
 	currentConnection = connection;
 	[self dbObjectsFillSidebar];
+	[[self window] setTitle: [currentConnection connectionName]];
 	NSLog(@"didChangeConnection");
 }
 
@@ -75,6 +76,15 @@
 	[[self currentQueryController] unIndentSelection: sender];
 }
 
+- (IBAction) nextResult: (id) sender{
+	[[self currentQueryController] nextResult:sender];
+}
+
+- (IBAction) previousResult: (id) sender{
+	[[self currentQueryController] previousResult:sender];
+}
+
+
 -(IBAction) reloadDbObjects: (id) sender{
 	[self dbObjectsFillSidebar];
 }                                        
@@ -83,6 +93,11 @@
 	NSString *queryString = [[self currentQueryController] queryString];
 	[currentConnection execute: queryString];   
 	[[self currentQueryController] setResults: [currentConnection results] andMessages: [currentConnection messages]];
+}     
+
+
+- (IBAction) saveDocument: (id) sender {
+	[[self currentQueryController] saveQuery];
 }
 
                           
