@@ -97,9 +97,9 @@
 	};
 	1870C954109857FC006AC809 /* ConnectionController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {964, 832}}";
-			sepNavSelRange = "{140, 0}";
-			sepNavVisRange = "{0, 1441}";
+			sepNavIntBoundsRect = "{{0, 0}, {964, 858}}";
+			sepNavSelRange = "{727, 0}";
+			sepNavVisRange = "{101, 1457}";
 		};
 	};
 	1870C9771098595A006AC809 /* PlistBookmark */ = {
@@ -524,6 +524,16 @@
 		vrLen = 1441;
 		vrLoc = 0;
 	};
+	1870CA4B10986328006AC809 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C954109857FC006AC809 /* ConnectionController.m */;
+		name = "ConnectionController.m: 26";
+		rLen = 0;
+		rLoc = 727;
+		rType = 0;
+		vrLen = 1457;
+		vrLoc = 101;
+	};
 	256AC3D80F4B6AC300CF3369 /* QueriesAppDelegate.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {678, 647}}";
@@ -643,6 +653,7 @@
 			1870CA3510986044006AC809 /* PBXTextBookmark */ = 1870CA3510986044006AC809 /* PBXTextBookmark */;
 			1870CA3610986044006AC809 /* PBXTextBookmark */ = 1870CA3610986044006AC809 /* PBXTextBookmark */;
 			1870CA3710986044006AC809 /* PBXTextBookmark */ = 1870CA3710986044006AC809 /* PBXTextBookmark */;
+			1870CA4B10986328006AC809 /* PBXTextBookmark */ = 1870CA4B10986328006AC809 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 184873B710983BA600A15FC7 /* Source Control */;
 		userBuildSettings = {
