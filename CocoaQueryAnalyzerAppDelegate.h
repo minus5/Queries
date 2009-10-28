@@ -30,7 +30,7 @@
 	IBOutlet NSMenuItem *nextResultMenu;
 	IBOutlet NSMenuItem *previousResultMenu;
 		
-	IBOutlet NSWindow *connectionSettingsWindow;
+	IBOutlet NSMenuItem *connectionSettingsWindow;
 	
 	QueryExec *queryExec;
 	QueryExec *sidebarQueryExec;

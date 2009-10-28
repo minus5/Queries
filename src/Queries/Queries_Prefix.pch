@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Queries' target in the 'Queries' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
