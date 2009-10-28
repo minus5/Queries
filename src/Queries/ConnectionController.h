@@ -1,16 +1,21 @@
 #import <Cocoa/Cocoa.h>
 #import "QueryController.h"
 #import "CredentialsController.h"
-#import "QueryController+SyntaxHighlight.h"
+#import "TdsConnection.h"
 
 @class CredentialsController;
 
 @interface ConnectionController : NSWindowController {
 	
 	IBOutlet NSTabView *queryTabs;    		
+	IBOutlet NSOutlineView *outlineView;
+	
 	CredentialsController *credentials;	
 	int queryTabsCounter;
-
+	TdsConnection *currentConnection;
+	
+	NSArray *dbObjectsResults;	
+	NSMutableDictionary *dbObjectsCache;
 }
 
 - (QueryController*) currentQueryController;
@@ -25,9 +30,19 @@
 - (IBAction) showMessages: (id) sender;
 
 - (IBAction) changeConnection: (id) sender;
-- (void) didChangeConnection: (id) newConnection;
+- (void) didChangeConnection: (TdsConnection*) connection;
 
 -(IBAction) indentSelection: (id)sender;
 -(IBAction) unIndentSelection: (id)sender;
+
+-(IBAction) reloadDbObjects: (id) sender;
+
+-(IBAction) executeQuery: (id) sender;
+
+@end
+
+@interface ConnectionController (DatabaseObjects)
+
+-(void) dbObjectsFillSidebar;
 
 @end

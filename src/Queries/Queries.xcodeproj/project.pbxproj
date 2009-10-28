@@ -21,6 +21,10 @@
 		1870CA97109864E2006AC809 /* NSArray+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CA92109864E2006AC809 /* NSArray+Color.m */; };
 		1870CA98109864E2006AC809 /* NSScanner+SkipUpToCharset.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CA94109864E2006AC809 /* NSScanner+SkipUpToCharset.m */; };
 		1870CA99109864E2006AC809 /* TSQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1870CA95109864E2006AC809 /* TSQL.plist */; };
+		1870CB9610987B47006AC809 /* TdsConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CB9510987B47006AC809 /* TdsConnection.m */; };
+		1870CBA710987C0B006AC809 /* ColumnMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CBA510987C0B006AC809 /* ColumnMetadata.m */; };
+		1870CBAB10987C38006AC809 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1870CBAA10987C38006AC809 /* libsybdb.a */; };
+		1870CC0710988A1B006AC809 /* ConnectionController+DatabaseObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CC0610988A1B006AC809 /* ConnectionController+DatabaseObjects.m */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* QueriesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* QueriesAppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -57,13 +61,18 @@
 		1870CA0010985E00006AC809 /* CredentialsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CredentialsView.xib; sourceTree = "<group>"; };
 		1870CA0210985E19006AC809 /* CredentialsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsController.m; sourceTree = "<group>"; };
 		1870CA0310985E19006AC809 /* CredentialsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialsController.h; sourceTree = "<group>"; };
-		1870CA8F109864E2006AC809 /* QueryController+SyntaxHighlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QueryController+SyntaxHighlight.h"; sourceTree = "<group>"; };
 		1870CA90109864E2006AC809 /* QueryController+SyntaxHighlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QueryController+SyntaxHighlight.m"; sourceTree = "<group>"; };
 		1870CA91109864E2006AC809 /* NSArray+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Color.h"; sourceTree = "<group>"; };
 		1870CA92109864E2006AC809 /* NSArray+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Color.m"; sourceTree = "<group>"; };
 		1870CA93109864E2006AC809 /* NSScanner+SkipUpToCharset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScanner+SkipUpToCharset.h"; sourceTree = "<group>"; };
 		1870CA94109864E2006AC809 /* NSScanner+SkipUpToCharset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScanner+SkipUpToCharset.m"; sourceTree = "<group>"; };
 		1870CA95109864E2006AC809 /* TSQL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TSQL.plist; path = SyntaxHighlight/TSQL.plist; sourceTree = "<group>"; };
+		1870CB9410987B47006AC809 /* TdsConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TdsConnection.h; sourceTree = "<group>"; };
+		1870CB9510987B47006AC809 /* TdsConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TdsConnection.m; sourceTree = "<group>"; };
+		1870CBA510987C0B006AC809 /* ColumnMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnMetadata.m; sourceTree = "<group>"; };
+		1870CBA610987C0B006AC809 /* ColumnMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnMetadata.h; sourceTree = "<group>"; };
+		1870CBAA10987C38006AC809 /* libsybdb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libsybdb.a; path = ../../lib/libsybdb.a; sourceTree = "<group>"; };
+		1870CC0610988A1B006AC809 /* ConnectionController+DatabaseObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ConnectionController+DatabaseObjects.m"; sourceTree = "<group>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		256AC3D80F4B6AC300CF3369 /* QueriesAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueriesAppDelegate.h; sourceTree = "<group>"; };
 		256AC3D90F4B6AC300CF3369 /* QueriesAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueriesAppDelegate.m; sourceTree = "<group>"; };
@@ -83,6 +92,7 @@
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				1870C96010985911006AC809 /* PSMTabBarControl.framework in Frameworks */,
 				1870C9A2109859A8006AC809 /* BWToolkitFramework.framework in Frameworks */,
+				1870CBAB10987C38006AC809 /* libsybdb.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,14 +103,19 @@
 			isa = PBXGroup;
 			children = (
 				1870CA8E109864E2006AC809 /* SyntaxHighlight */,
+				1870CBA510987C0B006AC809 /* ColumnMetadata.m */,
+				1870CBA610987C0B006AC809 /* ColumnMetadata.h */,
 				1870CA0210985E19006AC809 /* CredentialsController.m */,
 				1870CA0310985E19006AC809 /* CredentialsController.h */,
 				256AC3D80F4B6AC300CF3369 /* QueriesAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* QueriesAppDelegate.m */,
 				1870C953109857FC006AC809 /* ConnectionController.h */,
 				1870C954109857FC006AC809 /* ConnectionController.m */,
+				1870CC0610988A1B006AC809 /* ConnectionController+DatabaseObjects.m */,
 				1870C9E410985B2D006AC809 /* QueryController.h */,
 				1870C9E510985B2D006AC809 /* QueryController.m */,
+				1870CB9410987B47006AC809 /* TdsConnection.h */,
+				1870CB9510987B47006AC809 /* TdsConnection.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -108,6 +123,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1870CBAA10987C38006AC809 /* libsybdb.a */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				1870C95F10985911006AC809 /* PSMTabBarControl.framework */,
 				1870C9A1109859A8006AC809 /* BWToolkitFramework.framework */,
@@ -128,7 +144,6 @@
 		1870CA8E109864E2006AC809 /* SyntaxHighlight */ = {
 			isa = PBXGroup;
 			children = (
-				1870CA8F109864E2006AC809 /* QueryController+SyntaxHighlight.h */,
 				1870CA90109864E2006AC809 /* QueryController+SyntaxHighlight.m */,
 				1870CA91109864E2006AC809 /* NSArray+Color.h */,
 				1870CA92109864E2006AC809 /* NSArray+Color.m */,
@@ -258,6 +273,9 @@
 				1870CA96109864E2006AC809 /* QueryController+SyntaxHighlight.m in Sources */,
 				1870CA97109864E2006AC809 /* NSArray+Color.m in Sources */,
 				1870CA98109864E2006AC809 /* NSScanner+SkipUpToCharset.m in Sources */,
+				1870CB9610987B47006AC809 /* TdsConnection.m in Sources */,
+				1870CBA710987C0B006AC809 /* ColumnMetadata.m in Sources */,
+				1870CC0710988A1B006AC809 /* ConnectionController+DatabaseObjects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +319,10 @@
 				GCC_PREFIX_HEADER = Queries_Prefix.pch;
 				INFOPLIST_FILE = "Queries-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../lib\"",
+				);
 				PRODUCT_NAME = Queries;
 			};
 			name = Debug;
@@ -320,6 +342,10 @@
 				GCC_PREFIX_HEADER = Queries_Prefix.pch;
 				INFOPLIST_FILE = "Queries-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../lib\"",
+				);
 				PRODUCT_NAME = Queries;
 			};
 			name = Release;
@@ -332,6 +358,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;

@@ -36,9 +36,23 @@
 }
                                   
 - (IBAction) connect: (id)sender
-{                    	
-	[self closeSheet]; 
-	[owner didChangeConnection: nil];          
+{      
+	@try {
+		TdsConnection *newConnection = [TdsConnection alloc];
+		[newConnection initWithCredentials: [server stringValue] 
+										 databaseName: [database stringValue] 
+												 userName: [username stringValue] 
+												 password: [password stringValue] ];	
+		[newConnection login];
+		[owner didChangeConnection: newConnection];  
+		[self closeSheet];
+	}
+	@catch (NSException * e) {
+		NSLog(@"connect error: %@", e);
+	}
+	@finally {
+
+	}
 } 
 
 - (IBAction) close: (id)sender

@@ -1,7 +1,9 @@
 #import <Cocoa/Cocoa.h>
 #import "ConnectionController.h"
+#import "TdsConnection.h"
 
 @class ConnectionController;
+@class TdsConnection;
 
 @interface CredentialsController : NSWindowController {
 	

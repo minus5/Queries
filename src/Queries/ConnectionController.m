@@ -61,7 +61,9 @@
 	return [[queryTabs selectedTabViewItem] identifier];
 }
 
-- (void) didChangeConnection: (id) newConnection{
+- (void) didChangeConnection: (TdsConnection*) connection{
+	currentConnection = connection;
+	[self dbObjectsFillSidebar];
 	NSLog(@"didChangeConnection");
 }
 
@@ -72,5 +74,39 @@
 -(IBAction) unIndentSelection: (id)sender{
 	[[self currentQueryController] unIndentSelection: sender];
 }
+
+-(IBAction) reloadDbObjects: (id) sender{
+	[self dbObjectsFillSidebar];
+}                                        
+
+-(IBAction) executeQuery: (id) sender{
+	NSString *queryString = [[self currentQueryController] queryString];
+	[currentConnection execute: queryString];   
+	[[self currentQueryController] setResults: [currentConnection results] andMessages: [currentConnection messages]];
+}
+
+                          
+/*
+-(IBAction) explain: (id) sender{                         
+	NSArray *rowData = [self selectedSidebarItem];  
+	NSString *databaseName = [rowData objectAtIndex: 4];
+	NSString *fullName = [rowData objectAtIndex: 3];
+	NSString *objectType = [rowData objectAtIndex: 5];
+	NSLog(@"class of objectType is: %@", [objectType class]);
+	if (![objectType isEqualToString: @"NULL"]){
+		if ([objectType isEqualToString: @"tables"]){
+			[self newQuery: nil];
+			[queryText setString: [NSString stringWithFormat: @"use %@\nexec sp_help '%@'", databaseName, fullName]];
+			[self executeQuery: nil];
+			[self nextResult: nil];
+		}else{
+			if ([currentConnection execute: [NSString stringWithFormat: @"use %@\nexec sp_helpText '%@'", databaseName, fullName]]){
+				[self newQuery: nil]; 
+				[queryText setString: [currentConnection resultAsString]];
+			}
+		}	
+	}
+}
+ */
 
 @end

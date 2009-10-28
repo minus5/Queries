@@ -1,4 +1,7 @@
-#import "QueryController+SyntaxHighlight.h"
+#import <Cocoa/Cocoa.h>
+#import "QueryController.h"
+#import "NSArray+Color.h"
+#import "NSScanner+SkipUpToCharset.h"
 
 @implementation QueryController (SyntaxHighlight)
 
