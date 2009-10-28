@@ -1,9 +1,15 @@
 #import "QueryController.h"
+#import "QueryController+SyntaxHighlight.h"
 
 @implementation QueryController
 
 - (NSString*) nibName{
 	return @"QueryView";
+}
+
+- (void) awakeFromNib{
+	syntaxColoringTextView = textView;
+	[self syntaxColoringInit];
 }
 
 - (IBAction)resultsMessagesSegmentControlClicked:(id)sender

@@ -17,6 +17,10 @@
 		1870C9E610985B2D006AC809 /* QueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870C9E510985B2D006AC809 /* QueryController.m */; };
 		1870CA0110985E00006AC809 /* CredentialsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1870CA0010985E00006AC809 /* CredentialsView.xib */; };
 		1870CA0410985E19006AC809 /* CredentialsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CA0210985E19006AC809 /* CredentialsController.m */; };
+		1870CA96109864E2006AC809 /* QueryController+SyntaxHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CA90109864E2006AC809 /* QueryController+SyntaxHighlight.m */; };
+		1870CA97109864E2006AC809 /* NSArray+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CA92109864E2006AC809 /* NSArray+Color.m */; };
+		1870CA98109864E2006AC809 /* NSScanner+SkipUpToCharset.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CA94109864E2006AC809 /* NSScanner+SkipUpToCharset.m */; };
+		1870CA99109864E2006AC809 /* TSQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1870CA95109864E2006AC809 /* TSQL.plist */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* QueriesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* QueriesAppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -53,6 +57,13 @@
 		1870CA0010985E00006AC809 /* CredentialsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CredentialsView.xib; sourceTree = "<group>"; };
 		1870CA0210985E19006AC809 /* CredentialsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsController.m; sourceTree = "<group>"; };
 		1870CA0310985E19006AC809 /* CredentialsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialsController.h; sourceTree = "<group>"; };
+		1870CA8F109864E2006AC809 /* QueryController+SyntaxHighlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QueryController+SyntaxHighlight.h"; sourceTree = "<group>"; };
+		1870CA90109864E2006AC809 /* QueryController+SyntaxHighlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QueryController+SyntaxHighlight.m"; sourceTree = "<group>"; };
+		1870CA91109864E2006AC809 /* NSArray+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Color.h"; sourceTree = "<group>"; };
+		1870CA92109864E2006AC809 /* NSArray+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Color.m"; sourceTree = "<group>"; };
+		1870CA93109864E2006AC809 /* NSScanner+SkipUpToCharset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScanner+SkipUpToCharset.h"; sourceTree = "<group>"; };
+		1870CA94109864E2006AC809 /* NSScanner+SkipUpToCharset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScanner+SkipUpToCharset.m"; sourceTree = "<group>"; };
+		1870CA95109864E2006AC809 /* TSQL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TSQL.plist; path = SyntaxHighlight/TSQL.plist; sourceTree = "<group>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		256AC3D80F4B6AC300CF3369 /* QueriesAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueriesAppDelegate.h; sourceTree = "<group>"; };
 		256AC3D90F4B6AC300CF3369 /* QueriesAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueriesAppDelegate.m; sourceTree = "<group>"; };
@@ -81,6 +92,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1870CA8E109864E2006AC809 /* SyntaxHighlight */,
 				1870CA0210985E19006AC809 /* CredentialsController.m */,
 				1870CA0310985E19006AC809 /* CredentialsController.h */,
 				256AC3D80F4B6AC300CF3369 /* QueriesAppDelegate.h */,
@@ -111,6 +123,19 @@
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		1870CA8E109864E2006AC809 /* SyntaxHighlight */ = {
+			isa = PBXGroup;
+			children = (
+				1870CA8F109864E2006AC809 /* QueryController+SyntaxHighlight.h */,
+				1870CA90109864E2006AC809 /* QueryController+SyntaxHighlight.m */,
+				1870CA91109864E2006AC809 /* NSArray+Color.h */,
+				1870CA92109864E2006AC809 /* NSArray+Color.m */,
+				1870CA93109864E2006AC809 /* NSScanner+SkipUpToCharset.h */,
+				1870CA94109864E2006AC809 /* NSScanner+SkipUpToCharset.m */,
+			);
+			path = SyntaxHighlight;
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -145,6 +170,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1870CA95109864E2006AC809 /* TSQL.plist */,
 				1870CA0010985E00006AC809 /* CredentialsView.xib */,
 				184873BE10983E7400A15FC7 /* ConnectionView.xib */,
 				184873BF10983E7400A15FC7 /* QueryView.xib */,
@@ -213,6 +239,7 @@
 				184873C010983E7400A15FC7 /* ConnectionView.xib in Resources */,
 				184873C110983E7400A15FC7 /* QueryView.xib in Resources */,
 				1870CA0110985E00006AC809 /* CredentialsView.xib in Resources */,
+				1870CA99109864E2006AC809 /* TSQL.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +255,9 @@
 				1870C955109857FC006AC809 /* ConnectionController.m in Sources */,
 				1870C9E610985B2D006AC809 /* QueryController.m in Sources */,
 				1870CA0410985E19006AC809 /* CredentialsController.m in Sources */,
+				1870CA96109864E2006AC809 /* QueryController+SyntaxHighlight.m in Sources */,
+				1870CA97109864E2006AC809 /* NSArray+Color.m in Sources */,
+				1870CA98109864E2006AC809 /* NSScanner+SkipUpToCharset.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

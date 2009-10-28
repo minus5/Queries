@@ -42,11 +42,11 @@
 }
 
 - (IBAction) showResults: (id) sender{
-	[[[queryTabs selectedTabViewItem] identifier]	showResults: sender];
+	[[self currentQueryController]	showResults: sender];
 }
 
 - (IBAction) showMessages: (id) sender{
-	[[[queryTabs selectedTabViewItem] identifier]	showMessages: sender];					
+	[[self currentQueryController ]	showMessages: sender];					
 }
 
 - (IBAction) changeConnection: (id) sender{
@@ -57,9 +57,20 @@
 	[credentials showSheet];
 }
 
+- (QueryController*) currentQueryController{
+	return [[queryTabs selectedTabViewItem] identifier];
+}
+
 - (void) didChangeConnection: (id) newConnection{
 	NSLog(@"didChangeConnection");
 }
 
+-(IBAction) indentSelection: (id)sender{
+  [[self currentQueryController ] indentSelection: sender];
+}
+
+-(IBAction) unIndentSelection: (id)sender{
+	[[self currentQueryController] unIndentSelection: sender];
+}
 
 @end

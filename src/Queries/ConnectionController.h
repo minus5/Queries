@@ -1,6 +1,7 @@
 #import <Cocoa/Cocoa.h>
 #import "QueryController.h"
 #import "CredentialsController.h"
+#import "QueryController+SyntaxHighlight.h"
 
 @class CredentialsController;
 
@@ -11,6 +12,8 @@
 	int queryTabsCounter;
 
 }
+
+- (QueryController*) currentQueryController;
 
 - (IBAction) newTab: (id) sender;
 - (IBAction) nextTab: (id) sender;
@@ -23,5 +26,8 @@
 
 - (IBAction) changeConnection: (id) sender;
 - (void) didChangeConnection: (id) newConnection;
+
+-(IBAction) indentSelection: (id)sender;
+-(IBAction) unIndentSelection: (id)sender;
 
 @end
