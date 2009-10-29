@@ -1,13 +1,16 @@
 #import <Cocoa/Cocoa.h>
 #import "QueryController.h"
 #import "CredentialsController.h"
-#import "TdsConnection.h"
+#import "TdsConnection.h"    
+#import <PSMTabBarControl/PSMTabBarControl.h>  
 
 @class CredentialsController;
+@class QueryController;
 
 @interface ConnectionController : NSWindowController {
 	
-	IBOutlet NSTabView *queryTabs;    		
+	IBOutlet NSTabView *queryTabs; 
+	IBOutlet PSMTabBarControl *queryTabBar; 		
 	IBOutlet NSOutlineView *outlineView;
 	
 	CredentialsController *credentials;	
@@ -25,6 +28,9 @@
 - (IBAction) previousTab: (id) sender;
 
 - (BOOL) windowShouldClose: (id) sender;
+- (void) closeCurentQuery;                                                     
+- (void) shouldCloseCurrentQuery;
+-(void) closeAlertEnded:(NSAlert *) alert code:(int) choice context:(void *) v;
 
 - (IBAction) showResults: (id) sender;
 - (IBAction) showMessages: (id) sender;
@@ -43,6 +49,9 @@
 -(IBAction) executeQuery: (id) sender;
 
 - (IBAction) saveDocument: (id) sender;
+- (IBAction) openDocument: (id)sender;          
+- (int) numberOfEditedQueries;                 
+- (void) isEditedChanged: (id) sender;
 
 @end
 

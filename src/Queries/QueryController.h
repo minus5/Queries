@@ -4,7 +4,10 @@
 #import "NoodleLineNumberView.h"
 #import "NoodleLineNumberMarker.h"
 #import "MarkerLineNumberView.h"
+#import "ConnectionController.h"
+
 @class NoodleLineNumberView;
+@class ConnectionController;
 
 #define _WINDEF_
 #define TDS50 0
@@ -23,15 +26,14 @@
 	
 	IBOutlet NSScrollView *queryTextScrollView;
 	NoodleLineNumberView	*queryTextLineNumberView;
-	
+
+	ConnectionController *connection;
 	NSArray *results;
 	NSArray *messages;
 	int currentResultIndex;  
 	BOOL isEdited;
 	NSString *fileName;
-	
-
-	
+		
 	////syntax highlighting internals
 	IBOutlet NSTextField*			syntaxColoringStatus;									// Status display for things like syntax coloring or background syntax checks.			
 	NSTextView*								syntaxColoringTextView;	
@@ -45,7 +47,9 @@
 }
 
 @property BOOL isEdited;
+@property (copy) NSString *fileName;
 
+- (id) initWithConnection: (ConnectionController*) c;
 - (IBAction) resultsMessagesSegmentControlClicked:(id)sender;
 - (IBAction) showResults: (id) sender;
 - (IBAction) showMessages: (id) sender;
@@ -72,7 +76,8 @@
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView;
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex;
 
-- (BOOL) saveQuery; 
+- (BOOL) saveQuery;  
+- (void) openQuery; 
 
 @end
 
@@ -83,22 +88,15 @@
 @interface QueryController (SyntaxHighlight)
 
 -(void) syntaxColoringInit;
-
 -(IBAction) indentSelection: (id)sender;
 -(IBAction) unIndentSelection: (id)sender;
 -(IBAction)	recolorCompleteFile: (id)sender;
-
 -(void) recolorRange: (NSRange) range;
--(void)	colorOneLineComment: (NSString*) startCh inString: (NSMutableAttributedString*) s
-									withColor: (NSColor*) col andMode:(NSString*)attr;
--(void)	colorCommentsFrom: (NSString*) startCh to: (NSString*) endCh inString: (NSMutableAttributedString*) s
-								withColor: (NSColor*) col andMode:(NSString*)attr;
--(void)	colorIdentifier: (NSString*) ident inString: (NSMutableAttributedString*) s
-							withColor: (NSColor*) col andMode:(NSString*)attr charset: (NSCharacterSet*)cset;
--(void)	colorStringsFrom: (NSString*) startCh to: (NSString*) endCh inString: (NSMutableAttributedString*) s
-							 withColor: (NSColor*) col andMode:(NSString*)attr andEscapeChar: (NSString*)vStringEscapeCharacter;
--(void)	colorTagFrom: (NSString*) startCh to: (NSString*)endCh inString: (NSMutableAttributedString*) s
-					 withColor: (NSColor*) col andMode:(NSString*)attr exceptIfMode: (NSString*)ignoreAttr;
+-(void)	colorOneLineComment: (NSString*) startCh inString: (NSMutableAttributedString*) s withColor: (NSColor*) col andMode:(NSString*)attr;
+-(void)	colorCommentsFrom: (NSString*) startCh to: (NSString*) endCh inString: (NSMutableAttributedString*) s withColor: (NSColor*) col andMode:(NSString*)attr;
+-(void)	colorIdentifier: (NSString*) ident inString: (NSMutableAttributedString*) s withColor: (NSColor*) col andMode:(NSString*)attr charset: (NSCharacterSet*)cset;
+-(void)	colorStringsFrom: (NSString*) startCh to: (NSString*) endCh inString: (NSMutableAttributedString*) s withColor: (NSColor*) col andMode:(NSString*)attr andEscapeChar: (NSString*)vStringEscapeCharacter;
+-(void)	colorTagFrom: (NSString*) startCh to: (NSString*)endCh inString: (NSMutableAttributedString*) s withColor: (NSColor*) col andMode:(NSString*)attr exceptIfMode: (NSString*)ignoreAttr;
 
 -(NSDictionary*)	syntaxDefinitionDictionary; // Defaults to loading from -syntaxDefinitionFilename.
 -(NSDictionary*)	defaultTextAttributes;			// Style attributes dictionary for an NSAttributedString.

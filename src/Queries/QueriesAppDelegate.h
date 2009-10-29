@@ -2,11 +2,14 @@
 #import "ConnectionController.h"
 
 @interface QueriesAppDelegate : NSObject <NSApplicationDelegate> {
-    NSWindow *window;
+    NSWindow *window;                              
+		NSMutableArray *connections;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 
-- (IBAction) newDocument: (id) sender;
+- (IBAction) newDocument: (id) sender;             
+- (int) numberOfEditedQueries;
+- (NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication *) sender;
 
 @end

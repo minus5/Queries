@@ -8,11 +8,13 @@
 
 - (void) windowDidLoad{
 	[self newTab: nil];
-	[self changeConnection: nil]; 
+	[self changeConnection: nil];                 
+	[queryTabBar setCanCloseOnlyTab: YES];   
+	//[queryTabBar setHideForSingleTab: YES];
 }
 
 - (IBAction) newTab: (id) sender{
-	QueryController *newQuerycontroller = [[QueryController alloc] init];
+	QueryController *newQuerycontroller = [[QueryController alloc] initWithConnection: self];
 	if (newQuerycontroller)
 	{		
 		NSTabViewItem *newTabViewItem = [[NSTabViewItem alloc] initWithIdentifier: newQuerycontroller];
@@ -31,15 +33,47 @@
 	[queryTabs selectPreviousTabViewItem:sender];
 }
 
-- (BOOL) windowShouldClose: (id) sender{
-	if ([[queryTabs tabViewItems] count] > 1){
-		[queryTabs removeTabViewItem:[queryTabs selectedTabViewItem]];
-		return NO;
-	}
-	else {
-		return YES;
-	}
+- (BOOL) windowShouldClose: (id) sender{                          
+	[self shouldCloseCurrentQuery];
+	return [[queryTabs tabViewItems] count] > 0 ? NO : YES;	
+}                                                                  
+
+- (void) closeCurentQuery{
+	[queryTabs removeTabViewItem:[queryTabs selectedTabViewItem]];
+	[self isEditedChanged: nil];
 }
+
+- (void) shouldCloseCurrentQuery{
+	if (![[self currentQueryController] isEdited]){
+		[self closeCurentQuery];
+		return;                 		
+	}                         
+	
+	NSString *message = [NSString stringWithFormat: @"Do you want to save the changes you made in document?" ];
+	NSAlert *alert = [NSAlert alertWithMessageText: message
+		defaultButton: @"Save"
+		alternateButton: @"Don't Save"
+		otherButton: @"Cancel"
+     informativeTextWithFormat: @"Your changes will be lost if you don't save them."];
+
+	[alert beginSheetModalForWindow: [self window]
+		modalDelegate :self
+		didEndSelector: @selector(closeAlertEnded:code:context:)
+		contextInfo: NULL ];
+}
+
+-(void) closeAlertEnded:(NSAlert *) alert code:(int) choice context:(void *) v{
+	if (choice == NSAlertOtherReturn){
+		return;
+	}	
+	if (choice == NSAlertDefaultReturn){
+		if (![[self currentQueryController] saveQuery]){ 
+			return; 
+		}
+	}
+	[self closeCurentQuery];
+}
+
 
 - (IBAction) showResults: (id) sender{
 	[[self currentQueryController]	showResults: sender];
@@ -84,7 +118,6 @@
 	[[self currentQueryController] previousResult:sender];
 }
 
-
 -(IBAction) reloadDbObjects: (id) sender{
 	[self dbObjectsFillSidebar];
 }                                        
@@ -98,30 +131,24 @@
 
 - (IBAction) saveDocument: (id) sender {
 	[[self currentQueryController] saveQuery];
+}                          
+
+- (IBAction) openDocument:(id)sender {      
+	[[self currentQueryController] openQuery];
 }
 
-                          
-/*
--(IBAction) explain: (id) sender{                         
-	NSArray *rowData = [self selectedSidebarItem];  
-	NSString *databaseName = [rowData objectAtIndex: 4];
-	NSString *fullName = [rowData objectAtIndex: 3];
-	NSString *objectType = [rowData objectAtIndex: 5];
-	NSLog(@"class of objectType is: %@", [objectType class]);
-	if (![objectType isEqualToString: @"NULL"]){
-		if ([objectType isEqualToString: @"tables"]){
-			[self newQuery: nil];
-			[queryText setString: [NSString stringWithFormat: @"use %@\nexec sp_help '%@'", databaseName, fullName]];
-			[self executeQuery: nil];
-			[self nextResult: nil];
-		}else{
-			if ([currentConnection execute: [NSString stringWithFormat: @"use %@\nexec sp_helpText '%@'", databaseName, fullName]]){
-				[self newQuery: nil]; 
-				[queryText setString: [currentConnection resultAsString]];
-			}
-		}	
-	}
+- (int) numberOfEditedQueries {
+	int count = 0;
+	for(id item in [queryTabs tabViewItems]){
+		if ([[item identifier] isEdited]){
+			count++;
+		}
+	}           
+	return count;
+}                                                        
+
+- (void) isEditedChanged: (id) sender{     
+	[[self window] setDocumentEdited: [self numberOfEditedQueries] > 0];
 }
- */
 
 @end

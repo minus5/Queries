@@ -2,9 +2,26 @@
 
 @implementation QueryController
 
-@synthesize isEdited;
+@synthesize isEdited, fileName;
 
-- (void) dealloc{    
+- (id) initWithConnection: (ConnectionController*) c{
+	if (self = [super init]){
+		connection = c;
+		[connection retain];
+		return self;
+	}             
+	return nil;
+}
+
+- (void) setIsEdited: (BOOL) value{
+	if (value != isEdited){
+		isEdited = value;
+		[connection isEditedChanged: self];
+	}
+}
+
+- (void) dealloc{       
+	[connection release];
 	[results release];
 	[messages release];
 	[super dealloc];	
@@ -51,7 +68,6 @@
 	  [resultsCountLabel setStringValue: [NSString stringWithFormat: @"Results %d of %d", currentResultIndex + 1, [results count]]];
 	}	
 }
-
 
 - (IBAction) nextResult: (id) sender {
 	if (currentResultIndex < [results count] - 1)
@@ -212,31 +228,32 @@
 	return [self rowValue: rowIndex: [[aTableColumn identifier] integerValue]];
 }
 
-
 - (void) textDidChange: (NSNotification *) aNotification{
 	[self setIsEdited: TRUE];
 }
 
-- (BOOL) saveQuery{
-		
+- (BOOL) saveQuery{		
 	if (!fileName){
 		NSSavePanel *panel = [NSSavePanel savePanel];
 		[panel setRequiredFileType:@"sql"];
-		if ([panel runModal] == NSOKButton) {
-			fileName = [panel filename];	
-			[fileName retain];
-		}else{
+		if (![panel runModal] == NSOKButton) {
 			return NO;
-		}			
-	}
-	
-	[[queryText string] writeToFile: fileName 
-		atomically:YES 
-		encoding:NSUTF8StringEncoding error:NULL];
-		
-	[self setIsEdited: NO];            
-	
+		}
+		[self setFileName: [panel filename]];
+	}	
+	[[queryText string] writeToFile: fileName atomically:YES encoding:NSUTF8StringEncoding error:NULL];		
+	[self setIsEdited: NO];            	
 	return YES;
+}
+
+- (void) openQuery {
+	NSOpenPanel *panel = [NSOpenPanel openPanel];
+	if ([panel runModal] == NSOKButton) {
+		[self setFileName: [panel filename]];
+		NSString *fileContents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
+		[queryText setString:fileContents];
+		[self setIsEdited: NO];
+	}
 }
 
 @end
