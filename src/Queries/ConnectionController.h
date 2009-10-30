@@ -12,6 +12,7 @@
 	IBOutlet NSTabView *queryTabs; 
 	IBOutlet PSMTabBarControl *queryTabBar; 		
 	IBOutlet NSOutlineView *outlineView;
+	IBOutlet NSPopUpButton *databasesPopUp;
 	
 	CredentialsController *credentials;	
 	int queryTabsCounter;
@@ -60,7 +61,11 @@
 
 @interface ConnectionController (DatabaseObjects)
 
--(void) dbObjectsFillSidebar;     
-- (NSArray*) selectedDbObject;
+- (void) readDatabaseObjects;
+- (void) fillDatabasesCombo;
+- (void) dbObjectsFillSidebar;     
+- (NSArray*) selectedDbObject;        
+- (void) displayDefaultDatabase;
+- (void) databaseChanged:(id)sender;
 
 @end

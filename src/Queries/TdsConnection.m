@@ -258,6 +258,7 @@ struct COL
 	}			
 }
 
+/*
 -(NSString*) queryFromQueryTextAndSelection{
 	NSString *query;
 	if(selection.length > 0){
@@ -266,13 +267,63 @@ struct COL
 		query = queryText;
 	}	
 	return query;
-}                                      
+} 
+*/                                     
 
--(BOOL) execute: (NSString*) query{  
-	[self setQueryText: query];
-	[self setSelection: NSMakeRange(0, 0)];	
-	return [self execute];		
+-(BOOL) execute: (NSString*) query withDefaultDatabase: (NSString*) database{
+	@try{     
+		[self setIsProcessing: TRUE]; 
+		
+		[messages release];
+		messages = [NSMutableArray array];
+		[messages retain];
+		
+		[results release];
+		results = [NSMutableArray array];
+		[results retain];
+		
+		active = self;
+		currentResultIndex = 0;
+		
+		if (dbproc == nil){ 
+			NSLog(@"Reconnecting...");
+			[self login];
+		}
+
+		//dbuse
+		if (database && (dbuse(dbproc, [database cStringUsingEncoding:NSASCIIStringEncoding])) == FAIL) {
+			[NSException raise:@"Exception" format: @"%d: unable to use to database %s\n", __LINE__, database];
+		}
+		
+		dbsettime(30);			  
+		NSArray *queries = [query componentsSeparatedByString: @"GO"];
+		for(id query in queries){
+			NSLog(@"executing query: %@", query);
+			[self executeQuery: query];				
+			[self readResults];
+		}
+		
+		if ([messages count] == 0){
+			[self logMessage: @"Command(s) completed successfully."];
+		}
+										
+		return YES;
+	}
+	@catch (NSException *exception) {    
+		[self logout];
+		[self logMessage: [NSString stringWithFormat:@"%@", [exception reason]]];
+		return NO;
+	} 
+	@finally{
+		[self setIsProcessing: FALSE];
+	}
 }  
+-(BOOL) execute: (NSString*) query{  
+	return [self execute: query withDefaultDatabase: nil];		
+}
+
+/*
+
 
 -(BOOL) execute{			
 	@try{     
@@ -317,6 +368,7 @@ struct COL
 		[self setIsProcessing: FALSE];
 	}
 }
+*/
 
 -(void) nextResult{
 	if (currentResultIndex < [results count] - 1)
@@ -433,7 +485,22 @@ struct COL
 }
 
 -(NSString*) connectionName{
-	return [NSString stringWithFormat: @"%@@%@:%@", _userName, _serverName, _databaseName];
+	return [NSString stringWithFormat: @"%@@%@", _userName, _serverName];
 }
+
+-(NSString*) currentDatabase{                            
+	if (!dbproc)
+		return nil;
+				
+	@try{	                                                 		
+		return [[NSString alloc] initWithCString: dbname(dbproc) encoding:NSWindowsCP1250StringEncoding];
+	}
+	@catch(NSException *e){
+		NSLog(@"defaultDatabase exception: @%", e);
+		return nil;
+	}
+} 
+
+
 
 @end

@@ -2,7 +2,7 @@
 
 @implementation QueryController
 
-@synthesize isEdited, fileName;
+@synthesize isEdited, fileName, defaultDatabase;
 
 - (id) initWithConnection: (ConnectionController*) c{
 	if (self = [super init]){

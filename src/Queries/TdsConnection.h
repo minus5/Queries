@@ -56,9 +56,10 @@
 -(void) login;
 -(void) logout;
 
--(NSString*) queryFromQueryTextAndSelection;
 -(BOOL) execute: (NSString*) query;
--(BOOL) execute;
+-(BOOL) execute: (NSString*) query withDefaultDatabase: (NSString*) database;
+// -(NSString*) queryFromQueryTextAndSelection;
+// -(BOOL) execute;
 	
 -(void) executeQuery: (NSString*) query;
 -(NSArray*) readResultMetadata: (struct COL**) pcolumns;
@@ -82,5 +83,7 @@
 -(int) rowsCount;
 -(NSString*) rowValue: (int) rowIndex: (int) columnIndex;   
 -(NSString*) resultAsString;
+
+-(NSString*) currentDatabase;
 
 @end

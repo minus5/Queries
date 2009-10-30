@@ -32,7 +32,8 @@
 	NSArray *messages;
 	int currentResultIndex;  
 	BOOL isEdited;
-	NSString *fileName;
+	NSString *fileName;     
+	NSString *defaultDatabase;
 		
 	////syntax highlighting internals
 	IBOutlet NSTextField*			syntaxColoringStatus;									// Status display for things like syntax coloring or background syntax checks.			
@@ -48,6 +49,7 @@
 
 @property BOOL isEdited;
 @property (copy) NSString *fileName;
+@property (copy) NSString *defaultDatabase; 
 
 - (id) initWithConnection: (ConnectionController*) c;
 - (IBAction) resultsMessagesSegmentControlClicked:(id)sender;

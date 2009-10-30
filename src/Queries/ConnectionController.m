@@ -10,7 +10,16 @@
 	[self createNewTab];
 	[self changeConnection: nil];                 
 	[queryTabBar setCanCloseOnlyTab: YES];   
-	//[queryTabBar setHideForSingleTab: YES];
+	[queryTabBar setHideForSingleTab: YES];   		
+}     
+
+- (void) dealloc{
+	[dbObjectsResults release];	
+	[dbObjectsCache release];	  
+	[currentConnection logout];
+	[currentConnection release];
+	[credentials release];
+	[super dealloc];
 }
 
 - (IBAction) newTab: (id) sender{
@@ -26,12 +35,20 @@
 		[newTabViewItem setView: [newQuerycontroller view]];	
 		[queryTabs addTabViewItem:newTabViewItem];
 		[queryTabs selectTabViewItem:newTabViewItem];
+		                                         
+		if (currentConnection){
+			[newQuerycontroller setDefaultDatabase: [currentConnection currentDatabase]];
+		}
 	}                              
 	return newQuerycontroller;
+}  
+
+- (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem{
+	[self displayDefaultDatabase];
 }
 
 - (IBAction) nextTab: (id) sender{
-	[queryTabs selectNextTabViewItem:sender];
+	[queryTabs selectNextTabViewItem:sender];	
 }
 
 - (IBAction) previousTab: (id) sender{
@@ -93,7 +110,7 @@
 		credentials = [CredentialsController controllerWithOwner: self];
 		[credentials retain];
 	}
-	[credentials showSheet];
+	[credentials showSheet]; 	
 }
 
 - (QueryController*) currentQueryController{
@@ -103,6 +120,7 @@
 - (void) didChangeConnection: (TdsConnection*) connection{
 	currentConnection = connection;
 	[self dbObjectsFillSidebar];
+	[self databaseChanged: nil];
 	[[self window] setTitle: [currentConnection connectionName]];
 	NSLog(@"didChangeConnection");
 }
@@ -127,12 +145,12 @@
 	[self dbObjectsFillSidebar];
 }                                        
 
--(IBAction) executeQuery: (id) sender{
+-(IBAction) executeQuery: (id) sender{                                                                       	
 	NSString *queryString = [[self currentQueryController] queryString];
-	[currentConnection execute: queryString];   
+	[currentConnection execute: queryString withDefaultDatabase: [[self currentQueryController] defaultDatabase]];   
 	[[self currentQueryController] setResults: [currentConnection results] andMessages: [currentConnection messages]];
+	[self databaseChanged: nil];	
 }     
-
 
 - (IBAction) saveDocument: (id) sender {
 	[[self currentQueryController] saveQuery];
@@ -180,6 +198,6 @@
 	@catch(NSException *e){
 		NSLog(@"explain exception %@", e);
 	} 
-}                                         
+}       
 
 @end

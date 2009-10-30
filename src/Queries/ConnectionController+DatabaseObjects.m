@@ -3,19 +3,51 @@
 @implementation ConnectionController (DatabaseObjects)
 
 -(void) dbObjectsFillSidebar{         
-	@try{	
-		[currentConnection execute: @"exec sp_cqa_database_objects"];
-		[dbObjectsResults release];
-		dbObjectsResults = [currentConnection rows];
-		[dbObjectsResults retain];
-		[dbObjectsCache release];		
-		dbObjectsCache = [NSMutableDictionary dictionary];		
-		[dbObjectsCache retain];
+	@try{	                  
+		[self fillDatabasesCombo];
+		//[self readDatabaseObjects];
 		[outlineView reloadData];
 	}@catch(NSException *exception){    
 		NSLog(@"error in fillSidebar: %@", exception);
 	}
 }
+
+- (void) readDatabaseObjects{
+	[currentConnection execute: @"exec sp_cqa_database_objects"];
+	[dbObjectsResults release];
+	dbObjectsResults = [currentConnection rows];
+	[dbObjectsResults retain];
+	[dbObjectsCache release];		
+	dbObjectsCache = [NSMutableDictionary dictionary];		
+	[dbObjectsCache retain];	
+}
+
+- (void) fillDatabasesCombo{
+	[databasesPopUp removeAllItems];
+	[currentConnection execute: @"select name from master.sys.databases where owner_sid != 01 and state_desc = 'ONLINE' order by name"];
+	for(NSArray *row in [currentConnection rows]){     
+		NSString *title = [row objectAtIndex: 0];
+		[databasesPopUp addItemWithTitle: title];
+		//NSLog(@"adding database: %@", title);
+	} 
+	[databasesPopUp selectItemWithTitle: [currentConnection currentDatabase]];
+}
+
+- (void) displayDefaultDatabase{
+	[databasesPopUp selectItemWithTitle: [[self currentQueryController] defaultDatabase]];  
+	if (![databasesPopUp selectedItem]){ 
+		[self databaseChanged: nil];
+	}
+}   
+
+- (void) databaseChanged:(id)sender{                  
+	if ([sender titleOfSelectedItem]){
+		[[self currentQueryController] setDefaultDatabase: [sender titleOfSelectedItem]];	
+	}else{                                                                              
+		[[self currentQueryController] setDefaultDatabase: [currentConnection currentDatabase]];	
+	  [databasesPopUp selectItemWithTitle: [currentConnection currentDatabase]];
+  }
+}                               
 
 -(NSArray*) dbObjectsForParent: (NSString*) parentId
 {
@@ -26,7 +58,7 @@
 	}
 	
 	NSMutableArray *selected = [NSMutableArray array];		
-	NSLog(@"searching for childs of: %@", parentId);
+	//NSLog(@"searching for childs of: %@", parentId);
 	
 	for(int i=0; i<[dbObjectsResults count]; i++)
 	{

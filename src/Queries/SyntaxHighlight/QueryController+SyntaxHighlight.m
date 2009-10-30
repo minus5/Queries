@@ -20,13 +20,13 @@
 																						 object: [syntaxColoringTextView textStorage]];	
 }
 
-- (NSUndoManager *)undoManagerForTextView:(NSTextView *)aTextView{
-	return syntaxColoringUndoManger;
-}
+//- (NSUndoManager *)undoManagerForTextView:(NSTextView *)aTextView{
+//	return syntaxColoringUndoManger;
+//}
 
-- (BOOL) isInUndo{
-	return [syntaxColoringUndoManger isUndoing] || [syntaxColoringUndoManger isRedoing];
-}
+//- (BOOL) isInUndo{
+//	return [syntaxColoringUndoManger isUndoing] || [syntaxColoringUndoManger isRedoing];
+//}
 
 /* -----------------------------------------------------------------------------
  recolorRange:
@@ -471,7 +471,7 @@
 	NSTextStorage	*textStorage = [notification object];
 	NSRange			range = [textStorage editedRange];
 	int				changeInLen = [textStorage changeInLength];
-	BOOL			wasInUndoRedo = [self isInUndo];
+	BOOL			wasInUndoRedo = NO;//[self isInUndo];
 	BOOL			textLengthMayHaveChanged = NO;
 	
 	// Was delete op or undo that could have changed text length?
