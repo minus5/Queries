@@ -19,7 +19,8 @@
 	IBOutlet NSTabView *resultsTabView;
 	IBOutlet NSSegmentedControl *resultsMessagesSegmentedControll;
 	IBOutlet NSTextView	*queryText;
-	IBOutlet NSTextView	*logTextView;
+	IBOutlet NSTextView	*messagesTextView;
+	IBOutlet NSTableView *resultsTableView;
 	IBOutlet NSTableView *tableView;
 	IBOutlet NSBox *resultsCountBox;
 	IBOutlet NSTextField *resultsCountLabel;
@@ -81,7 +82,11 @@
 - (BOOL) saveQuery;  
 - (void) openQuery; 
 
-- (void) setString: (NSString*) s;
+- (void) setString: (NSString*) s;       
+
+- (IBAction) goToQueryText: (id) sender; 
+- (IBAction) goToResults: (id) sender;
+- (IBAction) goToMessages: (id) sender;
 
 @end
 

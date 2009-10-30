@@ -21,7 +21,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="52"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -355,7 +355,7 @@
 										<reference key="NSSuperview" ref="586835493"/>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSSegmentedCell" key="NSCell" id="719954525">
-											<int key="NSCellFlags">67239424</int>
+											<int key="NSCellFlags">-2080244224</int>
 											<int key="NSCellFlags2">33685504</int>
 											<reference key="NSSupport" ref="26"/>
 											<reference key="NSControlView" ref="341871138"/>
@@ -393,7 +393,7 @@
 														<bool key="EncodedWithXMLCoder">YES</bool>
 														<object class="NSScrollView" id="92951041">
 															<reference key="NSNextResponder" ref="1045935018"/>
-															<int key="NSvFlags">274</int>
+															<int key="NSvFlags">4370</int>
 															<object class="NSMutableArray" key="NSSubviews">
 																<bool key="EncodedWithXMLCoder">YES</bool>
 																<object class="NSClipView" id="908408195">
@@ -615,7 +615,7 @@
 																				<int key="NSTCFlags">1</int>
 																			</object>
 																			<object class="NSTextViewSharedData" key="NSSharedData">
-																				<int key="NSFlags">11237</int>
+																				<int key="NSFlags">11239</int>
 																				<int key="NSTextCheckingTypes">0</int>
 																				<nil key="NSMarkedAttributes"/>
 																				<reference key="NSBackgroundColor" ref="1020649444"/>
@@ -845,14 +845,6 @@
 					<int key="connectionID">43</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">logTextView</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="670884881"/>
-					</object>
-					<int key="connectionID">44</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">previousResult:</string>
 						<reference key="source" ref="1001"/>
@@ -899,6 +891,22 @@
 						<reference key="destination" ref="1073503867"/>
 					</object>
 					<int key="connectionID">58</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">resultsTableView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="516530316"/>
+					</object>
+					<int key="connectionID">64</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">messagesTextView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="670884881"/>
+					</object>
+					<int key="connectionID">65</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1244,7 +1252,7 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{97, 416}, {568, 613}}</string>
+					<string>{{597, 239}, {568, 613}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{628, 654}</string>
 					<string>{{217, 442}, {480, 272}}</string>
@@ -1307,7 +1315,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">58</int>
+			<int key="maxID">65</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1319,6 +1327,9 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>goToMessages:</string>
+							<string>goToQueryText:</string>
+							<string>goToResults:</string>
 							<string>indentSelection:</string>
 							<string>nextResult:</string>
 							<string>previousResult:</string>
@@ -1338,19 +1349,23 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>logTextView</string>
+							<string>messagesTextView</string>
 							<string>queryText</string>
 							<string>queryTextScrollView</string>
 							<string>resultsCountBox</string>
 							<string>resultsCountLabel</string>
 							<string>resultsMessagesSegmentedControll</string>
 							<string>resultsTabView</string>
+							<string>resultsTableView</string>
 							<string>syntaxColoringStatus</string>
 							<string>tableView</string>
 						</object>
@@ -1363,6 +1378,7 @@
 							<string>NSTextField</string>
 							<string>NSSegmentedControl</string>
 							<string>NSTabView</string>
+							<string>NSTableView</string>
 							<string>NSTextField</string>
 							<string>NSTableView</string>
 						</object>

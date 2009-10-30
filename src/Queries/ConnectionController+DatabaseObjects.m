@@ -5,8 +5,7 @@
 -(void) dbObjectsFillSidebar{         
 	@try{	                  
 		[self fillDatabasesCombo];
-		//[self readDatabaseObjects];
-		[outlineView reloadData];
+		[self readDatabaseObjects];		
 	}@catch(NSException *exception){    
 		NSLog(@"error in fillSidebar: %@", exception);
 	}
@@ -19,7 +18,9 @@
 	[dbObjectsResults retain];
 	[dbObjectsCache release];		
 	dbObjectsCache = [NSMutableDictionary dictionary];		
-	[dbObjectsCache retain];	
+	[dbObjectsCache retain];     
+	[outlineView reloadData];
+	[outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 }
 
 - (void) fillDatabasesCombo{

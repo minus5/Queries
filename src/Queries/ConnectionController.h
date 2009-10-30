@@ -68,4 +68,9 @@
 - (void) displayDefaultDatabase;
 - (void) databaseChanged:(id)sender;
 
+- (IBAction) goToQueryText: (id) sender;                                        
+- (IBAction) goToDatabaseObjects: (id) sender;
+- (IBAction) goToResults: (id) sender;
+- (IBAction) goToMessages: (id) sender;
+
 @end

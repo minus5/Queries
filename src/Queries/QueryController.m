@@ -53,7 +53,8 @@
 - (IBAction) showResults: (id) sender{
 	[resultsTabView	selectTabViewItemAtIndex: 0];
 	[resultsMessagesSegmentedControll setSelectedSegment:0];
-  [self showResultsCount];
+  [self showResultsCount];                     
+	[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 }
 
 - (IBAction) showMessages: (id) sender{
@@ -157,11 +158,11 @@
 }
 
 -(void) reloadMessages{
-	[logTextView setString:@""];
+	[messagesTextView setString:@""];
 	for(id message in messages){			
-		[logTextView insertText: message];	
+		[messagesTextView insertText: message];	
 	}   
-	[logTextView insertText: @"\n"];		
+	[messagesTextView insertText: @"\n"];		
 } 
 
 - (void) addColumns{
@@ -260,5 +261,20 @@
 	[queryText setString: s];
 	[self setIsEdited: NO];
 }
+
+- (IBAction) goToQueryText: (id) sender{
+	[sender makeFirstResponder: queryText];
+}
+                                        
+- (IBAction) goToResults: (id) sender{         
+	[self showResults: sender];
+	[sender makeFirstResponder: resultsTableView];
+}
+
+- (IBAction) goToMessages: (id) sender{
+	[self showMessages: sender];
+	[sender makeFirstResponder: messagesTextView];
+}
+
 
 @end

@@ -1,0 +1,50 @@
+BUGS
+  * pazi na open ako je file edited
+  * speling se pojavljuje
+  * undo ne radi dobro u kombinaciji s indent/unindent   
+  * Results 1 of 9 ne izgleda dobro ako su brojevi dovoznamenkasti, fiksene je sirine
+  
+TODO
+  + focus handling
+  * izbaci print iz sp_cqa_...
+
+  * Save As implementiraj
+  * dolje lijevo prikazi detalje o konekciji:
+    * server
+    * username
+    * row counter 7/236
+    * vrijeme izvrsavanja querija
+  * dodaj 'Command(s) completed succesfully na sve querije koji ne vracaju resultset
+  * filter database objekata
+  * Error oboji crveno
+  * threading
+  * connections window
+    * sacuvati detalje konekcije
+    * proglasiti neku konekciju defaultnom
+    * stavi kotacic dok ostvaruje konekciju
+  * drag and drop tabova      
+  * keyboard shortcuts
+    * otvori databases
+    * jump to objects
+    * jump to query
+    * jump to results
+    * jump to messsages
+  * results in text
+  * ikonice
+    * za aplikaciju
+    * za results/messages
+    * za database objects
+    * za tip baze test/staging/production...
+  * staviti sistemske tablice u objects (ali u poseban dir), pazi tada ce se raspasti 
+  * highlight 
+    * sistemskih stored procedura
+    * int
+  * ikonica na tabu processing
+  * skok na liniju u kojoj je greska        
+  * rowcoutn opalitit prije svakog upita, da ne uzme bas cijelu bazu
+  * opcija set implicit transactions on
+  
+  * export u Numbers
+  * kopiranje
+  * query library - mozda cak uzeti onaj koji postoji uz stari query analyzer
+

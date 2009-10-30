@@ -187,10 +187,12 @@
 				[[self currentQueryController] setString: [NSString stringWithFormat: @"use %@\nexec sp_help '%@'", databaseName, fullName]];
 				[self executeQuery: nil];
 				[self nextResult: nil];
+				//[self goToResults: nil];
 			}else{
 				if ([currentConnection execute: [NSString stringWithFormat: @"use %@\nexec sp_helpText '%@'", databaseName, fullName]]){
 					[self createNewTab];
 					[[self currentQueryController] setString:[currentConnection resultAsString]];
+					//[self goToQueryText: nil];
 				}
 			}	
 		}
@@ -199,5 +201,21 @@
 		NSLog(@"explain exception %@", e);
 	} 
 }       
+    
+- (IBAction) goToQueryText: (id) sender{
+	[[self currentQueryController] goToQueryText: [self window]];
+}
+                                        
+- (IBAction) goToDatabaseObjects: (id) sender{
+	[[self window] makeFirstResponder: outlineView];
+}
+
+- (IBAction) goToResults: (id) sender{
+	[[self currentQueryController] goToResults: [self window]];
+}
+
+- (IBAction) goToMessages: (id) sender{
+	[[self currentQueryController] goToMessages: [self window]];
+}
 
 @end

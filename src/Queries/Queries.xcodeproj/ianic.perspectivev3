@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>ActivePerspectiveName</key>
-	<string>Project</string>
+	<string>Debug</string>
 	<key>AllowedModules</key>
 	<array>
 		<dict>
@@ -233,8 +233,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -299,8 +297,6 @@
 							<string>MainColumn</string>
 							<real>335</real>
 						</array>
-						<key>RubberWindowFrame</key>
-						<string>-1440 50 1440 850 -1440 0 1440 900 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -316,7 +312,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>184873E6109857C600A15FC7</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>QueryController+SyntaxHighlight.m</string>
+								<string>ConnectionController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -324,11 +320,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>184873E7109857C600A15FC7</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>QueryController+SyntaxHighlight.m</string>
+										<string>ConnectionController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>18AC0800109B6784009BEE57</string>
+										<string>18AC085B109BA108009BEE57</string>
 										<key>history</key>
 										<array>
 											<string>1870C9771098595A006AC809</string>
@@ -343,11 +339,11 @@
 											<string>18EE01EE109A067B003421C7</string>
 											<string>18EE0217109A0B2E003421C7</string>
 											<string>18AC0699109B2FA8009BEE57</string>
-											<string>18AC07BB109B6105009BEE57</string>
 											<string>18AC07BC109B6105009BEE57</string>
-											<string>18AC07F7109B6436009BEE57</string>
 											<string>18AC07F8109B6436009BEE57</string>
-											<string>18AC07FE109B6777009BEE57</string>
+											<string>18AC081F109B91B3009BEE57</string>
+											<string>18AC083A109B98D4009BEE57</string>
+											<string>18AC0853109BA09E009BEE57</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -361,18 +357,16 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1083, 804}}</string>
-								<key>RubberWindowFrame</key>
-								<string>-1440 50 1440 850 -1440 0 1440 900 </string>
+								<string>{{0, 0}, {1083, 699}}</string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>804pt</string>
+							<string>699pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>0pt</string>
+							<string>105pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -386,9 +380,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1083, -27}}</string>
-										<key>RubberWindowFrame</key>
-										<string>-1440 50 1440 850 -1440 0 1440 900 </string>
+										<string>{{10, 27}, {1083, 78}}</string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -515,6 +507,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXProjectModuleGUID</key>
@@ -526,6 +520,8 @@
 					<dict>
 						<key>Frame</key>
 						<string>{{0, 0}, {1440, 363}}</string>
+						<key>RubberWindowFrame</key>
+						<string>-1440 50 1440 850 -1440 0 1440 900 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXDebugCLIModule</string>
@@ -600,7 +596,11 @@
 							</array>
 							<key>Frame</key>
 							<string>{{703, 0}, {737, 214}}</string>
+							<key>RubberWindowFrame</key>
+							<string>-1440 50 1440 850 -1440 0 1440 900 </string>
 						</dict>
+						<key>RubberWindowFrame</key>
+						<string>-1440 50 1440 850 -1440 0 1440 900 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXDebugSessionModule</string>
@@ -664,6 +664,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>18AC085C109BA108009BEE57</string>
 		<string>1870CC0910988A49006AC809</string>
 		<string>18AC06B1109B308B009BEE57</string>
 		<string>18AC06B2109B308B009BEE57</string>
