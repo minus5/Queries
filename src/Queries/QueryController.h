@@ -79,6 +79,8 @@
 - (BOOL) saveQuery;  
 - (void) openQuery; 
 
+- (void) setString: (NSString*) s;
+
 @end
 
 //syntax highlighting

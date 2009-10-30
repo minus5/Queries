@@ -251,9 +251,14 @@
 	if ([panel runModal] == NSOKButton) {
 		[self setFileName: [panel filename]];
 		NSString *fileContents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
-		[queryText setString:fileContents];
+		[queryText setString: fileContents];
 		[self setIsEdited: NO];
 	}
+}
+
+- (void) setString: (NSString*) s{
+	[queryText setString: s];
+	[self setIsEdited: NO];
 }
 
 @end

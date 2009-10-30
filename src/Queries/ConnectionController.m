@@ -7,13 +7,17 @@
 }
 
 - (void) windowDidLoad{
-	[self newTab: nil];
+	[self createNewTab];
 	[self changeConnection: nil];                 
 	[queryTabBar setCanCloseOnlyTab: YES];   
 	//[queryTabBar setHideForSingleTab: YES];
 }
 
 - (IBAction) newTab: (id) sender{
+	[self createNewTab];
+}  
+
+- (QueryController*) createNewTab{
 	QueryController *newQuerycontroller = [[QueryController alloc] initWithConnection: self];
 	if (newQuerycontroller)
 	{		
@@ -22,7 +26,8 @@
 		[newTabViewItem setView: [newQuerycontroller view]];	
 		[queryTabs addTabViewItem:newTabViewItem];
 		[queryTabs selectTabViewItem:newTabViewItem];
-	}	
+	}                              
+	return newQuerycontroller;
 }
 
 - (IBAction) nextTab: (id) sender{
@@ -149,6 +154,32 @@
 
 - (void) isEditedChanged: (id) sender{     
 	[[self window] setDocumentEdited: [self numberOfEditedQueries] > 0];
-}
+}                           
+
+-(IBAction) explain: (id) sender{                                  
+	@try{			
+		NSArray *rowData = [self selectedDbObject];
+		NSString *databaseName = [rowData objectAtIndex: 4];
+		NSString *fullName = [rowData objectAtIndex: 3];
+		NSString *objectType = [rowData objectAtIndex: 5];
+		
+		if (![objectType isEqualToString: @"NULL"]){
+			if ([objectType isEqualToString: @"tables"]){
+			  [self createNewTab];  		                                           
+				[[self currentQueryController] setString: [NSString stringWithFormat: @"use %@\nexec sp_help '%@'", databaseName, fullName]];
+				[self executeQuery: nil];
+				[self nextResult: nil];
+			}else{
+				if ([currentConnection execute: [NSString stringWithFormat: @"use %@\nexec sp_helpText '%@'", databaseName, fullName]]){
+					[self createNewTab];
+					[[self currentQueryController] setString:[currentConnection resultAsString]];
+				}
+			}	
+		}
+	}
+	@catch(NSException *e){
+		NSLog(@"explain exception %@", e);
+	} 
+}                                         
 
 @end

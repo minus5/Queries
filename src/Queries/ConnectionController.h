@@ -24,6 +24,7 @@
 - (QueryController*) currentQueryController;
 
 - (IBAction) newTab: (id) sender;
+- (QueryController*) createNewTab;
 - (IBAction) nextTab: (id) sender;
 - (IBAction) previousTab: (id) sender;
 
@@ -53,10 +54,13 @@
 - (int) numberOfEditedQueries;                 
 - (void) isEditedChanged: (id) sender;
 
+-(IBAction) explain: (id) sender;
+
 @end
 
 @interface ConnectionController (DatabaseObjects)
 
--(void) dbObjectsFillSidebar;
+-(void) dbObjectsFillSidebar;     
+- (NSArray*) selectedDbObject;
 
 @end
