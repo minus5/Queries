@@ -3,9 +3,11 @@
 #import "CredentialsController.h"
 #import "TdsConnection.h"    
 #import <PSMTabBarControl/PSMTabBarControl.h>  
+#import "QueryResult.h"
 
 @class CredentialsController;
 @class QueryController;
+@class QueryResult;
 
 @interface ConnectionController : NSWindowController {
 	
@@ -16,7 +18,7 @@
 	
 	CredentialsController *credentials;	
 	int queryTabsCounter;
-	TdsConnection *currentConnection;
+	TdsConnection *tdsConnection;
 	
 	NSArray *dbObjectsResults;	
 	NSMutableDictionary *dbObjectsCache;
@@ -33,29 +35,23 @@
 - (void) closeCurentQuery;                                                     
 - (void) shouldCloseCurrentQuery;
 -(void) closeAlertEnded:(NSAlert *) alert code:(int) choice context:(void *) v;
-
-- (IBAction) showResults: (id) sender;
-- (IBAction) showMessages: (id) sender;
-
-- (IBAction) nextResult: (id) sender;
-- (IBAction) previousResult: (id) sender;
-
+                                       
 - (IBAction) changeConnection: (id) sender;
 - (void) didChangeConnection: (TdsConnection*) connection;
-
--(IBAction) indentSelection: (id)sender;
--(IBAction) unIndentSelection: (id)sender;
 
 -(IBAction) reloadDbObjects: (id) sender;
 
 -(IBAction) executeQuery: (id) sender;
 
-- (IBAction) saveDocument: (id) sender;
-- (IBAction) openDocument: (id)sender;          
 - (int) numberOfEditedQueries;                 
 - (void) isEditedChanged: (id) sender;
 
 -(IBAction) explain: (id) sender;
+
+- (IBAction) goToQueryText: (id) sender;                                        
+- (IBAction) goToDatabaseObjects: (id) sender;
+- (IBAction) goToResults: (id) sender;
+- (IBAction) goToMessages: (id) sender;
 
 @end
 
@@ -67,10 +63,5 @@
 - (NSArray*) selectedDbObject;        
 - (void) displayDefaultDatabase;
 - (void) databaseChanged:(id)sender;
-
-- (IBAction) goToQueryText: (id) sender;                                        
-- (IBAction) goToDatabaseObjects: (id) sender;
-- (IBAction) goToResults: (id) sender;
-- (IBAction) goToMessages: (id) sender;
 
 @end

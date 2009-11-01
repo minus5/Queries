@@ -12,26 +12,26 @@
 }
 
 - (void) readDatabaseObjects{
-	[currentConnection execute: @"exec sp_cqa_database_objects"];
-	[dbObjectsResults release];
-	dbObjectsResults = [currentConnection rows];
+	[dbObjectsResults release];	
+	dbObjectsResults = [[tdsConnection execute: @"exec sp_cqa_database_objects"] rows];	
 	[dbObjectsResults retain];
+	
 	[dbObjectsCache release];		
 	dbObjectsCache = [NSMutableDictionary dictionary];		
-	[dbObjectsCache retain];     
+	[dbObjectsCache retain];             
+	
 	[outlineView reloadData];
 	[outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 }
 
 - (void) fillDatabasesCombo{
 	[databasesPopUp removeAllItems];
-	[currentConnection execute: @"select name from master.sys.databases where owner_sid != 01 and state_desc = 'ONLINE' order by name"];
-	for(NSArray *row in [currentConnection rows]){     
+	QueryResult *queryResult = [tdsConnection execute: @"select name from master.sys.databases where owner_sid != 01 and state_desc = 'ONLINE' order by name"];
+	for(NSArray *row in [queryResult rows]){     
 		NSString *title = [row objectAtIndex: 0];
 		[databasesPopUp addItemWithTitle: title];
-		//NSLog(@"adding database: %@", title);
 	} 
-	[databasesPopUp selectItemWithTitle: [currentConnection currentDatabase]];
+	[databasesPopUp selectItemWithTitle: [tdsConnection currentDatabase]];
 }
 
 - (void) displayDefaultDatabase{
@@ -44,9 +44,12 @@
 - (void) databaseChanged:(id)sender{                  
 	if ([sender titleOfSelectedItem]){
 		[[self currentQueryController] setDefaultDatabase: [sender titleOfSelectedItem]];	
-	}else{                                                                              
-		[[self currentQueryController] setDefaultDatabase: [currentConnection currentDatabase]];	
-	  [databasesPopUp selectItemWithTitle: [currentConnection currentDatabase]];
+	}else{                                               
+		NSString *dbName = [tdsConnection currentDatabase];
+		if (dbName){                               
+			[[self currentQueryController] setDefaultDatabase: dbName];	
+	  	[databasesPopUp selectItemWithTitle: dbName];
+		}
   }
 }                               
 

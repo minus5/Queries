@@ -28,6 +28,7 @@
 		1870CBA710987C0B006AC809 /* ColumnMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CBA510987C0B006AC809 /* ColumnMetadata.m */; };
 		1870CBAB10987C38006AC809 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1870CBAA10987C38006AC809 /* libsybdb.a */; };
 		1870CC0710988A1B006AC809 /* ConnectionController+DatabaseObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CC0610988A1B006AC809 /* ConnectionController+DatabaseObjects.m */; };
+		18AC09BB109DAEF5009BEE57 /* QueryResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC09BA109DAEF5009BEE57 /* QueryResult.m */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* QueriesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* QueriesAppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -82,6 +83,8 @@
 		1870CBA610987C0B006AC809 /* ColumnMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnMetadata.h; sourceTree = "<group>"; };
 		1870CBAA10987C38006AC809 /* libsybdb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libsybdb.a; path = ../../lib/libsybdb.a; sourceTree = "<group>"; };
 		1870CC0610988A1B006AC809 /* ConnectionController+DatabaseObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ConnectionController+DatabaseObjects.m"; sourceTree = "<group>"; };
+		18AC09B9109DAEF5009BEE57 /* QueryResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryResult.h; sourceTree = "<group>"; };
+		18AC09BA109DAEF5009BEE57 /* QueryResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryResult.m; sourceTree = "<group>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		256AC3D80F4B6AC300CF3369 /* QueriesAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueriesAppDelegate.h; sourceTree = "<group>"; };
 		256AC3D90F4B6AC300CF3369 /* QueriesAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueriesAppDelegate.m; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 				1870C9E510985B2D006AC809 /* QueryController.m */,
 				1870CB9410987B47006AC809 /* TdsConnection.h */,
 				1870CB9510987B47006AC809 /* TdsConnection.m */,
+				18AC09B9109DAEF5009BEE57 /* QueryResult.h */,
+				18AC09BA109DAEF5009BEE57 /* QueryResult.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				183B54C71098B7D70024A1B4 /* MarkerLineNumberView.m in Sources */,
 				183B54C81098B7D70024A1B4 /* NoodleLineNumberMarker.m in Sources */,
 				183B54C91098B7D70024A1B4 /* NoodleLineNumberView.m in Sources */,
+				18AC09BB109DAEF5009BEE57 /* QueryResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

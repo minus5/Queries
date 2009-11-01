@@ -7,17 +7,18 @@
 }
 
 - (void) windowDidLoad{
-	[self createNewTab];
-	[self changeConnection: nil];                 
 	[queryTabBar setCanCloseOnlyTab: YES];   
-	[queryTabBar setHideForSingleTab: YES];   		
+	[queryTabBar setHideForSingleTab: YES];	
+	[self createNewTab];
+	[self changeConnection: nil];                 	
+	[self goToQueryText: nil];  		
 }     
 
 - (void) dealloc{
 	[dbObjectsResults release];	
 	[dbObjectsCache release];	  
-	[currentConnection logout];
-	[currentConnection release];
+	[tdsConnection logout];
+	[tdsConnection release];
 	[credentials release];
 	[super dealloc];
 }
@@ -36,15 +37,17 @@
 		[queryTabs addTabViewItem:newTabViewItem];
 		[queryTabs selectTabViewItem:newTabViewItem];
 		                                         
-		if (currentConnection){
-			[newQuerycontroller setDefaultDatabase: [currentConnection currentDatabase]];
+		if (tdsConnection){
+			[newQuerycontroller setDefaultDatabase: [tdsConnection currentDatabase]];
 		}
 	}                              
 	return newQuerycontroller;
 }  
 
 - (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem{
-	[self displayDefaultDatabase];
+	[self displayDefaultDatabase];                  
+	[self setNextResponder: [tabViewItem identifier]];
+	NSLog(@"nextResponder: %@", [self nextResponder]);
 }
 
 - (IBAction) nextTab: (id) sender{
@@ -96,15 +99,6 @@
 	[self closeCurentQuery];
 }
 
-
-- (IBAction) showResults: (id) sender{
-	[[self currentQueryController]	showResults: sender];
-}
-
-- (IBAction) showMessages: (id) sender{
-	[[self currentQueryController ]	showMessages: sender];					
-}
-
 - (IBAction) changeConnection: (id) sender{
 	if (!credentials){
 		credentials = [CredentialsController controllerWithOwner: self];
@@ -118,27 +112,11 @@
 }
 
 - (void) didChangeConnection: (TdsConnection*) connection{
-	currentConnection = connection;
+	tdsConnection = connection;
 	[self dbObjectsFillSidebar];
 	[self databaseChanged: nil];
-	[[self window] setTitle: [currentConnection connectionName]];
+	[[self window] setTitle: [tdsConnection connectionName]];
 	NSLog(@"didChangeConnection");
-}
-
--(IBAction) indentSelection: (id)sender{
-  [[self currentQueryController ] indentSelection: sender];
-}
-
--(IBAction) unIndentSelection: (id)sender{
-	[[self currentQueryController] unIndentSelection: sender];
-}
-
-- (IBAction) nextResult: (id) sender{
-	[[self currentQueryController] nextResult:sender];
-}
-
-- (IBAction) previousResult: (id) sender{
-	[[self currentQueryController] previousResult:sender];
 }
 
 -(IBAction) reloadDbObjects: (id) sender{
@@ -147,18 +125,10 @@
 
 -(IBAction) executeQuery: (id) sender{                                                                       	
 	NSString *queryString = [[self currentQueryController] queryString];
-	[currentConnection execute: queryString withDefaultDatabase: [[self currentQueryController] defaultDatabase]];   
-	[[self currentQueryController] setResults: [currentConnection results] andMessages: [currentConnection messages]];
+	QueryResult *queryResult = [tdsConnection execute: queryString withDefaultDatabase: [[self currentQueryController] defaultDatabase]];   
+	[[self currentQueryController] setResult: queryResult];
 	[self databaseChanged: nil];	
 }     
-
-- (IBAction) saveDocument: (id) sender {
-	[[self currentQueryController] saveQuery];
-}                          
-
-- (IBAction) openDocument:(id)sender {      
-	[[self currentQueryController] openQuery];
-}
 
 - (int) numberOfEditedQueries {
 	int count = 0;
@@ -186,12 +156,13 @@
 			  [self createNewTab];  		                                           
 				[[self currentQueryController] setString: [NSString stringWithFormat: @"use %@\nexec sp_help '%@'", databaseName, fullName]];
 				[self executeQuery: nil];
-				[self nextResult: nil];
+				[[self currentQueryController] nextResult: nil];
 				//[self goToResults: nil];
 			}else{
-				if ([currentConnection execute: [NSString stringWithFormat: @"use %@\nexec sp_helpText '%@'", databaseName, fullName]]){
+				QueryResult *queryResult = [tdsConnection execute: [NSString stringWithFormat: @"use %@\nexec sp_helpText '%@'", databaseName, fullName]];
+				if (queryResult){
 					[self createNewTab];
-					[[self currentQueryController] setString:[currentConnection resultAsString]];
+					[[self currentQueryController] setString:[queryResult resultAsString]];
 					//[self goToQueryText: nil];
 				}
 			}	

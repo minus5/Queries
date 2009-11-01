@@ -16,6 +16,9 @@
 
 #include <sqlfront.h>	
 #include <sybdb.h>
+#include "QueryResult.h"
+
+@class QueryResult;
 
 @interface TdsConnection : NSObject {
 
@@ -23,30 +26,14 @@
 	NSString *_databaseName;
 	NSString *_userName;
 	NSString *_password;     
-	
-	NSString *fileName;     
-	
-	NSMutableArray *messages;
-	NSMutableArray *results;
-	
-	int currentResultIndex;
-	
-	NSString *_queryText;
-	NSRange _selection;
-	BOOL isEdited;
-	BOOL isProcessing;
-	 
+		
+	QueryResult *queryResult;
+	  
+	BOOL isProcessing; 	 
 	DBPROCESS *dbproc;
 }
-                    
-@property BOOL isEdited;
+
 @property BOOL isProcessing;
-@property (copy) NSString *queryText; 
-@property NSRange selection; 
-@property (readonly) int currentResultIndex;
-@property (readonly) NSArray *messages;
-@property (readonly) NSArray *results;     
-@property (copy) NSString *fileName;
 
 -(id) initWithCredentials: (NSString*) serverName 
 						 databaseName: (NSString*) databaseName 
@@ -56,11 +43,9 @@
 -(void) login;
 -(void) logout;
 
--(BOOL) execute: (NSString*) query;
--(BOOL) execute: (NSString*) query withDefaultDatabase: (NSString*) database;
-// -(NSString*) queryFromQueryTextAndSelection;
-// -(BOOL) execute;
-	
+-(QueryResult*) execute: (NSString*) query;
+-(QueryResult*) execute: (NSString*) query withDefaultDatabase: (NSString*) database;
+
 -(void) executeQuery: (NSString*) query;
 -(NSArray*) readResultMetadata: (struct COL**) pcolumns;
 -(NSArray*) readResultData: (struct COL*) columns;
@@ -71,19 +56,7 @@
 -(void) logMessage: (NSString*) message;
 
 -(NSString*) connectionName;
-                    
--(int) resultsCount;
--(void) nextResult;
--(void) previousResult;
--(BOOL) hasResults;
--(BOOL) hasNextResults;
--(BOOL) hasPreviosResults;
--(NSArray*) columns;
--(NSArray*) rows;
--(int) rowsCount;
--(NSString*) rowValue: (int) rowIndex: (int) columnIndex;   
--(NSString*) resultAsString;
-
+  
 -(NSString*) currentDatabase;
 
 @end

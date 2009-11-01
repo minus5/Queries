@@ -5,9 +5,11 @@
 #import "NoodleLineNumberMarker.h"
 #import "MarkerLineNumberView.h"
 #import "ConnectionController.h"
+#import "QueryResult.h"
 
 @class NoodleLineNumberView;
 @class ConnectionController;
+@class QueryResult;
 
 #define _WINDEF_
 #define TDS50 0
@@ -29,9 +31,10 @@
 	NoodleLineNumberView	*queryTextLineNumberView;
 
 	ConnectionController *connection;
-	NSArray *results;
-	NSArray *messages;
-	int currentResultIndex;  
+	QueryResult *queryResult;
+	// NSArray *results;
+	// NSArray *messages;
+	// int currentResultIndex;  
 	BOOL isEdited;
 	NSString *fileName;     
 	NSString *defaultDatabase;
@@ -62,13 +65,7 @@
 - (IBAction) previousResult: (id) sender;
 
 - (NSString*) queryString;
-- (void) setResults: (NSArray*) r andMessages: (NSArray*) m;
-
-- (BOOL) hasResults;
-- (NSArray*) columns;
-- (NSArray*) rows;
-- (int) rowsCount;
-- (NSString*) rowValue: (int) rowIndex: (int) columnIndex;
+- (void) setResult: (QueryResult*) r;
 
 - (void) reloadResults;
 - (void) reloadMessages;
@@ -81,6 +78,9 @@
 
 - (BOOL) saveQuery;  
 - (void) openQuery; 
+- (IBAction) saveDocument: (id) sender;
+- (IBAction) openDocument: (id) sender;
+
 
 - (void) setString: (NSString*) s;       
 

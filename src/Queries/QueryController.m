@@ -22,8 +22,7 @@
 
 - (void) dealloc{       
 	[connection release];
-	[results release];
-	[messages release];
+	[queryResult release];
 	[super dealloc];	
 }
 
@@ -64,22 +63,20 @@
 }
 
 - (void) showResultsCount{
-	[resultsCountBox setHidden: ([results count] < 2)];	
+	[resultsCountBox setHidden: ([queryResult	resultsCount] < 2)];	
 	if (![resultsCountBox isHidden]){
-	  [resultsCountLabel setStringValue: [NSString stringWithFormat: @"Results %d of %d", currentResultIndex + 1, [results count]]];
+	  [resultsCountLabel setStringValue: [NSString stringWithFormat: @"Results %d of %d", [queryResult currentResultIndex] + 1, [queryResult	resultsCount]]];
 	}	
 }
 
 - (IBAction) nextResult: (id) sender {
-	if (currentResultIndex < [results count] - 1)
-		currentResultIndex++;
-	[self reloadResults];  
+	if ([queryResult	nextResult])
+		[self reloadResults];  
 }
 
 - (IBAction) previousResult: (id) sender {
-	if(currentResultIndex > 0)
-		currentResultIndex--;
-	[self reloadResults];
+	if ([queryResult	previousResult])
+		[self reloadResults];
 }
 
 - (NSString*) queryString{          
@@ -92,64 +89,21 @@
 	}
 }    
 
-- (void) setResults: (NSArray*) r andMessages: (NSArray*) m{
-	[results release];
-	[messages release];
-	results = r;
-	messages = m;
-	[results retain];
-	[messages retain];
-	currentResultIndex = 0;
+- (void) setResult: (QueryResult*) r{
+	[queryResult release];
+	queryResult = r;
+	[queryResult retain];
+	
 	[self reloadResults];
 	[self reloadMessages];
-	if ([self hasResults])
+	if ([queryResult hasResults])
 		[self showResults: nil];
 	else {
 		[self showMessages: nil];
 	}
 
 }                                       
-
-- (BOOL) hasResults{
-	return [results count] > 0;
-}
-
-- (NSArray*) columns{
-	if ([self hasResults]){
-		return [[results objectAtIndex:currentResultIndex] objectAtIndex: 0];
-	}
-	else {
-		return nil;
-	}
-}  
-
--(NSArray*) rows{
-	if ([self hasResults]){
-		return [[results objectAtIndex:currentResultIndex] objectAtIndex: 1];
-	}
-	else {
-		return nil;
-	}
-}                
-
-- (int) rowsCount{
-	if ([self hasResults]){
-		return [[self rows] count];
-	}
-	else {
-		return 0;
-	} 
-}
-
-- (NSString*) rowValue: (int) rowIndex: (int) columnIndex{
-	if ([self hasResults]){
-		return [[[self rows] objectAtIndex:rowIndex] objectAtIndex: columnIndex]; 		
-	}
-	else {
-		return nil;
-	}
-}
-
+        
 - (void) reloadResults{
  	[self removeAllColumns];							
 	[self addColumns];							
@@ -159,14 +113,14 @@
 
 -(void) reloadMessages{
 	[messagesTextView setString:@""];
-	for(id message in messages){			
+	for(id message in [queryResult messages]){			
 		[messagesTextView insertText: message];	
 	}   
 	[messagesTextView insertText: @"\n"];		
 } 
 
 - (void) addColumns{
-	NSArray *columns = [self columns];
+	NSArray *columns = [queryResult columns];
 	for(int i=0; i<[columns count]; i++){
 		[self addColumn: [columns objectAtIndex: i]];		
 	}
@@ -222,16 +176,24 @@
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView{	
-	return [self rowsCount];
+	return [queryResult rowsCount];
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {		
-	return [self rowValue: rowIndex: [[aTableColumn identifier] integerValue]];
+	return [queryResult rowValue: rowIndex: [[aTableColumn identifier] integerValue]];
 }
 
 - (void) textDidChange: (NSNotification *) aNotification{
 	[self setIsEdited: TRUE];
 }
+
+- (IBAction) saveDocument: (id) sender {
+	[self saveQuery];
+}                          
+
+- (IBAction) openDocument:(id)sender {      
+	[self openQuery];
+} 
 
 - (BOOL) saveQuery{		
 	if (!fileName){
