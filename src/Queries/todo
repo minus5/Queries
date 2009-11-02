@@ -7,6 +7,7 @@ BUGS
 TODO
   + focus handling
   * izbaci print iz sp_cqa_...
+  + threading
 
   * Save As implementiraj
   * dolje lijevo prikazi detalje o konekciji:
@@ -14,10 +15,9 @@ TODO
     * username
     * row counter 7/236
     * vrijeme izvrsavanja querija
-  * dodaj 'Command(s) completed succesfully na sve querije koji ne vracaju resultset
+  + dodaj 'Command(s) completed succesfully na sve querije koji ne vracaju resultset
   * filter database objekata
   * Error oboji crveno
-  * threading
   * connections window
     * sacuvati detalje konekcije
     * proglasiti neku konekciju defaultnom
@@ -36,10 +36,10 @@ TODO
     * za database objects
     * za tip baze test/staging/production...
   * staviti sistemske tablice u objects (ali u poseban dir), pazi tada ce se raspasti 
-  * highlight 
-    * sistemskih stored procedura
-    * int
-  * ikonica na tabu processing
+  + highlight 
+    + sistemskih stored procedura
+    + int
+  + ikonica na tabu processing
   * skok na liniju u kojoj je greska        
   * rowcoutn opalitit prije svakog upita, da ne uzme bas cijelu bazu
   * opcija set implicit transactions on
@@ -48,3 +48,4 @@ TODO
   * kopiranje
   * query library - mozda cak uzeti onaj koji postoji uz stari query analyzer
 
+  * zasto kod logiranja poruka imam onu zabranu da ne mora biti duga barem 5 znakova

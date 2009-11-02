@@ -107,15 +107,16 @@
 	[credentials showSheet]; 	
 }
 
+//prebaci ovo u varijablu koju odrzavaj svakom promjenom taba
 - (QueryController*) currentQueryController{
 	return [[queryTabs selectedTabViewItem] identifier];
 }
 
 - (void) didChangeConnection: (TdsConnection*) connection{
 	tdsConnection = connection;
-	[self dbObjectsFillSidebar];
-	[self databaseChanged: nil];
 	[[self window] setTitle: [tdsConnection connectionName]];
+	[self dbObjectsFillSidebar];
+	//[self databaseChanged: nil];	
 	NSLog(@"didChangeConnection");
 }
 
@@ -123,12 +124,38 @@
 	[self dbObjectsFillSidebar];
 }                                        
 
--(IBAction) executeQuery: (id) sender{                                                                       	
-	NSString *queryString = [[self currentQueryController] queryString];
-	QueryResult *queryResult = [tdsConnection execute: queryString withDefaultDatabase: [[self currentQueryController] defaultDatabase]];   
-	[[self currentQueryController] setResult: queryResult];
-	[self databaseChanged: nil];	
-}     
+-(IBAction) executeQuery: (id) sender{     
+	if (!tdsConnection){                                                       			
+		[self changeConnection: nil];
+		return;		
+	}
+	QueryController *qc = [self currentQueryController];	  
+	[qc setIsProcessing: YES];
+	[self executeQueryInBackground: [qc queryString] withDatabase: [qc defaultDatabase] returnToObject: qc withSelector: @selector(setResult:)];
+	
+	// NSDictionary *arguments = [NSDictionary dictionaryWithObjectsAndKeys: 
+	// 	[NSString stringWithFormat: @"%@", [qc queryString]], @"query", 
+	// 	[NSString stringWithFormat: @"%@", [qc defaultDatabase]], @"database", 
+	// 	qc, @"receiver",
+	// 	NSStringFromSelector(@selector(setResult:)), @"selector",
+	// 	nil];                                                                               	                                   
+	//                                                                                                   	
+	// [tdsConnection performSelectorInBackground:@selector(executeInBackground:) withObject: arguments];	
+	//TODO pozovi ovo nakon sto query zavrsi, ali pazi ako promjeni tab
+	//[self databaseChanged: nil];	
+}                                 
+
+- (void) executeQueryInBackground: (NSString*) query withDatabase: (NSString*) database returnToObject: (id) receiver withSelector: (SEL) selector{
+
+	NSDictionary *arguments = [NSDictionary dictionaryWithObjectsAndKeys: 
+		[NSString stringWithFormat: @"%@", query], @"query", 
+		[NSString stringWithFormat: @"%@", database], @"database", 
+		receiver, @"receiver",
+		NSStringFromSelector(selector), @"selector",
+		nil];                                                                               	                                   
+	                                                                                                  	
+	[tdsConnection performSelectorInBackground:@selector(executeInBackground:) withObject: arguments];		
+}
 
 - (int) numberOfEditedQueries {
 	int count = 0;

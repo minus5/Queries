@@ -36,6 +36,7 @@
 	// NSArray *messages;
 	// int currentResultIndex;  
 	BOOL isEdited;
+	BOOL isProcessing;
 	NSString *fileName;     
 	NSString *defaultDatabase;
 		
@@ -51,7 +52,8 @@
 	NSDictionary							*syntaxColoringDictionary;	
 }
 
-@property BOOL isEdited;
+@property BOOL isEdited; 
+@property BOOL isProcessing;
 @property (copy) NSString *fileName;
 @property (copy) NSString *defaultDatabase; 
 

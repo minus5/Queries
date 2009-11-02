@@ -41,7 +41,8 @@
 
 -(IBAction) reloadDbObjects: (id) sender;
 
--(IBAction) executeQuery: (id) sender;
+-(IBAction) executeQuery: (id) sender;    
+- (void) executeQueryInBackground: (NSString*) query withDatabase: (NSString*) database returnToObject: (id) receiver withSelector: (SEL) selector;
 
 - (int) numberOfEditedQueries;                 
 - (void) isEditedChanged: (id) sender;
@@ -63,5 +64,8 @@
 - (NSArray*) selectedDbObject;        
 - (void) displayDefaultDatabase;
 - (void) databaseChanged:(id)sender;
+
+- (void) setDatabasesResult: (QueryResult*) queryResult;
+- (void) setObjectsResult: (QueryResult*) queryResult;
 
 @end

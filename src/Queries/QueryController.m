@@ -2,7 +2,7 @@
 
 @implementation QueryController
 
-@synthesize isEdited, fileName, defaultDatabase;
+@synthesize isEdited, isProcessing, fileName, defaultDatabase;
 
 - (id) initWithConnection: (ConnectionController*) c{
 	if (self = [super init]){
@@ -81,15 +81,18 @@
 
 - (NSString*) queryString{          
 	NSRange selection = [queryText selectedRange]; 
-	NSString *query = [queryText string];                
+	NSString *query = [NSString stringWithString: [queryText string]];                
+	[query autorelease];
 	if(selection.length > 0){
 		return [query substringWithRange: selection];
 	}else{
 		return query;
 	}
-}    
+}                                       
 
-- (void) setResult: (QueryResult*) r{
+- (void) setResult: (QueryResult*) r{     
+	if (!r) return;
+	
 	[queryResult release];
 	queryResult = r;
 	[queryResult retain];
@@ -101,7 +104,9 @@
 	else {
 		[self showMessages: nil];
 	}
-
+	
+	[connection databaseChanged: nil];
+	[self setIsProcessing: NO];
 }                                       
         
 - (void) reloadResults{
@@ -240,3 +245,4 @@
 
 
 @end
+			

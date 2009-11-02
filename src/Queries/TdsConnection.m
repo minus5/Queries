@@ -3,9 +3,43 @@
 @implementation TdsConnection                                
 
 //@synthesize messages, results;
-@synthesize isProcessing;
+@synthesize isProcessing; 
+  
 
-TdsConnection *active;
+NSMutableArray *activeConnections;
+
++ (void) activate: (TdsConnection*) conn{
+	if (!activeConnections){
+		activeConnections = [NSMutableArray array];
+		[activeConnections retain];
+	}                                            
+	[activeConnections addObject: conn];
+}    
+
++ (void) deactivate: (TdsConnection*) conn{
+	for(id c in activeConnections){
+		if ((TdsConnection*)c == conn){
+			[activeConnections removeObject: c];
+			break;
+		}
+	}
+}       
+
+- (DBPROCESS*) dbproc{
+	return dbproc;
+}    
+
++ (void) logMessage: (NSString*) message forProcess: (DBPROCESS*) dbproc{
+	for(id c in activeConnections){
+		if ([c dbproc] == dbproc){
+			[c logMessage: message];
+			return;
+		}
+	}                                           
+	NSLog(@"logMessage failed, process not found?!");
+}
+
+//TdsConnection *active;
 int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char *msgtext, char *srvname, char *procname, int line)
 {									
 	enum {changed_database = 5701, changed_language = 5703 };	
@@ -23,16 +57,23 @@ int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char
 			[message appendFormat:@"Procedure '%s', ", procname];
 		if (line > 0)
 			[message appendFormat:@"Line %d", line];		
-	}	
-	[message appendFormat:@"\n%s\n", msgtext];
-	NSLog(@"%@", message);
+	}	          
+	if ([message length] > 0)
+		[message appendFormat:@"\n"];
+	if (strlen(msgtext) > 0)
+		[message appendFormat:@"%s\n", msgtext];
+	if ([message length] > 0){
+		[TdsConnection logMessage:message forProcess: dbproc];	
+		//NSLog(@"%@", message);  
+	}
 		
 	// if (severity > 10) {						
 	// 	[active logMessage:message];
 	// 	[NSException raise:@"Exception" format: @"error: severity %d\n", severity];
 	// }                           
 	// else{
-		[active logMessage:message];
+	 // [active logMessage:message];
+	//	[TdsConnection logMessage:message forProcess: dbproc];	
 	// }
 	
 	return 0;							
@@ -60,7 +101,7 @@ int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dbe
 		[message appendFormat:@"%s\n", dberrstr];
 	}
 	
-	[active logMessage:message];	
+	[TdsConnection logMessage:message forProcess: dbproc];	
 	return INT_CANCEL;						
 }    
 
@@ -281,15 +322,32 @@ struct COL
 		[self executeQuery: query];				
 		[self readResults];
 	}	
-}   
+}         
+
+-(void) executeInBackground: (NSDictionary*) arguments{     
+	if ([self isProcessing]) return;			
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+		         
+	NSString *query = [arguments objectForKey: @"query"];
+	NSString *database = [arguments objectForKey: @"database"];
+	id receiver = [arguments objectForKey: @"receiver"];
+	SEL selector = NSSelectorFromString([arguments objectForKey: @"selector"]); //@selector(setResult:);	
+  
+  QueryResult *result = [self execute: query withDefaultDatabase: database];	
+	
+	[receiver performSelectorOnMainThread: selector withObject: result waitUntilDone: YES];		
+                                                                                        
+	[pool release];
+}
 
 -(QueryResult*) execute: (NSString*) query withDefaultDatabase: (NSString*) database{
-	queryResult = [[QueryResult alloc] init];
-	[queryResult autorelease];
+	[TdsConnection activate: self];
+	QueryResult *result = [[QueryResult alloc] init];
+	[result retain];
+	queryResult = result;		
 	@try{                                       
 		[self setIsProcessing: TRUE]; 
-		active = self; 
-						
+
 		[self checkConnection];
 		[self useDatabase: database]; 
 		[self executeQueries: query];
@@ -300,9 +358,11 @@ struct COL
 		[self logMessage: [NSString stringWithFormat:@"%@", [exception reason]]];
 	} 
 	@finally{
+		[TdsConnection deactivate: self];
 		[self setIsProcessing: FALSE];
-	}
-	return queryResult;
+	}   
+	queryResult = nil;
+	return result;
 } 
  
 -(QueryResult*) execute: (NSString*) query{  
@@ -310,20 +370,26 @@ struct COL
 }
 
 -(void) logout{
-	dbclose(dbproc);			
-	dbexit();	      
-	dbproc = nil;
+	if (dbproc){
+		dbclose(dbproc);			
+		dbexit();	      
+		dbproc = nil;
+	}
 }
 
 -(void) dealloc{    
 	NSLog(@"QueryExec dealloc");
 	[self logout]; 
-	[queryResult release];
+	//[queryResult release];
 	[super dealloc];
 }
 
 -(void) logMessage: (NSString*) message{
-	[queryResult addMessage: message];
+	if (queryResult){
+		[queryResult addMessage: message];
+	}else{
+		NSLog(@"missing queryResult in logMessage");
+	}
 }
 
 -(id) initWithCredentials: (NSString*) serverName 
@@ -338,10 +404,14 @@ struct COL
 		_databaseName = [[NSString alloc] initWithString: databaseName];
 		_userName = [[NSString alloc] initWithString:userName];
 		_password = [[NSString alloc] initWithString: password];
-		active = self;
+		//active = self;
 	}
 	
 	return self;
+}    
+
+- (TdsConnection*) clone{
+	return [[TdsConnection alloc] initWithCredentials: _serverName databaseName: _databaseName userName: _userName password: _password];
 }
 
 -(NSString*) connectionName{
@@ -360,7 +430,5 @@ struct COL
 		return nil;
 	}
 } 
-
-
 
 @end

@@ -78,206 +78,375 @@
 			</array>
 			<key>Keywords</key>
 			<array>
-
+	<string>ACTION</string>
 	<string>ADD</string>
+	<string>ADMIN</string>
+	<string>AFTER</string>
+	<string>AGGREGATE</string>
+	<string>ALIAS</string>
 	<string>ALL</string>
+	<string>ALLOCATE</string>
 	<string>ALTER</string>
 	<string>AND</string>
 	<string>ANY</string>
+	<string>ARE</string>
+	<string>ARRAY</string>
 	<string>AS</string>
 	<string>ASC</string>
+	<string>ASSERTION</string>
+	<string>AT</string>
 	<string>AUTHORIZATION</string>
-	<string>AVG</string>
 	<string>BACKUP</string>
+	<string>BEFORE</string>
 	<string>BEGIN</string>
 	<string>BETWEEN</string>
+	<string>BINARY</string>
+	<string>BIT</string>
+	<string>BLOB</string>
+	<string>BOOLEAN</string>
+	<string>BOTH</string>
+	<string>BREADTH</string>
 	<string>BREAK</string>
 	<string>BROWSE</string>
+	<string>BSOLUTE</string>
 	<string>BULK</string>
 	<string>BY</string>
+	<string>CALL</string>
 	<string>CASCADE</string>
+	<string>CASCADED</string>
 	<string>CASE</string>
+	<string>CAST</string>
+	<string>CATALOG</string>
+	<string>CHAR</string>
+	<string>CHARACTER</string>
 	<string>CHECK</string>
 	<string>CHECKPOINT</string>
+	<string>CLASS</string>
+	<string>CLOB</string>
 	<string>CLOSE</string>
 	<string>CLUSTERED</string>
 	<string>COALESCE</string>
+	<string>COLLATE</string>
+	<string>COLLATION</string>
 	<string>COLUMN</string>
 	<string>COMMIT</string>
-	<string>COMMITTED</string>
+	<string>COMPLETION</string>
 	<string>COMPUTE</string>
-	<string>CONFIRM</string>
+	<string>CONNECT</string>
+	<string>CONNECTION</string>
 	<string>CONSTRAINT</string>
+	<string>CONSTRAINTS</string>
+	<string>CONSTRUCTOR</string>
 	<string>CONTAINS</string>
 	<string>CONTAINSTABLE</string>
 	<string>CONTINUE</string>
-	<string>CONTROLROW</string>
 	<string>CONVERT</string>
-	<string>COUNT</string>
+	<string>CORRESPONDING</string>
 	<string>CREATE</string>
 	<string>CROSS</string>
+	<string>CUBE</string>
 	<string>CURRENT</string>
 	<string>CURRENT_DATE</string>
+	<string>CURRENT_PATH</string>
+	<string>CURRENT_ROLE</string>
 	<string>CURRENT_TIME</string>
 	<string>CURRENT_TIMESTAMP</string>
 	<string>CURRENT_USER</string>
 	<string>CURSOR</string>
+	<string>CYCLE</string>
+	<string>DATA</string>
 	<string>DATABASE</string>
+	<string>DATE</string>
+	<string>DAY</string>
 	<string>DBCC</string>
 	<string>DEALLOCATE</string>
+	<string>DEC</string>
+	<string>DECIMAL</string>
 	<string>DECLARE</string>
 	<string>DEFAULT</string>
+	<string>DEFERRABLE</string>
+	<string>DEFERRED</string>
 	<string>DELETE</string>
 	<string>DENY</string>
+	<string>DEPTH</string>
+	<string>DEREF</string>
 	<string>DESC</string>
+	<string>DESCRIBE</string>
+	<string>DESCRIPTOR</string>
+	<string>DESTROY</string>
+	<string>DESTRUCTOR</string>
+	<string>DETERMINISTIC</string>
+	<string>DIAGNOSTICS</string>
+	<string>DICTIONARY</string>
+	<string>DISCONNECT</string>
 	<string>DISK</string>
 	<string>DISTINCT</string>
 	<string>DISTRIBUTED</string>
+	<string>DOMAIN</string>
 	<string>DOUBLE</string>
 	<string>DROP</string>
 	<string>DUMMY</string>
 	<string>DUMP</string>
+	<string>DYNAMIC</string>
+	<string>EACH</string>
 	<string>ELSE</string>
 	<string>END</string>
+	<string>END-EXEC</string>
+	<string>EQUALS</string>
 	<string>ERRLVL</string>
-	<string>ERROREXIT</string>
 	<string>ESCAPE</string>
+	<string>EVERY</string>
 	<string>EXCEPT</string>
+	<string>EXCEPTION</string>
 	<string>EXEC</string>
 	<string>EXECUTE</string>
 	<string>EXISTS</string>
 	<string>EXIT</string>
+	<string>EXTERNAL</string>
+	<string>FALSE</string>
 	<string>FETCH</string>
 	<string>FILE</string>
 	<string>FILLFACTOR</string>
-	<string>FLOPPY</string>
+	<string>FIRST</string>
+	<string>FLOAT</string>
 	<string>FOR</string>
 	<string>FOREIGN</string>
+	<string>FOUND</string>
+	<string>FREE</string>
 	<string>FREETEXT</string>
 	<string>FREETEXTTABLE</string>
 	<string>FROM</string>
 	<string>FULL</string>
+	<string>FUNCTION</string>
+	<string>GENERAL</string>
+	<string>GET</string>
+	<string>GLOBAL</string>
+	<string>GO</string>
 	<string>GOTO</string>
 	<string>GRANT</string>
 	<string>GROUP</string>
+	<string>GROUPING</string>
 	<string>HAVING</string>
 	<string>HOLDLOCK</string>
+	<string>HOST</string>
+	<string>HOUR</string>
 	<string>IDENTITY</string>
 	<string>IDENTITYCOL</string>
 	<string>IDENTITY_INSERT</string>
 	<string>IF</string>
+	<string>IGNORE</string>
+	<string>IMMEDIATE</string>
 	<string>IN</string>
 	<string>INDEX</string>
+	<string>INDICATOR</string>
+	<string>INITIALIZE</string>
+	<string>INITIALLY</string>
 	<string>INNER</string>
+	<string>INOUT</string>
+	<string>INPUT</string>
 	<string>INSERT</string>
+	<string>INT</string>
+	<string>INTEGER</string>
 	<string>INTERSECT</string>
+	<string>INTERVAL</string>
 	<string>INTO</string>
 	<string>IS</string>
 	<string>ISOLATION</string>
+	<string>ITERATE</string>
 	<string>JOIN</string>
 	<string>KEY</string>
 	<string>KILL</string>
+	<string>LANGUAGE</string>
+	<string>LARGE</string>
+	<string>LAST</string>
+	<string>LATERAL</string>
+	<string>LEADING</string>
 	<string>LEFT</string>
+	<string>LESS</string>
 	<string>LEVEL</string>
 	<string>LIKE</string>
+	<string>LIMIT</string>
 	<string>LINENO</string>
 	<string>LOAD</string>
-	<string>MAX</string>
-	<string>MIN</string>
-	<string>MIRROREXIT</string>
+	<string>LOCAL</string>
+	<string>LOCALTIME</string>
+	<string>LOCALTIMESTAMP</string>
+	<string>LOCATOR</string>
+	<string>MAP</string>
+	<string>MATCH</string>
+	<string>MINUTE</string>
+	<string>MODIFIES</string>
+	<string>MODIFY</string>
+	<string>MODULE</string>
+	<string>MONTH</string>
+	<string>NAMES</string>
 	<string>NATIONAL</string>
+	<string>NATURAL</string>
+	<string>NCHAR</string>
+	<string>NCLOB</string>
+	<string>NEW</string>
+	<string>NEXT</string>
+	<string>NO</string>
 	<string>NOCHECK</string>
 	<string>NONCLUSTERED</string>
+	<string>NONE</string>
 	<string>NOT</string>
 	<string>NULL</string>
 	<string>NULLIF</string>
+	<string>NUMERIC</string>
+	<string>OBJECT</string>
 	<string>OF</string>
 	<string>OFF</string>
 	<string>OFFSETS</string>
+	<string>OLD</string>
 	<string>ON</string>
-	<string>ONCE</string>
 	<string>ONLY</string>
 	<string>OPEN</string>
 	<string>OPENDATASOURCE</string>
 	<string>OPENQUERY</string>
 	<string>OPENROWSET</string>
+	<string>OPENXML</string>
+	<string>OPERATION</string>
 	<string>OPTION</string>
 	<string>OR</string>
 	<string>ORDER</string>
+	<string>ORDINALITY</string>
+	<string>OUT</string>
 	<string>OUTER</string>
+	<string>OUTPUT</string>
 	<string>OVER</string>
+	<string>PAD</string>
+	<string>PARAMETER</string>
+	<string>PARAMETERS</string>
+	<string>PARTIAL</string>
+	<string>PATH</string>
 	<string>PERCENT</string>
-	<string>PERM</string>
-	<string>PERMANENT</string>
-	<string>PIPE</string>
 	<string>PLAN</string>
+	<string>POSTFIX</string>
 	<string>PRECISION</string>
+	<string>PREFIX</string>
+	<string>PREORDER</string>
 	<string>PREPARE</string>
+	<string>PRESERVE</string>
 	<string>PRIMARY</string>
 	<string>PRINT</string>
+	<string>PRIOR</string>
 	<string>PRIVILEGES</string>
 	<string>PROC</string>
 	<string>PROCEDURE</string>
-	<string>PROCESSEXIT</string>
 	<string>PUBLIC</string>
 	<string>RAISERROR</string>
 	<string>READ</string>
+	<string>READS</string>
 	<string>READTEXT</string>
+	<string>REAL</string>
 	<string>RECONFIGURE</string>
+	<string>RECURSIVE</string>
+	<string>REF</string>
 	<string>REFERENCES</string>
-	<string>REPEATABLE</string>
+	<string>REFERENCING</string>
+	<string>RELATIVE</string>
 	<string>REPLICATION</string>
 	<string>RESTORE</string>
 	<string>RESTRICT</string>
+	<string>RESULT</string>
 	<string>RETURN</string>
+	<string>RETURNS</string>
 	<string>REVOKE</string>
 	<string>RIGHT</string>
+	<string>ROLE</string>
 	<string>ROLLBACK</string>
+	<string>ROLLUP</string>
+	<string>ROUTINE</string>
+	<string>ROW</string>
 	<string>ROWCOUNT</string>
 	<string>ROWGUIDCOL</string>
+	<string>ROWS</string>
 	<string>RULE</string>
 	<string>SAVE</string>
+	<string>SAVEPOINT</string>
 	<string>SCHEMA</string>
+	<string>SCOPE</string>
+	<string>SCROLL</string>
+	<string>SEARCH</string>
+	<string>SECOND</string>
+	<string>SECTION</string>
 	<string>SELECT</string>
-	<string>SERIALIZABLE</string>
+	<string>SEQUENCE</string>
+	<string>SESSION</string>
 	<string>SESSION_USER</string>
 	<string>SET</string>
+	<string>SETS</string>
 	<string>SETUSER</string>
 	<string>SHUTDOWN</string>
+	<string>SIZE</string>
+	<string>SMALLINT</string>
 	<string>SOME</string>
+	<string>SPACE</string>
+	<string>SPECIFIC</string>
+	<string>SPECIFICTYPE</string>
+	<string>SQL</string>
+	<string>SQLEXCEPTION</string>
+	<string>SQLSTATE</string>
+	<string>SQLWARNING</string>
+	<string>START</string>
+	<string>STATE</string>
+	<string>STATEMENT</string>
+	<string>STATIC</string>
 	<string>STATISTICS</string>
-	<string>SUM</string>
+	<string>STRUCTURE</string>
 	<string>SYSTEM_USER</string>
 	<string>TABLE</string>
-	<string>TAPE</string>
-	<string>TEMP</string>
 	<string>TEMPORARY</string>
+	<string>TERMINATE</string>
 	<string>TEXTSIZE</string>
+	<string>THAN</string>
 	<string>THEN</string>
+	<string>TIME</string>
+	<string>TIMESTAMP</string>
+	<string>TIMEZONE_HOUR</string>
+	<string>TIMEZONE_MINUTE</string>
 	<string>TO</string>
 	<string>TOP</string>
+	<string>TRAILING</string>
 	<string>TRAN</string>
 	<string>TRANSACTION</string>
+	<string>TRANSLATION</string>
+	<string>TREAT</string>
 	<string>TRIGGER</string>
+	<string>TRUE</string>
 	<string>TRUNCATE</string>
 	<string>TSEQUAL</string>
-	<string>UNCOMMITTED</string>
+	<string>UNDER</string>
 	<string>UNION</string>
 	<string>UNIQUE</string>
+	<string>UNKNOWN</string>
+	<string>UNNEST</string>
 	<string>UPDATE</string>
 	<string>UPDATETEXT</string>
+	<string>USAGE</string>
 	<string>USE</string>
 	<string>USER</string>
+	<string>USING</string>
+	<string>VALUE</string>
 	<string>VALUES</string>
+	<string>VARCHAR</string>
+	<string>VARIABLE</string>
 	<string>VARYING</string>
 	<string>VIEW</string>
 	<string>WAITFOR</string>
 	<string>WHEN</string>
+	<string>WHENEVER</string>
 	<string>WHERE</string>
 	<string>WHILE</string>
 	<string>WITH</string>
+	<string>WITHOUT</string>
 	<string>WORK</string>
+	<string>WRITE</string>
 	<string>WRITETEXT</string>
+	<string>YEAR</string>
+	<string>ZONE</string>
+
 
 								
 			</array>
@@ -363,9 +532,434 @@
 			<array>
 
 
-<string>sp_help</string>
-<string>sp_who</string>
-<string>sp_helptext</string>
+	<string>sp_OACreate</string>
+	<string>sp_OADestroy</string>
+	<string>sp_OAGetErrorInfo</string>
+	<string>sp_OAGetProperty</string>
+	<string>sp_OAMethod</string>
+	<string>sp_OASetProperty</string>
+	<string>sp_OAStop</string>
+	<string>sp_add_agent_parameter</string>
+	<string>sp_add_agent_profile</string>
+	<string>sp_add_alert</string>
+	<string>sp_add_category</string>
+	<string>sp_add_data_file_recover_suspect_db</string>
+	<string>sp_add_job</string>
+	<string>sp_add_jobschedule</string>
+	<string>sp_add_jobserver</string>
+	<string>sp_add_jobstep</string>
+	<string>sp_add_log_file_recover_suspect_db</string>
+	<string>sp_add_notification</string>
+	<string>sp_add_operator</string>
+	<string>sp_add_targetservergroup</string>
+	<string>sp_add_targetsvrgrp_member</string>
+	<string>sp_addalias</string>
+	<string>sp_addapprole</string>
+	<string>sp_addarticle</string>
+	<string>sp_adddistpublisher</string>
+	<string>sp_adddistributiondb</string>
+	<string>sp_adddistributor</string>
+	<string>sp_addextendedproc</string>
+	<string>sp_addgroup</string>
+	<string>sp_addlinkedserver</string>
+	<string>sp_addlinkedsrvlogin</string>
+	<string>sp_addlinkedsrvlogin</string>
+	<string>sp_addlogin</string>
+	<string>sp_addmergearticle</string>
+	<string>sp_addmergefilter</string>
+	<string>sp_addmergepublication</string>
+	<string>sp_addmergepullsubscription</string>
+	<string>sp_addmergepullsubscription_agent</string>
+	<string>sp_addmergesubscription</string>
+	<string>sp_addmessage</string>
+	<string>sp_addpublication</string>
+	<string>sp_addpublication_snapshot</string>
+	<string>sp_addpublisher70</string>
+	<string>sp_addpullsubscription</string>
+	<string>sp_addpullsubscription_agent</string>
+	<string>sp_addremotelogin</string>
+	<string>sp_addrole</string>
+	<string>sp_addrolemember</string>
+	<string>sp_addserver</string>
+	<string>sp_addsrvrolemember</string>
+	<string>sp_addsubscriber</string>
+	<string>sp_addsubscriber_schedule</string>
+	<string>sp_addsubscription</string>
+	<string>sp_addsynctriggers</string>
+	<string>sp_addtabletocontents</string>
+	<string>sp_addtask</string>
+	<string>sp_addtype</string>
+	<string>sp_addumpdevice</string>
+	<string>sp_adduser</string>
+	<string>sp_altermessage</string>
+	<string>sp_apply_job_to_targets</string>
+	<string>sp_approlepassword</string>
+	<string>sp_article_validation</string>
+	<string>sp_articlecolumn</string>
+	<string>sp_articlefilter</string>
+	<string>sp_articlesynctranprocs</string>
+	<string>sp_articleview</string>
+	<string>sp_attach_db</string>
+	<string>sp_attach_single_file_db</string>
+	<string>sp_autostats</string>
+	<string>sp_bindefault</string>
+	<string>sp_bindrule</string>
+	<string>sp_bindsession</string>
+	<string>sp_browsereplcmds</string>
+	<string>sp_catalogs</string>
+	<string>sp_certify_removable</string>
+	<string>sp_change_agent_parameter</string>
+	<string>sp_change_agent_profile</string>
+	<string>sp_change_subscription_properties</string>
+	<string>sp_change_users_login</string>
+	<string>sp_changearticle</string>
+	<string>sp_changedbowner</string>
+	<string>sp_changedistpublisher</string>
+	<string>sp_changedistributiondb</string>
+	<string>sp_changedistributor_password</string>
+	<string>sp_changedistributor_property</string>
+	<string>sp_changegroup</string>
+	<string>sp_changemergearticle</string>
+	<string>sp_changemergefilter</string>
+	<string>sp_changemergepublication</string>
+	<string>sp_changemergepullsubscription</string>
+	<string>sp_changemergesubscription</string>
+	<string>sp_changeobjectowner</string>
+	<string>sp_changepublication</string>
+	<string>sp_changesubscriber</string>
+	<string>sp_changesubscriber_schedule</string>
+	<string>sp_changesubstatus</string>
+	<string>sp_check_for_sync_trigger</string>
+	<string>sp_column_privileges</string>
+	<string>sp_column_privileges_ex</string>
+	<string>sp_columns</string>
+	<string>sp_columns_ex</string>
+	<string>sp_configure</string>
+	<string>sp_create_removable</string>
+	<string>sp_createstats</string>
+	<string>sp_cursor_list</string>
+	<string>sp_cycle_errorlog</string>
+	<string>sp_databases</string>
+	<string>sp_datatype_info</string>
+	<string>sp_dbcmptlevel</string>
+	<string>sp_dbfixedrolepermission</string>
+	<string>sp_dboption</string>
+	<string>sp_defaultdb</string>
+	<string>sp_defaultlanguage</string>
+	<string>sp_delete_alert</string>
+	<string>sp_delete_backuphistory</string>
+	<string>sp_delete_category</string>
+	<string>sp_delete_job</string>
+	<string>sp_delete_jobschedule</string>
+	<string>sp_delete_jobserver</string>
+	<string>sp_delete_jobstep</string>
+	<string>sp_delete_notification</string>
+	<string>sp_delete_operator</string>
+	<string>sp_delete_targetserver</string>
+	<string>sp_delete_targetservergroup</string>
+	<string>sp_delete_targetsvrgrp_member</string>
+	<string>sp_deletemergeconflictrow</string>
+	<string>sp_denylogin</string>
+	<string>sp_depends</string>
+	<string>sp_describe_cursor</string>
+	<string>sp_describe_cursor_columns</string>
+	<string>sp_describe_cursor_tables</string>
+	<string>sp_detach_db</string>
+	<string>sp_drop_agent_parameter</string>
+	<string>sp_drop_agent_profile</string>
+	<string>sp_dropalias</string>
+	<string>sp_dropapprole</string>
+	<string>sp_droparticle</string>
+	<string>sp_dropdevice</string>
+	<string>sp_dropdistpublisher</string>
+	<string>sp_dropdistributiondb</string>
+	<string>sp_dropdistributor</string>
+	<string>sp_dropextendedproc</string>
+	<string>sp_dropgroup</string>
+	<string>sp_droplinkedsrvlogin</string>
+	<string>sp_droplinkedsrvlogin</string>
+	<string>sp_droplogin</string>
+	<string>sp_dropmergearticle</string>
+	<string>sp_dropmergefilter</string>
+	<string>sp_dropmergepublication</string>
+	<string>sp_dropmergepullsubscription</string>
+	<string>sp_dropmergesubscription</string>
+	<string>sp_dropmessage</string>
+	<string>sp_droppublication</string>
+	<string>sp_droppullsubscription</string>
+	<string>sp_dropremotelogin</string>
+	<string>sp_droprole</string>
+	<string>sp_droprolemember</string>
+	<string>sp_dropserver</string>
+	<string>sp_dropsrvrolemember</string>
+	<string>sp_dropsubscriber</string>
+	<string>sp_dropsubscription</string>
+	<string>sp_droptask</string>
+	<string>sp_droptype</string>
+	<string>sp_dropuser</string>
+	<string>sp_dropwebtask</string>
+	<string>sp_dsninfo</string>
+	<string>sp_dumpparamcmd</string>
+	<string>sp_enumcodepages</string>
+	<string>sp_enumcustomresolvers</string>
+	<string>sp_enumdsn</string>
+	<string>sp_enumfullsubscribers</string>
+	<string>sp_executesql</string>
+	<string>sp_expired_subscription_cleanup</string>
+	<string>sp_fkeys</string>
+	<string>sp_foreignkeys</string>
+	<string>sp_fulltext_catalog</string>
+	<string>sp_fulltext_column</string>
+	<string>sp_fulltext_database</string>
+	<string>sp_fulltext_service</string>
+	<string>sp_fulltext_table</string>
+	<string>sp_generatefilters</string>
+	<string>sp_get_distributor</string>
+	<string>sp_getbindtoken</string>
+	<string>sp_getmergedeletetype</string>
+	<string>sp_grant_publication_access</string>
+	<string>sp_grantdbaccess</string>
+	<string>sp_grantlogin</string>
+	<string>sp_help</string>
+	<string>sp_help_agent_default</string>
+	<string>sp_help_agent_parameter</string>
+	<string>sp_help_agent_profile</string>
+	<string>sp_help_alert</string>
+	<string>sp_help_category</string>
+	<string>sp_help_downloadlist</string>
+	<string>sp_help_fulltext_catalogs</string>
+	<string>sp_help_fulltext_catalogs_cursor</string>
+	<string>sp_help_fulltext_columns</string>
+	<string>sp_help_fulltext_columns_cursor</string>
+	<string>sp_help_fulltext_tables</string>
+	<string>sp_help_fulltext_tables_cursor</string>
+	<string>sp_help_job</string>
+	<string>sp_help_jobhistory</string>
+	<string>sp_help_jobschedule</string>
+	<string>sp_help_jobserver</string>
+	<string>sp_help_jobstep</string>
+	<string>sp_help_notification</string>
+	<string>sp_help_operator</string>
+	<string>sp_help_publication_access</string>
+	<string>sp_help_targetserver</string>
+	<string>sp_help_targetservergroup</string>
+	<string>sp_helparticle</string>
+	<string>sp_helparticlecolumns</string>
+	<string>sp_helpconstraint</string>
+	<string>sp_helpdb</string>
+	<string>sp_helpdbfixedrole</string>
+	<string>sp_helpdevice</string>
+	<string>sp_helpdistpublisher</string>
+	<string>sp_helpdistributiondb</string>
+	<string>sp_helpdistributor</string>
+	<string>sp_helpextendedproc</string>
+	<string>sp_helpfile</string>
+	<string>sp_helpfilegroup</string>
+	<string>sp_helpgroup</string>
+	<string>sp_helphistory</string>
+	<string>sp_helpindex</string>
+	<string>sp_helplanguage</string>
+	<string>sp_helplinkedsrvlogin</string>
+	<string>sp_helplogins</string>
+	<string>sp_helpmergearticle</string>
+	<string>sp_helpmergearticleconflicts</string>
+	<string>sp_helpmergeconflictrows</string>
+	<string>sp_helpmergedeleteconflictrows</string>
+	<string>sp_helpmergefilter</string>
+	<string>sp_helpmergepublication</string>
+	<string>sp_helpmergepullsubscription</string>
+	<string>sp_helpmergesubscription</string>
+	<string>sp_helpntgroup</string>
+	<string>sp_helppublication</string>
+	<string>sp_helppullsubscription</string>
+	<string>sp_helpremotelogin</string>
+	<string>sp_helpreplicationdboption</string>
+	<string>sp_helprole</string>
+	<string>sp_helprolemember</string>
+	<string>sp_helprotect</string>
+	<string>sp_helpserver</string>
+	<string>sp_helpsort</string>
+	<string>sp_helpsrvrole</string>
+	<string>sp_helpsrvrolemember</string>
+	<string>sp_helpsubscriberinfo</string>
+	<string>sp_helpsubscription</string>
+	<string>sp_helpsubscription_properties</string>
+	<string>sp_helptask</string>
+	<string>sp_helptext</string>
+	<string>sp_helptrigger</string>
+	<string>sp_helpuser</string>
+	<string>sp_indexes</string>
+	<string>sp_indexoption</string>
+	<string>sp_link_publication</string>
+	<string>sp_linkedservers</string>
+	<string>sp_lock</string>
+	<string>sp_makewebtask</string>
+	<string>sp_manage_jobs_by_login</string>
+	<string>sp_mergedummyupdate</string>
+	<string>sp_mergesubscription_cleanup</string>
+	<string>sp_monitor</string>
+	<string>sp_msx_defect</string>
+	<string>sp_msx_enlist</string>
+	<string>sp_password</string>
+	<string>sp_pkeys</string>
+	<string>sp_post_msx_operation</string>
+	<string>sp_primarykeys</string>
+	<string>sp_processmail</string>
+	<string>sp_procoption</string>
+	<string>sp_publication_validation</string>
+	<string>sp_purge_jobhistory</string>
+	<string>sp_purgehistory</string>
+	<string>sp_reassigntask</string>
+	<string>sp_recompile</string>
+	<string>sp_refreshsubscriptions</string>
+	<string>sp_refreshview</string>
+	<string>sp_reinitmergepullsubscription</string>
+	<string>sp_reinitmergesubscription</string>
+	<string>sp_reinitpullsubscription</string>
+	<string>sp_reinitsubscription</string>
+	<string>sp_remoteoption</string>
+	<string>sp_remove_job_from_targets</string>
+	<string>sp_removedbreplication</string>
+	<string>sp_rename</string>
+	<string>sp_renamedb</string>
+	<string>sp_replcmds</string>
+	<string>sp_replcounters</string>
+	<string>sp_repldone</string>
+	<string>sp_replflush</string>
+	<string>sp_replication_agent_checkup</string>
+	<string>sp_replicationdboption</string>
+	<string>sp_replsetoriginator</string>
+	<string>sp_replshowcmds</string>
+	<string>sp_repltrans</string>
+	<string>sp_resync_targetserver</string>
+	<string>sp_revoke_publication_access</string>
+	<string>sp_revokedbaccess</string>
+	<string>sp_revokelogin</string>
+	<string>sp_runwebtask</string>
+	<string>sp_script_synctran_commands</string>
+	<string>sp_scriptdelproc</string>
+	<string>sp_scriptinsproc</string>
+	<string>sp_scriptmappedupdproc</string>
+	<string>sp_scriptupdproc</string>
+	<string>sp_server_info</string>
+	<string>sp_serveroption</string>
+	<string>sp_serveroption</string>
+	<string>sp_setapprole</string>
+	<string>sp_setnetname</string>
+	<string>sp_spaceused</string>
+	<string>sp_special_columns</string>
+	<string>sp_sproc_columns</string>
+	<string>sp_srvrolepermission</string>
+	<string>sp_start_job</string>
+	<string>sp_statistics</string>
+	<string>sp_stop_job</string>
+	<string>sp_stored_procedures</string>
+	<string>sp_subscription_cleanup</string>
+	<string>sp_table_privileges</string>
+	<string>sp_table_privileges_ex</string>
+	<string>sp_table_validation</string>
+	<string>sp_tableoption</string>
+	<string>sp_tables</string>
+	<string>sp_tables_ex</string>
+	<string>sp_unbindefault</string>
+	<string>sp_unbindrule</string>
+	<string>sp_update_agent_profile</string>
+	<string>sp_update_alert</string>
+	<string>sp_update_category</string>
+	<string>sp_update_job</string>
+	<string>sp_update_jobschedule</string>
+	<string>sp_update_jobstep</string>
+	<string>sp_update_notification</string>
+	<string>sp_update_operator</string>
+	<string>sp_update_targetservergroup</string>
+	<string>sp_updatestats</string>
+	<string>sp_updatetask</string>
+	<string>sp_validatelogins</string>
+	<string>sp_validname</string>
+	<string>sp_who</string>
+	<string>xp_cmdshell</string>
+	<string>xp_deletemail</string>
+	<string>xp_enumgroups</string>
+	<string>xp_findnextmsg</string>
+	<string>xp_findnextmsg</string>
+	<string>xp_grantlogin</string>
+	<string>xp_logevent</string>
+	<string>xp_loginconfig</string>
+	<string>xp_logininfo</string>
+	<string>xp_msver</string>
+	<string>xp_readmail</string>
+	<string>xp_revokelogin</string>
+	<string>xp_sendmail</string>
+	<string>xp_sprintf</string>
+	<string>xp_sqlinventory</string>
+	<string>xp_sqlmaint</string>
+	<string>xp_sqltrace</string>
+	<string>xp_sscanf</string>
+	<string>xp_startmail</string>
+	<string>xp_stopmail</string>
+	<string>xp_trace_addnewqueue</string>
+	<string>xp_trace_deletequeuedefinition</string>
+	<string>xp_trace_destroyqueue</string>
+	<string>xp_trace_enumqueuedefname</string>
+	<string>xp_trace_enumqueuehandles</string>
+	<string>xp_trace_eventclassrequired</string>
+	<string>xp_trace_flushqueryhistory</string>
+	<string>xp_trace_generate_event</string>
+	<string>xp_trace_getappfilter</string>
+	<string>xp_trace_getconnectionidfilter</string>
+	<string>xp_trace_getcpufilter</string>
+	<string>xp_trace_getdbidfilter</string>
+	<string>xp_trace_getdurationfilter</string>
+	<string>xp_trace_geteventfilter</string>
+	<string>xp_trace_geteventnames</string>
+	<string>xp_trace_getevents</string>
+	<string>xp_trace_gethostfilter</string>
+	<string>xp_trace_gethpidfilter</string>
+	<string>xp_trace_getindidfilter</string>
+	<string>xp_trace_getntdmfilter</string>
+	<string>xp_trace_getntnmfilter</string>
+	<string>xp_trace_getobjidfilter</string>
+	<string>xp_trace_getqueueautostart</string>
+	<string>xp_trace_getqueuedestination</string>
+	<string>xp_trace_getqueueproperties</string>
+	<string>xp_trace_getreadfilter</string>
+	<string>xp_trace_getserverfilter</string>
+	<string>xp_trace_getseverityfilter</string>
+	<string>xp_trace_getspidfilter</string>
+	<string>xp_trace_getsysobjectsfilter</string>
+	<string>xp_trace_gettextfilter</string>
+	<string>xp_trace_getuserfilter</string>
+	<string>xp_trace_getwritefilter</string>
+	<string>xp_trace_loadqueuedefinition</string>
+	<string>xp_trace_pausequeue</string>
+	<string>xp_trace_restartqueue</string>
+	<string>xp_trace_savequeuedefinition</string>
+	<string>xp_trace_setappfilter</string>
+	<string>xp_trace_setconnectionidfilter</string>
+	<string>xp_trace_setcpufilter</string>
+	<string>xp_trace_setdbidfilter</string>
+	<string>xp_trace_setdurationfilter</string>
+	<string>xp_trace_seteventclassrequired</string>
+	<string>xp_trace_seteventfilter</string>
+	<string>xp_trace_sethostfilter</string>
+	<string>xp_trace_sethpidfilter</string>
+	<string>xp_trace_setindidfilter</string>
+	<string>xp_trace_setntdmfilter</string>
+	<string>xp_trace_setntnmfilter</string>
+	<string>xp_trace_setobjidfilter</string>
+	<string>xp_trace_setqueryhistory</string>
+	<string>xp_trace_setqueueautostart</string>
+	<string>xp_trace_setqueuecreateinfo</string>
+	<string>xp_trace_setqueuedestination</string>
+	<string>xp_trace_setreadfilter</string>
+	<string>xp_trace_setserverfilter</string>
+	<string>xp_trace_setseverityfilter</string>
+	<string>xp_trace_setspidfilter</string>
+	<string>xp_trace_setsysobjectsfilter</string>
+	<string>xp_trace_settextfilter</string>
+	<string>xp_trace_setuserfilter</string>
+	<string>xp_trace_setwritefilter</string>
+
 
 
 	</array>

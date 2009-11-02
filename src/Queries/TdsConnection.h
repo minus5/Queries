@@ -39,6 +39,8 @@
 						 databaseName: (NSString*) databaseName 
 								 userName: (NSString*) userName 
 								 password: (NSString*) password;
+								
+- (DBPROCESS*) dbproc;
 
 -(void) login;
 -(void) logout;
@@ -58,5 +60,7 @@
 -(NSString*) connectionName;
   
 -(NSString*) currentDatabase;
+
+- (TdsConnection*) clone;
 
 @end

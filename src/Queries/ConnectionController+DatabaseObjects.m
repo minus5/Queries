@@ -5,15 +5,29 @@
 -(void) dbObjectsFillSidebar{         
 	@try{	                  
 		[self fillDatabasesCombo];
-		[self readDatabaseObjects];		
+		[self readDatabaseObjects];	  
 	}@catch(NSException *exception){    
 		NSLog(@"error in fillSidebar: %@", exception);
 	}
-}
+}                         
 
 - (void) readDatabaseObjects{
+	[self executeQueryInBackground: @"exec sp_cqa_database_objects" withDatabase: @"master" returnToObject: self withSelector: @selector(setObjectsResult:)];		
+	// [dbObjectsResults release];	
+	// dbObjectsResults = [[tdsConnection execute: @"exec sp_cqa_database_objects"] rows];	
+	// [dbObjectsResults retain];
+	// 
+	// [dbObjectsCache release];		
+	// dbObjectsCache = [NSMutableDictionary dictionary];		
+	// [dbObjectsCache retain];             
+	// 
+	// [outlineView reloadData];
+	// [outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+}       
+
+- (void) setObjectsResult: (QueryResult*) queryResult{ 
 	[dbObjectsResults release];	
-	dbObjectsResults = [[tdsConnection execute: @"exec sp_cqa_database_objects"] rows];	
+	dbObjectsResults = [queryResult rows];	
 	[dbObjectsResults retain];
 	
 	[dbObjectsCache release];		
@@ -21,17 +35,30 @@
 	[dbObjectsCache retain];             
 	
 	[outlineView reloadData];
-	[outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+	[outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];	
 }
 
 - (void) fillDatabasesCombo{
-	[databasesPopUp removeAllItems];
+	// NSString *query = @"select name from master.sys.databases where owner_sid != 01 and state_desc = 'ONLINE' order by name";
+	// [self executeQueryInBackground: query withDatabase: @"master" returnToObject: self withSelector: @selector(setDatabasesResult:)];	
+	[databasesPopUp removeAllItems];          
 	QueryResult *queryResult = [tdsConnection execute: @"select name from master.sys.databases where owner_sid != 01 and state_desc = 'ONLINE' order by name"];
 	for(NSArray *row in [queryResult rows]){     
 		NSString *title = [row objectAtIndex: 0];
 		[databasesPopUp addItemWithTitle: title];
 	} 
+	[databasesPopUp selectItemWithTitle: [tdsConnection currentDatabase]];     
+	[self databaseChanged: nil]; 
+}    
+
+- (void) setDatabasesResult: (QueryResult*) queryResult{    
+	[databasesPopUp removeAllItems];	
+	for(NSArray *row in [queryResult rows]){     
+		NSString *title = [row objectAtIndex: 0];
+		[databasesPopUp addItemWithTitle: title];
+	} 
 	[databasesPopUp selectItemWithTitle: [tdsConnection currentDatabase]];
+	[self databaseChanged: nil];	
 }
 
 - (void) displayDefaultDatabase{
