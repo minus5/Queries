@@ -2,6 +2,8 @@
 
 @implementation ConnectionController
 
+@synthesize outlineView;
+
 - (NSString*) windowNibName{
 	return @"ConnectionView";
 }
@@ -45,10 +47,12 @@
 }  
 
 - (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem{
-	[self displayDefaultDatabase];                  
-	[self setNextResponder: [tabViewItem identifier]];
-	NSLog(@"nextResponder: %@", [self nextResponder]);
-}
+	[self displayDefaultDatabase]; 
+	queryController = [tabViewItem identifier];          
+	        
+	[self setNextResponder: queryController];	
+	[queryController updateNextKeyViewRing];	
+} 
 
 - (IBAction) nextTab: (id) sender{
 	[queryTabs selectNextTabViewItem:sender];	
@@ -69,7 +73,7 @@
 }
 
 - (void) shouldCloseCurrentQuery{
-	if (![[self currentQueryController] isEdited]){
+	if (![queryController isEdited]){
 		[self closeCurentQuery];
 		return;                 		
 	}                         
@@ -92,7 +96,7 @@
 		return;
 	}	
 	if (choice == NSAlertDefaultReturn){
-		if (![[self currentQueryController] saveQuery]){ 
+		if (![queryController saveQuery]){ 
 			return; 
 		}
 	}
@@ -105,11 +109,6 @@
 		[credentials retain];
 	}
 	[credentials showSheet]; 	
-}
-
-//prebaci ovo u varijablu koju odrzavaj svakom promjenom taba
-- (QueryController*) currentQueryController{
-	return [[queryTabs selectedTabViewItem] identifier];
 }
 
 - (void) didChangeConnection: (TdsConnection*) connection{
@@ -129,20 +128,11 @@
 		[self changeConnection: nil];
 		return;		
 	}
-	QueryController *qc = [self currentQueryController];	  
-	[qc setIsProcessing: YES];
-	[self executeQueryInBackground: [qc queryString] withDatabase: [qc defaultDatabase] returnToObject: qc withSelector: @selector(setResult:)];
-	
-	// NSDictionary *arguments = [NSDictionary dictionaryWithObjectsAndKeys: 
-	// 	[NSString stringWithFormat: @"%@", [qc queryString]], @"query", 
-	// 	[NSString stringWithFormat: @"%@", [qc defaultDatabase]], @"database", 
-	// 	qc, @"receiver",
-	// 	NSStringFromSelector(@selector(setResult:)), @"selector",
-	// 	nil];                                                                               	                                   
-	//                                                                                                   	
-	// [tdsConnection performSelectorInBackground:@selector(executeInBackground:) withObject: arguments];	
-	//TODO pozovi ovo nakon sto query zavrsi, ali pazi ako promjeni tab
-	//[self databaseChanged: nil];	
+	[queryController setIsProcessing: YES];
+	[self executeQueryInBackground: [queryController queryString] 
+		withDatabase: [queryController defaultDatabase] 
+		returnToObject: queryController 
+		withSelector: @selector(setResult:)];
 }                                 
 
 - (void) executeQueryInBackground: (NSString*) query withDatabase: (NSString*) database returnToObject: (id) receiver withSelector: (SEL) selector{
@@ -181,15 +171,15 @@
 		if (![objectType isEqualToString: @"NULL"]){
 			if ([objectType isEqualToString: @"tables"]){
 			  [self createNewTab];  		                                           
-				[[self currentQueryController] setString: [NSString stringWithFormat: @"use %@\nexec sp_help '%@'", databaseName, fullName]];
+				[queryController setString: [NSString stringWithFormat: @"use %@\nexec sp_help '%@'", databaseName, fullName]];
 				[self executeQuery: nil];
-				[[self currentQueryController] nextResult: nil];
-				//[self goToResults: nil];
+				[queryController nextResult: nil];
+				//[queryController goToResults: nil];
 			}else{
 				QueryResult *queryResult = [tdsConnection execute: [NSString stringWithFormat: @"use %@\nexec sp_helpText '%@'", databaseName, fullName]];
 				if (queryResult){
 					[self createNewTab];
-					[[self currentQueryController] setString:[queryResult resultAsString]];
+					[queryController setString:[queryResult resultAsString]];
 					//[self goToQueryText: nil];
 				}
 			}	
@@ -201,7 +191,7 @@
 }       
     
 - (IBAction) goToQueryText: (id) sender{
-	[[self currentQueryController] goToQueryText: [self window]];
+	[queryController goToQueryText: [self window]];
 }
                                         
 - (IBAction) goToDatabaseObjects: (id) sender{
@@ -209,11 +199,11 @@
 }
 
 - (IBAction) goToResults: (id) sender{
-	[[self currentQueryController] goToResults: [self window]];
+	[queryController goToResults: [self window]];
 }
 
 - (IBAction) goToMessages: (id) sender{
-	[[self currentQueryController] goToMessages: [self window]];
+	[queryController goToMessages: [self window]];
 }
 
 @end

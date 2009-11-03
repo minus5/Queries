@@ -1,51 +1,65 @@
-BUGS
-  * pazi na open ako je file edited
-  * speling se pojavljuje
+BUGS  
   * undo ne radi dobro u kombinaciji s indent/unindent   
   * Results 1 of 9 ne izgleda dobro ako su brojevi dovoznamenkasti, fiksene je sirine
-  
+  + focus handling ponvo revidirati, ne ide na outline, napravi to u kodu nakon svake promjene taba dodaj nextKeyView svim potrebnim kontrolama
+    
 TODO
-  + focus handling
-  * izbaci print iz sp_cqa_...
-  + threading
+  * connections window
+    * sacuvati detalje konekcije
+    * proglasiti neku konekciju defaultnom
+    * stavi kotacic dok ostvaruje konekciju
 
-  * Save As implementiraj
+  * create skripta za tablice
+  * alter skripta za view-e i procedure
+    
+  * save/open files  
+    * pazi na open ako je file edited  
+    * Save As implementiraj
+  * izbaci print iz sp_cqa_...
+  
+  * 32 bitni build
+  
   * dolje lijevo prikazi detalje o konekciji:
     * server
     * username
     * row counter 7/236
     * vrijeme izvrsavanja querija
-  + dodaj 'Command(s) completed succesfully na sve querije koji ne vracaju resultset
+  
   * filter database objekata
   * Error oboji crveno
-  * connections window
-    * sacuvati detalje konekcije
-    * proglasiti neku konekciju defaultnom
-    * stavi kotacic dok ostvaruje konekciju
+  * skok na liniju u kojoj je greska          
   * drag and drop tabova      
-  * keyboard shortcuts
-    * otvori databases
-    * jump to objects
-    * jump to query
-    * jump to results
-    * jump to messsages
-  * results in text
+  
   * ikonice
     * za aplikaciju
     * za results/messages
     * za database objects
     * za tip baze test/staging/production...
   * staviti sistemske tablice u objects (ali u poseban dir), pazi tada ce se raspasti 
+      
+  * user preferences
+    * rowcoun opalitit prije svakog upita, da ne uzme bas cijelu bazu
+    * opcija set implicit transactions on
+  
+  * export u Numbers
+  * kopiranje iz grida kolone ili redka ili svega
+  * results in text
+  * query library - mozda cak uzeti onaj koji postoji uz stari query analyzer
+    
+  * highlight imena tablica i procedura u trenutnoj bazi  
+  
   + highlight 
     + sistemskih stored procedura
     + int
   + ikonica na tabu processing
-  * skok na liniju u kojoj je greska        
-  * rowcoutn opalitit prije svakog upita, da ne uzme bas cijelu bazu
-  * opcija set implicit transactions on
-  
-  * export u Numbers
-  * kopiranje
-  * query library - mozda cak uzeti onaj koji postoji uz stari query analyzer
-
-  * zasto kod logiranja poruka imam onu zabranu da ne mora biti duga barem 5 znakova
+  + dodaj 'Command(s) completed succesfully na sve querije koji ne vracaju resultset
+  + zasto kod logiranja poruka imam onu zabranu da ne mora biti duga barem 5 znakova
+  + keyboard shortcuts
+    * otvori databases
+    * jump to objects
+    * jump to query
+    * jump to results
+    * jump to messsages  
+  + focus handling
+  + threading
+  + speling se pojavljuje

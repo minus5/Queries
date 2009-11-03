@@ -90,6 +90,8 @@
 - (IBAction) goToResults: (id) sender;
 - (IBAction) goToMessages: (id) sender;
 
+- (void) updateNextKeyViewRing;
+
 @end
 
 //syntax highlighting

@@ -18,13 +18,14 @@
 	
 	CredentialsController *credentials;	
 	int queryTabsCounter;
-	TdsConnection *tdsConnection;
+	TdsConnection *tdsConnection;                       
+	QueryController *queryController;
 	
 	NSArray *dbObjectsResults;	
 	NSMutableDictionary *dbObjectsCache;
-}
+}                     
 
-- (QueryController*) currentQueryController;
+@property (readonly) NSOutlineView *outlineView;
 
 - (IBAction) newTab: (id) sender;
 - (QueryController*) createNewTab;

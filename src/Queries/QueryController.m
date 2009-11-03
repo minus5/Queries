@@ -54,12 +54,14 @@
 	[resultsMessagesSegmentedControll setSelectedSegment:0];
   [self showResultsCount];                     
 	[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+	[self updateNextKeyViewRing];
 }
 
 - (IBAction) showMessages: (id) sender{
 	[resultsTabView	selectTabViewItemAtIndex: 1];
 	[resultsMessagesSegmentedControll setSelectedSegment:1];
 	[self showResultsCount];
+	[self updateNextKeyViewRing];
 }
 
 - (void) showResultsCount{
@@ -242,7 +244,11 @@
 	[self showMessages: sender];
 	[sender makeFirstResponder: messagesTextView];
 }
-
+       
+- (void) updateNextKeyViewRing{
+	[messagesTextView setNextKeyView: [connection outlineView]];
+	[resultsTableView setNextKeyView: [connection outlineView]];
+}
 
 @end
 			

@@ -62,7 +62,7 @@
 }
 
 - (void) displayDefaultDatabase{
-	[databasesPopUp selectItemWithTitle: [[self currentQueryController] defaultDatabase]];  
+	[databasesPopUp selectItemWithTitle: [queryController defaultDatabase]];  
 	if (![databasesPopUp selectedItem]){ 
 		[self databaseChanged: nil];
 	}
@@ -70,11 +70,11 @@
 
 - (void) databaseChanged:(id)sender{                  
 	if ([sender titleOfSelectedItem]){
-		[[self currentQueryController] setDefaultDatabase: [sender titleOfSelectedItem]];	
+		[queryController setDefaultDatabase: [sender titleOfSelectedItem]];	
 	}else{                                               
 		NSString *dbName = [tdsConnection currentDatabase];
 		if (dbName){                               
-			[[self currentQueryController] setDefaultDatabase: dbName];	
+			[queryController setDefaultDatabase: dbName];	
 	  	[databasesPopUp selectItemWithTitle: dbName];
 		}
   }
