@@ -114,8 +114,8 @@
 - (void) didChangeConnection: (TdsConnection*) connection{
 	tdsConnection = connection;
 	[[self window] setTitle: [tdsConnection connectionName]];
-	[self dbObjectsFillSidebar];
-	//[self databaseChanged: nil];	
+	[self databaseChanged: nil];	
+	[self dbObjectsFillSidebar];	
 	NSLog(@"didChangeConnection");
 }
 

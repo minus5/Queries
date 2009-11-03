@@ -1,16 +1,18 @@
 #import <Cocoa/Cocoa.h>
 #import "ConnectionController.h"
-#import "TdsConnection.h"
+#import "TdsConnection.h" 
+
 
 @class ConnectionController;
 @class TdsConnection;
 
 @interface CredentialsController : NSWindowController {
 	
-	IBOutlet NSTextField *server;
-	IBOutlet NSTextField *username;
-	IBOutlet NSTextField *database;
-	IBOutlet NSSecureTextField *password;
+	IBOutlet NSComboBox *serverCombo;
+	IBOutlet NSComboBox *userCombo;
+	IBOutlet NSSecureTextField *passwordText;
+	
+	NSMutableArray *credentials;
 
 	ConnectionController *owner;
 } 
@@ -20,6 +22,12 @@
 - (void) showSheet;
 - (IBAction) close: (id)sender;   
 - (IBAction) connect: (id)sender;       
-- (void) closeSheet;
+- (void) closeSheet;            
+         
+- (void) readCredentials;
+- (void) writeCredentials;                                 
+- (void) fillServerCombo;
+- (IBAction) onServerSelected:(id) sender;
+- (IBAction) onUserSelected:(id) sender;
 
 @end

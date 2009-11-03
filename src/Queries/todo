@@ -1,13 +1,18 @@
 BUGS  
   * undo ne radi dobro u kombinaciji s indent/unindent   
   * Results 1 of 9 ne izgleda dobro ako su brojevi dovoznamenkasti, fiksene je sirine
-  + focus handling ponvo revidirati, ne ide na outline, napravi to u kodu nakon svake promjene taba dodaj nextKeyView svim potrebnim kontrolama
+  + zasto focus handling ponvo revidirati, ne ide na outline, napravi to u kodu nakon svake promjene taba dodaj nextKeyView svim potrebnim kontrolama
+  * ne radi "select * from pubs.publishers" 
+    * tocnije: select * from publishers where pub_id = 9901
+    * problem je u Minhenu
+  
     
 TODO
   * connections window
-    * sacuvati detalje konekcije
-    * proglasiti neku konekciju defaultnom
+    + sacuvati detalje konekcije
+    + proglasiti neku konekciju defaultnom
     * stavi kotacic dok ostvaruje konekciju
+    * javiti lijepu porku kada se ne uspije konektirati
 
   * create skripta za tablice
   * alter skripta za view-e i procedure
@@ -47,6 +52,7 @@ TODO
   * query library - mozda cak uzeti onaj koji postoji uz stari query analyzer
     
   * highlight imena tablica i procedura u trenutnoj bazi  
+    * db_name nije obojan
   
   + highlight 
     + sistemskih stored procedura

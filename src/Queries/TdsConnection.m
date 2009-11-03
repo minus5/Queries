@@ -114,7 +114,7 @@ struct COL
 
 -(void) login{
 	LOGINREC *login;	
-	RETCODE erc;
+	//RETCODE erc;
 	
 	setenv("TDSPORT", "1433", 1);
 	setenv("TDSVER", "8.0", 1);
@@ -139,10 +139,12 @@ struct COL
 	if ((dbproc = dbopen(login, [_serverName cStringUsingEncoding:NSASCIIStringEncoding])) == NULL) {
 		[NSException raise:@"Exception" format: @"%d: unable to connect to %s as %s\n", __LINE__, [_serverName cStringUsingEncoding:NSASCIIStringEncoding], [_userName cStringUsingEncoding:NSASCIIStringEncoding]];
 	}
-		
+
+	/*	
 	if ([_databaseName cStringUsingEncoding:NSASCIIStringEncoding]  && (erc = dbuse(dbproc, [_databaseName cStringUsingEncoding:NSASCIIStringEncoding])) == FAIL) {
 		[NSException raise:@"Exception" format: @"%d: unable to use to database %s\n", __LINE__, _databaseName];
-	}				
+	}	
+	*/			
 	
 }
 
@@ -393,7 +395,6 @@ struct COL
 }
 
 -(id) initWithCredentials: (NSString*) serverName 
-	databaseName: (NSString*) databaseName 
 			userName: (NSString*) userName 
 			password: (NSString*) password
 {
@@ -401,17 +402,15 @@ struct COL
 	
 	if(self){
 		_serverName = [[NSString alloc] initWithString: serverName];
-		_databaseName = [[NSString alloc] initWithString: databaseName];
 		_userName = [[NSString alloc] initWithString:userName];
 		_password = [[NSString alloc] initWithString: password];
-		//active = self;
 	}
 	
 	return self;
 }    
 
 - (TdsConnection*) clone{
-	return [[TdsConnection alloc] initWithCredentials: _serverName databaseName: _databaseName userName: _userName password: _password];
+	return [[TdsConnection alloc] initWithCredentials: _serverName userName: _userName password: _password];
 }
 
 -(NSString*) connectionName{

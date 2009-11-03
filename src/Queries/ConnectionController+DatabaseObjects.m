@@ -12,17 +12,10 @@
 }                         
 
 - (void) readDatabaseObjects{
-	[self executeQueryInBackground: @"exec sp_cqa_database_objects" withDatabase: @"master" returnToObject: self withSelector: @selector(setObjectsResult:)];		
-	// [dbObjectsResults release];	
-	// dbObjectsResults = [[tdsConnection execute: @"exec sp_cqa_database_objects"] rows];	
-	// [dbObjectsResults retain];
-	// 
-	// [dbObjectsCache release];		
-	// dbObjectsCache = [NSMutableDictionary dictionary];		
-	// [dbObjectsCache retain];             
-	// 
-	// [outlineView reloadData];
-	// [outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+	[self executeQueryInBackground: @"exec sp_cqa_database_objects" 
+		withDatabase: @"master" 
+		returnToObject: self
+		withSelector: @selector(setObjectsResult:)];		
 }       
 
 - (void) setObjectsResult: (QueryResult*) queryResult{ 
@@ -39,8 +32,6 @@
 }
 
 - (void) fillDatabasesCombo{
-	// NSString *query = @"select name from master.sys.databases where owner_sid != 01 and state_desc = 'ONLINE' order by name";
-	// [self executeQueryInBackground: query withDatabase: @"master" returnToObject: self withSelector: @selector(setDatabasesResult:)];	
 	[databasesPopUp removeAllItems];          
 	QueryResult *queryResult = [tdsConnection execute: @"select name from master.sys.databases where owner_sid != 01 and state_desc = 'ONLINE' order by name"];
 	for(NSArray *row in [queryResult rows]){     
