@@ -339,18 +339,26 @@ struct COL
 }         
 
 -(void) executeInBackground: (NSDictionary*) arguments{     
-	if ([self isProcessing]) return;			
+	if ([self isProcessing]) 
+		return;			
+		
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 		         
 	NSString *query = [arguments objectForKey: @"query"];
 	NSString *database = [arguments objectForKey: @"database"];
 	id receiver = [arguments objectForKey: @"receiver"];
-	SEL selector = NSSelectorFromString([arguments objectForKey: @"selector"]); //@selector(setResult:);	
-  
-  QueryResult *result = [self execute: query withDefaultDatabase: database];	
-	
+	SEL selector = NSSelectorFromString([arguments objectForKey: @"selector"]); 
+	NSNumber *logout =  [arguments objectForKey: @"logout"];
+  QueryResult *result = [self execute: query withDefaultDatabase: database];		
 	[receiver performSelectorOnMainThread: selector withObject: result waitUntilDone: YES];		
-                                                                                        
+	
+	NSLog(@"logout value: %@", logout);
+
+	if ([logout boolValue]){
+		NSLog(@"closing temporary connection");
+		[self logout];
+		[self release];
+	}
 	[pool release];
 }
 
@@ -393,7 +401,7 @@ struct COL
 }
 
 -(void) dealloc{    
-	NSLog(@"QueryExec dealloc");
+	NSLog(@"TdsConnection dealloc");
 	[self logout]; 
 	[super dealloc];
 }

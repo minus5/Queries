@@ -233,8 +233,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -272,16 +270,14 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>18DD252110A3813B00108BE8</string>
-								<string>080E96DDFE201D6D7F000001</string>
-								<string>1870CA8E109864E2006AC809</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>1C37FBAC04509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>22</integer>
-									<integer>4</integer>
+									<integer>7</integer>
+									<integer>6</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -314,12 +310,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>184873E6109857C600A15FC7</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>QueryController.m</string>
+								<string>TSQL.plist</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,11 +325,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>184873E7109857C600A15FC7</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>QueryController.m</string>
+										<string>TSQL.plist</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>184F475510A384FB006680D2</string>
+										<string>184F47A810A3963B006680D2</string>
 										<key>history</key>
 										<array>
 											<string>1870C9771098595A006AC809</string>
@@ -354,12 +352,12 @@
 											<string>18DD24CF10A3753400108BE8</string>
 											<string>18DD24D010A3753400108BE8</string>
 											<string>18DD252810A381AA00108BE8</string>
-											<string>18DD252910A381AA00108BE8</string>
 											<string>184F473610A38477006680D2</string>
 											<string>184F473D10A3848F006680D2</string>
-											<string>184F475210A384FB006680D2</string>
 											<string>184F475310A384FB006680D2</string>
-											<string>184F475410A384FB006680D2</string>
+											<string>184F47A110A3960E006680D2</string>
+											<string>184F47A210A3960E006680D2</string>
+											<string>184F47A710A39630006680D2</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -373,18 +371,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1590, 841}}</string>
+								<string>{{0, 0}, {1590, 956}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 54 1920 1124 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>841pt</string>
+							<string>956pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>237pt</string>
+							<string>122pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -398,7 +396,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1590, 210}}</string>
+										<string>{{10, 27}, {1590, 95}}</string>
 										<key>RubberWindowFrame</key>
 										<string>0 54 1920 1124 0 0 1920 1178 </string>
 									</dict>
@@ -676,7 +674,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>184F474B10A384B9006680D2</string>
 		<string>184F472910A3825A006680D2</string>
 		<string>184F472A10A3825A006680D2</string>
 		<string>/Users/ianic/Work/CocoaQueryAnalyzer/src/Queries/Queries.xcodeproj</string>

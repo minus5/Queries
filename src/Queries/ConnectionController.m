@@ -40,13 +40,7 @@
 		
 		[newQuerycontroller addObserver: self forKeyPath: @"database" options: NSKeyValueObservingOptionNew context: nil];
 		[queryTabs selectTabViewItem:newTabViewItem];
-		
-		
-		// [self setQueryDatabaseToDefault]
-		// if (tdsConnection){
-		// 	[newQuerycontroller setDatabase: [tdsConnection currentDatabase]];
-		// }
-		
+	
 	}                              
 	return newQuerycontroller;
 }
@@ -58,7 +52,6 @@
 {
 	if ([keyPath isEqualToString: @"database"] && object == queryController){ 
 		[self displayDatabase];		
-		//[self databaseChanged: nil];
 	}
 }
 
@@ -90,7 +83,12 @@
 		[[self window] close];
 }
 
-- (void) shouldCloseCurrentQuery{
+- (void) shouldCloseCurrentQuery{     
+	//TODO ovo je zasada jako gruba zabrana da ne moze zatvoriti prozor koji ima processing query
+	if ([queryController isProcessing]){
+		return;
+	}
+	
 	if (![queryController isEdited]){
 		[self closeCurentQuery];
 		return;                 		
@@ -154,15 +152,24 @@
 }                                 
 
 - (void) executeQueryInBackground: (NSString*) query withDatabase: (NSString*) database returnToObject: (id) receiver withSelector: (SEL) selector{
+	
+	TdsConnection *conn = tdsConnection;		
+	if ([conn isProcessing]){
+		NSLog(@"creating temporary connection");
+		conn = [tdsConnection clone];
+		[conn login];		
+	}
+		
   //pazi na ovu konstrukciju ako je database nil objekti nakon toga se nece dodati u dictionary, mora biti zadnji parametar
 	NSDictionary *arguments = [NSDictionary dictionaryWithObjectsAndKeys: 
 		[[NSString alloc] initWithString: query], @"query", 		
 		receiver, @"receiver",
 		NSStringFromSelector(selector), @"selector",         
+    [NSNumber numberWithBool: !(conn == tdsConnection)] , @"logout",
 		(database ? [[NSString alloc] initWithString: database] : nil), @"database", 
 		nil];                                                                               	                                   
 	                                                                                                  	
-	[tdsConnection performSelectorInBackground:@selector(executeInBackground:) withObject: arguments];		
+	[conn performSelectorInBackground:@selector(executeInBackground:) withObject: arguments];		
 }
 
 - (int) numberOfEditedQueries {

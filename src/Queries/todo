@@ -5,7 +5,7 @@ BUGS
   * ne radi "select * from pubs.publishers" 
     * tocnije: select * from publishers where pub_id = 9901
     * problem je u Minhenu
-  * use [pubs] ne radi 
+  + use [pubs] ne radi 
   * zadnja kolona je prosirena u gridu   
   
     
@@ -21,8 +21,7 @@ TODO
     
   * save/open files  
     * pazi na open ako je file edited  
-    * Save As implementiraj
-  * izbaci print iz sp_cqa_...
+    * Save As implementiraj  
   
   * 32 bitni build
   
@@ -41,8 +40,7 @@ TODO
     * za aplikaciju
     * za results/messages
     * za database objects
-    * za tip baze test/staging/production...
-  * staviti sistemske tablice u objects (ali u poseban dir), pazi tada ce se raspasti 
+    * za tip baze test/staging/production...  
       
   * user preferences
     * rowcoun opalitit prije svakog upita, da ne uzme bas cijelu bazu
@@ -73,3 +71,5 @@ TODO
   + focus handling
   + threading
   + speling se pojavljuje
+  + izbaci print iz sp_cqa_...
+  + staviti sistemske tablice u objects (ali u poseban dir), pazi tada ce se raspasti 
