@@ -59,12 +59,15 @@
 
 @interface ConnectionController (DatabaseObjects)
 
+- (NSString*) queryFileContents: (NSString*) queryFileName;
 - (void) readDatabaseObjects;
 - (void) fillDatabasesCombo;
 - (void) dbObjectsFillSidebar;     
-- (NSArray*) selectedDbObject;        
-- (void) displayDefaultDatabase;
+- (NSArray*) selectedDbObject;     
+   
+- (void) displayDatabase;
 - (void) databaseChanged:(id)sender;
+- (void) setQueryDatabaseToDefault;
 
 - (void) setDatabasesResult: (QueryResult*) queryResult;
 - (void) setObjectsResult: (QueryResult*) queryResult;

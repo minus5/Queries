@@ -4,11 +4,13 @@
 	NSMutableArray *messages;
 	NSMutableArray *results;
 	int currentResultIndex;
+	NSString *database;
 }
 
 @property (readonly) NSArray *messages;
 @property (readonly) NSArray *results;
 @property (readonly) int currentResultIndex;
+@property (copy) NSString *database;
 
 - (void) addResultWithColumnNames: (NSArray*) columnNames andRows: rows;
 - (void) addMessage: (NSString*) message;

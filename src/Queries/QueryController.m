@@ -2,7 +2,7 @@
 
 @implementation QueryController
 
-@synthesize isEdited, isProcessing, fileName, defaultDatabase;
+@synthesize isEdited, isProcessing, fileName, database;
 
 - (id) initWithConnection: (ConnectionController*) c{
 	if (self = [super init]){
@@ -97,8 +97,11 @@
 	
 	[queryResult release];
 	queryResult = r;
-	[queryResult retain];
-	
+	[queryResult retain]; 
+	                   
+	if ([queryResult database])
+		[self setDatabase: [queryResult database]];		
+		
 	[self reloadResults];
 	[self reloadMessages];
 	if ([queryResult hasResults])
@@ -106,8 +109,7 @@
 	else {
 		[self showMessages: nil];
 	}
-	
-	[connection databaseChanged: nil];
+		
 	[self setIsProcessing: NO];
 }                                       
         

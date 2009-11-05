@@ -2,10 +2,8 @@
 
 @implementation TdsConnection                                
 
-//@synthesize messages, results;
 @synthesize isProcessing; 
   
-
 NSMutableArray *activeConnections;
 
 + (void) activate: (TdsConnection*) conn{
@@ -114,7 +112,6 @@ struct COL
 
 -(void) login{
 	LOGINREC *login;	
-	//RETCODE erc;
 	
 	setenv("TDSPORT", "1433", 1);
 	setenv("TDSVER", "8.0", 1);
@@ -131,27 +128,23 @@ struct COL
 		[NSException raise:@"Exception" format: @"%d: unable to allocate login structure\n", __LINE__];
 	}
 		
-	DBSETLUSER(login, [_userName cStringUsingEncoding:NSASCIIStringEncoding]);
-	DBSETLPWD(login, [_password cStringUsingEncoding:NSASCIIStringEncoding]);
+	DBSETLUSER(login, [user UTF8String]);
+	DBSETLPWD(login, [password UTF8String]);
 	
 	dbsetlname(login, "UTF-8", DBSETCHARSET);
 			
-	if ((dbproc = dbopen(login, [_serverName cStringUsingEncoding:NSASCIIStringEncoding])) == NULL) {
-		[NSException raise:@"Exception" format: @"%d: unable to connect to %s as %s\n", __LINE__, [_serverName cStringUsingEncoding:NSASCIIStringEncoding], [_userName cStringUsingEncoding:NSASCIIStringEncoding]];
+	if ((dbproc = dbopen(login, [server UTF8String])) == NULL) {
+		[NSException raise:@"Exception" format: @"%d: unable to connect to %s as %s\n", __LINE__, [server UTF8String], [user UTF8String]];
 	}
-
-	/*	
-	if ([_databaseName cStringUsingEncoding:NSASCIIStringEncoding]  && (erc = dbuse(dbproc, [_databaseName cStringUsingEncoding:NSASCIIStringEncoding])) == FAIL) {
-		[NSException raise:@"Exception" format: @"%d: unable to use to database %s\n", __LINE__, _databaseName];
-	}	
-	*/			
 	
 }
 
 -(void) executeQuery: (NSString*) query{
 	RETCODE erc;
-	
-	if ((erc = dbfcmd(dbproc, "%s ", [query cStringUsingEncoding:NSASCIIStringEncoding])) == FAIL) {
+
+	const char *cStringQuery = [query UTF8String];
+
+	if ((erc = dbfcmd(dbproc, "%s ", cStringQuery)) == FAIL) {
 		[NSException raise:@"Exception" format: @"%d: dbcmd() failed\n", __LINE__];
 	}		
 	if ((erc = dbsqlexec(dbproc)) == FAIL) {
@@ -217,19 +210,37 @@ struct COL
 	int row_code;
 	struct COL *pcol;
 	int ncols = dbnumcols(dbproc);
-
-	
 	NSMutableArray *rows = [NSMutableArray array];
-	
-	//-----data
 	while ((row_code = dbnextrow(dbproc)) != NO_MORE_ROWS){	
 		switch (row_code) {
 			case REG_ROW:
 			{
 				NSMutableArray *rowValues = [NSMutableArray arrayWithCapacity: ncols];
 				for (pcol=columns; pcol - columns < ncols; pcol++) {															
-					char *buffer = pcol->status == -1? "NULL" : pcol->buffer;																	
-					NSString *value = [[NSString alloc] initWithCString: buffer encoding:NSWindowsCP1250StringEncoding];															
+					char *buffer = pcol->status == -1? "NULL" : pcol->buffer;
+					/*
+					//analiza encodinga
+					for(int i=1;i<16; i++){
+						NSLog(@"encoding %d, value: %@", i, [[NSString alloc] initWithCString: buffer encoding:i]);
+					}  
+					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSISO2022JPStringEncoding]);
+					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSMacOSRomanStringEncoding]);
+					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSUTF16StringEncoding]);
+					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSUTF16BigEndianStringEncoding]);
+					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSUTF16LittleEndianStringEncoding]);
+					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSUTF32StringEncoding]);
+					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSUTF32BigEndianStringEncoding]);
+					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSUTF32LittleEndianStringEncoding]);					
+					
+					NSLog(@"buffer->size %d, buffer: %s", pcol->size, buffer);
+					//NSString *value = [[NSString alloc] initWithUTF8String: buffer];
+					*/					
+					NSString *value = [[NSString alloc] initWithCString: buffer encoding:NSWindowsCP1250StringEncoding];	
+					if (!value)
+						value = [[NSString alloc] initWithCString: buffer encoding:NSASCIIStringEncoding];
+					if (!value)
+						value = @"???";
+					
 					[rowValues addObject: value];					
 				}				
 				[rows addObject: rowValues];				
@@ -302,7 +313,6 @@ struct COL
 	}			
 }         
 
-
 - (void) checkConnection{
 	if (dbproc == nil){ 
 		NSLog(@"Reconnecting...");
@@ -311,7 +321,9 @@ struct COL
 }                          
 
 - (void) useDatabase: (NSString*) database{ 
-	if (database && (dbuse(dbproc, [database cStringUsingEncoding:NSASCIIStringEncoding])) == FAIL) {
+	if (!database)
+		return;
+	if ((dbuse(dbproc, [database UTF8String])) == FAIL) {
 		[NSException raise:@"Exception" format: @"%d: unable to use to database %s\n", __LINE__, database];
 	}
 }
@@ -354,6 +366,7 @@ struct COL
 		[self useDatabase: database]; 
 		[self executeQueries: query];
 		[queryResult addCompletedMessage];																		
+		[queryResult setDatabase: [self currentDatabase]];
 	}
 	@catch (NSException *exception) {    
 		[self logout];
@@ -382,7 +395,6 @@ struct COL
 -(void) dealloc{    
 	NSLog(@"QueryExec dealloc");
 	[self logout]; 
-	//[queryResult release];
 	[super dealloc];
 }
 
@@ -394,27 +406,27 @@ struct COL
 	}
 }
 
--(id) initWithCredentials: (NSString*) serverName 
-			userName: (NSString*) userName 
-			password: (NSString*) password
+-(id) initWithServer: (NSString*) s 
+			user: (NSString*) u 
+			password: (NSString*) p
 {
 	self = [super init];
 	
 	if(self){
-		_serverName = [[NSString alloc] initWithString: serverName];
-		_userName = [[NSString alloc] initWithString:userName];
-		_password = [[NSString alloc] initWithString: password];
+		server = [[NSString alloc] initWithString: s];
+		user = [[NSString alloc] initWithString: u];
+		password = [[NSString alloc] initWithString: p];
 	}
 	
 	return self;
 }    
 
 - (TdsConnection*) clone{
-	return [[TdsConnection alloc] initWithCredentials: _serverName userName: _userName password: _password];
+	return [[TdsConnection alloc] initWithServer: server user: user password: password];
 }
 
 -(NSString*) connectionName{
-	return [NSString stringWithFormat: @"%@@%@", _userName, _serverName];
+	return [NSString stringWithFormat: @"%@@%@", user, server];
 }
 
 -(NSString*) currentDatabase{                            
@@ -422,10 +434,10 @@ struct COL
 		return nil;
 				
 	@try{	                                                 		
-		return [[NSString alloc] initWithCString: dbname(dbproc) encoding:NSWindowsCP1250StringEncoding];
+		return [NSString stringWithCString: dbname(dbproc) encoding:NSWindowsCP1250StringEncoding];
 	}
 	@catch(NSException *e){
-		NSLog(@"defaultDatabase exception: @%", e);
+		NSLog(@"currentDatabase exception: @%", e);
 		return nil;
 	}
 } 

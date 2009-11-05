@@ -2,7 +2,7 @@
 
 @implementation QueryResult
 
-@synthesize messages, results, currentResultIndex;
+@synthesize messages, results, currentResultIndex, database;
 
 - (id) init{
 	results = [NSMutableArray array];
@@ -21,26 +21,12 @@
 	if ([columnNames count] == 0 && [rows count] == 0){
 		return;
 	}                                    
-	// NSArray *newObject = [NSArray arrayWithObjects: columnNames, rows, nil];
-	// if (!results){
-	// 	results = [NSArray arrayWithObject: newObject];
-	// }else{
-	// 	results = [results arrayByAddingObject: newObject];
-	// 	[results retain];	
-	// }
 	[results addObject: [NSArray arrayWithObjects: columnNames, rows, nil]];					
 	[columnNames retain];
 	[rows retain];
 }               
 
 - (void) addMessage: (NSString*) message{
-	// if (!messages){
-	// 	messages = [NSArray arrayWithObject: message];
-	// }else{
-	// 	messages = [results arrayByAddingObject: message];		
-	// }                                                   
-	// [messages retain];	
-	
 	[messages addObject: message];		
 }
 

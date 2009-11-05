@@ -25,20 +25,17 @@
 	IBOutlet NSTableView *resultsTableView;
 	IBOutlet NSTableView *tableView;
 	IBOutlet NSBox *resultsCountBox;
-	IBOutlet NSTextField *resultsCountLabel;
-	
+	IBOutlet NSTextField *resultsCountLabel;	
 	IBOutlet NSScrollView *queryTextScrollView;
-	NoodleLineNumberView	*queryTextLineNumberView;
+	NoodleLineNumberView *queryTextLineNumberView;
 
 	ConnectionController *connection;
 	QueryResult *queryResult;
-	// NSArray *results;
-	// NSArray *messages;
-	// int currentResultIndex;  
+	
 	BOOL isEdited;
 	BOOL isProcessing;
 	NSString *fileName;     
-	NSString *defaultDatabase;
+	NSString *database;
 		
 	////syntax highlighting internals
 	IBOutlet NSTextField*			syntaxColoringStatus;									// Status display for things like syntax coloring or background syntax checks.			
@@ -55,7 +52,7 @@
 @property BOOL isEdited; 
 @property BOOL isProcessing;
 @property (copy) NSString *fileName;
-@property (copy) NSString *defaultDatabase; 
+@property (copy) NSString *database; 
 
 - (id) initWithConnection: (ConnectionController*) c;
 - (IBAction) resultsMessagesSegmentControlClicked:(id)sender;

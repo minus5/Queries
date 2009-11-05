@@ -22,9 +22,9 @@
 
 @interface TdsConnection : NSObject {
 
-	NSString *_serverName;
-	NSString *_userName;
-	NSString *_password;     
+	NSString *server;
+	NSString *user;
+	NSString *password;     
 		
 	QueryResult *queryResult;
 	  
@@ -34,9 +34,7 @@
 
 @property BOOL isProcessing;
 
--(id) initWithCredentials: (NSString*) serverName 
-								 userName: (NSString*) userName 
-								 password: (NSString*) password;
+-(id) initWithServer: (NSString*) s user: (NSString*) u password: (NSString*) p;
 								
 - (DBPROCESS*) dbproc;
 

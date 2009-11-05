@@ -66,12 +66,11 @@
 			[servers addObject: serverName];
 	}  
 	
-	[serverCombo removeAllItems];
-	for(id s in servers){
-		[serverCombo addItemWithObjectValue: s];
+	[serverCombo removeAllItems];   
+	if ([servers count] > 0){
+		[serverCombo addItemsWithObjectValues: servers];
+		[serverCombo selectItemAtIndex: 0];
 	}
-	
-	[serverCombo selectItemWithObjectValue: [servers objectAtIndex:0]];
 	[self onServerSelected:nil];
 }                                                                                     
 
@@ -89,11 +88,11 @@
 			[users addObject: user];
 	}
 	
-	[userCombo removeAllItems];
-	for(id u in users){
-		[userCombo addItemWithObjectValue: u];
-	}	
-	[userCombo selectItemWithObjectValue: [users objectAtIndex: 0]];
+	[userCombo removeAllItems];	
+	if ([users count] > 0){
+		[userCombo addItemsWithObjectValues: users];
+		[userCombo selectItemWithObjectValue: [users objectAtIndex: 0]];
+	}
 	[self onUserSelected: nil];	
 }  
 
@@ -142,8 +141,8 @@
 {      
 	@try {
 		TdsConnection *newConnection = [TdsConnection alloc];
-		[newConnection initWithCredentials: [serverCombo stringValue] 
-												 userName: [userCombo stringValue] 
+		[newConnection initWithServer: [serverCombo stringValue] 
+												 		 user: [userCombo stringValue] 
 												 password: [passwordText stringValue] ];	
 		[newConnection login];
 		

@@ -37,19 +37,35 @@
 		[newTabViewItem setLabel: [NSString stringWithFormat:@"Query: %d", ++queryTabsCounter]];
 		[newTabViewItem setView: [newQuerycontroller view]];	
 		[queryTabs addTabViewItem:newTabViewItem];
+		
+		[newQuerycontroller addObserver: self forKeyPath: @"database" options: NSKeyValueObservingOptionNew context: nil];
 		[queryTabs selectTabViewItem:newTabViewItem];
-		                                         
-		if (tdsConnection){
-			[newQuerycontroller setDefaultDatabase: [tdsConnection currentDatabase]];
-		}
+		
+		
+		// [self setQueryDatabaseToDefault]
+		// if (tdsConnection){
+		// 	[newQuerycontroller setDatabase: [tdsConnection currentDatabase]];
+		// }
+		
 	}                              
 	return newQuerycontroller;
-}  
+}
+
+- (void) observeValueForKeyPath: (NSString*) keyPath 
+	ofObject: (id) object 
+	change: (NSDictionary*) change 
+	context: (void*) context
+{
+	if ([keyPath isEqualToString: @"database"] && object == queryController){ 
+		[self displayDatabase];		
+		//[self databaseChanged: nil];
+	}
+}
 
 - (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem{
-	[self displayDefaultDatabase]; 
-	queryController = [tabViewItem identifier];          
-	        
+	queryController = [tabViewItem identifier];
+	[self displayDatabase];
+		        
 	[self setNextResponder: queryController];	
 	[queryController updateNextKeyViewRing];	
 } 
@@ -70,6 +86,8 @@
 - (void) closeCurentQuery{
 	[queryTabs removeTabViewItem:[queryTabs selectedTabViewItem]];
 	[self isEditedChanged: nil];
+	if ([[queryTabs tabViewItems] count] == 0)
+		[[self window] close];
 }
 
 - (void) shouldCloseCurrentQuery{
@@ -130,18 +148,18 @@
 	}
 	[queryController setIsProcessing: YES];
 	[self executeQueryInBackground: [queryController queryString] 
-		withDatabase: [queryController defaultDatabase] 
+		withDatabase: [queryController database] 
 		returnToObject: queryController 
 		withSelector: @selector(setResult:)];
 }                                 
 
 - (void) executeQueryInBackground: (NSString*) query withDatabase: (NSString*) database returnToObject: (id) receiver withSelector: (SEL) selector{
-
+  //pazi na ovu konstrukciju ako je database nil objekti nakon toga se nece dodati u dictionary, mora biti zadnji parametar
 	NSDictionary *arguments = [NSDictionary dictionaryWithObjectsAndKeys: 
-		[NSString stringWithFormat: @"%@", query], @"query", 
-		[NSString stringWithFormat: @"%@", database], @"database", 
+		[[NSString alloc] initWithString: query], @"query", 		
 		receiver, @"receiver",
-		NSStringFromSelector(selector), @"selector",
+		NSStringFromSelector(selector), @"selector",         
+		(database ? [[NSString alloc] initWithString: database] : nil), @"database", 
 		nil];                                                                               	                                   
 	                                                                                                  	
 	[tdsConnection performSelectorInBackground:@selector(executeInBackground:) withObject: arguments];		

@@ -5,6 +5,8 @@ BUGS
   * ne radi "select * from pubs.publishers" 
     * tocnije: select * from publishers where pub_id = 9901
     * problem je u Minhenu
+  * use [pubs] ne radi 
+  * zadnja kolona je prosirena u gridu   
   
     
 TODO
@@ -53,6 +55,8 @@ TODO
     
   * highlight imena tablica i procedura u trenutnoj bazi  
     * db_name nije obojan
+    * min max funkcije nisu obojane
+    * login nije obojan
   
   + highlight 
     + sistemskih stored procedura

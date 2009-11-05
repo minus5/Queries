@@ -11,12 +11,21 @@
 	}
 }                         
 
-- (void) readDatabaseObjects{
-	[self executeQueryInBackground: @"exec sp_cqa_database_objects" 
+- (void) readDatabaseObjects{        
+		
+	[self executeQueryInBackground: [self queryFileContents: @"database_objects"]
 		withDatabase: @"master" 
 		returnToObject: self
 		withSelector: @selector(setObjectsResult:)];		
-}       
+}
+
+- (NSString*) queryFileContents: (NSString*) queryFileName{
+	NSString *query = [NSString stringWithContentsOfFile: 
+		[[NSBundle mainBundle] pathForResource: queryFileName ofType:@"sql"]
+		encoding: NSUTF8StringEncoding
+		error: nil
+		];
+}
 
 - (void) setObjectsResult: (QueryResult*) queryResult{ 
 	[dbObjectsResults release];	
@@ -52,23 +61,24 @@
 	[self databaseChanged: nil];	
 }
 
-- (void) displayDefaultDatabase{
-	[databasesPopUp selectItemWithTitle: [queryController defaultDatabase]];  
+- (void) displayDatabase{
+	[databasesPopUp selectItemWithTitle: [queryController database]];  
 	if (![databasesPopUp selectedItem]){ 
-		[self databaseChanged: nil];
+		[self setQueryDatabaseToDefault];
 	}
-}   
+}                                               
 
-- (void) databaseChanged:(id)sender{                  
-	if ([sender titleOfSelectedItem]){
-		[queryController setDefaultDatabase: [sender titleOfSelectedItem]];	
-	}else{                                               
-		NSString *dbName = [tdsConnection currentDatabase];
-		if (dbName){                               
-			[queryController setDefaultDatabase: dbName];	
-	  	[databasesPopUp selectItemWithTitle: dbName];
+- (void) setQueryDatabaseToDefault{
+		if (tdsConnection){
+			NSString *dbName = [tdsConnection currentDatabase];
+			if (dbName && [databasesPopUp itemWithTitle: dbName]){ 
+				[queryController setDatabase: dbName];
+			}
 		}
-  }
+}
+
+- (void) databaseChanged:(id)sender{                              
+	[queryController setDatabase: [sender titleOfSelectedItem]];	
 }                               
 
 -(NSArray*) dbObjectsForParent: (NSString*) parentId
