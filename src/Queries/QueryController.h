@@ -6,6 +6,8 @@
 #import "MarkerLineNumberView.h"
 #import "ConnectionController.h"
 #import "QueryResult.h"
+#import "SplitViewDelegate.h"
+#import <BWToolkitFramework/BWToolkitFramework.h>
 
 @class NoodleLineNumberView;
 @class ConnectionController;
@@ -28,7 +30,8 @@
 	IBOutlet NSTextField *resultsCountLabel;	
 	IBOutlet NSScrollView *queryTextScrollView;
 	NoodleLineNumberView *queryTextLineNumberView;
-
+	//IBOutlet BWSplitView *splitView;	                                                                   
+	//SplitViewDelegate *splitViewDelegate;
 	ConnectionController *connection;
 	QueryResult *queryResult;
 	
@@ -87,7 +90,7 @@
 - (IBAction) goToResults: (id) sender;
 - (IBAction) goToMessages: (id) sender;
 
-- (void) updateNextKeyViewRing;
+- (void) updateNextKeyViewRing;                                                                        
 
 @end
 

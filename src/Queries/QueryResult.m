@@ -99,7 +99,15 @@
 	@catch (NSException *e) {
 		return nil;
 	}
-}                                
+}         
+ 
+- (NSArray*) valuesInFirstColumn{
+	NSMutableArray *values = [NSMutableArray array];
+	for(NSArray *row in [self rows]){     
+		[values addObject: [row objectAtIndex: 0]];
+	}                   
+	return values;            
+}
 
 - (NSArray*) resultAtIndex:(int) resultIndex{
 	@try {
@@ -109,6 +117,16 @@
 		return nil;
 	}
 }	
+
+- (NSArray*) columnsAtIndex:(int) resultIndex{
+	@try {
+		return [[results objectAtIndex: resultIndex] objectAtIndex: 0];
+	}
+	@catch (NSException *e) {
+		return nil;
+	}
+}	
+
 
 -(BOOL) hasResults{
 	return [results count] > 0;
@@ -129,6 +147,14 @@
 		[r appendFormat: @"%@", [row objectAtIndex:0]];
 	}   
 	return r;
+}
+
+- (NSArray*) resultWithFirstColumnNamed:(NSString*) columnName{
+	for(id r in [self results]){
+		if ([[[[r objectAtIndex: 0] objectAtIndex: 0] name] isEqualToString: columnName])
+			return [r objectAtIndex: 1];
+	}                               
+	return nil;
 }
 
 @end

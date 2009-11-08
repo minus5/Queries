@@ -3,8 +3,9 @@
 @implementation ConnectionController (DatabaseObjects)
 
 -(void) dbObjectsFillSidebar{         
-	@try{	                  
+	@try{	       
 		[self fillDatabasesCombo];
+		[self databaseObjectsQuery];               				
 		[self readDatabaseObjects];	  
 	}@catch(NSException *exception){    
 		NSLog(@"error in fillSidebar: %@", exception);
@@ -16,10 +17,21 @@
 	dbObjectsResults = nil;
 	[outlineView reloadData];
 		
-	[self executeQueryInBackground: [self queryFileContents: @"database_objects"]
+	[self executeQueryInBackground: [self databaseObjectsQuery]//[self queryFileContents: @"database_objects"]
 		withDatabase: @"master" 
 		returnToObject: self
 		withSelector: @selector(setObjectsResult:)];		
+}
+
+- (NSString*) databaseObjectsQuery{
+	NSMutableString *query = [NSMutableString stringWithString:[self queryFileContents: @"objects_start"]];
+	[query appendFormat: @"\n\n"];
+	for(id db in databases){
+		[query appendFormat: @"use %@\n\n", db];
+		[query appendFormat: @"%@\n", [self queryFileContents: @"objects_in_database"]];
+	} 	
+	[query appendFormat: @"%@\n", [self queryFileContents: @"objects_end"]];
+	return query;
 }
 
 - (NSString*) queryFileContents: (NSString*) queryFileName{
@@ -44,15 +56,22 @@
 	[outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];	
 }
 
-- (void) fillDatabasesCombo{
-	[databasesPopUp removeAllItems];          
-	QueryResult *queryResult = [tdsConnection execute: @"select name from master.sys.databases where state_desc = 'ONLINE' order by name"];
-	for(NSArray *row in [queryResult rows]){     
-		NSString *title = [row objectAtIndex: 0];
-		[databasesPopUp addItemWithTitle: title];
-	} 
-	[databasesPopUp selectItemWithTitle: [tdsConnection currentDatabase]];     
-	[self databaseChanged: nil]; 
+- (void) fillDatabasesCombo{	     
+	NSMutableArray *dbs = [NSMutableArray array];
+	QueryResult *queryResult = [tdsConnection execute: @"select name from master.sys.databases where state_desc = 'ONLINE' and (owner_sid != 01 or name = 'master') order by name"];	
+	if (queryResult){         
+		[databasesPopUp removeAllItems];
+		for(NSArray *row in [queryResult rows]){     
+			NSString *title = [row objectAtIndex: 0];
+			[dbs addObject: title];
+			[databasesPopUp addItemWithTitle: title];
+		} 
+		[databasesPopUp selectItemWithTitle: [tdsConnection currentDatabase]];     
+		[self databaseChanged: nil]; 
+	}       
+	[databases release];
+	databases = dbs;
+	[databases retain]; 
 }    
 
 - (void) setDatabasesResult: (QueryResult*) queryResult{    
@@ -86,16 +105,12 @@
 }                               
 
 -(NSArray*) dbObjectsForParent: (NSString*) parentId
-{
-	
+{	
 	if ([dbObjectsCache objectForKey:parentId] != nil){
 		NSArray *item = [dbObjectsCache objectForKey:parentId]; 
 		return item;
-	}
-	
+	}	
 	NSMutableArray *selected = [NSMutableArray array];		
-	//NSLog(@"searching for childs of: %@", parentId);
-	
 	for(int i=0; i<[dbObjectsResults count]; i++)
 	{
 		NSArray *row = [dbObjectsResults objectAtIndex:i];			

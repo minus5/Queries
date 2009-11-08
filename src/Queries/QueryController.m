@@ -20,7 +20,8 @@
 	}
 }
 
-- (void) dealloc{       
+- (void) dealloc{         
+	//[splitViewDelegate release];
 	[connection release];
 	[queryResult release];
 	[super dealloc];	
@@ -41,7 +42,10 @@
 	syntaxColoringTextView = queryText;
 	[self syntaxColoringInit];
 	[self showResultsCount];
-	[self setIsEdited: NO];
+	[self setIsEdited: NO];  
+
+	// splitViewDelegate = [[SplitViewDelegate alloc] init];
+	// [splitView setDelegate: splitViewDelegate];
 }
 
 - (IBAction)resultsMessagesSegmentControlClicked:(id)sender
@@ -250,7 +254,7 @@
 - (void) updateNextKeyViewRing{
 	[messagesTextView setNextKeyView: [connection outlineView]];
 	[resultsTableView setNextKeyView: [connection outlineView]];
-}
+}             
 
 @end
 			

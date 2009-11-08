@@ -23,5 +23,7 @@
 - (void) primaryKey;                    
 - (void) foreignKeys;
 - (void) indexes;
+- (NSArray*) indexResults;
+- (NSArray*) constraintResults;
 
 @end                                

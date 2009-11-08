@@ -11,5 +11,6 @@
 - (IBAction) newDocument: (id) sender;             
 - (int) numberOfEditedQueries;
 - (NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication *) sender;
++ (NSString*) sqlFileContent: (NSString*) queryFileName;
 
 @end

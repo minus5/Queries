@@ -21,7 +21,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="9"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -295,7 +295,7 @@
 													<object class="NSTextField" id="807634547">
 														<reference key="NSNextResponder" ref="612803271"/>
 														<int key="NSvFlags">268</int>
-														<string key="NSFrame">{{31, 5}, {89, 14}}</string>
+														<string key="NSFrame">{{31, 5}, {84, 14}}</string>
 														<reference key="NSSuperview" ref="612803271"/>
 														<bool key="NSEnabled">YES</bool>
 														<object class="NSTextFieldCell" key="NSCell" id="260436541">
@@ -554,7 +554,7 @@
 																</object>
 																<reference ref="94394479"/>
 															</object>
-															<string key="NSFrame">{{0, 1}, {568, 265}}</string>
+															<string key="NSFrameSize">{568, 265}</string>
 															<reference key="NSSuperview" ref="1045935018"/>
 															<reference key="NSNextKeyView" ref="908408195"/>
 															<int key="NSsFlags">560</int>
@@ -723,17 +723,8 @@
 						<reference key="BWSVColor" ref="1061488633"/>
 						<bool key="BWSVColorIsEnabled">NO</bool>
 						<object class="NSMutableDictionary" key="BWSVMinValues">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="NSArray" key="dict.sortedKeys">
-								<bool key="EncodedWithXMLCoder">YES</bool>
-								<integer value="0"/>
-								<integer value="1"/>
-							</object>
-							<object class="NSMutableArray" key="dict.values">
-								<bool key="EncodedWithXMLCoder">YES</bool>
-								<integer value="100"/>
-								<integer value="150"/>
-							</object>
+							<integer value="1" key="NS.key.0"/>
+							<integer value="35" key="NS.object.0"/>
 						</object>
 						<object class="NSMutableDictionary" key="BWSVMaxValues">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -768,7 +759,7 @@
 								<integer value="0"/>
 							</object>
 						</object>
-						<int key="BWSVCollapsiblePopupSelection">2</int>
+						<int key="BWSVCollapsiblePopupSelection">0</int>
 						<bool key="BWSVDividerCanCollapse">NO</bool>
 					</object>
 				</object>
@@ -1268,7 +1259,7 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{597, 239}, {568, 613}}</string>
+					<string>{{470, 241}, {568, 613}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{628, 654}</string>
 					<string>{{217, 442}, {480, 272}}</string>
@@ -1331,7 +1322,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">68</int>
+			<int key="maxID">71</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

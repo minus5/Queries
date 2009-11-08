@@ -44,4 +44,13 @@
 	return NSTerminateNow;
 }
 
++ (NSString*) sqlFileContent: (NSString*) queryFileName{
+	NSString *query = [NSString stringWithContentsOfFile: 
+		[[NSBundle mainBundle] pathForResource: queryFileName ofType:@"sql"]
+		encoding: NSUTF8StringEncoding
+		error: nil
+		];
+	return query;
+}
+
 @end

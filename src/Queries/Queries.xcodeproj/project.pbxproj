@@ -42,6 +42,9 @@
 		187D3CD310A5743700415FDC /* TdsConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CB9510987B47006AC809 /* TdsConnection.m */; };
 		187D3CD810A5745600415FDC /* ColumnMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CBA510987C0B006AC809 /* ColumnMetadata.m */; };
 		187D3CEA10A574CE00415FDC /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1870CBAA10987C38006AC809 /* libsybdb.a */; };
+		1892765110A7696800C50258 /* objects_end.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892764E10A7696800C50258 /* objects_end.sql */; };
+		1892765210A7696800C50258 /* objects_in_database.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892764F10A7696800C50258 /* objects_in_database.sql */; };
+		1892765310A7696800C50258 /* objects_start.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892765010A7696800C50258 /* objects_start.sql */; };
 		18AC09BB109DAEF5009BEE57 /* QueryResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC09BA109DAEF5009BEE57 /* QueryResult.m */; };
 		18DD252310A3813B00108BE8 /* database_objects.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18DD252210A3813B00108BE8 /* database_objects.sql */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
@@ -108,6 +111,9 @@
 		1877C66710A6122400BFA7AF /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = /Users/ianic/Work/CocoaQueryAnalyzer/lib/maccode/Utilities/PSMTabBarControl/build/Release/PSMTabBarControl.framework; sourceTree = "<absolute>"; };
 		187D3C9D10A572EA00415FDC /* ShellTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ShellTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		187D3CB810A5739600415FDC /* shell_main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shell_main.m; sourceTree = "<group>"; };
+		1892764E10A7696800C50258 /* objects_end.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_end.sql; sourceTree = "<group>"; };
+		1892764F10A7696800C50258 /* objects_in_database.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_in_database.sql; sourceTree = "<group>"; };
+		1892765010A7696800C50258 /* objects_start.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_start.sql; sourceTree = "<group>"; };
 		18AC09B9109DAEF5009BEE57 /* QueryResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryResult.h; sourceTree = "<group>"; };
 		18AC09BA109DAEF5009BEE57 /* QueryResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryResult.m; sourceTree = "<group>"; };
 		18DD252210A3813B00108BE8 /* database_objects.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = database_objects.sql; sourceTree = "<group>"; };
@@ -253,6 +259,9 @@
 		18DD252110A3813B00108BE8 /* sql */ = {
 			isa = PBXGroup;
 			children = (
+				1892764E10A7696800C50258 /* objects_end.sql */,
+				1892764F10A7696800C50258 /* objects_in_database.sql */,
+				1892765010A7696800C50258 /* objects_start.sql */,
 				18DD252210A3813B00108BE8 /* database_objects.sql */,
 			);
 			path = sql;
@@ -422,6 +431,9 @@
 				1870CA0110985E00006AC809 /* CredentialsView.xib in Resources */,
 				1870CA99109864E2006AC809 /* TSQL.plist in Resources */,
 				18DD252310A3813B00108BE8 /* database_objects.sql in Resources */,
+				1892765110A7696800C50258 /* objects_end.sql in Resources */,
+				1892765210A7696800C50258 /* objects_in_database.sql in Resources */,
+				1892765310A7696800C50258 /* objects_start.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

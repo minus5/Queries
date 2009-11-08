@@ -18,6 +18,7 @@
 }     
 
 - (void) dealloc{
+	[databases release];
 	[dbObjectsResults release];	
 	[dbObjectsCache release];	  
 	[tdsConnection logout];
@@ -189,29 +190,33 @@
 -(IBAction) explain: (id) sender{                                  
 	@try{			
 		NSArray *rowData = [self selectedDbObject];
-		NSString *databaseName = [rowData objectAtIndex: 4];
-		NSString *fullName = [rowData objectAtIndex: 3];
-		NSString *objectType = [rowData objectAtIndex: 5];
+		NSArray *idParts = [[rowData objectAtIndex: 0] componentsSeparatedByString:@"."];
+		NSString *databaseName = [idParts objectAtIndex: 0];
+		NSString *objectType = [idParts objectAtIndex: 1];
+		NSString *objectName = [rowData objectAtIndex: 2];		
 		
-		if (![objectType isEqualToString: @"NULL"]){
-			if ([objectType isEqualToString: @"tables"]){
-			  [self createNewTab];  		                                           
-				//[queryController setString: [NSString stringWithFormat: @"use %@\nexec sp_help '%@'", databaseName, fullName]];
-				//[self executeQuery: nil];
-				//[queryController nextResult: nil];
-				//[queryController goToResults: nil];
+
+		if ([objectType isEqualToString: @"tables"]){
+		  [self createNewTab];  		                                           
+			[queryController setString: [CreateTableScript scriptWithConnection: tdsConnection database: databaseName table: objectName]];
+			return;
+		}					
+		if ([objectType isEqualToString: @"procedures"] || [objectType isEqualToString: @"functions"] || [objectType isEqualToString: @"views"]){	
+			QueryResult *queryResult = [tdsConnection execute: [NSString stringWithFormat: @"use %@\nexec sp_helptext '%@'", databaseName, objectName]];
+			if (queryResult){
 				[self createNewTab];
-				[queryController setString: [CreateTableScript scriptWithConnection: tdsConnection database: databaseName table: fullName]];				
-				
-			}else{
-				QueryResult *queryResult = [tdsConnection execute: [NSString stringWithFormat: @"use %@\nexec sp_helpText '%@'", databaseName, fullName]];
-				if (queryResult){
-					[self createNewTab];
-					[queryController setString:[queryResult resultAsString]];
-					//[self goToQueryText: nil];
-				}
-			}	
+				[queryController setString:[queryResult resultAsString]];
+			}
+			return;
+		}	       
+		if ([objectType isEqualToString: @"users"]){
+			[self createNewTab];                                       
+			[queryController setString: [NSString stringWithFormat: @"use %@\nexec sp_helprotect @username = '%@'\nexec sp_helpuser '%@'", databaseName, objectName, objectName]];
+			[self executeQuery: nil];                                                                     
+			[self nextTab]
+			return;
 		}
+
 	}
 	@catch(NSException *e){
 		NSLog(@"explain exception %@", e);

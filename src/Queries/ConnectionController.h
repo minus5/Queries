@@ -24,6 +24,7 @@
 	
 	NSArray *dbObjectsResults;	
 	NSMutableDictionary *dbObjectsCache;
+	NSArray *databases;
 }                     
 
 @property (readonly) NSOutlineView *outlineView;
@@ -65,6 +66,7 @@
 - (void) fillDatabasesCombo;
 - (void) dbObjectsFillSidebar;     
 - (NSArray*) selectedDbObject;     
+- (NSString*) databaseObjectsQuery;
    
 - (void) displayDatabase;
 - (void) databaseChanged:(id)sender;

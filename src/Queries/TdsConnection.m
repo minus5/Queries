@@ -364,6 +364,9 @@ struct COL
 }
 
 -(QueryResult*) execute: (NSString*) query withDefaultDatabase: (NSString*) database{
+	if ([self isProcessing]) 
+		return nil;
+		
 	[TdsConnection activate: self];
 	QueryResult *result = [[QueryResult alloc] init];
 	//[result retain];

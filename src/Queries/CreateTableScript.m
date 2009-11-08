@@ -75,7 +75,7 @@
 }        
 
 - (void) columnDefault:(NSString*) columnName{
-	NSArray *defaultRows = [result resultAtIndex: 6];
+	NSArray *defaultRows = [self constraintResults];
 	if (defaultRows){
 		for(id row in defaultRows){                                                                 
 			NSString *constraintName = [row objectAtIndex: 0];
@@ -87,7 +87,7 @@
 }  
 
 - (void) columnCheck:(NSString*) columnName{
-	NSArray *constraints = [result resultAtIndex: 6];
+	NSArray *constraints = [self constraintResults];
 	if (constraints){
 		for(id constraint in constraints){                                                                 
 			NSString *constraintName = [constraint objectAtIndex: 0];
@@ -99,7 +99,7 @@
 }
 
 - (void) primaryKey{
-	NSArray *constraints = [result resultAtIndex: 6];
+	NSArray *constraints = [self constraintResults];
 	if (constraints){
 		for(id constraint in constraints){  			
 			NSString *constraintType = [constraint objectAtIndex: 0];
@@ -115,7 +115,7 @@
 } 
 
 - (void) foreignKeys{
-	NSArray *constraints = [result resultAtIndex: 6];
+	NSArray *constraints = [self constraintResults];
 	if (constraints){                    
 		for(int i = 0; i < [constraints count]; i++)
 		{                                           
@@ -133,7 +133,7 @@
 }      
 
 - (void) indexes{
-	NSArray *indexes = [result resultAtIndex: 5];
+	NSArray *indexes = [self indexResults];
 	if (indexes){
 		for(id index in indexes){  			
 			NSString *indexDescription = [index objectAtIndex: 1];
@@ -164,7 +164,29 @@
 		[result release];
 	}
 	return self;
-}                                                                     
+} 
+
+- (NSArray*) indexResults{      
+	return [result resultWithFirstColumnNamed: @"index_name"];
+	// if([[[[result columnsAtIndex: 5] objectAtIndex: 0] name] isEqualToString: @"index_name"]){
+	// 	return [result resultAtIndex: 5];
+	// }
+	// if([[[[result columnsAtIndex: 6] objectAtIndex: 0] name] isEqualToString: @"index_name"]){		
+	// 	return [result resultAtIndex: 6];
+	// }
+	// return nil;  
+}  
+
+- (NSArray*) constraintResults{                            
+	return [result resultWithFirstColumnNamed: @"constrinat_type"];
+	// if([[[[result columnsAtIndex: 5] objectAtIndex: 0] name] isEqualToString: @"constrinat_type"]){
+	// 	return [result resultAtIndex: 5];
+	// }
+	// if([[[[result columnsAtIndex: 6] objectAtIndex: 0] name] isEqualToString: @"constrinat_type"]){		
+	// 	return [result resultAtIndex: 6];
+	// }
+	// return nil; 
+}                                                                  
 
 + (NSString*) scriptWithConnection: (TdsConnection*) connection  database:(NSString*) database table: (NSString*) table{
 	CreateTableScript *scripter = [[[CreateTableScript alloc] initWithConnection: connection database: database table: table] autorelease];
@@ -177,4 +199,4 @@
 }
 
 @end
-										
+											

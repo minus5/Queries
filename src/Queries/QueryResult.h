@@ -26,7 +26,10 @@
 - (int) rowsCount;
 - (NSString*) rowValue: (int) rowIndex: (int) columnIndex;   
 - (NSArray*) resultAtIndex:(int) resultIndex;
+- (NSArray*) columnsAtIndex:(int) resultIndex;
 - (NSString*) valueAtResult:(int) resultIndex row:(int) rowIndex column:(int) columnIndex;
 - (NSString*) resultAsString;
+- (NSArray*) valuesInFirstColumn;             
+- (NSArray*) resultWithFirstColumnNamed:(NSString*) columnName;
 
 @end
