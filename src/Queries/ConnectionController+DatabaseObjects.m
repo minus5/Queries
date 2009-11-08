@@ -12,6 +12,9 @@
 }                         
 
 - (void) readDatabaseObjects{        
+	[dbObjectsResults release];	
+	dbObjectsResults = nil;
+	[outlineView reloadData];
 		
 	[self executeQueryInBackground: [self queryFileContents: @"database_objects"]
 		withDatabase: @"master" 
@@ -25,6 +28,7 @@
 		encoding: NSUTF8StringEncoding
 		error: nil
 		];
+	return query;
 }
 
 - (void) setObjectsResult: (QueryResult*) queryResult{ 
@@ -42,7 +46,7 @@
 
 - (void) fillDatabasesCombo{
 	[databasesPopUp removeAllItems];          
-	QueryResult *queryResult = [tdsConnection execute: @"select name from master.sys.databases where owner_sid != 01 and state_desc = 'ONLINE' order by name"];
+	QueryResult *queryResult = [tdsConnection execute: @"select name from master.sys.databases where state_desc = 'ONLINE' order by name"];
 	for(NSArray *row in [queryResult rows]){     
 		NSString *title = [row objectAtIndex: 0];
 		[databasesPopUp addItemWithTitle: title];

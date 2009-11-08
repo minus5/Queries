@@ -21,8 +21,6 @@
 		184873C010983E7400A15FC7 /* ConnectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184873BE10983E7400A15FC7 /* ConnectionView.xib */; };
 		184873C110983E7400A15FC7 /* QueryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184873BF10983E7400A15FC7 /* QueryView.xib */; };
 		1870C955109857FC006AC809 /* ConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870C954109857FC006AC809 /* ConnectionController.m */; };
-		1870C96010985911006AC809 /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1870C95F10985911006AC809 /* PSMTabBarControl.framework */; };
-		1870C96810985940006AC809 /* PSMTabBarControl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1870C95F10985911006AC809 /* PSMTabBarControl.framework */; };
 		1870C9A2109859A8006AC809 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1870C9A1109859A8006AC809 /* BWToolkitFramework.framework */; };
 		1870C9D1109859AC006AC809 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1870C9A1109859A8006AC809 /* BWToolkitFramework.framework */; };
 		1870C9E610985B2D006AC809 /* QueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870C9E510985B2D006AC809 /* QueryController.m */; };
@@ -34,6 +32,16 @@
 		1870CA99109864E2006AC809 /* TSQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1870CA95109864E2006AC809 /* TSQL.plist */; };
 		1870CBAB10987C38006AC809 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1870CBAA10987C38006AC809 /* libsybdb.a */; };
 		1870CC0710988A1B006AC809 /* ConnectionController+DatabaseObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CC0610988A1B006AC809 /* ConnectionController+DatabaseObjects.m */; };
+		1877C28A10A5961300BFA7AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		1877C5D210A60ECF00BFA7AF /* CreateTableScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877C5D110A60ECF00BFA7AF /* CreateTableScript.m */; };
+		1877C5D310A60ECF00BFA7AF /* CreateTableScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877C5D110A60ECF00BFA7AF /* CreateTableScript.m */; };
+		1877C67210A6122900BFA7AF /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1877C66710A6122400BFA7AF /* PSMTabBarControl.framework */; };
+		1877C67310A6122E00BFA7AF /* PSMTabBarControl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1877C66710A6122400BFA7AF /* PSMTabBarControl.framework */; };
+		187D3CB910A5739600415FDC /* shell_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D3CB810A5739600415FDC /* shell_main.m */; };
+		187D3CD210A5743000415FDC /* QueryResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC09BA109DAEF5009BEE57 /* QueryResult.m */; };
+		187D3CD310A5743700415FDC /* TdsConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CB9510987B47006AC809 /* TdsConnection.m */; };
+		187D3CD810A5745600415FDC /* ColumnMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CBA510987C0B006AC809 /* ColumnMetadata.m */; };
+		187D3CEA10A574CE00415FDC /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1870CBAA10987C38006AC809 /* libsybdb.a */; };
 		18AC09BB109DAEF5009BEE57 /* QueryResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC09BA109DAEF5009BEE57 /* QueryResult.m */; };
 		18DD252310A3813B00108BE8 /* database_objects.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18DD252210A3813B00108BE8 /* database_objects.sql */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
@@ -50,8 +58,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1877C67310A6122E00BFA7AF /* PSMTabBarControl.framework in CopyFiles */,
 				1870C9D1109859AC006AC809 /* BWToolkitFramework.framework in CopyFiles */,
-				1870C96810985940006AC809 /* PSMTabBarControl.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +83,6 @@
 		184873BF10983E7400A15FC7 /* QueryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueryView.xib; sourceTree = "<group>"; };
 		1870C953109857FC006AC809 /* ConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionController.h; sourceTree = "<group>"; };
 		1870C954109857FC006AC809 /* ConnectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionController.m; sourceTree = "<group>"; };
-		1870C95F10985911006AC809 /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = /Users/ianic/Work/CocoaQueryAnalyzer/lib/maccode/Utilities/PSMTabBarControl/build/Release/PSMTabBarControl.framework; sourceTree = "<absolute>"; };
 		1870C9A1109859A8006AC809 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = /Users/ianic/Work/CocoaQueryAnalyzer/lib/BWToolkit/BWToolkitFramework.framework; sourceTree = "<absolute>"; };
 		1870C9E410985B2D006AC809 /* QueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryController.h; sourceTree = "<group>"; };
 		1870C9E510985B2D006AC809 /* QueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryController.m; sourceTree = "<group>"; };
@@ -94,6 +101,13 @@
 		1870CBA610987C0B006AC809 /* ColumnMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnMetadata.h; sourceTree = "<group>"; };
 		1870CBAA10987C38006AC809 /* libsybdb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libsybdb.a; path = ../../lib/libsybdb.a; sourceTree = "<group>"; };
 		1870CC0610988A1B006AC809 /* ConnectionController+DatabaseObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ConnectionController+DatabaseObjects.m"; sourceTree = "<group>"; };
+		1877C29110A5965B00BFA7AF /* CocoaTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CocoaTest-Info.plist"; sourceTree = "<group>"; };
+		1877C3FB10A5E9F200BFA7AF /* RubyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RubyTests-Info.plist"; sourceTree = "<group>"; };
+		1877C5D110A60ECF00BFA7AF /* CreateTableScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateTableScript.m; sourceTree = "<group>"; };
+		1877C5ED10A6107200BFA7AF /* CreateTableScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTableScript.h; sourceTree = "<group>"; };
+		1877C66710A6122400BFA7AF /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = /Users/ianic/Work/CocoaQueryAnalyzer/lib/maccode/Utilities/PSMTabBarControl/build/Release/PSMTabBarControl.framework; sourceTree = "<absolute>"; };
+		187D3C9D10A572EA00415FDC /* ShellTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ShellTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		187D3CB810A5739600415FDC /* shell_main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shell_main.m; sourceTree = "<group>"; };
 		18AC09B9109DAEF5009BEE57 /* QueryResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryResult.h; sourceTree = "<group>"; };
 		18AC09BA109DAEF5009BEE57 /* QueryResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryResult.m; sourceTree = "<group>"; };
 		18DD252210A3813B00108BE8 /* database_objects.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = database_objects.sql; sourceTree = "<group>"; };
@@ -118,12 +132,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		187D3C9B10A572EA00415FDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1877C28A10A5961300BFA7AF /* Cocoa.framework in Frameworks */,
+				187D3CEA10A574CE00415FDC /* libsybdb.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1877C67210A6122900BFA7AF /* PSMTabBarControl.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				1870C96010985911006AC809 /* PSMTabBarControl.framework in Frameworks */,
 				1870C9A2109859A8006AC809 /* BWToolkitFramework.framework in Frameworks */,
 				1870CBAB10987C38006AC809 /* libsybdb.a in Frameworks */,
 			);
@@ -135,6 +158,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1877C5ED10A6107200BFA7AF /* CreateTableScript.h */,
+				1877C5D110A60ECF00BFA7AF /* CreateTableScript.m */,
 				183B54C01098B7D70024A1B4 /* LineNumbering */,
 				1870CA8E109864E2006AC809 /* SyntaxHighlight */,
 				1870CBA510987C0B006AC809 /* ColumnMetadata.m */,
@@ -161,8 +186,8 @@
 			children = (
 				1870CBAA10987C38006AC809 /* libsybdb.a */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
-				1870C95F10985911006AC809 /* PSMTabBarControl.framework */,
 				1870C9A1109859A8006AC809 /* BWToolkitFramework.framework */,
+				1877C66710A6122400BFA7AF /* PSMTabBarControl.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -210,6 +235,21 @@
 			path = SyntaxHighlight;
 			sourceTree = "<group>";
 		};
+		1877C44E10A5ED0500BFA7AF /* RubyTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = RubyTests;
+			sourceTree = "<group>";
+		};
+		187D3CB510A5738000415FDC /* ShellTest */ = {
+			isa = PBXGroup;
+			children = (
+				187D3CB810A5739600415FDC /* shell_main.m */,
+			);
+			name = ShellTest;
+			sourceTree = "<group>";
+		};
 		18DD252110A3813B00108BE8 /* sql */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +263,7 @@
 			children = (
 				8D1107320486CEB800E47090 /* Queries.app */,
 				1836B92B10A20E83007B0D87 /* Tests.octest */,
+				187D3C9D10A572EA00415FDC /* ShellTest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -230,6 +271,8 @@
 		29B97314FDCFA39411CA2CEA /* Queries */ = {
 			isa = PBXGroup;
 			children = (
+				1877C44E10A5ED0500BFA7AF /* RubyTests */,
+				187D3CB510A5738000415FDC /* ShellTest */,
 				18DD252110A3813B00108BE8 /* sql */,
 				1836B95010A20EF2007B0D87 /* Tests */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -238,6 +281,8 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				1836B92C10A20E83007B0D87 /* Tests-Info.plist */,
+				1877C29110A5965B00BFA7AF /* CocoaTest-Info.plist */,
+				1877C3FB10A5E9F200BFA7AF /* RubyTests-Info.plist */,
 			);
 			name = Queries;
 			sourceTree = "<group>";
@@ -296,6 +341,23 @@
 			productReference = 1836B92B10A20E83007B0D87 /* Tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		187D3C9C10A572EA00415FDC /* ShellTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 187D3CA710A5730100415FDC /* Build configuration list for PBXNativeTarget "ShellTest" */;
+			buildPhases = (
+				187D3C9A10A572EA00415FDC /* Sources */,
+				187D3C9B10A572EA00415FDC /* Frameworks */,
+				1877C3B210A59A8F00BFA7AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShellTest;
+			productName = ShellTest;
+			productReference = 187D3C9D10A572EA00415FDC /* ShellTest */;
+			productType = "com.apple.product-type.tool";
+		};
 		8D1107260486CEB800E47090 /* Queries */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Queries" */;
@@ -329,12 +391,20 @@
 			targets = (
 				8D1107260486CEB800E47090 /* Queries */,
 				1836B92A10A20E83007B0D87 /* Tests */,
+				187D3C9C10A572EA00415FDC /* ShellTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1836B92610A20E83007B0D87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1877C3B210A59A8F00BFA7AF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -385,6 +455,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		187D3C9A10A572EA00415FDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				187D3CD810A5745600415FDC /* ColumnMetadata.m in Sources */,
+				187D3CD310A5743700415FDC /* TdsConnection.m in Sources */,
+				187D3CD210A5743000415FDC /* QueryResult.m in Sources */,
+				187D3CB910A5739600415FDC /* shell_main.m in Sources */,
+				1877C5D210A60ECF00BFA7AF /* CreateTableScript.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,6 +486,7 @@
 				18AC09BB109DAEF5009BEE57 /* QueryResult.m in Sources */,
 				1836B95810A20F7A007B0D87 /* ColumnMetadata.m in Sources */,
 				1836B95910A20F7A007B0D87 /* TdsConnection.m in Sources */,
+				1877C5D310A60ECF00BFA7AF /* CreateTableScript.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,11 +516,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -464,11 +549,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
@@ -491,6 +578,70 @@
 			};
 			name = Release;
 		};
+		187D3C9F10A572EB00415FDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../lib/maccode/Utilities/PSMTabBarControl/build/Release\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../lib\"",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = ShellTest;
+			};
+			name = Debug;
+		};
+		187D3CA010A572EB00415FDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../lib/maccode/Utilities/PSMTabBarControl/build/Release\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../lib\"",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = ShellTest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -501,6 +652,8 @@
 					"\"$(SRCROOT)/../../lib/maccode/Utilities/PSMTabBarControl/build/Release\"",
 					"\"$(SRCROOT)/../../lib/BWToolkit\"",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"$(SRCROOT)/../../lib/maccode/Utilities/PSMTabBarControl/build_gc/Release\"",
+					"\"$(SRCROOT)/../../lib/maccode/Utilities/PSMTabBarControl/build_gc/Debug\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -528,6 +681,8 @@
 					"\"$(SRCROOT)/../../lib/maccode/Utilities/PSMTabBarControl/build/Release\"",
 					"\"$(SRCROOT)/../../lib/BWToolkit\"",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"$(SRCROOT)/../../lib/maccode/Utilities/PSMTabBarControl/build_gc/Release\"",
+					"\"$(SRCROOT)/../../lib/maccode/Utilities/PSMTabBarControl/build_gc/Debug\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -552,6 +707,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
@@ -563,9 +719,11 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
@@ -580,6 +738,15 @@
 			buildConfigurations = (
 				1836B92D10A20E83007B0D87 /* Debug */,
 				1836B92E10A20E83007B0D87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		187D3CA710A5730100415FDC /* Build configuration list for PBXNativeTarget "ShellTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				187D3C9F10A572EB00415FDC /* Debug */,
+				187D3CA010A572EB00415FDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

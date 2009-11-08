@@ -85,7 +85,7 @@ int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dbe
 	}
 	
 	if ([[NSString stringWithFormat: @"%s", dberrstr] isEqualToString: @"Server name not found in configuration files"]){
-		NSLog(@"ignoring message 'Server name not found in configuration files'");
+		//NSLog(@"ignoring message 'Server name not found in configuration files'");
 		return INT_CANCEL;
 	}	
 		
@@ -135,7 +135,9 @@ struct COL
 			
 	if ((dbproc = dbopen(login, [server UTF8String])) == NULL) {
 		[NSException raise:@"Exception" format: @"%d: unable to connect to %s as %s\n", __LINE__, [server UTF8String], [user UTF8String]];
-	}
+	}          
+	
+	//CFRetain(dbproc);
 	
 }
 
@@ -157,16 +159,16 @@ struct COL
 	struct COL *pcol, *columns;
 	int ncols;
 	
-	if (erc == FAIL) {
-		[NSException raise:@"Exception" format: @"%d: dbresults failed\n", __LINE__];
-	}
+	// if (erc == FAIL) {
+	// 	[NSException raise:@"Exception" format: @"%d: dbresults failed\n", __LINE__];
+	// }
 	
 	ncols = dbnumcols(dbproc);
 	
 	if ((columns = calloc(ncols, sizeof(struct COL))) == NULL) {
 		perror(NULL);
 		[NSException raise:@"Exception" format: @"%d: calloc failed\n", __LINE__];
-	}
+	}	
 	
 	NSMutableArray *columnNames = [NSMutableArray arrayWithCapacity:ncols];			
 	
@@ -203,6 +205,7 @@ struct COL
 	}	
 	
 	*pcolumns = columns;	
+	//CFRetain(pcolumns);
 	return columnNames;
 }
 
@@ -292,19 +295,17 @@ struct COL
 	while ((erc = dbresults(dbproc)) != NO_MORE_RESULTS) {
 		
 		struct COL *columns;		
+		//CFRetain(columns);
 		@try {
 			NSArray *columnNames = [self readResultMetadata: &columns];
+			//NSLog(@"columnNames count: %d", [columnNames count]);
+			//CFRetain(columns);
 			NSArray *rows = [self readResultData: columns];			
 			[queryResult addResultWithColumnNames: columnNames andRows: rows];			
-			[self readResultMessages];       			                            
-			
-			// if (!([columnNames count] == 0 && [rows count] == 0)){
-			// 	[results addObject: [NSArray arrayWithObjects: columnNames, rows, nil]];					
-			// 	[columnNames retain];
-			// 	[rows retain];
-			// }
+			[self readResultMessages];       			                            			
 		}
-		@catch (NSException *e) {
+		@catch (NSException *e) {         
+			NSLog(@"exception %@", e);
 			@throw;
 		}
 		@finally {
@@ -365,7 +366,7 @@ struct COL
 -(QueryResult*) execute: (NSString*) query withDefaultDatabase: (NSString*) database{
 	[TdsConnection activate: self];
 	QueryResult *result = [[QueryResult alloc] init];
-	[result retain];
+	//[result retain];
 	queryResult = result;		
 	@try{                                       
 		[self setIsProcessing: TRUE]; 
@@ -451,3 +452,5 @@ struct COL
 } 
 
 @end
+
+void Init_tds_connection(void) {}

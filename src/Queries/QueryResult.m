@@ -13,6 +13,7 @@
 }
 
 - (void) dealloc{
+	NSLog(@"QueryResult dealloc");
 	[results release];
 	[messages release];
 	[super dealloc];
@@ -90,6 +91,24 @@
 		return nil;
 	}
 }                                                  
+
+- (NSString*) valueAtResult:(int) resultIndex row:(int) rowIndex column:(int) columnIndex{      
+  @try {
+		return [[[self resultAtIndex: resultIndex] objectAtIndex: rowIndex] objectAtIndex: columnIndex];
+	}
+	@catch (NSException *e) {
+		return nil;
+	}
+}                                
+
+- (NSArray*) resultAtIndex:(int) resultIndex{
+	@try {
+		return [[results objectAtIndex: resultIndex] objectAtIndex: 1];
+	}
+	@catch (NSException *e) {
+		return nil;
+	}
+}	
 
 -(BOOL) hasResults{
 	return [results count] > 0;

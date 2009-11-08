@@ -530,7 +530,7 @@
 			<key>Keywords</key>
 			<array>
 
-
+  
 	<string>@@CONNECTIONS</string>
 	<string>@@CPU_BUSY</string>
 	<string>@@CURSOR_ROWS</string>
@@ -574,8 +574,8 @@
 	<string>ATN2</string>
 	<string>AVG</string>
 	<string>AsymKey_ID</string>
-	<string>CASE</string>
-	<string>CAST</string>
+	<string>CASE </string>
+	<string>CAST </string>
 	<string>CEILING</string>
 	<string>CHAR</string>
 	<string>CHARINDEX</string>
@@ -594,6 +594,7 @@
 	<string>COUNT_BIG</string>
 	<string>CURRENT_TIMESTAMP</string>
 	<string>CURRENT_USER</string>
+	<string>CURRENT_USER </string>
 	<string>CURSOR_STATUS</string>
 	<string>Cert_ID</string>
 	<string>DATABASEPROPERTY</string>
@@ -602,8 +603,6 @@
 	<string>DATALENGTH</string>
 	<string>DATEADD</string>
 	<string>DATEDIFF</string>
-	<string>DATEFIRST</string>
-	<string>DATEFORMAT</string>
 	<string>DATENAME</string>
 	<string>DATEPART</string>
 	<string>DAY</string>
@@ -635,10 +634,10 @@
 	<string>GETDATE</string>
 	<string>GETUTCDATE</string>
 	<string>GROUPING</string>
-	<string>HAS_PERMS_BY_NAME</string>
+	<string>HAS_PERMS_BY_NAME </string>
 	<string>HOST_ID</string>
 	<string>HOST_NAME</string>
-	<string>IDENTITY</string>
+	<string>IDENTITY </string>
 	<string>IDENT_CURRENT</string>
 	<string>IDENT_INCR</string>
 	<string>IDENT_SEED</string>
@@ -648,12 +647,11 @@
 	<string>ISDATE</string>
 	<string>ISNULL</string>
 	<string>ISNUMERIC</string>
-	<string>IS_MEMBER</string>
-	<string>IS_SRVROLEMEMBER</string>
+	<string>IS_MEMBER </string>
+	<string>IS_SRVROLEMEMBER </string>
 	<string>KEY_NAME</string>
 	<string>Key_GUID</string>
 	<string>Key_ID</string>
-	<string>LANGUAGE</string>
 	<string>LEFT</string>
 	<string>LEN</string>
 	<string>LOG</string>
@@ -678,13 +676,14 @@
 	<string>OPENROWSET</string>
 	<string>OPENXML</string>
 	<string>ORIGINAL_LOGIN</string>
+	<string>ORIGINAL_LOGIN </string>
 	<string>PARSENAME</string>
 	<string>PATINDEX</string>
-	<string>PERMISSIONS</string>
+	<string>PERMISSIONS </string>
 	<string>PI</string>
 	<string>POWER</string>
-	<string>PWDCOMPARE</string>
-	<string>PWDENCRYPT</string>
+	<string>PWDCOMPARE </string>
+	<string>PWDENCRYPT </string>
 	<string>QUOTENAME</string>
 	<string>RADIANS</string>
 	<string>RAND</string>
@@ -698,13 +697,18 @@
 	<string>ROW_NUMBER</string>
 	<string>RTRIM</string>
 	<string>SCHEMA_ID</string>
+	<string>SCHEMA_ID </string>
 	<string>SCHEMA_NAME</string>
+	<string>SCHEMA_NAME </string>
 	<string>SCOPE_IDENTITY</string>
 	<string>SERVERPROPERTY</string>
 	<string>SESSIONPROPERTY</string>
 	<string>SESSION_USER</string>
-	<string>SET</string>
-	<string>SETUSER</string>
+	<string>SESSION_USER </string>
+	<string>SET DATEFIRST</string>
+	<string>SET DATEFORMAT</string>
+	<string>SET LANGUAGE</string>
+	<string>SETUSER </string>
 	<string>SIGN</string>
 	<string>SIN</string>
 	<string>SOUNDEX</string>
@@ -719,14 +723,15 @@
 	<string>STUFF</string>
 	<string>SUBSTRING</string>
 	<string>SUM</string>
-	<string>SUSER_ID</string>
-	<string>SUSER_NAME</string>
-	<string>SUSER_SID</string>
-	<string>SUSER_SNAME</string>
-	<string>SWITCHOFFSET</string>
+	<string>SUSER_ID </string>
+	<string>SUSER_NAME </string>
+	<string>SUSER_SID </string>
+	<string>SUSER_SNAME </string>
+	<string>SWITCHOFFSET          </string>
 	<string>SYSDATETIME</string>
 	<string>SYSDATETIMEOFFSET</string>
 	<string>SYSTEM_USER</string>
+	<string>SYSTEM_USER </string>
 	<string>SYSUTCDATETIME</string>
 	<string>TAN</string>
 	<string>TEXTPTR</string>
@@ -738,8 +743,9 @@
 	<string>UNICODE</string>
 	<string>UPDATE()</string>
 	<string>UPPER</string>
-	<string>USER_ID</string>
+	<string>USER_ID </string>
 	<string>USER_NAME</string>
+	<string>USER_NAME </string>
 	<string>VAR</string>
 	<string>VARP</string>
 	<string>XACT_STATE</string>
@@ -747,13 +753,15 @@
 	<string>asymkeyproperty</string>
 	<string>fn_helpcollations</string>
 	<string>fn_listextendedproperty</string>
-	<string>fn_my_permissions</string>
+	<string>fn_my_permissions </string>
 	<string>fn_servershareddrives</string>
 	<string>fn_virtualfilestats</string>
-	<string>sp_helplanguage</string>
+	<string>sp_helplanguage     </string>
 	<string>symkeyproperty</string>
 	<string>sys.dm_db_index_physical_stats</string>
-	<string>sys.fn_builtin_permissions</string>
+	<string>sys.fn_builtin_permissions </string>
+	
+	
 
 	</array>
 			<key>Name</key>

@@ -3,7 +3,8 @@
 #import "CredentialsController.h"
 #import "TdsConnection.h"    
 #import <PSMTabBarControl/PSMTabBarControl.h>  
-#import "QueryResult.h"
+#import "QueryResult.h"                                    
+#import "CreateTableScript.h"
 
 @class CredentialsController;
 @class QueryController;

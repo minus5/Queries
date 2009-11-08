@@ -25,6 +25,8 @@
 - (NSArray*) rows;
 - (int) rowsCount;
 - (NSString*) rowValue: (int) rowIndex: (int) columnIndex;   
+- (NSArray*) resultAtIndex:(int) resultIndex;
+- (NSString*) valueAtResult:(int) resultIndex row:(int) rowIndex column:(int) columnIndex;
 - (NSString*) resultAsString;
 
 @end

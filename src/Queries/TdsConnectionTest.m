@@ -24,10 +24,18 @@
 	return c;
 }
 
--(void) testQueryOnPublishersHasBeenFailing{	
-	QueryResult* result = [[self connection] execute: @"select * from pubs.dbo.publishers"];
-	STAssertTrue([result hasResults], nil);
-	STAssertEquals([result resultsCount], 1, nil);
+-(void) testQueryOnPublishersHasBeenFailing{	                     
+	for(size_t i = 0; i < 10; ++i)
+	{
+		QueryResult* result = [[self connection] execute: @"select * from pubs.dbo.publishers"];
+		STAssertTrue([result hasResults], nil);
+		STAssertEquals([result resultsCount], 1, nil);
+		[result release];
+	}
+}
+
+- (void) testGenerateCreateScript{
+	
 }
 
 /*

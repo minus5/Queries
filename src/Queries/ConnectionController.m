@@ -9,8 +9,9 @@
 }
 
 - (void) windowDidLoad{
-	[queryTabBar setCanCloseOnlyTab: YES];   
-	[queryTabBar setHideForSingleTab: YES];	
+	[queryTabBar setCanCloseOnlyTab: YES];         
+	//postoji neki problem u garbage collector environmentu kada ovo ukljucim
+	//[queryTabBar setHideForSingleTab: YES];	
 	[self createNewTab];
 	[self changeConnection: nil];                 	
 	[self goToQueryText: nil];  		
@@ -39,8 +40,7 @@
 		[queryTabs addTabViewItem:newTabViewItem];
 		
 		[newQuerycontroller addObserver: self forKeyPath: @"database" options: NSKeyValueObservingOptionNew context: nil];
-		[queryTabs selectTabViewItem:newTabViewItem];
-	
+		[queryTabs selectTabViewItem:newTabViewItem];				
 	}                              
 	return newQuerycontroller;
 }
@@ -196,10 +196,13 @@
 		if (![objectType isEqualToString: @"NULL"]){
 			if ([objectType isEqualToString: @"tables"]){
 			  [self createNewTab];  		                                           
-				[queryController setString: [NSString stringWithFormat: @"use %@\nexec sp_help '%@'", databaseName, fullName]];
-				[self executeQuery: nil];
-				[queryController nextResult: nil];
+				//[queryController setString: [NSString stringWithFormat: @"use %@\nexec sp_help '%@'", databaseName, fullName]];
+				//[self executeQuery: nil];
+				//[queryController nextResult: nil];
 				//[queryController goToResults: nil];
+				[self createNewTab];
+				[queryController setString: [CreateTableScript scriptWithConnection: tdsConnection database: databaseName table: fullName]];				
+				
 			}else{
 				QueryResult *queryResult = [tdsConnection execute: [NSString stringWithFormat: @"use %@\nexec sp_helpText '%@'", databaseName, fullName]];
 				if (queryResult){
