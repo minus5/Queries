@@ -34,7 +34,8 @@
 	}
 }
 
-- (void) testGenerateCreateScript{
+- (void) testColumnLength{
+	QueryResult* result = [[self connection] execute: @"select * from pubs.dbo.publishers"];
 	
 }
 

@@ -1,4 +1,5 @@
 #import <Cocoa/Cocoa.h>
+#import "ColumnMetadata.h"
 
 @interface QueryResult : NSObject {
 	NSMutableArray *messages;
@@ -31,5 +32,6 @@
 - (NSString*) resultAsString;
 - (NSArray*) valuesInFirstColumn;             
 - (NSArray*) resultWithFirstColumnNamed:(NSString*) columnName;
+- (NSString*) resultsInText;
 
 @end

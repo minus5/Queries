@@ -211,9 +211,8 @@
 		}	       
 		if ([objectType isEqualToString: @"users"]){
 			[self createNewTab];                                       
-			[queryController setString: [NSString stringWithFormat: @"use %@\nexec sp_helprotect @username = '%@'\nexec sp_helpuser '%@'", databaseName, objectName, objectName]];
+			[queryController setString: [NSString stringWithFormat: @"use %@\nexec sp_helpuser '%@'\nexec sp_helprotect @username = '%@'", databaseName, objectName, objectName]];
 			[self executeQuery: nil];                                                                     
-			[self nextTab]
 			return;
 		}
 

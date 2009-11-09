@@ -2,7 +2,7 @@
 
 @implementation ColumnMetadata
 
-@synthesize name, size, type, index;
+@synthesize name, size, type, index, length;
 
 -(id) initWithName: (NSString*) n size: (int) s type: (int) t index: (int) i
 {
@@ -13,9 +13,19 @@
 		size = s;
 		type = t;		
 		index = i;
+		length = [name length];
 	}
 	
 	return self;
 }
+
+- (void) updateMaxLength: (int) l{
+	if (l > length)
+		length = l;
+}                        
+
+// - (NSString*) formatString{
+// 	return [NSString stringWithFormat: @"%%-%ds", [self length] + 2];
+// }
 
 @end

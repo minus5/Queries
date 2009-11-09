@@ -46,7 +46,8 @@
 
 -(void) executeQuery: (NSString*) query;
 -(NSArray*) readResultMetadata: (struct COL**) pcolumns;
--(NSArray*) readResultData: (struct COL*) columns;
+-(NSArray*) readResultData: (struct COL*) columns  withColumnNames: (NSArray*) columnNames;
+//-(NSArray*) readResultData: (struct COL*) columns;
 -(void) freeResultBuffers: (struct COL*) columns;
 -(void) readResultMessages;
 -(void) readResults;

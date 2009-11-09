@@ -52,9 +52,16 @@ TODO
   * query library - mozda cak uzeti onaj koji postoji uz stari query analyzer
     
   * highlight imena tablica i procedura u trenutnoj bazi  
-    * db_name nije obojan
-    * min max funkcije nisu obojane
+    + db_name nije obojan
+    + min max funkcije nisu obojane
     * login nije obojan
+  
+  * svaka konekcija bi morala imati neke defaulte, inace ne rade heterogeni queriji, preko linkanog servera, a pogledaj i za computed columns koji su uvjeti  
+    set ANSI_NULLS on
+    set ANSI_WARNINGS on
+    
+  * auto update aplikacije    
+  
   
   + highlight 
     + sistemskih stored procedura

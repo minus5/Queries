@@ -7,6 +7,7 @@
 	int size;
 	int type;
 	int index;
+	int length;
 }
 
 -(id) initWithName: (NSString*) n 
@@ -14,9 +15,11 @@
 							type: (int) t
 						 index: (int) i;
 
+- (void) updateMaxLength: (int) l;
+//- (NSString*) formatString;
 
 @property (copy, nonatomic) NSString *name;
-@property int size, type, index;
+@property int size, type, index, length;
 
 @end
 

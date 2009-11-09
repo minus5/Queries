@@ -43,7 +43,8 @@
 	[self syntaxColoringInit];
 	[self showResultsCount];
 	[self setIsEdited: NO];  
-
+                                     
+ 	[messagesTextView setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
 	// splitViewDelegate = [[SplitViewDelegate alloc] init];
 	// [splitView setDelegate: splitViewDelegate];
 }
@@ -130,6 +131,7 @@
 		[messagesTextView insertText: message];	
 	}   
 	[messagesTextView insertText: @"\n"];		
+	[messagesTextView insertText: [queryResult resultsInText]];	
 } 
 
 - (void) addColumns{

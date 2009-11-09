@@ -158,11 +158,7 @@ struct COL
 	RETCODE erc;
 	struct COL *pcol, *columns;
 	int ncols;
-	
-	// if (erc == FAIL) {
-	// 	[NSException raise:@"Exception" format: @"%d: dbresults failed\n", __LINE__];
-	// }
-	
+			
 	ncols = dbnumcols(dbproc);
 	
 	if ((columns = calloc(ncols, sizeof(struct COL))) == NULL) {
@@ -205,11 +201,10 @@ struct COL
 	}	
 	
 	*pcolumns = columns;	
-	//CFRetain(pcolumns);
 	return columnNames;
 }
 
--(NSArray*) readResultData: (struct COL*) columns{
+-(NSArray*) readResultData: (struct COL*) columns  withColumnNames: (NSArray*) columnNames{
 	int row_code;
 	struct COL *pcol;
 	int ncols = dbnumcols(dbproc);
@@ -244,6 +239,7 @@ struct COL
 					if (!value)
 						value = @"???";
 					
+					[[columnNames objectAtIndex: (pcol - columns)] updateMaxLength: [value length]];					
 					[rowValues addObject: value];					
 				}				
 				[rows addObject: rowValues];				
@@ -295,12 +291,9 @@ struct COL
 	while ((erc = dbresults(dbproc)) != NO_MORE_RESULTS) {
 		
 		struct COL *columns;		
-		//CFRetain(columns);
 		@try {
 			NSArray *columnNames = [self readResultMetadata: &columns];
-			//NSLog(@"columnNames count: %d", [columnNames count]);
-			//CFRetain(columns);
-			NSArray *rows = [self readResultData: columns];			
+			NSArray *rows = [self readResultData: columns withColumnNames: columnNames];			
 			[queryResult addResultWithColumnNames: columnNames andRows: rows];			
 			[self readResultMessages];       			                            			
 		}
@@ -455,5 +448,3 @@ struct COL
 } 
 
 @end
-
-void Init_tds_connection(void) {}

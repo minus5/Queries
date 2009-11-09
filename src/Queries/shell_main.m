@@ -33,6 +33,35 @@ void testQueryResultsRetainCount(){
 		[result release];                  		
 	}
 	[connection release];
+}   
+
+void testMaxColumnLength(){
+	TdsConnection *connection = [TdsConnection alloc];	
+	[connection initWithServer: @"mssql.mobilnet.hr" user: @"sa" password: @""];
+	[connection login];	                                                                                      
+	QueryResult* result = [connection execute: @"use pubs\nexec sp_help 'dbo.publishers'"];			
+	
+	// NSMutableString *resultString = [NSMutableString string];
+	// for(int i = 0; i < [[result columns] count]; ++i)
+	// {
+	// 	ColumnMetadata *column = [[result columns] objectAtIndex: i];
+	// 	[resultString appendFormat: [column formatString], [[column name] UTF8String]];		
+	// }
+	// [resultString appendFormat: @"\n"];
+	// NSArray *rows = [result rows];
+	// NSArray *columns = [result columns];
+	// for(int r=0; r<[rows count]; r++){		
+	// 	for(int c=0; c<[columns count]; c++){
+	// 		NSString *value = [[rows objectAtIndex:r] objectAtIndex:c];
+	// 		ColumnMetadata *column = [columns objectAtIndex: c];
+	// 		[resultString appendFormat: [column formatString], [value UTF8String]];
+	// 	}                                                     
+	// 	[resultString appendFormat: @"\n"];
+	// }  	 	
+	// 
+	// NSLog(@"\n\n%@\n", resultString);	 
+	
+	NSLog(@"\n\n%@\n", [result resultsInText]);	
 }
 
 int main (int argc, const char * argv[]) {	
@@ -40,8 +69,9 @@ int main (int argc, const char * argv[]) {
 	NSLog(@"uses garbage collection %d", [NSGarbageCollector defaultCollector] != nil);
 	
 	// testQueryResultsRetainCount();
-	testCreateTableSctipt();
-
+	//testCreateTableSctipt();
+	testMaxColumnLength();
+	
 	NSLog(@"shell test finished...");
 	[pool drain];
 	return 0;
