@@ -323,7 +323,7 @@ struct COL
 }
         
 - (void) executeQueries: (NSString*) query{
-	dbsettime(30);			  
+	//dbsettime(30);			  
 	NSArray *queries = [query componentsSeparatedByString: @"GO"];
 	for(id query in queries){
 		NSLog(@"executing query: %@", query);

@@ -5,7 +5,7 @@ select db_name(), '', db_name()
 --tables
 set @section_name = 'tables'
 insert into @results(id, parent_id, name, type)
-	select db_name() + '.' + @section_name + '.' + s.name + '.' + o.name name, db_name() + '.' + @section_name, s.name + '.' + o.name name, type 
+	select db_name() + '.' + @section_name + '.' + s.name + '.' + o.name, db_name() + '.' + @section_name, s.name + '.' + o.name, type 
 	from sys.tables o
 	inner join sys.schemas s on o.schema_id = s.schema_id
 	where is_ms_shipped = 0

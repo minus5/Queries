@@ -2,21 +2,20 @@ BUGS
   * undo ne radi dobro u kombinaciji s indent/unindent   
   * Results 1 of 9 ne izgleda dobro ako su brojevi dovoznamenkasti, fiksene je sirine
   + zasto focus handling ponvo revidirati, ne ide na outline, napravi to u kodu nakon svake promjene taba dodaj nextKeyView svim potrebnim kontrolama
-  * ne radi "select * from pubs.publishers" 
-    * tocnije: select * from publishers where pub_id = 9901
-    * problem je u Minhenu
-  + use [pubs] ne radi 
   * zadnja kolona je prosirena u gridu   
   
+  
+TODO                                                                               
+  * freetds ukljuciti u projekt - pogledaj prije toga na kakvoj je licenci
+  
+  * unicode za freetds
+
+  * za vrijeme izvrsavanje querija izbrisi poruke ili jos bolje napisi Executing...
     
-TODO
   * connections window
-    + sacuvati detalje konekcije
-    + proglasiti neku konekciju defaultnom
     * stavi kotacic dok ostvaruje konekciju
     * javiti lijepu porku kada se ne uspije konektirati
 
-  * create skripta za tablice
   * alter skripta za view-e i procedure
     
   * save/open files  
@@ -45,6 +44,9 @@ TODO
   * user preferences
     * rowcoun opalitit prije svakog upita, da ne uzme bas cijelu bazu
     * opcija set implicit transactions on
+    * svaka konekcija bi morala imati neke defaulte, inace ne rade heterogeni queriji, preko linkanog servera, a pogledaj i za computed columns koji su uvjeti  
+      set ANSI_NULLS on
+      set ANSI_WARNINGS on
   
   * export u Numbers
   * kopiranje iz grida kolone ili redka ili svega
@@ -55,14 +57,9 @@ TODO
     + db_name nije obojan
     + min max funkcije nisu obojane
     * login nije obojan
-  
-  * svaka konekcija bi morala imati neke defaulte, inace ne rade heterogeni queriji, preko linkanog servera, a pogledaj i za computed columns koji su uvjeti  
-    set ANSI_NULLS on
-    set ANSI_WARNINGS on
-    
+      
   * auto update aplikacije    
-  
-  
+    
   + highlight 
     + sistemskih stored procedura
     + int
@@ -80,3 +77,11 @@ TODO
   + speling se pojavljuje
   + izbaci print iz sp_cqa_...
   + staviti sistemske tablice u objects (ali u poseban dir), pazi tada ce se raspasti 
+  + ne radi "select * from pubs.publishers" 
+    * tocnije: select * from publishers where pub_id = 9901
+    * problem je u Minhenu
+  + use [pubs] ne radi 
+  + create skripta za tablice  
+  + sacuvati detalje konekcije
+  + proglasiti neku konekciju defaultnom
+  

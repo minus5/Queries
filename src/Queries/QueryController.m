@@ -45,6 +45,19 @@
 	[self setIsEdited: NO];  
                                      
  	[messagesTextView setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
+	
+	//set no-wrap to messagesTextView
+	[[messagesTextView textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
+	[[messagesTextView textContainer] setWidthTracksTextView:NO];
+	[messagesTextView setHorizontallyResizable:YES];
+	[messagesTextView setMaxSize:NSMakeSize(FLT_MAX, FLT_MAX)];
+	
+	//set no-wrap to queryText view
+	[[queryText textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
+	[[queryText textContainer] setWidthTracksTextView:NO];
+	[queryText setHorizontallyResizable:YES];
+	[queryText setMaxSize:NSMakeSize(FLT_MAX, FLT_MAX)]; 
+	
 	// splitViewDelegate = [[SplitViewDelegate alloc] init];
 	// [splitView setDelegate: splitViewDelegate];
 }
