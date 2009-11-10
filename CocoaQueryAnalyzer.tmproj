@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>currentDocument</key>
-	<string>CocoaQueryAnalyzerAppDelegate.h</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -20,9 +18,7 @@
 			<key>filename</key>
 			<string>CocoaQueryAnalyzerAppDelegate.h</string>
 			<key>lastUsed</key>
-			<date>2009-10-27T11:24:47Z</date>
-			<key>selected</key>
-			<true/>
+			<date>2009-10-28T12:48:46Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -52,63 +48,15 @@
 			<key>filename</key>
 			<string>QueryExec.m</string>
 			<key>lastUsed</key>
-			<date>2009-10-26T20:21:40Z</date>
+			<date>2009-10-28T12:48:47Z</date>
+			<key>selected</key>
+			<true/>
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
 	<integer>294</integer>
 	<key>metaData</key>
-	<dict>
-		<key>CocoaQueryAnalyzerAppDelegate.h</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>95</integer>
-				<key>line</key>
-				<integer>61</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>37</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>61</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>95</integer>
-				<key>line</key>
-				<integer>61</integer>
-			</dict>
-		</dict>
-		<key>QueryExec.m</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>0</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-	</dict>
-	<key>openDocuments</key>
-	<array>
-		<string>CocoaQueryAnalyzerAppDelegate.h</string>
-		<string>QueryExec.m</string>
-	</array>
+	<dict/>
 	<key>showFileHierarchyDrawer</key>
 	<false/>
 	<key>showFileHierarchyPanel</key>
@@ -124,6 +72,6 @@
 		</dict>
 	</dict>
 	<key>windowFrame</key>
-	<string>{{480, 278}, {1440, 900}}</string>
+	<string>{{0, 4}, {960, 1174}}</string>
 </dict>
 </plist>

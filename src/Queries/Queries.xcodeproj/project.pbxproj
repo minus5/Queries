@@ -13,7 +13,6 @@
 		1836B95510A20F74007B0D87 /* TdsConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CB9510987B47006AC809 /* TdsConnection.m */; };
 		1836B95810A20F7A007B0D87 /* ColumnMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CBA510987C0B006AC809 /* ColumnMetadata.m */; };
 		1836B95910A20F7A007B0D87 /* TdsConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CB9510987B47006AC809 /* TdsConnection.m */; };
-		1836B95A10A21010007B0D87 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1870CBAA10987C38006AC809 /* libsybdb.a */; };
 		1836B96710A210E8007B0D87 /* QueryResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC09BA109DAEF5009BEE57 /* QueryResult.m */; };
 		183B54C71098B7D70024A1B4 /* MarkerLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B54C21098B7D70024A1B4 /* MarkerLineNumberView.m */; };
 		183B54C81098B7D70024A1B4 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B54C41098B7D70024A1B4 /* NoodleLineNumberMarker.m */; };
@@ -30,7 +29,6 @@
 		1870CA97109864E2006AC809 /* NSArray+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CA92109864E2006AC809 /* NSArray+Color.m */; };
 		1870CA98109864E2006AC809 /* NSScanner+SkipUpToCharset.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CA94109864E2006AC809 /* NSScanner+SkipUpToCharset.m */; };
 		1870CA99109864E2006AC809 /* TSQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1870CA95109864E2006AC809 /* TSQL.plist */; };
-		1870CBAB10987C38006AC809 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1870CBAA10987C38006AC809 /* libsybdb.a */; };
 		1870CC0710988A1B006AC809 /* ConnectionController+DatabaseObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CC0610988A1B006AC809 /* ConnectionController+DatabaseObjects.m */; };
 		1877C28A10A5961300BFA7AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		1877C5D210A60ECF00BFA7AF /* CreateTableScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877C5D110A60ECF00BFA7AF /* CreateTableScript.m */; };
@@ -41,11 +39,16 @@
 		187D3CD210A5743000415FDC /* QueryResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC09BA109DAEF5009BEE57 /* QueryResult.m */; };
 		187D3CD310A5743700415FDC /* TdsConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CB9510987B47006AC809 /* TdsConnection.m */; };
 		187D3CD810A5745600415FDC /* ColumnMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870CBA510987C0B006AC809 /* ColumnMetadata.m */; };
-		187D3CEA10A574CE00415FDC /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1870CBAA10987C38006AC809 /* libsybdb.a */; };
 		1892765110A7696800C50258 /* objects_end.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892764E10A7696800C50258 /* objects_end.sql */; };
 		1892765210A7696800C50258 /* objects_in_database.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892764F10A7696800C50258 /* objects_in_database.sql */; };
 		1892765310A7696800C50258 /* objects_start.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892765010A7696800C50258 /* objects_start.sql */; };
 		18AC09BB109DAEF5009BEE57 /* QueryResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC09BA109DAEF5009BEE57 /* QueryResult.m */; };
+		18B75B3510AA2F0B00265159 /* libiconv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B75B3310AA2F0B00265159 /* libiconv.a */; };
+		18B75B3610AA2F0B00265159 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B75B3410AA2F0B00265159 /* libsybdb.a */; };
+		18B75B3710AA2F0B00265159 /* libiconv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B75B3310AA2F0B00265159 /* libiconv.a */; };
+		18B75B3810AA2F0B00265159 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B75B3410AA2F0B00265159 /* libsybdb.a */; };
+		18B75B3910AA2F0B00265159 /* libiconv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B75B3310AA2F0B00265159 /* libiconv.a */; };
+		18B75B3A10AA2F0B00265159 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B75B3410AA2F0B00265159 /* libsybdb.a */; };
 		18DD252310A3813B00108BE8 /* database_objects.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18DD252210A3813B00108BE8 /* database_objects.sql */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* QueriesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* QueriesAppDelegate.m */; };
@@ -102,10 +105,7 @@
 		1870CB9510987B47006AC809 /* TdsConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TdsConnection.m; sourceTree = "<group>"; };
 		1870CBA510987C0B006AC809 /* ColumnMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnMetadata.m; sourceTree = "<group>"; };
 		1870CBA610987C0B006AC809 /* ColumnMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnMetadata.h; sourceTree = "<group>"; };
-		1870CBAA10987C38006AC809 /* libsybdb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libsybdb.a; path = ../../lib/libsybdb.a; sourceTree = "<group>"; };
 		1870CC0610988A1B006AC809 /* ConnectionController+DatabaseObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ConnectionController+DatabaseObjects.m"; sourceTree = "<group>"; };
-		1877C29110A5965B00BFA7AF /* CocoaTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CocoaTest-Info.plist"; sourceTree = "<group>"; };
-		1877C3FB10A5E9F200BFA7AF /* RubyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RubyTests-Info.plist"; sourceTree = "<group>"; };
 		1877C5D110A60ECF00BFA7AF /* CreateTableScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateTableScript.m; sourceTree = "<group>"; };
 		1877C5ED10A6107200BFA7AF /* CreateTableScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTableScript.h; sourceTree = "<group>"; };
 		1877C66710A6122400BFA7AF /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = /Users/ianic/Work/CocoaQueryAnalyzer/lib/maccode/Utilities/PSMTabBarControl/build/Release/PSMTabBarControl.framework; sourceTree = "<absolute>"; };
@@ -116,6 +116,8 @@
 		1892765010A7696800C50258 /* objects_start.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_start.sql; sourceTree = "<group>"; };
 		18AC09B9109DAEF5009BEE57 /* QueryResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryResult.h; sourceTree = "<group>"; };
 		18AC09BA109DAEF5009BEE57 /* QueryResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryResult.m; sourceTree = "<group>"; };
+		18B75B3310AA2F0B00265159 /* libiconv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiconv.a; path = ../../../../lib/libiconv.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		18B75B3410AA2F0B00265159 /* libsybdb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsybdb.a; path = ../../../../lib/libsybdb.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DD252210A3813B00108BE8 /* database_objects.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = database_objects.sql; sourceTree = "<group>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		256AC3D80F4B6AC300CF3369 /* QueriesAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueriesAppDelegate.h; sourceTree = "<group>"; };
@@ -134,7 +136,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1836B94D10A20EDB007B0D87 /* SenTestingKit.framework in Frameworks */,
-				1836B95A10A21010007B0D87 /* libsybdb.a in Frameworks */,
+				18B75B3910AA2F0B00265159 /* libiconv.a in Frameworks */,
+				18B75B3A10AA2F0B00265159 /* libsybdb.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +146,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1877C28A10A5961300BFA7AF /* Cocoa.framework in Frameworks */,
-				187D3CEA10A574CE00415FDC /* libsybdb.a in Frameworks */,
+				18B75B3710AA2F0B00265159 /* libiconv.a in Frameworks */,
+				18B75B3810AA2F0B00265159 /* libsybdb.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +158,8 @@
 				1877C67210A6122900BFA7AF /* PSMTabBarControl.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				1870C9A2109859A8006AC809 /* BWToolkitFramework.framework in Frameworks */,
-				1870CBAB10987C38006AC809 /* libsybdb.a in Frameworks */,
+				18B75B3510AA2F0B00265159 /* libiconv.a in Frameworks */,
+				18B75B3610AA2F0B00265159 /* libsybdb.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +195,8 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1870CBAA10987C38006AC809 /* libsybdb.a */,
+				18B75B3310AA2F0B00265159 /* libiconv.a */,
+				18B75B3410AA2F0B00265159 /* libsybdb.a */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				1870C9A1109859A8006AC809 /* BWToolkitFramework.framework */,
 				1877C66710A6122400BFA7AF /* PSMTabBarControl.framework */,
@@ -201,6 +207,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1836B93710A20ED1007B0D87 /* SenTestingKit.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
@@ -241,13 +248,6 @@
 			path = SyntaxHighlight;
 			sourceTree = "<group>";
 		};
-		1877C44E10A5ED0500BFA7AF /* RubyTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = RubyTests;
-			sourceTree = "<group>";
-		};
 		187D3CB510A5738000415FDC /* ShellTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,7 +280,6 @@
 		29B97314FDCFA39411CA2CEA /* Queries */ = {
 			isa = PBXGroup;
 			children = (
-				1877C44E10A5ED0500BFA7AF /* RubyTests */,
 				187D3CB510A5738000415FDC /* ShellTest */,
 				18DD252110A3813B00108BE8 /* sql */,
 				1836B95010A20EF2007B0D87 /* Tests */,
@@ -290,8 +289,6 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				1836B92C10A20E83007B0D87 /* Tests-Info.plist */,
-				1877C29110A5965B00BFA7AF /* CocoaTest-Info.plist */,
-				1877C3FB10A5E9F200BFA7AF /* RubyTests-Info.plist */,
 			);
 			name = Queries;
 			sourceTree = "<group>";
@@ -324,7 +321,6 @@
 			children = (
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
-				1836B93710A20ED1007B0D87 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -544,6 +540,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../lib\"",
+					"\"$(SRCROOT)/../../libsrc/freetds-0.83.dev.20091012/src/dblib/.libs\"",
+					"\"$(SRCROOT)/../../libsrc/freetds-0.83.dev.20091012/src/dblib/.libs/static\"",
+					/opt/local/lib,
 				);
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -576,6 +575,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../lib\"",
+					"\"$(SRCROOT)/../../libsrc/freetds-0.83.dev.20091012/src/dblib/.libs\"",
+					"\"$(SRCROOT)/../../libsrc/freetds-0.83.dev.20091012/src/dblib/.libs/static\"",
+					/opt/local/lib,
 				);
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -609,7 +611,8 @@
 				INSTALL_PATH = /usr/local/bin;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../lib\"",
+					"\"$(SRCROOT)/../../libsrc/freetds-0.83.dev.20091012/src/dblib/.libs/static\"",
+					/opt/local/lib,
 				);
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -641,6 +644,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../lib\"",
+					"\"$(SRCROOT)/../../libsrc/freetds-0.83.dev.20091012/src/dblib/.libs\"",
+					"\"$(SRCROOT)/../../libsrc/freetds-0.83.dev.20091012/src/dblib/.libs/static\"",
+					/opt/local/lib,
 				);
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -675,10 +681,7 @@
 				GCC_PREFIX_HEADER = Queries_Prefix.pch;
 				INFOPLIST_FILE = "Queries-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../lib\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = Queries;
 			};
 			name = Debug;
@@ -704,6 +707,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../lib\"",
+					"\"$(SRCROOT)/../../libsrc/freetds-0.83.dev.20091012/src/dblib/.libs\"",
+					"\"$(SRCROOT)/../../libsrc/freetds-0.83.dev.20091012/src/dblib/.libs/static\"",
+					/opt/local/lib,
 				);
 				PRODUCT_NAME = Queries;
 			};
@@ -718,7 +724,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/include;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../include\"";
 				LIBRARY_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
@@ -734,7 +740,7 @@
 				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/include;
+				HEADER_SEARCH_PATHS = "/Users/ianic/Work/CocoaQueryAnalyzer/libsrc/freetds-0.83.dev.20091012/include";
 				LIBRARY_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;

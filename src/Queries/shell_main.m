@@ -18,6 +18,14 @@ void testCreateTableSctipt(){
 	[connection release];
 }
 
+void testSelectEncoding(){
+	TdsConnection *connection = [TdsConnection alloc];	
+	[connection initWithServer: @"mssql.mobilnet.hr" user: @"sa" password: @""];
+	[connection login];  
+	[connection execute: @"use pubs\nselect * from publishers"];
+	[connection release];
+}
+
 void testQueryResultsRetainCount(){
 	TdsConnection *connection = [TdsConnection alloc];	
 	[connection initWithServer: @"mssql.mobilnet.hr" user: @"sa" password: @""];
@@ -70,7 +78,8 @@ int main (int argc, const char * argv[]) {
 	
 	// testQueryResultsRetainCount();
 	//testCreateTableSctipt();
-	testMaxColumnLength();
+	//testMaxColumnLength();
+	testSelectEncoding();
 	
 	NSLog(@"shell test finished...");
 	[pool drain];

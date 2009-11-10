@@ -4,8 +4,7 @@
 
 -(void) dbObjectsFillSidebar{         
 	@try{	       
-		[self fillDatabasesCombo];
-		[self databaseObjectsQuery];               				
+		[self fillDatabasesCombo];		
 		[self readDatabaseObjects];	  
 	}@catch(NSException *exception){    
 		NSLog(@"error in fillSidebar: %@", exception);

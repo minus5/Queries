@@ -6,7 +6,6 @@
 #import "MarkerLineNumberView.h"
 #import "ConnectionController.h"
 #import "QueryResult.h"
-#import "SplitViewDelegate.h"
 #import <BWToolkitFramework/BWToolkitFramework.h>
 
 @class NoodleLineNumberView;

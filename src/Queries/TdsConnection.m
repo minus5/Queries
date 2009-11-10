@@ -179,8 +179,11 @@ struct COL
 			pcol->size = dbwillconvert(pcol->type, SYBCHAR);
 		}		
 		
-		ColumnMetadata *meta = [ColumnMetadata alloc];
-		[meta initWithName:[[NSString alloc] initWithCString: pcol->name encoding:NSWindowsCP1250StringEncoding] size: pcol->size type:pcol->type index: (pcol - columns)];
+		ColumnMetadata *meta = [ColumnMetadata alloc];                                                         
+		          
+		                                                                                                                                                                   
+		[meta initWithName: [[NSString alloc] initWithUTF8String: pcol->name] size: pcol->size type:pcol->type index: (pcol - columns)];
+		//[meta initWithName:[[NSString alloc] initWithCString: pcol->name encoding:NSWindowsCP1250StringEncoding] size: pcol->size type:pcol->type index: (pcol - columns)];
 		
 		[columnNames addObject: meta];
 		
@@ -229,11 +232,11 @@ struct COL
 					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSUTF32StringEncoding]);
 					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSUTF32BigEndianStringEncoding]);
 					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSUTF32LittleEndianStringEncoding]);					
-					
-					NSLog(@"buffer->size %d, buffer: %s", pcol->size, buffer);
-					//NSString *value = [[NSString alloc] initWithUTF8String: buffer];
-					*/					
-					NSString *value = [[NSString alloc] initWithCString: buffer encoding:NSWindowsCP1250StringEncoding];	
+					*/
+					//NSLog(@"buffer->size %d, buffer: %s", pcol->size, buffer);
+					NSString *value = [[NSString alloc] initWithUTF8String: buffer];
+										
+					//NSString *value = [[NSString alloc] initWithCString: buffer encoding:NSWindowsCP1250StringEncoding];	
 					if (!value)
 						value = [[NSString alloc] initWithCString: buffer encoding:NSASCIIStringEncoding];
 					if (!value)
@@ -438,8 +441,9 @@ struct COL
 	if (!dbproc)
 		return nil;
 				
-	@try{	                                                 		
-		return [NSString stringWithCString: dbname(dbproc) encoding:NSWindowsCP1250StringEncoding];
+	@try{	                                                 		                                 		
+		return [[NSString alloc] initWithUTF8String: dbname(dbproc)];
+		//return [NSString stringWithCString: dbname(dbproc) encoding:NSWindowsCP1250StringEncoding];
 	}
 	@catch(NSException *e){
 		NSLog(@"currentDatabase exception: @%", e);
