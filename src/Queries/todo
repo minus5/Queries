@@ -1,35 +1,31 @@
 BUGS  
   * undo ne radi dobro u kombinaciji s indent/unindent   
   * Results 1 of 9 ne izgleda dobro ako su brojevi dovoznamenkasti, fiksene je sirine
-  + zasto focus handling ponvo revidirati, ne ide na outline, napravi to u kodu nakon svake promjene taba dodaj nextKeyView svim potrebnim kontrolama
-  + zadnja kolona je prosirena u gridu   
-  + kada skriptira tablicu koja nije u dbo schemi, ne napise dobru schemu, odnoso stavlja ownera
-  * preko taba moze zatvoriti tab i kad je modified bez upita da li to smije  
+    
+TODO      
+  * threading 
+   - mogucnost zaustavljanja
+   - ako closa query zaustavi thread u kome se izvrsava     
+    
+  * customizacija formatiranja datuma tako da se vide i milisekunde
   
-TODO
-  * resize splitview-a
-                  
-  * imenuj tabove 
-    * ako se file snimi daj mu ime po file-u
-    * ako je autmatski generiran daj mu ime po objektu na koji se odnosi
+  * kolona s row numberom? 
+  
+  * dorade outline view-a
+    * triggeri   
+    * kolone od tablice                                                                
+    * mogucnost da vidi samo trenutnu bazu    
+    * testiranje s userom koji ima manje privilegija
     
   * close-other tabs, close all tabs  shift-command-W
                                                              
   * freetds ukljuciti u projekt - pogledaj prije toga na kakvoj je licenci
-  
-  + unicode za freetds
-
-  * za vrijeme izvrsavanje querija izbrisi poruke ili jos bolje napisi Executing...
-    
+     
   * connections window
     * stavi kotacic dok ostvaruje konekciju
     * javiti lijepu porku kada se ne uspije konektirati
 
   * alter skripta za view-e i procedure
-    
-  * save/open files  
-    * pazi na open ako je file edited  
-    * Save As implementiraj  
   
   * 32 bitni build
   
@@ -59,7 +55,7 @@ TODO
   
   * export u Numbers
   * kopiranje iz grida kolone ili redka ili svega
-  * results in text
+
   * query library - mozda cak uzeti onaj koji postoji uz stari query analyzer
     
   * highlight imena tablica i procedura u trenutnoj bazi  
@@ -67,8 +63,25 @@ TODO
     + min max funkcije nisu obojane
     * login nije obojan
       
-  * auto update aplikacije    
-    
+  * auto update aplikacije                                                         
+  
+  * sto ako sql server nije na portu 1433
+  
+FIXED: 
+  + save/open files  
+    + pazi na open ako je file edited  
+    + Save As implementiraj  
+  + imenuj tabove 
+    + ako se file snimi daj mu ime po file-u
+    + ako je autmatski generiran daj mu ime po objektu na koji se odnosi
+ 
+  + za vrijeme izvrsavanje querija izbrisi poruke ili jos bolje napisi Executing...
+  + Results 1 of 9 prikazuj samo kada je prikazan grid ne i kada su prikazani messages
+  + results in text poseban tab
+  + zasto focus handling ponvo revidirati, ne ide na outline, napravi to u kodu nakon svake promjene taba dodaj nextKeyView svim potrebnim kontrolama
+  + zadnja kolona je prosirena u gridu   
+  + kada skriptira tablicu koja nije u dbo schemi, ne napise dobru schemu, odnoso stavlja ownera
+  + preko taba moze zatvoriti tab i kad je modified bez upita da li to smije        
   + highlight 
     + sistemskih stored procedura
     + int
@@ -93,4 +106,6 @@ TODO
   + create skripta za tablice  
   + sacuvati detalje konekcije
   + proglasiti neku konekciju defaultnom
-  
+  + resize splitview-a
+  + unicode za freetds
+OSTAVI NESTO I ZA SLIJEDECE VERZIJE  

@@ -269,15 +269,14 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
-								<string>080E96DDFE201D6D7F000001</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>1C37FBAC04509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>28</integer>
-									<integer>25</integer>
+									<integer>13</integer>
+									<integer>6</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -325,7 +324,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>18AC854F10ADEB490054E533</string>
+										<string>18AC860810AE25660054E533</string>
 										<key>history</key>
 										<array>
 											<string>1870C9771098595A006AC809</string>
@@ -356,12 +355,12 @@
 											<string>18B75AD410AA244300265159</string>
 											<string>18B75B5110AA303100265159</string>
 											<string>18B75B8B10AD9C0100265159</string>
-											<string>18B75B9810AD9C1400265159</string>
 											<string>18AC847B10ADE0F10054E533</string>
-											<string>18AC84DA10ADE7960054E533</string>
-											<string>18AC853710ADEAC00054E533</string>
 											<string>18AC854D10ADEB470054E533</string>
-											<string>18AC853810ADEAC00054E533</string>
+											<string>18AC858010AE000D0054E533</string>
+											<string>18AC859A10AE0BE60054E533</string>
+											<string>18AC85F910AE240D0054E533</string>
+											<string>18AC85FA10AE240D0054E533</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -375,16 +374,16 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1634, 1013}}</string>
+								<string>{{0, 0}, {1634, 983}}</string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>1013pt</string>
+							<string>983pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>65pt</string>
+							<string>95pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -398,7 +397,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1634, 38}}</string>
+										<string>{{10, 27}, {1634, 68}}</string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -682,7 +681,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>18AC855010ADEB490054E533</string>
+		<string>18AC860910AE25660054E533</string>
 		<string>18AC848910ADE0F40054E533</string>
 		<string>18AC848A10ADE0F40054E533</string>
 		<string>/Users/ianic/Work/CocoaQueryAnalyzer/src/Queries/Queries.xcodeproj</string>

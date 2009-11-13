@@ -2,7 +2,40 @@
 
 @implementation QueryController
 
-@synthesize isEdited, isProcessing, fileName, database;
+@synthesize isEdited, isProcessing, fileName, database, name;
+                           
+#pragma mark ---- properties ----
+
+- (void) processingStarted{
+	[self setIsProcessing: YES];
+	[messagesTextView setString: @"Executing query..."];
+}
+
+- (void) setIsEdited: (BOOL) value{
+	if (value != isEdited){
+		isEdited = value;
+		[connection isEditedChanged: self];
+	}
+}
+
+- (NSString*) queryString{          
+	NSRange selection = [queryText selectedRange]; 
+	NSString *query = [NSString stringWithString: [queryText string]];                
+	[query autorelease];
+	if(selection.length > 0){
+		return [query substringWithRange: selection];
+	}else{
+		return query;
+	}
+}
+
+- (void) setString: (NSString*) s{
+	[queryText setString: s];
+	[self setIsEdited: NO];
+}
+
+
+#pragma mark ---- init ----
 
 - (id) initWithConnection: (ConnectionController*) c{
 	if (self = [super init]){
@@ -13,15 +46,7 @@
 	return nil;
 }
 
-- (void) setIsEdited: (BOOL) value{
-	if (value != isEdited){
-		isEdited = value;
-		[connection isEditedChanged: self];
-	}
-}
-
 - (void) dealloc{         
-	//[splitViewDelegate release];
 	[connection release];
 	[queryResult release];
 	[super dealloc];	
@@ -29,6 +54,14 @@
 
 - (NSString*) nibName{
 	return @"QueryView";
+}    
+
+- (void) setNoWrapToTextView: (NSTextView*) tv{ 
+	[[tv textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
+	[[tv textContainer] setWidthTracksTextView:NO];
+	[tv setHorizontallyResizable:YES];
+	[tv setMaxSize:NSMakeSize(FLT_MAX, FLT_MAX)];                                             
+	[tv setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
 }
 
 - (void) awakeFromNib{
@@ -37,55 +70,91 @@
   [queryTextScrollView setHasHorizontalRuler:NO];
   [queryTextScrollView setHasVerticalRuler:YES];
   [queryTextScrollView setRulersVisible:YES];  
-  [queryText setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];  
-	
+  	
 	syntaxColoringTextView = queryText;
 	[self syntaxColoringInit];
 	[self showResultsCount];
 	[self setIsEdited: NO];  
-                                     
+  
+  //proportional font to all text views
+	[queryText setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];                                     
  	[messagesTextView setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
+	[textResultsTextView setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
 	
-	//set no-wrap to messagesTextView
-	[[messagesTextView textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
-	[[messagesTextView textContainer] setWidthTracksTextView:NO];
-	[messagesTextView setHorizontallyResizable:YES];
-	[messagesTextView setMaxSize:NSMakeSize(FLT_MAX, FLT_MAX)];
+	[self setNoWrapToTextView:messagesTextView];
+	[self setNoWrapToTextView:queryText];
+	[self setNoWrapToTextView:textResultsTextView];
 	
-	//set no-wrap to queryText view
-	[[queryText textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
-	[[queryText textContainer] setWidthTracksTextView:NO];
-	[queryText setHorizontallyResizable:YES];
-	[queryText setMaxSize:NSMakeSize(FLT_MAX, FLT_MAX)]; 
-	
-	[self splitViewDidResizeSubviews: nil];
+	[self splitViewDidResizeSubviews: nil];  
+	[self splitResultsAndQueryTextEqualy: nil];
+	lastResultsTabIndex	= 0;
+	[self maximizeQueryText: nil];
+}      
+
+#pragma mark ---- positioning ----
+
+- (void)splitViewDidResizeSubviews:(NSNotification *)aNotification{		
+	NSRect frame = [resultsTabView frame];
+	frame.size.height = [resultsContentView frame].size.height - 35;	
+	frame.origin.x = 0;
+	frame.origin.y = 0;
+	if (frame.size.height >= 0){
+		[resultsTabView setFrame: frame];				
+	}
 }
+
+
+#pragma mark ---- tab navigation ----
 
 - (IBAction)resultsMessagesSegmentControlClicked:(id)sender
 {
 	[resultsTabView selectTabViewItemAtIndex: [sender selectedSegment]];
-}
+}                                      
 
-- (IBAction) showResults: (id) sender{
-	[resultsTabView	selectTabViewItemAtIndex: 0];
-	[resultsMessagesSegmentedControll setSelectedSegment:0];
-  [self showResultsCount];                     
-	[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
-	[self updateNextKeyViewRing];
-}
-
-- (IBAction) showMessages: (id) sender{
-	[resultsTabView	selectTabViewItemAtIndex: 1];
-	[resultsMessagesSegmentedControll setSelectedSegment:1];
+- (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem{
+	int selectedIndex = [resultsTabView indexOfTabViewItem: tabViewItem];	
+	[resultsMessagesSegmentedControll setSelectedSegment: selectedIndex];  
+	[resultsCountBox setHidden: selectedIndex != 0];
 	[self showResultsCount];
-	[self updateNextKeyViewRing];
-}
+	if (selectedIndex == 0){
+		[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+	}
+	[self updateNextKeyViewRing];                      
+	if (selectedIndex != 2)
+		lastResultsTabIndex = selectedIndex;
+}  
+                             
+- (void) updateNextKeyViewRing{
+	[messagesTextView setNextKeyView: [connection outlineView]];
+	[resultsTableView setNextKeyView: [connection outlineView]];
+	[textResultsTextView setNextKeyView: [connection outlineView]];
+}             
 
-- (void) showResultsCount{
-	[resultsCountBox setHidden: ([queryResult	resultsCount] < 2)];	
+- (void) showResultsCount{ 	
+	[resultsCountBox setHidden: !([queryResult	resultsCount] > 1 && [resultsTabView indexOfTabViewItem: [resultsTabView selectedTabViewItem]] == 0)];	
 	if (![resultsCountBox isHidden]){
 	  [resultsCountLabel setStringValue: [NSString stringWithFormat: @"Results %d of %d", [queryResult currentResultIndex] + 1, [queryResult	resultsCount]]];
 	}	
+}
+
+- (IBAction) showResults: (id) sender{               
+	[resultsTabView	selectTabViewItemAtIndex: 0];
+}
+
+- (IBAction) showTextResults: (id) sender{
+	[resultsTabView	selectTabViewItemAtIndex: 1];
+}
+
+- (IBAction) showMessages: (id) sender{
+	[resultsTabView	selectTabViewItemAtIndex: 2];
+}                                      
+
+- (IBAction) nextResultsTab: (id) sender{
+	[resultsTabView selectNextTabViewItem: sender];
+}
+
+- (IBAction) previousResultsTab: (id) sender{
+	[resultsTabView selectPreviousTabViewItem: sender];
 }
 
 - (IBAction) nextResult: (id) sender {
@@ -98,16 +167,37 @@
 		[self reloadResults];
 }
 
-- (NSString*) queryString{          
-	NSRange selection = [queryText selectedRange]; 
-	NSString *query = [NSString stringWithString: [queryText string]];                
-	[query autorelease];
-	if(selection.length > 0){
-		return [query substringWithRange: selection];
-	}else{
-		return query;
-	}
-}                                       
+#pragma mark ---- navigation goto control ---- 
+
+- (IBAction) goToQueryText: (id) sender{
+	[sender makeFirstResponder: queryText];
+}
+                                        
+- (IBAction) goToResults: (id) sender{         
+	[self showResults: sender];
+	[sender makeFirstResponder: resultsTableView];
+}
+
+- (IBAction) goToMessages: (id) sender{
+	[self showMessages: sender];
+	[sender makeFirstResponder: messagesTextView];
+}
+       
+#pragma mark ---- navigation maximize view ---- 
+
+- (IBAction) splitResultsAndQueryTextEqualy: sender{
+	[splitView setPosition: [splitView frame].size.height / 2 ofDividerAtIndex:0];
+}
+
+- (IBAction) maximizeResults: sender{
+	[splitView setPosition: 1 ofDividerAtIndex:0];
+}
+
+- (IBAction) maximizeQueryText: sender{
+	[splitView setPosition: ([splitView frame].size.height - 20) ofDividerAtIndex:0];
+}
+                                     
+#pragma mark ---- show results ----
 
 - (void) setResult: (QueryResult*) r{     
 	if (!r) return;
@@ -121,9 +211,15 @@
 		
 	[self reloadResults];
 	[self reloadMessages];
-	if ([queryResult hasResults])
-		[self showResults: nil];
-	else {
+	[textResultsTextView setString: [queryResult resultsInText]];
+	
+	if ([queryResult hasResults]){           
+		if ([splitView isSubviewCollapsed: resultsContentView]){
+			[self splitResultsAndQueryTextEqualy: nil];
+		}		
+		[resultsTabView selectTabViewItemAtIndex: lastResultsTabIndex];
+		//[self showResults: nil];
+	}else {
 		[self showMessages: nil];
 	}
 		
@@ -142,8 +238,7 @@
 	for(id message in [queryResult messages]){			
 		[messagesTextView insertText: message];	
 	}   
-	[messagesTextView insertText: @"\n"];		
-	[messagesTextView insertText: [queryResult resultsInText]];	
+	[messagesTextView insertText: @"\n"];			
 } 
 
 - (void) addColumns{
@@ -201,6 +296,8 @@
 		[tableView removeTableColumn: col];
 	}
 }
+                              
+#pragma mark ---- tableview delegate ----
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView{	
 	return [queryResult rowsCount];
@@ -214,83 +311,43 @@
 	[self setIsEdited: TRUE];
 }
 
+#pragma mark ---- save open ----
+
 - (IBAction) saveDocument: (id) sender {
-	[self saveQuery];
+	[self saveQuery: NO];
 }                          
 
-- (IBAction) openDocument:(id)sender {      
-	[self openQuery];
-} 
+- (IBAction) saveDocumentAs: (id) sender {
+	[self saveQuery: YES];
+}                          
 
-- (BOOL) saveQuery{		
-	if (!fileName){
-		NSSavePanel *panel = [NSSavePanel savePanel];
+- (BOOL) saveQuery:(bool) saveAs{		
+	if (!fileName || saveAs){
+		NSSavePanel *panel = [NSSavePanel savePanel];  
+		[panel setExtensionHidden: NO];
+		if (fileName)
+			[panel setNameFieldStringValue: [fileName lastPathComponent]];
+		else
+		  if (name)	  	                                                
+				[panel setNameFieldStringValue: name];
 		[panel setRequiredFileType:@"sql"];
 		if (![panel runModal] == NSOKButton) {
 			return NO;
-		}
-		[self setFileName: [panel filename]];
+		}                                                                      
+		[self setFileName: [panel filename]];  
+		[self setName: [[fileName lastPathComponent] stringByDeletingPathExtension]];		
 	}	
 	[[queryText string] writeToFile: fileName atomically:YES encoding:NSUTF8StringEncoding error:NULL];		
 	[self setIsEdited: NO];            	
 	return YES;
 }
 
-- (void) openQuery {
-	NSOpenPanel *panel = [NSOpenPanel openPanel];
-	if ([panel runModal] == NSOKButton) {
-		[self setFileName: [panel filename]];
-		NSString *fileContents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
-		[queryText setString: fileContents];
-		[self setIsEdited: NO];
-	}
-}
-
-- (void) setString: (NSString*) s{
-	[queryText setString: s];
+- (void) openFile: (NSString*) fn{
+	[self setFileName: fn];                       
+	[self setName: [[fileName lastPathComponent] stringByDeletingPathExtension]];
+	NSString *fileContents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
+	[queryText setString: fileContents];
 	[self setIsEdited: NO];
-}
-
-- (IBAction) goToQueryText: (id) sender{
-	[sender makeFirstResponder: queryText];
-}
-                                        
-- (IBAction) goToResults: (id) sender{         
-	[self showResults: sender];
-	[sender makeFirstResponder: resultsTableView];
-}
-
-- (IBAction) goToMessages: (id) sender{
-	[self showMessages: sender];
-	[sender makeFirstResponder: messagesTextView];
-}
-       
-- (void) updateNextKeyViewRing{
-	[messagesTextView setNextKeyView: [connection outlineView]];
-	[resultsTableView setNextKeyView: [connection outlineView]];
-}             
-
-- (void)splitViewDidResizeSubviews:(NSNotification *)aNotification{		
-	NSRect frame = [resultsTabView frame];
-	frame.size.height = [resultsContentView frame].size.height - 35;	
-	frame.origin.x = 0;
-	frame.origin.y = 0;
-	if (frame.size.height >= 0){
-		[resultsTabView setFrame: frame];				
-	}
-	//NSLog(@"splitViewDidResizeSubviews resultsContentView: %f resultsTabView: %f splitView: %f", [resultsContentView frame].size.height, [resultsTabView frame].size.height,  [splitView frame].size.height);
-}
-
-- (IBAction) splitResultsAndQueryTextEqualy: sender{
-	[splitView setPosition: [splitView frame].size.height / 2 ofDividerAtIndex:0];
-}
-
-- (IBAction) maximizeResults: sender{
-	[splitView setPosition: 1 ofDividerAtIndex:0];
-}
-
-- (IBAction) maximizeQueryText: sender{
-	[splitView setPosition: ([splitView frame].size.height - 20) ofDividerAtIndex:0];
 }
 
 @end

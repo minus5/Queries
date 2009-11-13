@@ -4,6 +4,8 @@
 
 @synthesize outlineView;
 
+#pragma mark ---- init ----
+
 - (NSString*) windowNibName{
 	return @"ConnectionView";
 }
@@ -27,6 +29,8 @@
 	[super dealloc];
 }
 
+#pragma mark ---- tabs ----
+
 - (IBAction) newTab: (id) sender{
 	[self createNewTab];
 }  
@@ -36,12 +40,14 @@
 	if (newQuerycontroller)
 	{		
 		NSTabViewItem *newTabViewItem = [[NSTabViewItem alloc] initWithIdentifier: newQuerycontroller];
-		[newTabViewItem setLabel: [NSString stringWithFormat:@"Query: %d", ++queryTabsCounter]];
+		//[newTabViewItem setLabel: [NSString stringWithFormat:@"Query: %d", ++queryTabsCounter]];
 		[newTabViewItem setView: [newQuerycontroller view]];	
 		[queryTabs addTabViewItem:newTabViewItem];
 		
 		[newQuerycontroller addObserver: self forKeyPath: @"database" options: NSKeyValueObservingOptionNew context: nil];
-		[queryTabs selectTabViewItem:newTabViewItem];				
+		[newQuerycontroller addObserver: self forKeyPath: @"name" options: NSKeyValueObservingOptionNew context: nil];
+		[queryTabs selectTabViewItem:newTabViewItem];
+		[newQuerycontroller setName: [NSString stringWithFormat:@"Query %d", ++queryTabsCounter]];
 	}                              
 	return newQuerycontroller;
 }
@@ -52,6 +58,10 @@
 	context: (void*) context
 {
 	if ([keyPath isEqualToString: @"database"] && object == queryController){ 
+		[self displayDatabase];		
+	} 
+	if ([keyPath isEqualToString: @"name"] && object == queryController){ 
+		[[queryTabs selectedTabViewItem] setLabel: [queryController name]];
 		[self displayDatabase];		
 	}
 }
@@ -72,6 +82,8 @@
 	[queryTabs selectPreviousTabViewItem:sender];
 }
 
+#pragma mark ---- close ----
+
 - (BOOL) windowShouldClose: (id) sender{                          
 	[self shouldCloseCurrentQuery];
 	return [[queryTabs tabViewItems] count] > 0 ? NO : YES;	
@@ -83,6 +95,20 @@
 	if ([[queryTabs tabViewItems] count] == 0)
 		[[self window] close];
 }
+                       
+- (int) numberOfEditedQueries {
+	int count = 0;
+	for(id item in [queryTabs tabViewItems]){
+		if ([[item identifier] isEdited]){
+			count++;
+		}
+	}           
+	return count;
+}                                                        
+
+- (void) isEditedChanged: (id) sender{     
+	[[self window] setDocumentEdited: [self numberOfEditedQueries] > 0];
+}                           
 
 - (void) shouldCloseCurrentQuery{     
 	//TODO ovo je zasada jako gruba zabrana da ne moze zatvoriti prozor koji ima processing query
@@ -106,6 +132,12 @@
 		modalDelegate :self
 		didEndSelector: @selector(closeAlertEnded:code:context:)
 		contextInfo: NULL ];
+} 
+
+- (BOOL)tabView:(NSTabView *)aTabView shouldCloseTabViewItem:(NSTabViewItem *)tabViewItem
+{
+	[self shouldCloseCurrentQuery];
+  return NO;
 }
 
 -(void) closeAlertEnded:(NSAlert *) alert code:(int) choice context:(void *) v{
@@ -113,12 +145,14 @@
 		return;
 	}	
 	if (choice == NSAlertDefaultReturn){
-		if (![queryController saveQuery]){ 
+		if (![queryController saveQuery: NO]){ 
 			return; 
 		}
 	}
 	[self closeCurentQuery];
-}
+}    
+
+#pragma mark ---- connection ----
 
 - (IBAction) changeConnection: (id) sender{
 	if (!credentials){
@@ -140,12 +174,14 @@
 	[self dbObjectsFillSidebar];
 }                                        
 
+#pragma mark ---- execute ----
+
 -(IBAction) executeQuery: (id) sender{     
 	if (!tdsConnection){                                                       			
 		[self changeConnection: nil];
 		return;		
 	}
-	[queryController setIsProcessing: YES];
+	[queryController processingStarted];
 	[self executeQueryInBackground: [queryController queryString] 
 		withDatabase: [queryController database] 
 		returnToObject: queryController 
@@ -173,19 +209,8 @@
 	[conn performSelectorInBackground:@selector(executeInBackground:) withObject: arguments];		
 }
 
-- (int) numberOfEditedQueries {
-	int count = 0;
-	for(id item in [queryTabs tabViewItems]){
-		if ([[item identifier] isEdited]){
-			count++;
-		}
-	}           
-	return count;
-}                                                        
-
-- (void) isEditedChanged: (id) sender{     
-	[[self window] setDocumentEdited: [self numberOfEditedQueries] > 0];
-}                           
+                              
+#pragma mark ---- explain ----
 
 -(IBAction) explain: (id) sender{                                  
 	@try{			
@@ -199,20 +224,23 @@
 		if ([objectType isEqualToString: @"tables"]){
 		  [self createNewTab];  		                                           
 			[queryController setString: [CreateTableScript scriptWithConnection: tdsConnection database: databaseName table: objectName]];
+			[queryController setName: objectName];
 			return;
 		}					
 		if ([objectType isEqualToString: @"procedures"] || [objectType isEqualToString: @"functions"] || [objectType isEqualToString: @"views"]){	
 			QueryResult *queryResult = [tdsConnection execute: [NSString stringWithFormat: @"use %@\nexec sp_helptext '%@'", databaseName, objectName]];
 			if (queryResult){
 				[self createNewTab];
-				[queryController setString:[queryResult resultAsString]];
+				[queryController setString:[queryResult resultAsString]];    
+				[queryController setName: objectName];
 			}
 			return;
 		}	       
 		if ([objectType isEqualToString: @"users"]){
 			[self createNewTab];                                       
 			[queryController setString: [NSString stringWithFormat: @"use %@\nexec sp_helpuser '%@'\nexec sp_helprotect @username = '%@'", databaseName, objectName, objectName]];
-			[self executeQuery: nil];                                                                     
+			[queryController setName: objectName];
+			[self executeQuery: nil];             			                                                        
 			return;
 		}
 
@@ -220,7 +248,18 @@
 	@catch(NSException *e){
 		NSLog(@"explain exception %@", e);
 	} 
+}
+
+- (IBAction) openDocument:(id)sender{
+	NSOpenPanel *panel = [NSOpenPanel openPanel];
+	if ([panel runModal] == NSOKButton) {
+		if ([queryController isEdited])
+			[self createNewTab];
+		[queryController openFile: [panel filename]];
+	}
 }       
+
+#pragma mark ---- goto controll ----
     
 - (IBAction) goToQueryText: (id) sender{
 	[queryController goToQueryText: [self window]];
@@ -242,6 +281,5 @@
 	float position = ([[[splitView subviews] objectAtIndex:0 ] frame].size.width == 0) ? 200 : 0;		
 	[splitView setPosition: position ofDividerAtIndex:0];
 }
-
 
 @end

@@ -57,6 +57,7 @@
 - (IBAction) goToDatabaseObjects: (id) sender;
 - (IBAction) goToResults: (id) sender;
 - (IBAction) goToMessages: (id) sender;
+- (IBAction) showHideDatabaseObjects: sender;
 
 @end
 
@@ -75,6 +76,5 @@
 
 - (void) setDatabasesResult: (QueryResult*) queryResult;
 - (void) setObjectsResult: (QueryResult*) queryResult;
-- (IBAction) showHideDatabaseObjects: sender;
 
 @end

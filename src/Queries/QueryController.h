@@ -32,12 +32,16 @@
 	NoodleLineNumberView *queryTextLineNumberView;
 	IBOutlet BWSplitView *splitView;
 	ConnectionController *connection;
-	QueryResult *queryResult;
+	QueryResult *queryResult;             
+	
+	IBOutlet NSTextView	*textResultsTextView;
 	
 	BOOL isEdited;
 	BOOL isProcessing;
-	NSString *fileName;     
-	NSString *database;
+	NSString *fileName;          
+	NSString *name;
+	NSString *database;                     
+	int lastResultsTabIndex;
 		
 	////syntax highlighting internals
 	IBOutlet NSTextField*			syntaxColoringStatus;									// Status display for things like syntax coloring or background syntax checks.			
@@ -54,14 +58,17 @@
 @property BOOL isEdited; 
 @property BOOL isProcessing;
 @property (copy) NSString *fileName;
+@property (copy) NSString *name;
 @property (copy) NSString *database; 
 
 - (id) initWithConnection: (ConnectionController*) c;
 - (IBAction) resultsMessagesSegmentControlClicked:(id)sender;
-- (IBAction) showResults: (id) sender;
+- (IBAction) showResults: (id) sender;                         
+- (IBAction) showTextResults: (id) sender;
 - (IBAction) showMessages: (id) sender;
 - (void) showResultsCount;
-
+- (IBAction) nextResultsTab: (id) sender;
+- (IBAction) previousResultsTab: (id) sender;
 - (IBAction) nextResult: (id) sender;
 - (IBAction) previousResult: (id) sender;
 
@@ -77,11 +84,10 @@
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView;
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex;
 
-- (BOOL) saveQuery;  
-- (void) openQuery; 
+- (BOOL) saveQuery:(bool)saveAs;  
+- (void) openFile:(NSString*) fn;
 - (IBAction) saveDocument: (id) sender;
-- (IBAction) openDocument: (id) sender;
-
+- (IBAction) saveDocumentAs: (id) sender;
 
 - (void) setString: (NSString*) s;       
 
@@ -95,6 +101,7 @@
 - (IBAction) splitResultsAndQueryTextEqualy: sender;
 - (IBAction) maximizeResults: sender;
 - (IBAction) maximizeQueryText: sender;
+- (void) processingStarted;
 
 @end
 
