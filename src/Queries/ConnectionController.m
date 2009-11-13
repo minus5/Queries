@@ -238,4 +238,10 @@
 	[queryController goToMessages: [self window]];
 }
 
+- (IBAction) showHideDatabaseObjects: sender{
+	float position = ([[[splitView subviews] objectAtIndex:0 ] frame].size.width == 0) ? 200 : 0;		
+	[splitView setPosition: position ofDividerAtIndex:0];
+}
+
+
 @end

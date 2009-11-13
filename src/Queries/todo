@@ -2,13 +2,22 @@ BUGS
   * undo ne radi dobro u kombinaciji s indent/unindent   
   * Results 1 of 9 ne izgleda dobro ako su brojevi dovoznamenkasti, fiksene je sirine
   + zasto focus handling ponvo revidirati, ne ide na outline, napravi to u kodu nakon svake promjene taba dodaj nextKeyView svim potrebnim kontrolama
-  * zadnja kolona je prosirena u gridu   
+  + zadnja kolona je prosirena u gridu   
+  + kada skriptira tablicu koja nije u dbo schemi, ne napise dobru schemu, odnoso stavlja ownera
+  * preko taba moze zatvoriti tab i kad je modified bez upita da li to smije  
   
-  
-TODO                                                                               
+TODO
+  * resize splitview-a
+                  
+  * imenuj tabove 
+    * ako se file snimi daj mu ime po file-u
+    * ako je autmatski generiran daj mu ime po objektu na koji se odnosi
+    
+  * close-other tabs, close all tabs  shift-command-W
+                                                             
   * freetds ukljuciti u projekt - pogledaj prije toga na kakvoj je licenci
   
-  * unicode za freetds
+  + unicode za freetds
 
   * za vrijeme izvrsavanje querija izbrisi poruke ili jos bolje napisi Executing...
     

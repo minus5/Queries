@@ -58,8 +58,7 @@
 	[queryText setHorizontallyResizable:YES];
 	[queryText setMaxSize:NSMakeSize(FLT_MAX, FLT_MAX)]; 
 	
-	// splitViewDelegate = [[SplitViewDelegate alloc] init];
-	// [splitView setDelegate: splitViewDelegate];
+	[self splitViewDidResizeSubviews: nil];
 }
 
 - (IBAction)resultsMessagesSegmentControlClicked:(id)sender
@@ -270,6 +269,29 @@
 	[messagesTextView setNextKeyView: [connection outlineView]];
 	[resultsTableView setNextKeyView: [connection outlineView]];
 }             
+
+- (void)splitViewDidResizeSubviews:(NSNotification *)aNotification{		
+	NSRect frame = [resultsTabView frame];
+	frame.size.height = [resultsContentView frame].size.height - 35;	
+	frame.origin.x = 0;
+	frame.origin.y = 0;
+	if (frame.size.height >= 0){
+		[resultsTabView setFrame: frame];				
+	}
+	//NSLog(@"splitViewDidResizeSubviews resultsContentView: %f resultsTabView: %f splitView: %f", [resultsContentView frame].size.height, [resultsTabView frame].size.height,  [splitView frame].size.height);
+}
+
+- (IBAction) splitResultsAndQueryTextEqualy: sender{
+	[splitView setPosition: [splitView frame].size.height / 2 ofDividerAtIndex:0];
+}
+
+- (IBAction) maximizeResults: sender{
+	[splitView setPosition: 1 ofDividerAtIndex:0];
+}
+
+- (IBAction) maximizeQueryText: sender{
+	[splitView setPosition: ([splitView frame].size.height - 20) ofDividerAtIndex:0];
+}
 
 @end
 			

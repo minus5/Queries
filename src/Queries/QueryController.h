@@ -17,9 +17,10 @@
 #include <sqlfront.h>	
 #include <sybdb.h>
 
-@interface QueryController : NSViewController {
+@interface QueryController : NSViewController <NSSplitViewDelegate> {
 
 	IBOutlet NSTabView *resultsTabView;
+	IBOutlet NSView *resultsContentView;
 	IBOutlet NSSegmentedControl *resultsMessagesSegmentedControll;
 	IBOutlet NSTextView	*queryText;
 	IBOutlet NSTextView	*messagesTextView;
@@ -29,8 +30,7 @@
 	IBOutlet NSTextField *resultsCountLabel;	
 	IBOutlet NSScrollView *queryTextScrollView;
 	NoodleLineNumberView *queryTextLineNumberView;
-	//IBOutlet BWSplitView *splitView;	                                                                   
-	//SplitViewDelegate *splitViewDelegate;
+	IBOutlet BWSplitView *splitView;
 	ConnectionController *connection;
 	QueryResult *queryResult;
 	
@@ -89,7 +89,12 @@
 - (IBAction) goToResults: (id) sender;
 - (IBAction) goToMessages: (id) sender;
 
-- (void) updateNextKeyViewRing;                                                                        
+- (void) updateNextKeyViewRing;                                    
+
+- (void)splitViewDidResizeSubviews:(NSNotification *)aNotification;
+- (IBAction) splitResultsAndQueryTextEqualy: sender;
+- (IBAction) maximizeResults: sender;
+- (IBAction) maximizeQueryText: sender;
 
 @end
 

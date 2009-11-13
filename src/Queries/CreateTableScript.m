@@ -4,10 +4,7 @@
 
 @synthesize script;
 
-- (void) createTable{	
-	tableName = [NSString stringWithFormat: @"[%@].[%@]", 
-		[result valueAtResult: 0 row: 0 column: 1],		
-		[result valueAtResult: 0 row: 0 column: 0]];
+- (void) createTable{	 
 	[script appendFormat: @"CREATE TABLE %@ (\n", tableName];
 }
 
@@ -151,11 +148,30 @@
 			}
 		}
 	}
+}   
+
+- (NSArray*) indexResults{      
+	return [result resultWithFirstColumnNamed: @"index_name"];
+}  
+
+- (NSArray*) constraintResults{                            
+	return [result resultWithFirstColumnNamed: @"constraint_type"];
 }
+
++ (NSString*) scriptWithConnection: (TdsConnection*) connection  database:(NSString*) database table: (NSString*) table{
+	CreateTableScript *scripter = [[[CreateTableScript alloc] initWithConnection: connection database: database table: table] autorelease];
+	return [scripter script];
+} 
                                  
 - (id) initWithConnection: (TdsConnection*) connection  database:(NSString*) database table: (NSString*) table{
 	if (self = [super init]){
 		result = [connection execute: [NSString stringWithFormat: @"use %@\nexec sp_help '%@'", database, table]];		
+		
+		NSArray *nameParts = [table componentsSeparatedByString: @"."];
+		tableName = [NSString stringWithFormat: @"[%@].[%@]", 
+			[nameParts objectAtIndex: 0],		
+			[nameParts objectAtIndex: 1]];
+				
 		script = [[NSMutableString string] retain];    
 		
 		[self createTable];  
@@ -165,35 +181,8 @@
 	}
 	return self;
 } 
-
-- (NSArray*) indexResults{      
-	return [result resultWithFirstColumnNamed: @"index_name"];
-	// if([[[[result columnsAtIndex: 5] objectAtIndex: 0] name] isEqualToString: @"index_name"]){
-	// 	return [result resultAtIndex: 5];
-	// }
-	// if([[[[result columnsAtIndex: 6] objectAtIndex: 0] name] isEqualToString: @"index_name"]){		
-	// 	return [result resultAtIndex: 6];
-	// }
-	// return nil;  
-}  
-
-- (NSArray*) constraintResults{                            
-	return [result resultWithFirstColumnNamed: @"constrinat_type"];
-	// if([[[[result columnsAtIndex: 5] objectAtIndex: 0] name] isEqualToString: @"constrinat_type"]){
-	// 	return [result resultAtIndex: 5];
-	// }
-	// if([[[[result columnsAtIndex: 6] objectAtIndex: 0] name] isEqualToString: @"constrinat_type"]){		
-	// 	return [result resultAtIndex: 6];
-	// }
-	// return nil; 
-}                                                                  
-
-+ (NSString*) scriptWithConnection: (TdsConnection*) connection  database:(NSString*) database table: (NSString*) table{
-	CreateTableScript *scripter = [[[CreateTableScript alloc] initWithConnection: connection database: database table: table] autorelease];
-	return [scripter script];
-} 
-
-- (void) dealloc{
+                                                                
+- (void) dealloc{       	
 	[script release];
 	[super dealloc];
 }

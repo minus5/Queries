@@ -12,6 +12,7 @@
 
 @interface ConnectionController : NSWindowController {
 	
+	IBOutlet NSSplitView *splitView;
 	IBOutlet NSTabView *queryTabs; 
 	IBOutlet PSMTabBarControl *queryTabBar; 		
 	IBOutlet NSOutlineView *outlineView;
@@ -74,5 +75,6 @@
 
 - (void) setDatabasesResult: (QueryResult*) queryResult;
 - (void) setObjectsResult: (QueryResult*) queryResult;
+- (IBAction) showHideDatabaseObjects: sender;
 
 @end
