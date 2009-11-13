@@ -324,7 +324,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>18AC860810AE25660054E533</string>
+										<string>18AC861110AE28A50054E533</string>
 										<key>history</key>
 										<array>
 											<string>1870C9771098595A006AC809</string>
@@ -681,7 +681,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>18AC860910AE25660054E533</string>
+		<string>18AC861210AE28A50054E533</string>
 		<string>18AC848910ADE0F40054E533</string>
 		<string>18AC848A10ADE0F40054E533</string>
 		<string>/Users/ianic/Work/CocoaQueryAnalyzer/src/Queries/Queries.xcodeproj</string>

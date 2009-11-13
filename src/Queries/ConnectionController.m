@@ -40,7 +40,6 @@
 	if (newQuerycontroller)
 	{		
 		NSTabViewItem *newTabViewItem = [[NSTabViewItem alloc] initWithIdentifier: newQuerycontroller];
-		//[newTabViewItem setLabel: [NSString stringWithFormat:@"Query: %d", ++queryTabsCounter]];
 		[newTabViewItem setView: [newQuerycontroller view]];	
 		[queryTabs addTabViewItem:newTabViewItem];
 		
@@ -240,7 +239,9 @@
 			[self createNewTab];                                       
 			[queryController setString: [NSString stringWithFormat: @"use %@\nexec sp_helpuser '%@'\nexec sp_helprotect @username = '%@'", databaseName, objectName, objectName]];
 			[queryController setName: objectName];
-			[self executeQuery: nil];             			                                                        
+			[self executeQuery: nil];             
+			[queryController showTextResults:nil];
+			[queryController maximizeResults:nil];			                                                        
 			return;
 		}
 
