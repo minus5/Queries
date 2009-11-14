@@ -1,6 +1,7 @@
 #import <Cocoa/Cocoa.h>
 #import "ColumnMetadata.h"
 
+#import "TdsConnection.h"
 #import "NoodleLineNumberView.h"
 #import "NoodleLineNumberMarker.h"
 #import "MarkerLineNumberView.h"
@@ -41,7 +42,8 @@
 	NSString *fileName;          
 	NSString *name;
 	NSString *database;                     
-	int lastResultsTabIndex;
+	int lastResultsTabIndex;     
+	TdsConnection *executingConnection;
 		
 	////syntax highlighting internals
 	IBOutlet NSTextField*			syntaxColoringStatus;									// Status display for things like syntax coloring or background syntax checks.			
@@ -101,7 +103,8 @@
 - (IBAction) splitResultsAndQueryTextEqualy: sender;
 - (IBAction) maximizeResults: sender;
 - (IBAction) maximizeQueryText: sender;
-- (void) processingStarted;
+- (void) processingStarted;          
+- (IBAction) cancelExecutingQuery: (id) sender;
 
 @end
 

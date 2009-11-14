@@ -29,6 +29,8 @@
 }                     
 
 @property (readonly) NSOutlineView *outlineView;
+@property (readonly) TdsConnection *tdsConnection;
+
 
 - (IBAction) newTab: (id) sender;
 - (QueryController*) createNewTab;

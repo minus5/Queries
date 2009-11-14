@@ -6,40 +6,23 @@ TODO
   * threading 
    - mogucnost zaustavljanja
    - ako closa query zaustavi thread u kome se izvrsava     
-    
-  * customizacija formatiranja datuma tako da se vide i milisekunde
-  
-  * kolona s row numberom? 
   
   * dorade outline view-a
     * triggeri   
     * kolone od tablice                                                                
     * mogucnost da vidi samo trenutnu bazu    
     * testiranje s userom koji ima manje privilegija
-    
-  * close-other tabs, close all tabs  shift-command-W
-                                                             
-  * freetds ukljuciti u projekt - pogledaj prije toga na kakvoj je licenci
-     
-  * connections window
-    * stavi kotacic dok ostvaruje konekciju
-    * javiti lijepu porku kada se ne uspije konektirati
 
-  * alter skripta za view-e i procedure
-  
-  * 32 bitni build
-  
-  * dolje lijevo prikazi detalje o konekciji:
-    * server
-    * username
-    * row counter 7/236
-    * vrijeme izvrsavanja querija
-  
-  * filter database objekata
-  * Error oboji crveno
-  * skok na liniju u kojoj je greska          
-  * drag and drop tabova      
-  
+  * close-other tabs, close all tabs  shift-command-W
+
+  * connections window
+     * stavi kotacic dok ostvaruje konekciju
+     * javiti lijepu porku kada se ne uspije konektirati
+
+  * alter skripta za view-e i procedure  
+                                                                   
+  * auto update aplikacije                                                               
+
   * ikonice
     * za aplikaciju
     * za results/messages
@@ -51,8 +34,27 @@ TODO
     * opcija set implicit transactions on
     * svaka konekcija bi morala imati neke defaulte, inace ne rade heterogeni queriji, preko linkanog servera, a pogledaj i za computed columns koji su uvjeti  
       set ANSI_NULLS on
-      set ANSI_WARNINGS on
+      set ANSI_WARNINGS on 
+      
+  * drag and drop tabova   
+------------------------------------------------  
   
+  * customizacija formatiranja datuma tako da se vide i milisekunde
+  
+  * kolona s row numberom? 
+    
+  * 32 bitni build
+  
+  * dolje lijevo prikazi detalje o konekciji:
+    * server
+    * username
+    * row counter 7/236
+    * vrijeme izvrsavanja querija
+  
+  * filter database objekata
+  * Error oboji crveno
+  * skok na liniju u kojoj je greska          
+         
   * export u Numbers
   * kopiranje iz grida kolone ili redka ili svega
 
@@ -61,11 +63,11 @@ TODO
   * highlight imena tablica i procedura u trenutnoj bazi  
     + db_name nije obojan
     + min max funkcije nisu obojane
-    * login nije obojan
-      
-  * auto update aplikacije                                                         
+    * login nije obojan        
   
-  * sto ako sql server nije na portu 1433
+  * sto ako sql server nije na portu 1433 
+  
+  * freetds ukljuciti u projekt - pogledaj prije toga na kakvoj je licenci  
   
 FIXED: 
   + save/open files  

@@ -8,7 +8,7 @@
 
 - (void) processingStarted{
 	[self setIsProcessing: YES];
-	[messagesTextView setString: @"Executing query..."];
+	[messagesTextView insertText: @"\nExecuting query...\n"];
 }
 
 - (void) setIsEdited: (BOOL) value{
@@ -200,6 +200,7 @@
 #pragma mark ---- show results ----
 
 - (void) setResult: (QueryResult*) r{     
+	executingConnection = nil;
 	if (!r) return;
 	
 	[queryResult release];
@@ -348,6 +349,21 @@
 	NSString *fileContents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
 	[queryText setString: fileContents];
 	[self setIsEdited: NO];
+}
+
+#pragma mark ---- execute ----
+
+- (IBAction) cancelExecutingQuery: (id) sender {
+	if (executingConnection){
+		NSLog(@"canceling current query execution");
+		[executingConnection setCancelQuery];
+		[self setIsProcessing: NO];
+		[messagesTextView insertText: @"\nQuery canceled\n"];
+	}
+}
+
+-(void) setExecutingConnection: (TdsConnection*) tdsConnection{
+	executingConnection = tdsConnection;
 }
 
 @end

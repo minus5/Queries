@@ -2,7 +2,7 @@
 
 @implementation ConnectionController
 
-@synthesize outlineView;
+@synthesize outlineView, tdsConnection;
 
 #pragma mark ---- init ----
 
@@ -179,7 +179,7 @@
 	if (!tdsConnection){                                                       			
 		[self changeConnection: nil];
 		return;		
-	}
+	}      
 	[queryController processingStarted];
 	[self executeQueryInBackground: [queryController queryString] 
 		withDatabase: [queryController database] 
@@ -194,6 +194,11 @@
 		NSLog(@"creating temporary connection");
 		conn = [tdsConnection clone];
 		[conn login];		
+	}
+	
+	if ([receiver respondsToSelector: @selector(setExecutingConnection:)]){          
+		//[receiver performSelector: @selector(setExecutingConnection:) withObject: conn];
+		[receiver setExecutingConnection: conn];
 	}
 		
   //pazi na ovu konstrukciju ako je database nil objekti nakon toga se nece dodati u dictionary, mora biti zadnji parametar

@@ -28,7 +28,8 @@
 		
 	QueryResult *queryResult;
 	  
-	BOOL isProcessing; 	 
+	BOOL isProcessing; 	  
+	BOOL cancelQuery;
 	DBPROCESS *dbproc;
 }
 
@@ -59,5 +60,7 @@
 -(NSString*) currentDatabase;
 
 - (TdsConnection*) clone;
+
+- (void) setCancelQuery;
 
 @end

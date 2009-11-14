@@ -127,8 +127,8 @@
 	};
 	1870C954109857FC006AC809 /* ConnectionController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1573, 3705}}";
-			sepNavSelRange = "{9354, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1573, 3796}}";
+			sepNavSelRange = "{9591, 0}";
 			sepNavVisRange = "{0, 2376}";
 			sepNavWindowFrame = "{{61, 7}, {1414, 1124}}";
 		};
@@ -147,9 +147,9 @@
 	};
 	1870C9E410985B2D006AC809 /* QueryController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1573, 1664}}";
-			sepNavSelRange = "{1204, 26}";
-			sepNavVisRange = "{120, 2676}";
+			sepNavIntBoundsRect = "{{0, 0}, {1859, 1846}}";
+			sepNavSelRange = "{77, 0}";
+			sepNavVisRange = "{0, 399}";
 		};
 	};
 	1870C9E510985B2D006AC809 /* QueryController.m */ = {
@@ -503,7 +503,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 23";
 		rLen = 18;
-		rLoc = 542;
+		rLoc = 568;
 		rType = 0;
 		vrLen = 2080;
 		vrLoc = 0;
@@ -573,7 +573,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 93";
 		rLen = 0;
-		rLoc = 3079;
+		rLoc = 3105;
 		rType = 0;
 		vrLen = 2095;
 		vrLoc = 1894;
@@ -583,7 +583,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 93";
 		rLen = 0;
-		rLoc = 3079;
+		rLoc = 3105;
 		rType = 0;
 		vrLen = 2095;
 		vrLoc = 1894;
@@ -603,7 +603,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 93";
 		rLen = 0;
-		rLoc = 3079;
+		rLoc = 3105;
 		rType = 0;
 		vrLen = 433;
 		vrLoc = 2725;
@@ -613,7 +613,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 67";
 		rLen = 0;
-		rLoc = 2325;
+		rLoc = 2351;
 		rType = 0;
 		vrLen = 2620;
 		vrLoc = 2142;
@@ -643,7 +643,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 93";
 		rLen = 0;
-		rLoc = 3079;
+		rLoc = 3105;
 		rType = 0;
 		vrLen = 433;
 		vrLoc = 2725;
@@ -773,7 +773,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 67";
 		rLen = 0;
-		rLoc = 2325;
+		rLoc = 2351;
 		rType = 0;
 		vrLen = 2164;
 		vrLoc = 373;
@@ -813,7 +813,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 96";
 		rLen = 0;
-		rLoc = 3238;
+		rLoc = 3264;
 		rType = 0;
 		vrLen = 2168;
 		vrLoc = 1078;
@@ -823,7 +823,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 98";
 		rLen = 0;
-		rLoc = 3279;
+		rLoc = 3305;
 		rType = 0;
 		vrLen = 2810;
 		vrLoc = 2080;
@@ -833,7 +833,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 95";
 		rLen = 30;
-		rLoc = 3161;
+		rLoc = 3187;
 		rType = 0;
 		vrLen = 2645;
 		vrLoc = 2248;
@@ -863,7 +863,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 95";
 		rLen = 0;
-		rLoc = 3191;
+		rLoc = 3217;
 		rType = 0;
 		vrLen = 2672;
 		vrLoc = 2221;
@@ -873,7 +873,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 95";
 		rLen = 0;
-		rLoc = 3191;
+		rLoc = 3217;
 		rType = 0;
 		vrLen = 2667;
 		vrLoc = 2221;
@@ -883,7 +883,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 95";
 		rLen = 0;
-		rLoc = 3191;
+		rLoc = 3217;
 		rType = 0;
 		vrLen = 2667;
 		vrLoc = 2221;
@@ -903,7 +903,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 115";
 		rLen = 0;
-		rLoc = 4391;
+		rLoc = 4417;
 		rType = 0;
 		vrLen = 1317;
 		vrLoc = 3576;
@@ -913,7 +913,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 115";
 		rLen = 0;
-		rLoc = 4391;
+		rLoc = 4417;
 		rType = 0;
 		vrLen = 2644;
 		vrLoc = 2249;
@@ -963,7 +963,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 115";
 		rLen = 0;
-		rLoc = 4391;
+		rLoc = 4417;
 		rType = 0;
 		vrLen = 1317;
 		vrLoc = 3576;
@@ -1750,7 +1750,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 43";
 		rLen = 26;
-		rLoc = 1204;
+		rLoc = 1230;
 		rType = 0;
 		vrLen = 2676;
 		vrLoc = 120;
@@ -2198,6 +2198,66 @@
 		vrLen = 2376;
 		vrLoc = 0;
 	};
+	18AC861310AE2FD20054E533 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C954109857FC006AC809 /* ConnectionController.m */;
+		name = "ConnectionController.m: 289";
+		rLen = 0;
+		rLoc = 9413;
+		rType = 0;
+		vrLen = 2376;
+		vrLoc = 0;
+	};
+	18AC861A10AE34510054E533 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C954109857FC006AC809 /* ConnectionController.m */;
+		name = "ConnectionController.m: 292";
+		rLen = 0;
+		rLoc = 9591;
+		rType = 0;
+		vrLen = 2376;
+		vrLoc = 0;
+	};
+	18AC861D10AE34D40054E533 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C954109857FC006AC809 /* ConnectionController.m */;
+		name = "ConnectionController.m: 292";
+		rLen = 0;
+		rLoc = 9591;
+		rType = 0;
+		vrLen = 2376;
+		vrLoc = 0;
+	};
+	18AC862110AE352E0054E533 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C954109857FC006AC809 /* ConnectionController.m */;
+		name = "ConnectionController.m: 292";
+		rLen = 0;
+		rLoc = 9591;
+		rType = 0;
+		vrLen = 2376;
+		vrLoc = 0;
+	};
+	18AC862910AE36030054E533 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C954109857FC006AC809 /* ConnectionController.m */;
+		name = "ConnectionController.m: 292";
+		rLen = 0;
+		rLoc = 9591;
+		rType = 0;
+		vrLen = 2376;
+		vrLoc = 0;
+	};
+	18AC862D10AE36A40054E533 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C954109857FC006AC809 /* ConnectionController.m */;
+		name = "ConnectionController.m: 292";
+		rLen = 0;
+		rLoc = 9591;
+		rType = 0;
+		vrLen = 2376;
+		vrLoc = 0;
+	};
 	18B4CDAA10A8BDD900FCEDCB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 1870CBA510987C0B006AC809 /* ColumnMetadata.m */;
@@ -2263,7 +2323,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 21";
 		rLen = 0;
-		rLoc = 486;
+		rLoc = 512;
 		rType = 0;
 		vrLen = 2471;
 		vrLoc = 0;
@@ -2669,6 +2729,12 @@
 			18AC860810AE25660054E533 /* PBXTextBookmark */ = 18AC860810AE25660054E533 /* PBXTextBookmark */;
 			18AC860C10AE28940054E533 /* PBXTextBookmark */ = 18AC860C10AE28940054E533 /* PBXTextBookmark */;
 			18AC861110AE28A50054E533 /* PBXTextBookmark */ = 18AC861110AE28A50054E533 /* PBXTextBookmark */;
+			18AC861310AE2FD20054E533 /* PBXTextBookmark */ = 18AC861310AE2FD20054E533 /* PBXTextBookmark */;
+			18AC861A10AE34510054E533 /* PBXTextBookmark */ = 18AC861A10AE34510054E533 /* PBXTextBookmark */;
+			18AC861D10AE34D40054E533 /* PBXTextBookmark */ = 18AC861D10AE34D40054E533 /* PBXTextBookmark */;
+			18AC862110AE352E0054E533 /* PBXTextBookmark */ = 18AC862110AE352E0054E533 /* PBXTextBookmark */;
+			18AC862910AE36030054E533 /* PBXTextBookmark */ = 18AC862910AE36030054E533 /* PBXTextBookmark */;
+			18AC862D10AE36A40054E533 /* PBXTextBookmark */ = 18AC862D10AE36A40054E533 /* PBXTextBookmark */;
 			18B4CDAA10A8BDD900FCEDCB = 18B4CDAA10A8BDD900FCEDCB /* PBXTextBookmark */;
 			18B4CDAB10A8BDD900FCEDCB = 18B4CDAB10A8BDD900FCEDCB /* PBXTextBookmark */;
 			18B4CE4210A8CDF600FCEDCB = 18B4CE4210A8CDF600FCEDCB /* PBXTextBookmark */;

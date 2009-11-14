@@ -213,30 +213,18 @@ struct COL
 	int ncols = dbnumcols(dbproc);
 	NSMutableArray *rows = [NSMutableArray array];
 	while ((row_code = dbnextrow(dbproc)) != NO_MORE_ROWS){	
+		
+		if (cancelQuery && ![NSThread isMainThread]){
+			@throw [NSException exceptionWithName: @"QueryCanceled" reason: @"query canceled by user" userInfo:nil]; 
+		}
+		
 		switch (row_code) {
 			case REG_ROW:
 			{
 				NSMutableArray *rowValues = [NSMutableArray arrayWithCapacity: ncols];
 				for (pcol=columns; pcol - columns < ncols; pcol++) {															
 					char *buffer = pcol->status == -1? "NULL" : pcol->buffer;
-					/*
-					//analiza encodinga
-					for(int i=1;i<16; i++){
-						NSLog(@"encoding %d, value: %@", i, [[NSString alloc] initWithCString: buffer encoding:i]);
-					}  
-					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSISO2022JPStringEncoding]);
-					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSMacOSRomanStringEncoding]);
-					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSUTF16StringEncoding]);
-					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSUTF16BigEndianStringEncoding]);
-					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSUTF16LittleEndianStringEncoding]);
-					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSUTF32StringEncoding]);
-					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSUTF32BigEndianStringEncoding]);
-					NSLog(@"encoding value: %@", [NSString stringWithCString: buffer encoding:NSUTF32LittleEndianStringEncoding]);					
-					*/
-					//NSLog(@"buffer->size %d, buffer: %s", pcol->size, buffer);
-					NSString *value = [[NSString alloc] initWithUTF8String: buffer];
-										
-					//NSString *value = [[NSString alloc] initWithCString: buffer encoding:NSWindowsCP1250StringEncoding];	
+					NSString *value = [[NSString alloc] initWithUTF8String: buffer];										
 					if (!value)
 						value = [[NSString alloc] initWithCString: buffer encoding:NSASCIIStringEncoding];
 					if (!value)
@@ -338,6 +326,7 @@ struct COL
 -(void) executeInBackground: (NSDictionary*) arguments{     
 	if ([self isProcessing]) 
 		return;			
+	cancelQuery = NO; 
 		
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 		         
@@ -347,9 +336,10 @@ struct COL
 	SEL selector = NSSelectorFromString([arguments objectForKey: @"selector"]); 
 	NSNumber *logout =  [arguments objectForKey: @"logout"];
   QueryResult *result = [self execute: query withDefaultDatabase: database];		
-	[receiver performSelectorOnMainThread: selector withObject: result waitUntilDone: YES];		
+	if (!cancelQuery)
+		[receiver performSelectorOnMainThread: selector withObject: result waitUntilDone: YES];		
 	
-	NSLog(@"logout value: %@", logout);
+	//NSLog(@"logout value: %@", logout);
 
 	if ([logout boolValue]){
 		NSLog(@"closing temporary connection");
@@ -361,8 +351,8 @@ struct COL
 
 -(QueryResult*) execute: (NSString*) query withDefaultDatabase: (NSString*) database{
 	if ([self isProcessing]) 
-		return nil;
-		
+		return nil;        
+							
 	[TdsConnection activate: self];
 	QueryResult *result = [[QueryResult alloc] init];
 	//[result retain];
@@ -382,7 +372,7 @@ struct COL
 	} 
 	@finally{
 		[TdsConnection deactivate: self];
-		[self setIsProcessing: FALSE];
+		[self setIsProcessing: FALSE];		
 	}   
 	queryResult = nil;
 	return result;
@@ -390,6 +380,10 @@ struct COL
  
 -(QueryResult*) execute: (NSString*) query{  
 	return [self execute: query withDefaultDatabase: nil];		
+}
+
+- (void) setCancelQuery{
+	cancelQuery = YES;
 }
 
 -(void) logout{

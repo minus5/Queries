@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="536"/>
+			<integer value="587"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -340,6 +340,15 @@
 									<string key="NSTitle">Execute</string>
 									<string key="NSKeyEquiv">e</string>
 									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
+								<object class="NSMenuItem" id="601729662">
+									<reference key="NSMenu" ref="512113944"/>
+									<string key="NSTitle">Cancel Query</string>
+									<string key="NSKeyEquiv">e</string>
+									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
@@ -2510,6 +2519,14 @@
 					</object>
 					<int key="connectionID">611</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">cancelExecutingQuery:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="601729662"/>
+					</object>
+					<int key="connectionID">613</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -3686,6 +3703,7 @@
 							<reference ref="601779309"/>
 							<reference ref="770377256"/>
 							<reference ref="425164168"/>
+							<reference ref="601729662"/>
 						</object>
 						<reference key="parent" ref="810912793"/>
 					</object>
@@ -3763,6 +3781,11 @@
 						<int key="objectID">609</int>
 						<reference key="object" ref="537205248"/>
 						<reference key="parent" ref="859326258"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">612</int>
+						<reference key="object" ref="601729662"/>
+						<reference key="parent" ref="512113944"/>
 					</object>
 				</object>
 			</object>
@@ -4030,6 +4053,7 @@
 					<string>607.IBPluginDependency</string>
 					<string>608.IBPluginDependency</string>
 					<string>609.IBPluginDependency</string>
+					<string>612.IBPluginDependency</string>
 					<string>72.IBPluginDependency</string>
 					<string>72.ImportedFromIB2</string>
 					<string>73.IBPluginDependency</string>
@@ -4307,7 +4331,8 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{453, 977}, {259, 93}}</string>
+					<string>{{453, 957}, {259, 113}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4363,7 +4388,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">611</int>
+			<int key="maxID">613</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4455,6 +4480,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>cancelExecutingQuery:</string>
 							<string>goToMessages:</string>
 							<string>goToQueryText:</string>
 							<string>goToResults:</string>
@@ -4463,12 +4489,12 @@
 							<string>maximizeResults:</string>
 							<string>nextResult:</string>
 							<string>nextResultsTab:</string>
-							<string>openDocument:</string>
 							<string>previousResult:</string>
 							<string>previousResultsTab:</string>
 							<string>recolorCompleteFile:</string>
 							<string>resultsMessagesSegmentControlClicked:</string>
 							<string>saveDocument:</string>
+							<string>saveDocumentAs:</string>
 							<string>showMessages:</string>
 							<string>showResults:</string>
 							<string>showTextResults:</string>
@@ -4477,6 +4503,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
