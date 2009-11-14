@@ -16,7 +16,7 @@
 	//[queryTabBar setHideForSingleTab: YES];	
 	[self createNewTab];
 	[self changeConnection: nil];                 	
-	[self goToQueryText: nil];  		
+	[self goToQueryText: nil];
 }     
 
 - (void) dealloc{
@@ -81,7 +81,7 @@
 	[queryTabs selectPreviousTabViewItem:sender];
 }
 
-#pragma mark ---- close ----
+#pragma mark ---- close ---- 
 
 - (BOOL) windowShouldClose: (id) sender{                          
 	[self shouldCloseCurrentQuery];
@@ -286,6 +286,36 @@
 - (IBAction) showHideDatabaseObjects: sender{
 	float position = ([[[splitView subviews] objectAtIndex:0 ] frame].size.width == 0) ? 200 : 0;		
 	[splitView setPosition: position ofDividerAtIndex:0];
+}     
+
+- (void) keyDown:(NSEvent *)theEvent{         
+	//command-{}
+	if ([theEvent keyCode] == 30 && [theEvent modifierFlags] == 1179914){	
+		[self nextTab: nil];                                               
+		return;
+	}
+	if ([theEvent keyCode] == 33 && [theEvent modifierFlags] == 1179914){
+		[self previousTab: nil];		                                       
+		return;
+	}
+	//F5 - ali ovo sam iskljucio jer ne radi na NSTextView - on ima defaultu implementaciju F5 koja je complete tu pojede event
+	// if ([theEvent keyCode] == 96 && [theEvent modifierFlags] == 838864){
+	// 	[self executeQuery: nil];		                                       
+	// 	return;
+	// }	
+	//NSLog(@"connection received keyDown event keyCode %d modifierFlags: %d", [theEvent keyCode], [theEvent modifierFlags]);	
+}               
+
+- (void)doCommandBySelector:(SEL)aSelector
+{                                               
+	//NSLog(@"connection received doCommandBySelector event");	
+  NSEvent* e = [NSApp currentEvent];
+  if([e type] == NSKeyDown){
+		[self keyDown:e];
+  } else {
+		[super doCommandBySelector:aSelector];
+  } 
 }
+
 
 @end

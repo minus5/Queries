@@ -364,7 +364,12 @@
 
 -(void) setExecutingConnection: (TdsConnection*) tdsConnection{
 	executingConnection = tdsConnection;
+}                                                             
+
+- (void) keyDown:(NSEvent *)theEvent{
+	NSLog(@"query received keyDown event");	
 }
+
 
 @end
 			

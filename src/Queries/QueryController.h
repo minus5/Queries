@@ -105,6 +105,7 @@
 - (IBAction) maximizeQueryText: sender;
 - (void) processingStarted;          
 - (IBAction) cancelExecutingQuery: (id) sender;
+-(void) setExecutingConnection: (TdsConnection*) tdsConnection;
 
 @end
 

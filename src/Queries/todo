@@ -2,25 +2,32 @@ BUGS
   * undo ne radi dobro u kombinaciji s indent/unindent   
   * Results 1 of 9 ne izgleda dobro ako su brojevi dovoznamenkasti, fiksene je sirine
     
-TODO      
-  * threading 
-   - mogucnost zaustavljanja
-   - ako closa query zaustavi thread u kome se izvrsava     
-  
+TODO          
+  * close-other tabs, close all tabs  shift-command-W
+  + comand-{} navigacija prethodni slijedeci tab
+  * F5 execute query - ne ide za sada pojede ga NSTextView
+  * viditi koje su tipke bile u klasicnom query analyzeru
+
+  * connections window
+    * stavi kotacic dok ostvaruje konekciju
+    * javiti lijepu porku kada se ne uspije konektirati
+
+  * user preferences    
+    * svaka konekcija bi morala imati neke defaulte, inace ne rade heterogeni queriji, preko linkanog servera, a pogledaj i za computed columns koji su uvjeti  
+      set ANSI_NULLS on
+      set ANSI_WARNINGS on 
+      rowcoun opalitit prije svakog upita, da ne uzme bas cijelu bazu
+      opcija set implicit transactions on
+    * saved connections
+      moze obrisati neke postojece konekcije        
+
   * dorade outline view-a
     * triggeri   
     * kolone od tablice                                                                
     * mogucnost da vidi samo trenutnu bazu    
     * testiranje s userom koji ima manje privilegija
-
-  * close-other tabs, close all tabs  shift-command-W
-
-  * connections window
-     * stavi kotacic dok ostvaruje konekciju
-     * javiti lijepu porku kada se ne uspije konektirati
-
   * alter skripta za view-e i procedure  
-                                                                   
+                                                                             
   * auto update aplikacije                                                               
 
   * ikonice
@@ -28,15 +35,9 @@ TODO
     * za results/messages
     * za database objects
     * za tip baze test/staging/production...  
-      
-  * user preferences
-    * rowcoun opalitit prije svakog upita, da ne uzme bas cijelu bazu
-    * opcija set implicit transactions on
-    * svaka konekcija bi morala imati neke defaulte, inace ne rade heterogeni queriji, preko linkanog servera, a pogledaj i za computed columns koji su uvjeti  
-      set ANSI_NULLS on
-      set ANSI_WARNINGS on 
-      
-  * drag and drop tabova   
+            
+  * drag and drop tabova
+  * go to tab command 1,2,3,4...   
 ------------------------------------------------  
   
   * customizacija formatiranja datuma tako da se vide i milisekunde
@@ -69,7 +70,10 @@ TODO
   
   * freetds ukljuciti u projekt - pogledaj prije toga na kakvoj je licenci  
   
-FIXED: 
+FIXED:    
+  + threading 
+   - mogucnost zaustavljanja
+   - ako closa query zaustavi thread u kome se izvrsava     
   + save/open files  
     + pazi na open ako je file edited  
     + Save As implementiraj  

@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>currentDocument</key>
-	<string>CreateTableScript.m</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -13,7 +11,7 @@
 					<key>filename</key>
 					<string>shell_main.m</string>
 					<key>lastUsed</key>
-					<date>2009-11-09T22:24:07Z</date>
+					<date>2009-11-13T13:37:41Z</date>
 				</dict>
 			</array>
 			<key>expanded</key>
@@ -53,25 +51,25 @@
 			<key>filename</key>
 			<string>ConnectionController.h</string>
 			<key>lastUsed</key>
-			<date>2009-11-08T21:10:49Z</date>
+			<date>2009-11-14T21:29:16Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>ConnectionController.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-09T22:24:06Z</date>
+			<date>2009-11-14T22:17:59Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>CreateTableScript.h</string>
 			<key>lastUsed</key>
-			<date>2009-11-08T22:28:53Z</date>
+			<date>2009-11-13T19:47:14Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>CreateTableScript.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-12T16:12:16Z</date>
+			<date>2009-11-13T19:47:13Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -89,25 +87,25 @@
 			<key>filename</key>
 			<string>QueriesAppDelegate.h</string>
 			<key>lastUsed</key>
-			<date>2009-11-08T20:39:38Z</date>
+			<date>2009-11-14T21:28:16Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>QueriesAppDelegate.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-08T20:41:07Z</date>
+			<date>2009-11-14T21:28:22Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>QueryController.h</string>
 			<key>lastUsed</key>
-			<date>2009-11-08T14:01:27Z</date>
+			<date>2009-11-14T21:50:25Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>QueryController.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-09T22:24:06Z</date>
+			<date>2009-11-14T21:33:22Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -125,13 +123,13 @@
 			<key>filename</key>
 			<string>TdsConnection.h</string>
 			<key>lastUsed</key>
-			<date>2009-11-05T19:50:21Z</date>
+			<date>2009-11-14T00:47:06Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>TdsConnection.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-11T00:01:31Z</date>
+			<date>2009-11-14T00:47:50Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -145,7 +143,7 @@
 			<key>filename</key>
 			<string>todo</string>
 			<key>lastUsed</key>
-			<date>2009-11-12T16:12:16Z</date>
+			<date>2009-11-14T22:19:10Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -163,58 +161,98 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>23</integer>
+				<integer>1</integer>
 				<key>line</key>
 				<integer>146</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>93</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>13</integer>
-				<key>line</key>
-				<integer>146</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>29</integer>
-				<key>line</key>
-				<integer>146</integer>
-			</dict>
 		</dict>
-		<key>CreateTableScript.h</key>
+		<key>ConnectionController.h</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
 				<integer>2</integer>
 				<key>line</key>
-				<integer>25</integer>
+				<integer>63</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>21</integer>
 		</dict>
-		<key>CreateTableScript.m</key>
+		<key>ConnectionController.m</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>170</integer>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>124</integer>
+			<integer>0</integer>
+		</dict>
+		<key>QueriesAppDelegate.h</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>56</integer>
+				<key>line</key>
+				<integer>13</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>QueriesAppDelegate.m</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>54</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>QueryController.h</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>23</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>QueryController.m</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>15</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 		<key>sql/objects_in_database.sql</key>
 		<dict>
@@ -246,26 +284,7 @@
 				<integer>5</integer>
 			</dict>
 		</dict>
-		<key>todo</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>96</integer>
-				<key>line</key>
-				<integer>5</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
 	</dict>
-	<key>openDocuments</key>
-	<array>
-		<string>todo</string>
-		<string>CreateTableScript.m</string>
-	</array>
 	<key>showFileHierarchyDrawer</key>
 	<false/>
 	<key>showFileHierarchyPanel</key>
