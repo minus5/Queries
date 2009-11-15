@@ -6,44 +6,8 @@
 	<key>Components</key>
 	<array>
 
-	<!-- This is our tag configuration -->
-	<!--
-		<dict>
+	<dict>
 			<key>Color</key>
-			<array>
-            <real>0.349020</real>
-            <real>0.521569</real>
-            <real>0.784314</real>
-			</array>
-			<key>Start</key>
-			<string>BEGIN</string>
-			<key>End</key>
-			<string>END</string>
-			<key>IgnoredComponent</key>
-			<string>Strings</string>
-			<key>Name</key>
-			<string>Tags</string>
-			<key>Type</key>
-			<string>Tag</string>
-		</dict>
-	-->
-	<!-- This is our quotes configuration -->
-
-		<dict>
-			<key>Color</key>
-			<!--
-			<array>
-            <real>0.349020</real>
-            <real>0.521569</real>
-            <real>0.784314</real>
-			</array>
-						
-			<array>
-            <real>1</real>
-            <real>0</real>
-            <real>0</real>
-			</array>
-			-->
 			<array>
             <real>0.894118</real>
             <real>0.015686</real>

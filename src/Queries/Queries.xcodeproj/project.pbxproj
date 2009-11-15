@@ -43,6 +43,7 @@
 		18AC09BB109DAEF5009BEE57 /* QueryResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC09BA109DAEF5009BEE57 /* QueryResult.m */; };
 		18AC847410ADDF490054E533 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AC847310ADDF490054E533 /* BWToolkitFramework.framework */; };
 		18AC847510ADDF5B0054E533 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18AC847310ADDF490054E533 /* BWToolkitFramework.framework */; };
+		18AC86BD10AF78770054E533 /* UserPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AC86BC10AF78770054E533 /* UserPreferences.xib */; };
 		18B75B3510AA2F0B00265159 /* libiconv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B75B3310AA2F0B00265159 /* libiconv.a */; };
 		18B75B3610AA2F0B00265159 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B75B3410AA2F0B00265159 /* libsybdb.a */; };
 		18B75B3710AA2F0B00265159 /* libiconv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B75B3310AA2F0B00265159 /* libiconv.a */; };
@@ -116,6 +117,7 @@
 		18AC09B9109DAEF5009BEE57 /* QueryResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryResult.h; sourceTree = "<group>"; };
 		18AC09BA109DAEF5009BEE57 /* QueryResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryResult.m; sourceTree = "<group>"; };
 		18AC847310ADDF490054E533 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = /Users/ianic/Work/CocoaQueryAnalyzer/libsrc/bwtoolkit/build/Release/BWToolkitFramework.framework; sourceTree = "<absolute>"; };
+		18AC86BC10AF78770054E533 /* UserPreferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPreferences.xib; sourceTree = "<group>"; };
 		18B75B3310AA2F0B00265159 /* libiconv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiconv.a; path = ../../../../lib/libiconv.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B75B3410AA2F0B00265159 /* libsybdb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsybdb.a; path = ../../../../lib/libsybdb.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DD252210A3813B00108BE8 /* database_objects.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = database_objects.sql; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				8D1107310486CEB800E47090 /* Queries-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				18AC86BC10AF78770054E533 /* UserPreferences.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				1892765110A7696800C50258 /* objects_end.sql in Resources */,
 				1892765210A7696800C50258 /* objects_in_database.sql in Resources */,
 				1892765310A7696800C50258 /* objects_start.sql in Resources */,
+				18AC86BD10AF78770054E533 /* UserPreferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -80,10 +80,9 @@ int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char
 int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dberrstr, char *oserrstr)
 {	
 	if ([[NSString stringWithFormat: @"%s", dberrstr] isEqualToString: @"Data conversion resulted in overflow"]){
-		NSLog(@"ignoring message 'Data conversion resulted in overflow'");
+		//NSLog(@"ignoring message 'Data conversion resulted in overflow'");
 		return INT_CANCEL;
-	}
-	
+	}	
 	if ([[NSString stringWithFormat: @"%s", dberrstr] isEqualToString: @"Server name not found in configuration files"]){
 		//NSLog(@"ignoring message 'Server name not found in configuration files'");
 		return INT_CANCEL;
@@ -351,7 +350,9 @@ struct COL
 
 -(QueryResult*) execute: (NSString*) query withDefaultDatabase: (NSString*) database{
 	if ([self isProcessing]) 
-		return nil;        
+		return nil;
+		
+	NSDate *timerStart = [NSDate date];        
 							
 	[TdsConnection activate: self];
 	QueryResult *result = [[QueryResult alloc] init];
@@ -365,6 +366,8 @@ struct COL
 		[self executeQueries: query];
 		[queryResult addCompletedMessage];																		
 		[queryResult setDatabase: [self currentDatabase]];
+		
+		[self logMessage: [NSString stringWithFormat: @"Query completed in %f seconds.", -[timerStart timeIntervalSinceNow]]];
 	}
 	@catch (NSException *exception) {    
 		[self logout];

@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>currentDocument</key>
+	<string>todo</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -51,13 +53,15 @@
 			<key>filename</key>
 			<string>ConnectionController.h</string>
 			<key>lastUsed</key>
-			<date>2009-11-14T21:29:16Z</date>
+			<date>2009-11-14T22:24:04Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>ConnectionController.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-14T22:17:59Z</date>
+			<date>2009-11-14T22:25:17Z</date>
+			<key>selected</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -75,7 +79,7 @@
 			<key>filename</key>
 			<string>CredentialsController.h</string>
 			<key>lastUsed</key>
-			<date>2009-11-05T18:56:28Z</date>
+			<date>2009-11-14T22:20:03Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -87,7 +91,7 @@
 			<key>filename</key>
 			<string>QueriesAppDelegate.h</string>
 			<key>lastUsed</key>
-			<date>2009-11-14T21:28:16Z</date>
+			<date>2009-11-14T22:20:24Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -129,21 +133,19 @@
 			<key>filename</key>
 			<string>TdsConnection.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-14T00:47:50Z</date>
+			<date>2009-11-14T22:19:57Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>TdsConnectionTest.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-11T13:32:50Z</date>
-			<key>selected</key>
-			<true/>
+			<date>2009-11-14T22:19:40Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>todo</string>
 			<key>lastUsed</key>
-			<date>2009-11-14T22:19:10Z</date>
+			<date>2009-11-14T22:25:21Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -153,7 +155,7 @@
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
-	<integer>217</integer>
+	<integer>265</integer>
 	<key>metaData</key>
 	<dict>
 		<key>ConnectionController+DatabaseObjects.m</key>
@@ -169,48 +171,6 @@
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>93</integer>
-		</dict>
-		<key>ConnectionController.h</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>2</integer>
-				<key>line</key>
-				<integer>63</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>21</integer>
-		</dict>
-		<key>ConnectionController.m</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>0</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>QueriesAppDelegate.h</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>56</integer>
-				<key>line</key>
-				<integer>13</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
 		</dict>
 		<key>QueriesAppDelegate.m</key>
 		<dict>
@@ -254,6 +214,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>TdsConnectionTest.m</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>43</integer>
+				<key>line</key>
+				<integer>26</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>sql/objects_in_database.sql</key>
 		<dict>
 			<key>caret</key>
@@ -284,7 +258,25 @@
 				<integer>5</integer>
 			</dict>
 		</dict>
+		<key>todo</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>27</integer>
+				<key>line</key>
+				<integer>18</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 	</dict>
+	<key>openDocuments</key>
+	<array>
+		<string>todo</string>
+	</array>
 	<key>showFileHierarchyDrawer</key>
 	<false/>
 	<key>showFileHierarchyPanel</key>

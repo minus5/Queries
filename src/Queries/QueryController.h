@@ -117,8 +117,6 @@
 
 -(void) syntaxColoringInit;
 -(IBAction) indentSelection: (id)sender;
--(IBAction) unIndentSelection: (id)sender;
--(IBAction)	recolorCompleteFile: (id)sender;
 -(void) recolorRange: (NSRange) range;
 -(void)	colorOneLineComment: (NSString*) startCh inString: (NSMutableAttributedString*) s withColor: (NSColor*) col andMode:(NSString*)attr;
 -(void)	colorCommentsFrom: (NSString*) startCh to: (NSString*) endCh inString: (NSMutableAttributedString*) s withColor: (NSColor*) col andMode:(NSString*)attr;
@@ -128,5 +126,10 @@
 
 -(NSDictionary*)	syntaxDefinitionDictionary; // Defaults to loading from -syntaxDefinitionFilename.
 -(NSDictionary*)	defaultTextAttributes;			// Style attributes dictionary for an NSAttributedString.
+
+- (IBAction) unIndentSelection: (id)sender;
+- (IBAction)	recolorCompleteFile: (id)sender;
+- (void) indentSelectionRange: (NSArray*)r;
+- (void) unIndentSelectionRange: (NSArray*)r;
 
 @end

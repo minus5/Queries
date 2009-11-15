@@ -5,6 +5,7 @@
 
 @implementation QueryController (SyntaxHighlight)
 
+#pragma mark ---- init ----
 
 -(void) syntaxColoringInit{
 	syntaxColoringAuto = YES;
@@ -12,7 +13,7 @@
 	syntaxColoringBusy = NO;
 	
 	//TODO ovo sam iskljucio jer se inace raspadne kod indent/unindent
-	//syntaxColoringUndoManger = [[NSUndoManager alloc] init];
+	syntaxColoringUndoManger = [[NSUndoManager alloc] init];
 	
 	// Register for "text changed" notifications of our text storage:
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processEditing:)
@@ -20,13 +21,15 @@
 																						 object: [syntaxColoringTextView textStorage]];	
 }
 
-//- (NSUndoManager *)undoManagerForTextView:(NSTextView *)aTextView{
-//	return syntaxColoringUndoManger;
-//}
+- (NSUndoManager *)undoManagerForTextView:(NSTextView *)aTextView{
+	return syntaxColoringUndoManger;
+}
 
-//- (BOOL) isInUndo{
-//	return [syntaxColoringUndoManger isUndoing] || [syntaxColoringUndoManger isRedoing];
-//}
+- (BOOL) isInUndo{
+	return [syntaxColoringUndoManger isUndoing] || [syntaxColoringUndoManger isRedoing];
+}
+
+#pragma mark ---- coloring ----
 
 /* -----------------------------------------------------------------------------
  recolorRange:
@@ -467,7 +470,8 @@
  Part of the text was changed. Recolor it.
  -------------------------------------------------------------------------- */
 -(void) processEditing: (NSNotification*)notification
-{
+{        
+
 	NSTextStorage	*textStorage = [notification object];
 	NSRange			range = [textStorage editedRange];
 	int				changeInLen = [textStorage changeInLength];
@@ -693,13 +697,40 @@
 	return YES;
 }
 
+/* -----------------------------------------------------------------------------
+ recolorCompleteFile:
+ IBAction to do a complete recolor of the whole friggin' document.
+ This is called once after the document's been loaded and leaves some
+ custom styles in the document which are used by recolorRange to properly
+ perform recoloring of parts.
+ -------------------------------------------------------------------------- */
+-(IBAction)	recolorCompleteFile: (id)sender
+{
+	NSRange		range = NSMakeRange(0,[[syntaxColoringTextView textStorage] length]);
+	[self recolorRange: range];
+}
+
+
+#pragma mark ---- indent/unindent ----
+
+//need to pack range into some NSObject to send it in registerUndoWithTarget 
+- (NSArray*) packRangeToArray:(NSRange) range{
+	return [NSArray arrayWithObjects: [NSNumber numberWithUnsignedInteger: range.location], [NSNumber numberWithUnsignedInteger: range.length], nil];		
+}                                            
+
+- (NSRange) unpackRangeFromArray:(NSArray*) array{
+	return NSMakeRange([[array objectAtIndex: 0] integerValue], [[array objectAtIndex: 1] integerValue]);
+}
 
 -(IBAction) indentSelection: (id)sender
-{
-	[syntaxColoringUndoManger registerUndoWithTarget: self selector: @selector(unindentSelection:) object: nil];
-	
-	NSRange				selRange = [syntaxColoringTextView selectedRange],
-	nuSelRange = selRange;
+{                           
+	[self indentSelectionRange: nil];
+}
+
+-(void) indentSelectionRange: (NSArray*) r
+{		                    
+	NSRange selRange = r ? [self unpackRangeFromArray: r] : [syntaxColoringTextView selectedRange];
+	NSRange	nuSelRange = selRange;
 	unsigned			x;
 	NSMutableString*	str = [[syntaxColoringTextView textStorage] mutableString];
 	
@@ -724,12 +755,19 @@
 	[str insertString: @"\t" atIndex: nuSelRange.location];
 	nuSelRange.length++;
 	[syntaxColoringTextView setSelectedRange: nuSelRange];
-}
 
+	[syntaxColoringUndoManger registerUndoWithTarget: self selector: @selector(unIndentSelectionRange:) object: [self packRangeToArray: nuSelRange]];
+} 
+ 
 -(IBAction) unIndentSelection: (id)sender
 {
-	NSRange				selRange = [syntaxColoringTextView selectedRange],
-	nuSelRange = selRange;
+	[self unIndentSelectionRange: nil];
+} 
+
+-(void) unIndentSelectionRange: (NSArray*)r
+{  	 
+	NSRange selRange = r ? [self unpackRangeFromArray: r] : [syntaxColoringTextView selectedRange];
+	NSRange nuSelRange = selRange;
 	unsigned			x, n;
 	unsigned			lastIndex = selRange.location +selRange.length -1;
 	NSMutableString*	str = [[syntaxColoringTextView textStorage] mutableString];
@@ -741,10 +779,7 @@
 	
 	if( selRange.length == 0 )
 		return;
-	
-	
-	[syntaxColoringUndoManger registerUndoWithTarget: self selector: @selector(indentSelection:) object: nil];
-	
+				
 	for( x = lastIndex; x >= selRange.location; x-- )
 	{
 		if( [str characterAtIndex: x] == '\n'
@@ -791,20 +826,8 @@
 	}
 	
 	[syntaxColoringTextView setSelectedRange: nuSelRange];
+	
+	[syntaxColoringUndoManger registerUndoWithTarget: self selector: @selector(indentSelectionRange:) object: [self packRangeToArray: nuSelRange]];
 }
-
-/* -----------------------------------------------------------------------------
- recolorCompleteFile:
- IBAction to do a complete recolor of the whole friggin' document.
- This is called once after the document's been loaded and leaves some
- custom styles in the document which are used by recolorRange to properly
- perform recoloring of parts.
- -------------------------------------------------------------------------- */
--(IBAction)	recolorCompleteFile: (id)sender
-{
-	NSRange		range = NSMakeRange(0,[[syntaxColoringTextView textStorage] length]);
-	[self recolorRange: range];
-}
-
 
 @end

@@ -1,8 +1,24 @@
-BUGS  
-  * undo ne radi dobro u kombinaciji s indent/unindent   
+  BUGS  
   * Results 1 of 9 ne izgleda dobro ako su brojevi dovoznamenkasti, fiksene je sirine
+  * ne mogu ici shortucti s command shift i strelice
     
-TODO          
+TODO                                                
+  * QueryAnalyzer:
+    * connect ctrl-O 
+    * za tablicu prikazuje: columns, indexes, constraints, dependecies, triggers
+    * kategorije za bazu su mu: user tables, system tables, views, stored procedures, functions, user defined data types
+    * nema usere, scheme...
+    * results in text dodaju i messages
+    * nakon kolona kod results in text dolazi ---- onolike duzine kolika je kolona
+    * login timeout: 15s
+    * status bar: Ready, Executing query batch, Query batch completed
+
+  * prikazi u statusnj liniji: Ready, Executing..., Completed. 
+     1 Result 10 rows
+     2 results 10,20 rows 
+     3 results 10,20,8 rows
+     vrijeme izvrsavanja querija 0:00:00 (sati:minute:sekunde)
+
   * close-other tabs, close all tabs  shift-command-W
   + comand-{} navigacija prethodni slijedeci tab
   * F5 execute query - ne ide za sada pojede ga NSTextView
@@ -13,11 +29,12 @@ TODO
     * javiti lijepu porku kada se ne uspije konektirati
 
   * user preferences    
-    * svaka konekcija bi morala imati neke defaulte, inace ne rade heterogeni queriji, preko linkanog servera, a pogledaj i za computed columns koji su uvjeti  
+    * connection properties svaka konekcija bi morala imati neke defaulte, inace ne rade heterogeni queriji, preko linkanog servera, a pogledaj i za computed columns koji su uvjeti  
       set ANSI_NULLS on
       set ANSI_WARNINGS on 
       rowcoun opalitit prije svakog upita, da ne uzme bas cijelu bazu
       opcija set implicit transactions on
+    * query timeout: 0s
     * saved connections
       moze obrisati neke postojece konekcije        
 
@@ -37,7 +54,8 @@ TODO
     * za tip baze test/staging/production...  
             
   * drag and drop tabova
-  * go to tab command 1,2,3,4...   
+  * go to tab command 1,2,3,4...    
+  * comment/uncomment selection
 ------------------------------------------------  
   
   * customizacija formatiranja datuma tako da se vide i milisekunde
@@ -70,7 +88,8 @@ TODO
   
   * freetds ukljuciti u projekt - pogledaj prije toga na kakvoj je licenci  
   
-FIXED:    
+FIXED:
+  + undo ne radi dobro u kombinaciji s indent/unindent       
   + threading 
    - mogucnost zaustavljanja
    - ako closa query zaustavi thread u kome se izvrsava     

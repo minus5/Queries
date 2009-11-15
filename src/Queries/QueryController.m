@@ -214,14 +214,13 @@
 	[self reloadMessages];
 	[textResultsTextView setString: [queryResult resultsInText]];
 	
-	if ([queryResult hasResults]){           
-		if ([splitView isSubviewCollapsed: resultsContentView]){
-			[self splitResultsAndQueryTextEqualy: nil];
-		}		
-		[resultsTabView selectTabViewItemAtIndex: lastResultsTabIndex];
-		//[self showResults: nil];
+	if ([queryResult hasResults]){           	  
+		[resultsTabView selectTabViewItemAtIndex: lastResultsTabIndex];	 
 	}else {
 		[self showMessages: nil];
+	}
+  if ([splitView isSubviewCollapsed: resultsContentView]){
+		[self splitResultsAndQueryTextEqualy: nil];
 	}
 		
 	[self setIsProcessing: NO];
