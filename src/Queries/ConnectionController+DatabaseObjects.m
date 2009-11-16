@@ -26,8 +26,9 @@
 	NSMutableString *query = [NSMutableString stringWithString:[self queryFileContents: @"objects_start"]];
 	[query appendFormat: @"\n\n"];
 	for(id db in databases){
-		[query appendFormat: @"use %@\n\n", db];
+		[query appendFormat: @"begin try\nuse %@\n\n", db];
 		[query appendFormat: @"%@\n", [self queryFileContents: @"objects_in_database"]];
+		[query appendFormat: @"\nend try\nbegin catch\nend catch\n", db];
 	} 	
 	[query appendFormat: @"%@\n", [self queryFileContents: @"objects_end"]];
 	return query;
@@ -57,7 +58,7 @@
 
 - (void) fillDatabasesCombo{	     
 	NSMutableArray *dbs = [NSMutableArray array];
-	QueryResult *queryResult = [tdsConnection execute: @"select name from master.sys.databases where state_desc = 'ONLINE' and (owner_sid != 01 or name = 'master') order by name"];	
+	QueryResult *queryResult = [tdsConnection execute: @"select name from master.sys.databases where state_desc = 'ONLINE' and (owner_sid != 01 or name = 'master') and isnull(has_dbaccess([Name]), 0) = 1 order by name"];	
 	if (queryResult){         
 		[databasesPopUp removeAllItems];
 		for(NSArray *row in [queryResult rows]){     

@@ -1,6 +1,7 @@
   BUGS  
   * Results 1 of 9 ne izgleda dobro ako su brojevi dovoznamenkasti, fiksene je sirine
-  * ne mogu ici shortucti s command shift i strelice
+  * ne mogu ici shortucti s command shift i strelice 
+  * auto updater ne radi najbolje u kombinaciji s modalnim prozorom
     
 TODO                                                
   * QueryAnalyzer:
@@ -22,7 +23,6 @@ TODO
   * close-other tabs, close all tabs  shift-command-W
   + comand-{} navigacija prethodni slijedeci tab
   * F5 execute query - ne ide za sada pojede ga NSTextView
-  * viditi koje su tipke bile u klasicnom query analyzeru
 
   * connections window
     * stavi kotacic dok ostvaruje konekciju
@@ -42,11 +42,10 @@ TODO
     * triggeri   
     * kolone od tablice                                                                
     * mogucnost da vidi samo trenutnu bazu    
-    * testiranje s userom koji ima manje privilegija
+    * testirati s userom koji ne moze vidjeti definicije svih objekata u bazi, tu bi moglo biti nekih problema
   * alter skripta za view-e i procedure  
+  
                                                                              
-  * auto update aplikacije                                                               
-
   * ikonice
     * za aplikaciju
     * za results/messages
@@ -88,7 +87,9 @@ TODO
   
   * freetds ukljuciti u projekt - pogledaj prije toga na kakvoj je licenci  
   
-FIXED:
+FIXED:                                        
+  + testiranje s userom koji ima manje privilegija                               
+  + auto update aplikacije                                                               
   + undo ne radi dobro u kombinaciji s indent/unindent       
   + threading 
    - mogucnost zaustavljanja

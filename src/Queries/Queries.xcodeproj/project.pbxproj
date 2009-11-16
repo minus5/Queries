@@ -44,6 +44,9 @@
 		18AC847410ADDF490054E533 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AC847310ADDF490054E533 /* BWToolkitFramework.framework */; };
 		18AC847510ADDF5B0054E533 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18AC847310ADDF490054E533 /* BWToolkitFramework.framework */; };
 		18AC86BD10AF78770054E533 /* UserPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AC86BC10AF78770054E533 /* UserPreferences.xib */; };
+		18B04A1910B192630051D28E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B04A1810B192630051D28E /* Sparkle.framework */; };
+		18B04A2210B192A90051D28E /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18B04A1810B192630051D28E /* Sparkle.framework */; };
+		18B04A2A10B1948C0051D28E /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 18B04A2910B1948C0051D28E /* dsa_pub.pem */; };
 		18B75B3510AA2F0B00265159 /* libiconv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B75B3310AA2F0B00265159 /* libiconv.a */; };
 		18B75B3610AA2F0B00265159 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B75B3410AA2F0B00265159 /* libsybdb.a */; };
 		18B75B3710AA2F0B00265159 /* libiconv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B75B3310AA2F0B00265159 /* libiconv.a */; };
@@ -65,6 +68,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				18B04A2210B192A90051D28E /* Sparkle.framework in CopyFiles */,
 				18AC847510ADDF5B0054E533 /* BWToolkitFramework.framework in CopyFiles */,
 				1877C67310A6122E00BFA7AF /* PSMTabBarControl.framework in CopyFiles */,
 			);
@@ -118,6 +122,8 @@
 		18AC09BA109DAEF5009BEE57 /* QueryResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryResult.m; sourceTree = "<group>"; };
 		18AC847310ADDF490054E533 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = /Users/ianic/Work/CocoaQueryAnalyzer/libsrc/bwtoolkit/build/Release/BWToolkitFramework.framework; sourceTree = "<absolute>"; };
 		18AC86BC10AF78770054E533 /* UserPreferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPreferences.xib; sourceTree = "<group>"; };
+		18B04A1810B192630051D28E /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = /Users/ianic/Work/CocoaQueryAnalyzer/lib/Sparkle/Sparkle.framework; sourceTree = "<absolute>"; };
+		18B04A2910B1948C0051D28E /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		18B75B3310AA2F0B00265159 /* libiconv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiconv.a; path = ../../../../lib/libiconv.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B75B3410AA2F0B00265159 /* libsybdb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsybdb.a; path = ../../../../lib/libsybdb.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DD252210A3813B00108BE8 /* database_objects.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = database_objects.sql; sourceTree = "<group>"; };
@@ -157,11 +163,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B75B3510AA2F0B00265159 /* libiconv.a in Frameworks */,
+				18B75B3610AA2F0B00265159 /* libsybdb.a in Frameworks */,
 				18AC847410ADDF490054E533 /* BWToolkitFramework.framework in Frameworks */,
 				1877C67210A6122900BFA7AF /* PSMTabBarControl.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				18B75B3510AA2F0B00265159 /* libiconv.a in Frameworks */,
-				18B75B3610AA2F0B00265159 /* libsybdb.a in Frameworks */,
+				18B04A1910B192630051D28E /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +209,7 @@
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				1877C66710A6122400BFA7AF /* PSMTabBarControl.framework */,
 				18AC847310ADDF490054E533 /* BWToolkitFramework.framework */,
+				18B04A1810B192630051D28E /* Sparkle.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -307,6 +315,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18B04A2910B1948C0051D28E /* dsa_pub.pem */,
 				1870CA95109864E2006AC809 /* TSQL.plist */,
 				1870CA0010985E00006AC809 /* CredentialsView.xib */,
 				184873BE10983E7400A15FC7 /* ConnectionView.xib */,
@@ -434,6 +443,7 @@
 				1892765210A7696800C50258 /* objects_in_database.sql in Resources */,
 				1892765310A7696800C50258 /* objects_start.sql in Resources */,
 				18AC86BD10AF78770054E533 /* UserPreferences.xib in Resources */,
+				18B04A2A10B1948C0051D28E /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,6 +680,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../include\"",
 					"$(inherited)",
 					"\"$(SRCROOT)/../../lib/maccode/Utilities/PSMTabBarControl/build/Release\"",
 					"\"$(SRCROOT)/../../lib/BWToolkit\"",
@@ -677,6 +688,7 @@
 					"\"$(SRCROOT)/../../lib/maccode/Utilities/PSMTabBarControl/build_gc/Release\"",
 					"\"$(SRCROOT)/../../lib/maccode/Utilities/PSMTabBarControl/build_gc/Debug\"",
 					"\"$(SRCROOT)/../../libsrc/bwtoolkit/build/Release\"",
+					"\"$(SRCROOT)/../../lib/Sparkle\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -697,6 +709,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../include\"",
 					"$(inherited)",
 					"\"$(SRCROOT)/../../lib/maccode/Utilities/PSMTabBarControl/build/Release\"",
 					"\"$(SRCROOT)/../../lib/BWToolkit\"",
@@ -704,6 +717,7 @@
 					"\"$(SRCROOT)/../../lib/maccode/Utilities/PSMTabBarControl/build_gc/Release\"",
 					"\"$(SRCROOT)/../../lib/maccode/Utilities/PSMTabBarControl/build_gc/Debug\"",
 					"\"$(SRCROOT)/../../libsrc/bwtoolkit/build/Release\"",
+					"\"$(SRCROOT)/../../lib/Sparkle\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -713,9 +727,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../lib\"",
-					"\"$(SRCROOT)/../../libsrc/freetds-0.83.dev.20091012/src/dblib/.libs\"",
-					"\"$(SRCROOT)/../../libsrc/freetds-0.83.dev.20091012/src/dblib/.libs/static\"",
-					/opt/local/lib,
 				);
 				PRODUCT_NAME = Queries;
 			};
@@ -731,7 +742,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../include\"";
-				LIBRARY_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../lib\"",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
@@ -746,8 +760,14 @@
 				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "/Users/ianic/Work/CocoaQueryAnalyzer/libsrc/freetds-0.83.dev.20091012/include";
-				LIBRARY_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				HEADER_SEARCH_PATHS = (
+					/Users/ianic/Work/CocoaQueryAnalyzer/lib,
+					"$(SRCROOT)/../../include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/../../lib",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
