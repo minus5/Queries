@@ -5,6 +5,7 @@
 #import <PSMTabBarControl/PSMTabBarControl.h>  
 #import "QueryResult.h"                                    
 #import "CreateTableScript.h"
+#import "ConnectingController.h"
 
 @class CredentialsController;
 @class QueryController;
@@ -44,6 +45,7 @@
                                        
 - (IBAction) changeConnection: (id) sender;
 - (void) didChangeConnection: (TdsConnection*) connection;
+- (void) didChangeConnection:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 
 - (IBAction) reloadDbObjects: (id) sender;
 

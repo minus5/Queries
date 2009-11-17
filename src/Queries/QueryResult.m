@@ -33,7 +33,7 @@
 
 - (void) addCompletedMessage{
 	if ([messages count] == 0 || [results count] == 0){
-		[self addMessage: @"Command(s) completed successfully."];
+		[self addMessage: @"Command(s) completed successfully.\n"];
 	}	
 }
 

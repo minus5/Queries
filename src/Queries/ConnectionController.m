@@ -157,8 +157,62 @@
 	if (!credentials){
 		credentials = [CredentialsController controllerWithOwner: self];
 		[credentials retain];
+	} 
+	[NSApp beginSheet: [credentials window]
+		modalForWindow: [self window]
+		modalDelegate: self 
+		didEndSelector: @selector(didChangeConnection:returnCode:contextInfo:)
+		contextInfo:nil];	
+} 
+
+- (void) changeConnection:(NSAlert *) alert code:(int) choice context:(void *) v{
+	[NSApp endSheet: [alert window]];
+	[[alert window] orderOut: self];
+	[self changeConnection: nil];
+}                            
+
+- (void) didChangeConnection:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo{
+	if (returnCode != NSRunContinuesResponse)
+		return;
+                                                                            
+	NSString *connectionDescription = [NSString stringWithFormat: @"%@ as %@", [credentials server], [credentials user]];
+	ConnectingController *cc = [[ConnectingController alloc] initWithLabel: [NSString stringWithFormat: @"Connecting to %@ ...", connectionDescription]];
+	BOOL retry = NO;
+	
+	@try{	
+    [NSApp beginSheet: [cc window] modalForWindow: [self window] modalDelegate: nil didEndSelector: nil contextInfo:nil]; 						
+		
+		TdsConnection *newConnection = [TdsConnection alloc];
+		[newConnection initWithServer: [credentials server] 
+												 		 user: [credentials user] 
+												 password: [credentials password]];	
+		[newConnection login];
+		
+		[credentials writeCredentials];		
+		[self didChangeConnection: newConnection];
 	}
-	[credentials showSheet]; 	
+	@catch (NSException * e) {
+		NSLog(@"connect error: %@", e);
+		retry = YES;
+	}
+	@finally {      		
+		[NSApp endSheet: [cc window]];
+		[[cc window] orderOut: self];
+  	[cc release];
+	}	                 
+	
+	if (retry){
+		NSAlert *alert = [NSAlert alertWithMessageText: [NSString stringWithFormat: @"Unable to connect to %@ !", connectionDescription]
+			defaultButton: nil
+			alternateButton: nil
+			otherButton: nil
+	    informativeTextWithFormat: @""];
+
+		[alert beginSheetModalForWindow: [self window]
+			modalDelegate :self
+			didEndSelector: @selector(changeConnection:code:context:)
+			contextInfo: NULL ];
+	}      
 }
 
 - (void) didChangeConnection: (TdsConnection*) connection{

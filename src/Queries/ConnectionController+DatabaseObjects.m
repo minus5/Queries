@@ -16,7 +16,7 @@
 	dbObjectsResults = nil;
 	[outlineView reloadData];
 		
-	[self executeQueryInBackground: [self databaseObjectsQuery]//[self queryFileContents: @"database_objects"]
+	[self executeQueryInBackground: [self databaseObjectsQuery]
 		withDatabase: @"master" 
 		returnToObject: self
 		withSelector: @selector(setObjectsResult:)];		

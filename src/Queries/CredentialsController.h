@@ -30,4 +30,8 @@
 - (IBAction) onServerSelected:(id) sender;
 - (IBAction) onUserSelected:(id) sender;
 
+- (NSString*) user;
+- (NSString*) server;
+- (NSString*) password;
+
 @end

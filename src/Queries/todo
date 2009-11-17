@@ -1,9 +1,12 @@
   BUGS  
   * Results 1 of 9 ne izgleda dobro ako su brojevi dovoznamenkasti, fiksene je sirine
   * ne mogu ici shortucti s command shift i strelice 
-  * auto updater ne radi najbolje u kombinaciji s modalnim prozorom
+  * auto updater ne radi najbolje u kombinaciji s modalnim prozorom                
+  * svaki message u tdsConnection ima na kraju \n
     
 TODO                                                
+  * double click, dragn drop i enter na database object neka ga dodaju u query text
+
   * QueryAnalyzer:
     * connect ctrl-O 
     * za tablicu prikazuje: columns, indexes, constraints, dependecies, triggers

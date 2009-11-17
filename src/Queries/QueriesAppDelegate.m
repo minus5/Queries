@@ -5,8 +5,7 @@
 @synthesize window;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {	
-	connections = [NSMutableArray	array];
-	[connections retain];
+	connections = [[NSMutableArray	array] retain];
 	[self newDocument: nil];
 }
 
@@ -51,6 +50,31 @@
 		error: nil
 		];
 	return query;
+}
+
+- (IBAction) userPreferences: (id) sender{
+	if (!preferences){
+		preferences = [[PreferencesController alloc] init];
+	}                                                    
+	[preferences showWindow: self];
+}                                          
+
+- (void) dealloc{
+	[preferences release];
+	[connections release];
+	[super dealloc];
+}                                
+
+#pragma mark ---- register factory defaults ----
+
++(void) initialize{
+	NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];   					
+	[defaultValues setObject:[QueriesAppDelegate connectionDefaults] forKey:	QueriesConnectionDefaults];                           
+	[[NSUserDefaults standardUserDefaults] registerDefaults: defaultValues];
+} 
+
++(NSString*) connectionDefaults{
+	return [QueriesAppDelegate sqlFileContent: @"connection_defaults"];
 }
 
 

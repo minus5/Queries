@@ -122,7 +122,11 @@
 
 + (CredentialsController*) controllerWithOwner: (ConnectionController*) o{	
 	CredentialsController *controller = [[CredentialsController alloc] initWithOwner:o];
-	[controller window];
+	[controller window];  
+	
+	[controller readCredentials]; 
+  [controller fillServerCombo]; 
+		
 	return controller;
 } 
     
@@ -135,37 +139,50 @@
 		modalDelegate: self 
 		didEndSelector: nil 
 		contextInfo:nil];
+}            
+
+- (NSString*) user{
+	return [NSString stringWithString: [userCombo stringValue]];
 }
+
+- (NSString*) server{
+	return [NSString stringWithString: [serverCombo stringValue]];
+}
+
+- (NSString*) password{
+	return [NSString stringWithString: [passwordText stringValue]];
+}
+
                                   
 - (IBAction) connect: (id)sender
-{      
-	@try {
-		TdsConnection *newConnection = [TdsConnection alloc];
-		[newConnection initWithServer: [serverCombo stringValue] 
-												 		 user: [userCombo stringValue] 
-												 password: [passwordText stringValue] ];	
-		[newConnection login];
-		
-		[self writeCredentials];		
-		[owner didChangeConnection: newConnection];  
-		[self closeSheet];
-	}
-	@catch (NSException * e) {
-		NSLog(@"connect error: %@", e);
-	}
-	@finally {
-
-	}
+{ 
+	[[self window] orderOut: self];   
+	[NSApp endSheet: [self window] returnCode: NSRunContinuesResponse];
+	
+	  
+	// @try {
+	// 	TdsConnection *newConnection = [TdsConnection alloc];
+	// 	[newConnection initWithServer: [serverCombo stringValue] 
+	// 											 		 user: [userCombo stringValue] 
+	// 											 password: [passwordText stringValue] ];	
+	// 	[newConnection login];
+	// 	
+	// 	[self writeCredentials];		
+	// 	[owner didChangeConnection: newConnection];  
+	// 	[self closeSheet];
 } 
 
 - (IBAction) close: (id)sender
-{
-	[self closeSheet];
+{ 
+	[[self window] orderOut: self];                  
+	[NSApp endSheet: [self window] returnCode: NSRunAbortedResponse];
+			
+	//[self closeSheet];
 }   
 
 - (void) closeSheet{
-	[NSApp endSheet: [self window]];
-	[[self window] orderOut: self];	
+	// [NSApp endSheet: [self window]];
+	// [[self window] orderOut: self];	
 }
 
 @end

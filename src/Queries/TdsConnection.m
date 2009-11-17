@@ -1,4 +1,5 @@
 #import "TdsConnection.h"
+#import "QueriesAppDelegate.h"
 
 @implementation TdsConnection                                
 
@@ -134,10 +135,13 @@ struct COL
 			
 	if ((dbproc = dbopen(login, [server UTF8String])) == NULL) {
 		[NSException raise:@"Exception" format: @"%d: unable to connect to %s as %s\n", __LINE__, [server UTF8String], [user UTF8String]];
-	}          
+	}          	     	                                                                                 		
 	
-	//CFRetain(dbproc);
-	
+	[self applyConnectionDefaults];
+} 
+
+-(void) applyConnectionDefaults{
+	[self execute: [[NSUserDefaults standardUserDefaults] objectForKey: QueriesConnectionDefaults] withDefaultDatabase: nil logOutOnException: NO];	
 }
 
 -(void) executeQuery: (NSString*) query{
@@ -338,8 +342,6 @@ struct COL
 	if (!cancelQuery)
 		[receiver performSelectorOnMainThread: selector withObject: result waitUntilDone: YES];		
 	
-	//NSLog(@"logout value: %@", logout);
-
 	if ([logout boolValue]){
 		NSLog(@"closing temporary connection");
 		[self logout];
@@ -347,8 +349,12 @@ struct COL
 	}
 	[pool release];
 }
-
+                                                                                                                               
 -(QueryResult*) execute: (NSString*) query withDefaultDatabase: (NSString*) database{
+	return [self execute: query withDefaultDatabase: database logOutOnException: YES];
+}                                                                                                                              
+
+-(QueryResult*) execute: (NSString*) query withDefaultDatabase: (NSString*) database logOutOnException: (bool)logOutOnException{
 	if ([self isProcessing]) 
 		return nil;
 		
@@ -356,7 +362,6 @@ struct COL
 							
 	[TdsConnection activate: self];
 	QueryResult *result = [[QueryResult alloc] init];
-	//[result retain];
 	queryResult = result;		
 	@try{                                       
 		[self setIsProcessing: TRUE]; 
@@ -367,10 +372,11 @@ struct COL
 		[queryResult addCompletedMessage];																		
 		[queryResult setDatabase: [self currentDatabase]];
 		
-		[self logMessage: [NSString stringWithFormat: @"Query completed in %f seconds.", -[timerStart timeIntervalSinceNow]]];
+		[self logMessage: [NSString stringWithFormat: @"Query completed in %f seconds.\n", -[timerStart timeIntervalSinceNow]]];
 	}
-	@catch (NSException *exception) {    
-		[self logout];
+	@catch (NSException *exception) {                                                                           
+		if (logOutOnException)
+			[self logout];
 		[self logMessage: [NSString stringWithFormat:@"%@", [exception reason]]];
 	} 
 	@finally{
