@@ -80,6 +80,7 @@ int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char
 
 int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dberrstr, char *oserrstr)
 {	
+	//todo ovdje padne na stringWithFormat kada mu pukne konekcija dberr = 20006
 	if ([[NSString stringWithFormat: @"%s", dberrstr] isEqualToString: @"Data conversion resulted in overflow"]){
 		//NSLog(@"ignoring message 'Data conversion resulted in overflow'");
 		return INT_CANCEL;

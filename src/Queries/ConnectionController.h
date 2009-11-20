@@ -63,11 +63,6 @@
 - (IBAction) goToMessages: (id) sender;
 - (IBAction) showHideDatabaseObjects: sender;
 
-//- (void) keyDown:(NSEvent *)theEvent;
-
-@end
-
-@interface ConnectionController (DatabaseObjects)
 
 - (NSString*) queryFileContents: (NSString*) queryFileName;
 - (void) readDatabaseObjects;

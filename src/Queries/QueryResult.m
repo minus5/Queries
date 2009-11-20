@@ -162,20 +162,23 @@
 	
 	for(int resultIndex=0; resultIndex<[results count]; resultIndex++){
 		NSArray *rows = [self resultAtIndex: resultIndex];
-		NSArray *columns = [self columnsAtIndex: resultIndex];
-		
+		NSArray *columns = [self columnsAtIndex: resultIndex]; 
+		NSMutableString *sepeartor = [NSMutableString string];
+ 		//column names
 		for(int c = 0; c < [columns count]; c++)
 		{
 			ColumnMetadata *column = [columns objectAtIndex: c];
-			[resultString appendString: [[column name] stringByPaddingToLength: [column length] + 2 withString: @" " startingAtIndex: 0]];
+			[resultString appendString: [[column name] stringByPaddingToLength: [column length] + 1 withString: @" " startingAtIndex: 0]];
+			[sepeartor appendString: [@"" stringByPaddingToLength: [column length] withString: @"-" startingAtIndex: 0]];			
+			[sepeartor appendString: @" "];
 		}
-		[resultString appendFormat: @"\n"];
-		
+		[resultString appendFormat: @"\n%@\n", sepeartor];
+		//rows
 		for(int r=0; r<[rows count]; r++){		
 			for(int c=0; c<[columns count]; c++){
 				NSString *value = [[rows objectAtIndex:r] objectAtIndex:c];
 				ColumnMetadata *column = [columns objectAtIndex: c]; 
-				[resultString appendString: [value stringByPaddingToLength: [column length] + 2 withString: @" " startingAtIndex: 0]];
+				[resultString appendString: [value stringByPaddingToLength: [column length] + 1 withString: @" " startingAtIndex: 0]];
 			}                                                     
 			[resultString appendFormat: @"\n"];
 		}                         	  

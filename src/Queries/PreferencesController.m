@@ -2,6 +2,8 @@
 #import "QueriesAppDelegate.h"
 
 NSString *const QueriesConnectionDefaults = @"ConnectionDefaults";
+NSString *const QueriesLoginTimeout = @"QueriesLoginTimeout";
+NSString *const QueriesQueryTimeout = @"QueriesQueryTimeout";
 
 @implementation PreferencesController
 
@@ -14,17 +16,37 @@ NSString *const QueriesConnectionDefaults = @"ConnectionDefaults";
 }
 
 - (void) windowDidLoad{
-	[connectionDefaults setString: [[NSUserDefaults standardUserDefaults] objectForKey: QueriesConnectionDefaults]];
-}                                                                                                                
+	[self readDefaults];
+}
+
+- (void) readDefaults{
+	[connectionDefaults setString: [[NSUserDefaults standardUserDefaults] objectForKey: QueriesConnectionDefaults]];	
+	[queryTimeout setIntValue: [[[NSUserDefaults standardUserDefaults] objectForKey: QueriesQueryTimeout] integerValue] ];
+	[loginTimeout setIntValue: [[[NSUserDefaults standardUserDefaults] objectForKey: QueriesLoginTimeout] integerValue] ];
+} 
+
+- (void) saveDefaults{
+	[[NSUserDefaults standardUserDefaults] setObject: [connectionDefaults string] forKey: QueriesConnectionDefaults];	
+	[[NSUserDefaults standardUserDefaults] setObject: [NSNumber numberWithInteger: [queryTimeout intValue]] forKey: QueriesQueryTimeout];	
+	[[NSUserDefaults standardUserDefaults] setObject: [NSNumber numberWithInteger: [loginTimeout intValue]] forKey: QueriesLoginTimeout];		
+}                                                                                                               
 
 - (void) textDidChange: (NSNotification *) aNotification{
-	[[NSUserDefaults standardUserDefaults] setObject: [connectionDefaults string] forKey: QueriesConnectionDefaults];	
+	[self saveDefaults];
 	NSLog(@"didChangeText");
 }
-                                                        
-- (IBAction) restoreConnectionDefaults:(id)sender{  
-	[connectionDefaults setString: [QueriesAppDelegate connectionDefaults]];
-	[self textDidChange: nil];
+
+- (void)controlTextDidChange:(NSNotification *)aNotification{
+	[self saveDefaults];
+	NSLog(@"controlTextDidChange");	
 }
+                                                        
+- (IBAction) resetDefaults:(id)sender{ 
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey: QueriesConnectionDefaults]; 
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey: QueriesQueryTimeout];
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey: QueriesLoginTimeout];
+	[self readDefaults];            
+	NSLog(@"resetDefaults");	
+	}
 
 @end

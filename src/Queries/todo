@@ -6,14 +6,13 @@
     
 TODO                                                
   * double click, dragn drop i enter na database object neka ga dodaju u query text
-
   * QueryAnalyzer:
     * connect ctrl-O 
     * za tablicu prikazuje: columns, indexes, constraints, dependecies, triggers
     * kategorije za bazu su mu: user tables, system tables, views, stored procedures, functions, user defined data types
     * nema usere, scheme...
     * results in text dodaju i messages
-    * nakon kolona kod results in text dolazi ---- onolike duzine kolika je kolona
+
     * login timeout: 15s
     * status bar: Ready, Executing query batch, Query batch completed
 
@@ -91,6 +90,7 @@ TODO
   * freetds ukljuciti u projekt - pogledaj prije toga na kakvoj je licenci  
   
 FIXED:                                        
+  + nakon kolona kod results in text dolazi ---- onolike duzine kolika je kolona
   + testiranje s userom koji ima manje privilegija                               
   + auto update aplikacije                                                               
   + undo ne radi dobro u kombinaciji s indent/unindent       

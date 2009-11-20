@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>QueriesAppDelegate.m</string>
+	<string>QueryController.m</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -13,7 +13,7 @@
 					<key>filename</key>
 					<string>shell_main.m</string>
 					<key>lastUsed</key>
-					<date>2009-11-13T13:37:41Z</date>
+					<date>2009-11-17T20:20:33Z</date>
 				</dict>
 			</array>
 			<key>name</key>
@@ -28,6 +28,8 @@
 			<string>../../site</string>
 		</dict>
 		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>sql</string>
 			<key>regexFolderFilter</key>
@@ -59,43 +61,43 @@
 			<key>filename</key>
 			<string>ConnectingController.h</string>
 			<key>lastUsed</key>
-			<date>2009-11-17T15:26:16Z</date>
+			<date>2009-11-17T17:43:29Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>PreferencesController.h</string>
 			<key>lastUsed</key>
-			<date>2009-11-17T15:26:15Z</date>
+			<date>2009-11-18T17:24:24Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>PreferencesController.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-17T15:26:24Z</date>
+			<date>2009-11-18T17:20:31Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>ConnectingController.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-17T15:24:29Z</date>
+			<date>2009-11-17T17:43:31Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>ConnectionController+DatabaseObjects.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-16T19:20:23Z</date>
+			<date>2009-11-18T17:28:05Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>ConnectionController.h</string>
 			<key>lastUsed</key>
-			<date>2009-11-16T20:21:42Z</date>
+			<date>2009-11-18T17:28:59Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>ConnectionController.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-17T11:04:25Z</date>
+			<date>2009-11-19T14:38:15Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -125,27 +127,25 @@
 			<key>filename</key>
 			<string>QueriesAppDelegate.h</string>
 			<key>lastUsed</key>
-			<date>2009-11-17T15:32:42Z</date>
+			<date>2009-11-17T20:02:18Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>QueriesAppDelegate.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-17T15:32:42Z</date>
-			<key>selected</key>
-			<true/>
+			<date>2009-11-18T17:20:31Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>QueryController.h</string>
 			<key>lastUsed</key>
-			<date>2009-11-15T16:18:30Z</date>
+			<date>2009-11-18T17:43:01Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>QueryController.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-17T11:09:05Z</date>
+			<date>2009-11-19T14:38:15Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -157,19 +157,19 @@
 			<key>filename</key>
 			<string>QueryResult.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-17T11:11:05Z</date>
+			<date>2009-11-18T17:20:31Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>TdsConnection.h</string>
 			<key>lastUsed</key>
-			<date>2009-11-14T00:47:06Z</date>
+			<date>2009-11-17T20:31:57Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>TdsConnection.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-17T11:10:53Z</date>
+			<date>2009-11-17T20:34:13Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -181,7 +181,7 @@
 			<key>filename</key>
 			<string>todo</string>
 			<key>lastUsed</key>
-			<date>2009-11-17T15:23:20Z</date>
+			<date>2009-11-19T14:38:14Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -194,102 +194,58 @@
 	<integer>285</integer>
 	<key>metaData</key>
 	<dict>
-		<key>ConnectingController.h</key>
+		<key>ConnectionController.h</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>11</integer>
+				<integer>29</integer>
 				<key>line</key>
-				<integer>7</integer>
+				<integer>70</integer>
 			</dict>
 			<key>columnSelection</key>
 			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>18</integer>
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>13</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>70</integer>
 			</dict>
 			<key>selectTo</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>29</integer>
 				<key>line</key>
-				<integer>14</integer>
+				<integer>70</integer>
 			</dict>
 		</dict>
-		<key>ConnectingController.m</key>
+		<key>ConnectionController.m</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>67</integer>
 				<key>line</key>
-				<integer>0</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>4</integer>
-				<key>line</key>
-				<integer>21</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>0</integer>
-			</dict>
-		</dict>
-		<key>PreferencesController.h</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>4</integer>
+				<integer>545</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>486</integer>
 		</dict>
 		<key>PreferencesController.m</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>10</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>QueriesAppDelegate.h</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
 				<integer>1</integer>
 				<key>line</key>
-				<integer>2</integer>
+				<integer>49</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -301,43 +257,59 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>29</integer>
+				<integer>67</integer>
 				<key>line</key>
-				<integer>59</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>QueryController.m</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>10</integer>
-				<key>line</key>
-				<integer>240</integer>
+				<integer>72</integer>
 			</dict>
 			<key>columnSelection</key>
 			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>208</integer>
+			<integer>19</integer>
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
-				<integer>2</integer>
+				<integer>86</integer>
 				<key>line</key>
-				<integer>240</integer>
+				<integer>72</integer>
 			</dict>
 			<key>selectTo</key>
 			<dict>
 				<key>column</key>
-				<integer>10</integer>
+				<integer>67</integer>
 				<key>line</key>
-				<integer>240</integer>
+				<integer>72</integer>
+			</dict>
+		</dict>
+		<key>QueryController.m</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>258</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>212</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>81</integer>
+				<key>line</key>
+				<integer>258</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>258</integer>
 			</dict>
 		</dict>
 		<key>QueryResult.m</key>
@@ -345,28 +317,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>58</integer>
+				<integer>34</integer>
 				<key>line</key>
-				<integer>35</integer>
+				<integer>172</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>28</integer>
-		</dict>
-		<key>TdsConnection.m</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>82</integer>
-				<key>line</key>
-				<integer>369</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>318</integer>
+			<integer>127</integer>
 		</dict>
 		<key>TdsConnectionTest.m</key>
 		<dict>
@@ -382,23 +340,44 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>todo</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>83</integer>
+				<key>line</key>
+				<integer>7</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>PreferencesController.m</string>
 		<string>QueriesAppDelegate.m</string>
-		<string>QueriesAppDelegate.h</string>
-		<string>ConnectingController.h</string>
-		<string>PreferencesController.h</string>
-		<string>ConnectingController.m</string>
+		<string>PreferencesController.m</string>
+		<string>QueryResult.m</string>
+		<string>todo</string>
+		<string>ConnectionController.m</string>
+		<string>QueryController.m</string>
+		<string>ConnectionController.h</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<false/>
-	<key>showFileHierarchyPanel</key>
-	<true/>
 	<key>treeState</key>
-	<dict/>
+	<dict>
+		<key>sql</key>
+		<dict>
+			<key>isExpanded</key>
+			<true/>
+			<key>subItems</key>
+			<dict/>
+		</dict>
+	</dict>
 	<key>windowFrame</key>
-	<string>{{10, 4}, {1642, 1174}}</string>
+	<string>{{0, 4}, {960, 1174}}</string>
 </dict>
 </plist>
