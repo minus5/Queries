@@ -1,22 +1,18 @@
 #import <Cocoa/Cocoa.h>
-#import "ColumnMetadata.h"
 
-#import "TdsConnection.h"
+#import <BWToolkitFramework/BWToolkitFramework.h>       
 #import "NoodleLineNumberView.h"
 #import "NoodleLineNumberMarker.h"
 #import "MarkerLineNumberView.h"
+
+#import "TdsConnection.h"
 #import "ConnectionController.h"
 #import "QueryResult.h"
-#import <BWToolkitFramework/BWToolkitFramework.h>
+#import "TableResultDataSource.h"
 
 @class NoodleLineNumberView;
 @class ConnectionController;
 @class QueryResult;
-
-#define _WINDEF_
-#define TDS50 0
-#include <sqlfront.h>	
-#include <sybdb.h>
 
 @interface QueryController : NSViewController <NSSplitViewDelegate> {
 
@@ -79,12 +75,6 @@
 
 - (void) reloadResults;
 - (void) reloadMessages;
-- (void) addColumns;
-- (void) addColumn:(ColumnMetadata*) meta;
-- (void) removeAllColumns;
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView;
-- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex;
 
 - (BOOL) saveQuery:(bool)saveAs;  
 - (void) openFile:(NSString*) fn;

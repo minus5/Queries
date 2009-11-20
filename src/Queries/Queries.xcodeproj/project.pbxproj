@@ -39,6 +39,7 @@
 		187FC8C010B2F9FB00471B6A /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187FC8BE10B2F9FB00471B6A /* PreferencesController.m */; };
 		187FC90410B3164600471B6A /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187FC90310B3164600471B6A /* Preferences.xib */; };
 		187FC9B510B3392300471B6A /* connection_defaults.sql in Resources */ = {isa = PBXBuildFile; fileRef = 187FC9B410B3392300471B6A /* connection_defaults.sql */; };
+		187FCFB110B6EBA600471B6A /* TableResultDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 187FCFB010B6EBA600471B6A /* TableResultDatasource.m */; };
 		1892765110A7696800C50258 /* objects_end.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892764E10A7696800C50258 /* objects_end.sql */; };
 		1892765210A7696800C50258 /* objects_in_database.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892764F10A7696800C50258 /* objects_in_database.sql */; };
 		1892765310A7696800C50258 /* objects_start.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892765010A7696800C50258 /* objects_start.sql */; };
@@ -121,6 +122,8 @@
 		187FC8BF10B2F9FB00471B6A /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
 		187FC90310B3164600471B6A /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		187FC9B410B3392300471B6A /* connection_defaults.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = connection_defaults.sql; sourceTree = "<group>"; };
+		187FCFAF10B6EBA600471B6A /* TableResultDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableResultDatasource.h; sourceTree = "<group>"; };
+		187FCFB010B6EBA600471B6A /* TableResultDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableResultDatasource.m; sourceTree = "<group>"; };
 		1892764E10A7696800C50258 /* objects_end.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_end.sql; sourceTree = "<group>"; };
 		1892764F10A7696800C50258 /* objects_in_database.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_in_database.sql; sourceTree = "<group>"; };
 		1892765010A7696800C50258 /* objects_start.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_start.sql; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				187FCFAF10B6EBA600471B6A /* TableResultDatasource.h */,
+				187FCFB010B6EBA600471B6A /* TableResultDatasource.m */,
 				187FC8BE10B2F9FB00471B6A /* PreferencesController.m */,
 				187FC8BF10B2F9FB00471B6A /* PreferencesController.h */,
 				18B04ACC10B1E0670051D28E /* ConnectingController.m */,
@@ -525,6 +530,7 @@
 				1877C5D310A60ECF00BFA7AF /* CreateTableScript.m in Sources */,
 				18B04ACE10B1E0670051D28E /* ConnectingController.m in Sources */,
 				187FC8C010B2F9FB00471B6A /* PreferencesController.m in Sources */,
+				187FCFB110B6EBA600471B6A /* TableResultDatasource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
