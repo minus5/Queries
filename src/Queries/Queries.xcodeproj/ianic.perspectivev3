@@ -313,7 +313,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>184873E6109857C600A15FC7</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>QueryController.m</string>
+								<string>QueryController.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -321,11 +321,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>184873E7109857C600A15FC7</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>QueryController.m</string>
+										<string>QueryController.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>187FD1E410B9D01300471B6A</string>
+										<string>187FD2AA10B9FC5300471B6A</string>
 										<key>history</key>
 										<array>
 											<string>1870CC9A1098988E006AC809</string>
@@ -346,7 +346,6 @@
 											<string>18B75B8B10AD9C0100265159</string>
 											<string>18AC847B10ADE0F10054E533</string>
 											<string>18AC854D10ADEB470054E533</string>
-											<string>18B03BC610B0A6C30051D28E</string>
 											<string>18B04A3310B197ED0051D28E</string>
 											<string>18B04A3410B197ED0051D28E</string>
 											<string>18B04A8F10B19F1B0051D28E</string>
@@ -368,11 +367,12 @@
 											<string>187FCA9610B466D200471B6A</string>
 											<string>187FCFC710B701E000471B6A</string>
 											<string>187FCFC810B701E000471B6A</string>
-											<string>187FD0AE10B7439300471B6A</string>
-											<string>187FD13110B9A3D400471B6A</string>
 											<string>187FD16610B9AF4A00471B6A</string>
 											<string>187FD16C10B9AF7700471B6A</string>
-											<string>187FD1AC10B9BE9C00471B6A</string>
+											<string>187FD29010B9F6EF00471B6A</string>
+											<string>187FD29110B9F6EF00471B6A</string>
+											<string>187FD29210B9F6EF00471B6A</string>
+											<string>187FD29310B9F6EF00471B6A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -425,7 +425,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1387, 230}}</string>
+										<string>{{10, 27}, {1603, 276}}</string>
 									</dict>
 									<key>Module</key>
 									<string>PBXProjectFindModule</string>
@@ -693,7 +693,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>187FD1E510B9D01300471B6A</string>
+		<string>187FD2A910B9FBEB00471B6A</string>
 		<string>187FC8CC10B2FA1A00471B6A</string>
 		<string>187FC8CD10B2FA1A00471B6A</string>
 		<string>/Users/ianic/Work/CocoaQueryAnalyzer/src/Queries/Queries.xcodeproj</string>

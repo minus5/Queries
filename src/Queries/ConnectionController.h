@@ -71,6 +71,8 @@
 - (void) dbObjectsFillSidebar;     
 - (NSArray*) selectedDbObject;     
 - (NSString*) databaseObjectsQuery;
+-(NSArray*) dbObjectsForParent: (NSString*) parentId;
+-(NSArray*) dbObjectsForDatabase: (NSString*) database;
    
 - (void) displayDatabase;
 - (void) databaseChanged:(id)sender;

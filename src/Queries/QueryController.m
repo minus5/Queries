@@ -39,8 +39,7 @@
 
 - (id) initWithConnection: (ConnectionController*) c{
 	if (self = [super init]){
-		connection = c;
-		[connection retain];
+		connection = [c retain];
 		return self;
 	}             
 	return nil;
@@ -135,13 +134,7 @@
 - (void) tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem{
 	int selectedIndex = [resultsTabView indexOfTabViewItem: tabViewItem];	
 	[resultsMessagesSegmentedControll setSelectedSegment: selectedIndex];  
-	[self makeResultsFirstResponder];
-	//[resultsCountBox setHidden: selectedIndex != 0];	
-	//[self showResultsCount];
-	//TODO ovo sam privremeno iskljucio
-	//if (selectedIndex == 0){
-	//	[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
-	//}  	
+	[self makeResultsFirstResponder];	
 	switch(selectedIndex){
 		case 0:                      
 			[self resizeTablesSplitView: NO];
@@ -155,24 +148,10 @@
 			[queryText setNextKeyView: messagesTextView];
 			break;
 	} 
-	//[self updateNextKeyViewRing];                      
 	if (selectedIndex != 2)
 		lastResultsTabIndex = selectedIndex;
 }  
                              
-// - (void) updateNextKeyViewRing{
-// 	//[queryText setNextKeyView: resultsTabView];
-// 	[messagesTextView setNextKeyView: [connection outlineView]];
-// 	[textResultsTextView setNextKeyView: [connection outlineView]];
-// }             
-
-// - (void) showResultsCount{ 	
-// 	[resultsCountBox setHidden: !([queryResult	resultsCount] > 1 && [resultsTabView indexOfTabViewItem: [resultsTabView selectedTabViewItem]] == 0)];	
-// 	if (![resultsCountBox isHidden]){
-// 	  [resultsCountLabel setStringValue: [NSString stringWithFormat: @"Results %d of %d", [queryResult currentResultIndex] + 1, [queryResult	resultsCount]]];
-// 	}	
-// }
-
 - (void) showResults{
 	[resultsTabView	selectTabViewItemAtIndex: 0];
 }
@@ -190,30 +169,6 @@
 }
 
 - (IBAction) nextResultsTab: (id) sender{ 	
-	// id currentFirstResponder = [[connection window] firstResponder];
-	// if (currentFirstResponder == queryText){
-	// 	[self goToResults];                                                
-	// 	return;
-	// } 
-	// if (currentFirstResponder == textResultsTextView){
-	// 	[self goToMessages];                                                
-	// 	return;
-	// }
-	// if (currentFirstResponder== messagesTextView){
-	// 	[self goToQueryText];
-	// 	return;
-	// }        	
-	// if ([currentFirstResponder isKindOfClass:[NSTableView class]]){                     
-	// 	id nextResponder = [currentFirstResponder nextResponder];
-	// 	if ([nextResponder isKindOfClass:[NSTableView class]]){   			
-	// 		[[connection window] makeFirstResponder: nextResponder];
-	// 	}else{
-	// 		[self goToTextResults];
-	// 	}
-	// }
-	//   		
-	// [self goToQueryText];
-
 	[self ensureResultsAreVisible]; 	
 	if (!([[connection window] firstResponder] == queryText)){
 		if ([self lastTabSelected]){
@@ -225,20 +180,6 @@
 	[self makeResultsFirstResponder];
 }
 
-// - (IBAction) previousResultsTab: (id) sender{
-// 	[resultsTabView selectPreviousTabViewItem: sender];
-// }
-
-// - (IBAction) nextResult: (id) sender {
-// 	if ([queryResult	nextResult])
-// 		[self reloadResults];  
-// }
-// 
-// - (IBAction) previousResult: (id) sender {
-// 	if ([queryResult	previousResult])
-// 		[self reloadResults];
-// }
-//   
 #pragma mark ---- navigation goto control ----     
 
 - (void) goToQueryText{ 
@@ -250,23 +191,18 @@
 	[self ensureResultsAreVisible];            
 	[self showResults];              
 	[self makeResultsFirstResponder];
-	// if (firstTableView){
-	// 	[[connection window] makeFirstResponder: firstTableView];
-	// }
 }
 
 - (void) goToTextResults{
 	[self ensureResultsAreVisible];
 	[self showTextResults];
 	[self makeResultsFirstResponder];
-//	[[connection window] makeFirstResponder: textResultsTextView];
 }
 
 - (void) goToMessages{       
 	[self ensureResultsAreVisible];              
 	[self showMessages];
 	[self makeResultsFirstResponder];
-	//[[connection window] makeFirstResponder: messagesTextView];
 }
  
 - (void) ensureResultsAreVisible{    		
@@ -298,21 +234,21 @@
 }
 
 - (IBAction) splitResultsAndQueryTextEqualy: sender{
-	[splitView setPosition: [splitView frame].size.height / 2 - 35 ofDividerAtIndex:0];
+	[splitView setPosition: ([splitView frame].size.height * 0.3) ofDividerAtIndex:0];
 	spliterPosition = 2;
 }
 
 - (IBAction) maximizeResults: sender{
-	[splitView setPosition: 1 ofDividerAtIndex:0];
+	[splitView setPosition: 0 ofDividerAtIndex:0];
 	spliterPosition = 1;
+	[self makeResultsFirstResponder];
 }
 
 - (IBAction) maximizeQueryText: sender{
 	[splitView setPosition: ([splitView frame].size.height - 20) ofDividerAtIndex:0];
-	spliterPosition = 0;
+	spliterPosition = 0;             
+	[[connection window] makeFirstResponder: queryText];
 }
-
-
                                      
 #pragma mark ---- show results ----
 
@@ -355,12 +291,6 @@
 	[self createTablesPlaceholder];
 	[self createTables]; 
 	[self resizeTablesSplitView: YES];
-	// id oldDataSource = [tableView dataSource];
-	// TableResultDatasource *dataSource = [[TableResultDatasource alloc] initWithTableView: tableView andColumns: [queryResult columns] andRows: [queryResult rows] ];
-	// [tableView setDataSource: dataSource]; 	
-	// [dataSource bind];		
-	// [self showResultsCount];               
-	// [oldDataSource release];
 }
 
 - (void) createTables{  	
@@ -389,8 +319,6 @@
 		if (i==0){      
 			firstTableView = newTableView;  
 			[queryText setNextKeyView: newTableView];
-			// [tablesSplitView setNextKeyView: newTableView]; 
-			// [tableResultsContentView setNextKeyView: newTableView]; 
 		}
 	}
 }
@@ -424,13 +352,6 @@
   if (tablesScrollView)
 		return;
 	
-	//TODO izbaci je iz IB-a pa ne moras micati ovdje	
-	//remove existing table
-	// int count = [[tableResultsContentView subviews] count];
-	// for(int i = count-1; i>=0; i--){
-	// 	[[[tableResultsContentView subviews] objectAtIndex: i] removeFromSuperview];
-	// }  
-		 		
 	tablesScrollView = [[NSScrollView alloc] initWithFrame: [tableResultsContentView frame]];
 	[tablesScrollView setHasVerticalScroller: NO];
 	[tablesScrollView setHasHorizontalScroller: NO];
@@ -469,8 +390,6 @@
 }
 
 - (void) resizeTablesSplitView: (BOOL) andSubviews{		 
-	//NSLog(@"[%@ resizeTablesSplitView:%d]", [self class], andSubviews);
-	 
 	int count = [[tablesSplitView subviews] count];
 	float splitersHeight = (count - 1) * 9;            
 	
@@ -492,7 +411,7 @@
 	
 	if (andSubviews){
 		float allTablesHeight = splitViewHeight - splitersHeight; 
-		NSLog(@"allTablesHeight %f minHeightOfAllTables: %f", allTablesHeight, minHeightOfAllTables);
+		//NSLog(@"allTablesHeight %f minHeightOfAllTables: %f", allTablesHeight, minHeightOfAllTables);
 		for(int i=0; i < count; i++){
 			float tableHeight = ([self minHeightForTableAtIndex: i] / minHeightOfAllTables) * allTablesHeight;
 			NSView *subview = [[tablesSplitView subviews] objectAtIndex: i];
@@ -501,7 +420,7 @@
 			frame.origin.y = i * tableHeight + 9 * (i-1);
 			frame.size.width = [tablesSplitView frame].size.width;
 			frame.size.height = tableHeight;  
-			NSLog(@"resizing table %d with height %f min height %f", i, tableHeight, [self minHeightForTableAtIndex: i]);
+			//NSLog(@"resizing table %d with height %f min height %f", i, tableHeight, [self minHeightForTableAtIndex: i]);
 			[subview setFrame:frame];
 		}		
 	}
@@ -570,16 +489,31 @@
 - (void) keyDown:(NSEvent *)theEvent{
 	NSLog(@"query received keyDown event");	
 }
+      
 
+#pragma mark ---- auto compleletioin ---- 
 
 - (NSArray *)textView:(NSTextView *)textView completions:(NSArray *) words forPartialWordRange:(NSRange)charRange indexOfSelectedItem:(int *)index {
-/* Complete "Mac" to "Macintosh", "Mac OS", or "Mac OS X". */
-NSArray *result = nil;
-NSString *string = [[queryText string] substringWithRange:charRange];
-if (NSOrderedSame == [@"Mac" compare:string options:NSCaseInsensitiveSearch]) {
-result = [NSArray arrayWithObjects:@"Macintosh", @"Mac OS", @"Mac OS X", nil];
-}
-return result;
+	NSMutableArray *result = [NSMutableArray array];
+	NSString *string = [[queryText string] substringWithRange:charRange];                                          
+			
+	if ([string length] > 0){      		
+		NSLog(@"running completion for string '%@'", string);	
+		NSArray *objects = [connection dbObjectsForDatabase: database];
+		NSRange r = {0, [string length]};
+		for(id row in objects){
+			NSString *fullTableName = [row objectAtIndex: 2];
+		  NSArray *tableNameParts = [fullTableName componentsSeparatedByString:@"."]; 
+			NSString *tableName = [tableNameParts objectAtIndex: 1];
+		
+			if (NSOrderedSame == [tableName compare:string options:NSCaseInsensitiveSearch range: r] ||
+					NSOrderedSame == [fullTableName compare:string options:NSCaseInsensitiveSearch range: r]){
+				[result addObject: fullTableName];
+			}
+		
+		}	                       
+	}
+	return result;
 }
 
 @end

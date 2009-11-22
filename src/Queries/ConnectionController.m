@@ -362,29 +362,7 @@
 		[self previousTab: nil];		                                       
 		return;
 	}
-	
-	// //F6 
-	// if ([theEvent keyCode] == 97 && [theEvent modifierFlags] == 8388864){
-	// 	[self showHideDatabaseObjects: nil];		                                       
-	// 	return;
-	// }
-	// //F7
-	// if ([theEvent keyCode] == 98 && [theEvent modifierFlags] == 8388864){
-	// 	[self showHideDatabaseObjects: nil];		                                       
-	// 	return;
-	// }
-	// //F8 
-	// if ([theEvent keyCode] == 100 && [theEvent modifierFlags] == 8388864){
-	// 	[self showHideDatabaseObjects: nil];		                                       
-	// 	return;
-	// }
-	// //F9 
-	// if ([theEvent keyCode] == 100 && [theEvent modifierFlags] == 8388864){
-	// 	[self showHideDatabaseObjects: nil];		                                       
-	// 	return;
-	// }  
-	
-		
+			
 	NSLog(@"keyDown event keyCode %d modifierFlags: %d window %@", [theEvent keyCode], [theEvent modifierFlags], [theEvent window]);	
 }               
 
@@ -525,6 +503,16 @@
 	[dbObjectsCache setObject:selected forKey:parentId];	
 	return selected;
 }
+
+-(NSArray*) dbObjectsForDatabase: (NSString*) database{	
+	NSMutableArray *objects = [NSMutableArray array];
+	[objects addObjectsFromArray: [self dbObjectsForParent: [NSString stringWithFormat: @"%@.%@", database, @"tables"]]];
+	[objects addObjectsFromArray: [self dbObjectsForParent: [NSString stringWithFormat: @"%@.%@", database, @"views"]]];
+	[objects addObjectsFromArray: [self dbObjectsForParent: [NSString stringWithFormat: @"%@.%@", database, @"procedures"]]];
+	[objects addObjectsFromArray: [self dbObjectsForParent: [NSString stringWithFormat: @"%@.%@", database, @"functions"]]];   
+	return objects;
+}
+
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item {
 	NSArray *selected = [self dbObjectsForParent: (item == nil ? @"" : [item objectAtIndex:0])];

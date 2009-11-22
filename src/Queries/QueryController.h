@@ -13,6 +13,8 @@
 @class NoodleLineNumberView;
 @class ConnectionController;
 @class QueryResult;
+                   
+#define COMPLETION_DELAY (0.5)
 
 @interface QueryController : NSViewController <NSSplitViewDelegate> {
 
@@ -22,26 +24,18 @@
 	IBOutlet NSSegmentedControl *resultsMessagesSegmentedControll;
 	IBOutlet NSTextView	*queryText;
 	IBOutlet NSTextView	*messagesTextView; 
-	
-	//IBOutlet NSTableView *resultsTableView;
-	//IBOutlet NSTableView *tableView;
-	
-	//IBOutlet NSBox *resultsCountBox;
-	//IBOutlet NSTextField *resultsCountLabel;	
 	IBOutlet NSScrollView *queryTextScrollView;
-	IBOutlet NSView *tableResultsContentView;
-	NoodleLineNumberView *queryTextLineNumberView;
+	IBOutlet NSView *tableResultsContentView;	
 	IBOutlet BWSplitView *splitView;
-	
+	IBOutlet NSTextView	*textResultsTextView;
+	                                         
+	NoodleLineNumberView *queryTextLineNumberView;
 	NSSplitView *tablesSplitView;	
 	NSScrollView *tablesScrollView;    
-	NSTableView *firstTableView;
-	
+	NSTableView *firstTableView;	
 	ConnectionController *connection;
 	QueryResult *queryResult;               
-	int spliterPosition;
-	
-	IBOutlet NSTextView	*textResultsTextView;
+	int spliterPosition;       
 	
 	BOOL isEdited;
 	BOOL isProcessing;
@@ -119,6 +113,9 @@
 
 - (void) resizeTablesSplitView: (BOOL) andSubviews;
 
+//- (void) startCompletionTimer; 
+//- (void) stopCompletionTimer; 
+//- (void)doCompletion:(NSTimer *)timer;
 @end
 
 //syntax highlighting

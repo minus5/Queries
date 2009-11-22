@@ -136,24 +136,24 @@
 	};
 	1870C954109857FC006AC809 /* ConnectionController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1859, 7371}}";
-			sepNavSelRange = "{10506, 0}";
-			sepNavVisRange = "{9968, 728}";
+			sepNavIntBoundsRect = "{{0, 0}, {1859, 7124}}";
+			sepNavSelRange = "{16305, 0}";
+			sepNavVisRange = "{16358, 983}";
 			sepNavWindowFrame = "{{61, 7}, {1414, 1124}}";
 		};
 	};
 	1870C9E410985B2D006AC809 /* QueryController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1542, 1885}}";
-			sepNavSelRange = "{428, 19}";
-			sepNavVisRange = "{0, 2205}";
+			sepNavIntBoundsRect = "{{0, 0}, {1542, 1794}}";
+			sepNavSelRange = "{5677, 0}";
+			sepNavVisRange = "{3276, 2106}";
 		};
 	};
 	1870C9E510985B2D006AC809 /* QueryController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1542, 7735}}";
-			sepNavSelRange = "{18969, 0}";
-			sepNavVisRange = "{7102, 1410}";
+			sepNavIntBoundsRect = "{{0, 0}, {1859, 7293}}";
+			sepNavSelRange = "{961, 0}";
+			sepNavVisRange = "{518, 545}";
 			sepNavWindowFrame = "{{15, 49}, {1414, 1124}}";
 		};
 	};
@@ -174,9 +174,10 @@
 	};
 	1870CA90109864E2006AC809 /* QueryController+SyntaxHighlight.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1600, 11193}}";
-			sepNavSelRange = "{28836, 0}";
-			sepNavVisRange = "{26184, 2178}";
+			sepNavIntBoundsRect = "{{0, 0}, {1542, 11128}}";
+			sepNavSelRange = "{24517, 8}";
+			sepNavVisRange = "{23644, 2170}";
+			sepNavWindowFrame = "{{38, 28}, {1414, 1124}}";
 		};
 	};
 	1870CA92109864E2006AC809 /* NSArray+Color.m */ = {
@@ -203,9 +204,9 @@
 	};
 	1870CB9510987B47006AC809 /* TdsConnection.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1859, 5980}}";
-			sepNavSelRange = "{9226, 0}";
-			sepNavVisRange = "{9326, 488}";
+			sepNavIntBoundsRect = "{{0, 0}, {1859, 6110}}";
+			sepNavSelRange = "{2470, 0}";
+			sepNavVisRange = "{1976, 1072}";
 			sepNavWindowFrame = "{{15, 49}, {1414, 1124}}";
 		};
 	};
@@ -1793,7 +1794,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 230";
 		rLen = 156;
-		rLoc = 7053;
+		rLoc = 7055;
 		rType = 0;
 		vrLen = 1891;
 		vrLoc = 5851;
@@ -1803,7 +1804,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 230";
 		rLen = 0;
-		rLoc = 7183;
+		rLoc = 7185;
 		rType = 0;
 		vrLen = 1891;
 		vrLoc = 5851;
@@ -1843,7 +1844,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 130";
 		rLen = 0;
-		rLoc = 5284;
+		rLoc = 5280;
 		rType = 0;
 		vrLen = 2788;
 		vrLoc = 287;
@@ -1853,7 +1854,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 131";
 		rLen = 0;
-		rLoc = 5308;
+		rLoc = 5304;
 		rType = 0;
 		vrLen = 2788;
 		vrLoc = 369;
@@ -1863,7 +1864,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 125";
 		rLen = 0;
-		rLoc = 5205;
+		rLoc = 5201;
 		rType = 0;
 		vrLen = 2788;
 		vrLoc = 533;
@@ -1873,7 +1874,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 126";
 		rLen = 0;
-		rLoc = 5206;
+		rLoc = 5202;
 		rType = 0;
 		vrLen = 2788;
 		vrLoc = 820;
@@ -1883,7 +1884,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 126";
 		rLen = 0;
-		rLoc = 5206;
+		rLoc = 5202;
 		rType = 0;
 		vrLen = 2478;
 		vrLoc = 527;
@@ -1903,7 +1904,7 @@
 		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
 		name = "QueryController.h: 130";
 		rLen = 0;
-		rLoc = 5284;
+		rLoc = 5280;
 		rType = 0;
 		vrLen = 662;
 		vrLoc = 179;
@@ -1922,7 +1923,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 235";
 		rLen = 0;
-		rLoc = 7212;
+		rLoc = 7214;
 		rType = 0;
 		vrLen = 743;
 		vrLoc = 6494;
@@ -1942,7 +1943,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 219";
 		rLen = 0;
-		rLoc = 6808;
+		rLoc = 6810;
 		rType = 0;
 		vrLen = 1843;
 		vrLoc = 5851;
@@ -1952,7 +1953,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 306";
 		rLen = 0;
-		rLoc = 9379;
+		rLoc = 9381;
 		rType = 0;
 		vrLen = 2026;
 		vrLoc = 7285;
@@ -1962,7 +1963,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 313";
 		rLen = 0;
-		rLoc = 9444;
+		rLoc = 9446;
 		rType = 0;
 		vrLen = 2025;
 		vrLoc = 7341;
@@ -1972,7 +1973,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 321";
 		rLen = 0;
-		rLoc = 9745;
+		rLoc = 9747;
 		rType = 0;
 		vrLen = 2073;
 		vrLoc = 7583;
@@ -1982,7 +1983,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 331";
 		rLen = 0;
-		rLoc = 10327;
+		rLoc = 10329;
 		rType = 0;
 		vrLen = 2273;
 		vrLoc = 7719;
@@ -1992,7 +1993,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 332";
 		rLen = 0;
-		rLoc = 10368;
+		rLoc = 10370;
 		rType = 0;
 		vrLen = 2313;
 		vrLoc = 7784;
@@ -2002,7 +2003,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 337";
 		rLen = 0;
-		rLoc = 10428;
+		rLoc = 10430;
 		rType = 0;
 		vrLen = 2313;
 		vrLoc = 7844;
@@ -2012,7 +2013,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 258";
 		rLen = 0;
-		rLoc = 7891;
+		rLoc = 7893;
 		rType = 0;
 		vrLen = 2299;
 		vrLoc = 7800;
@@ -2022,7 +2023,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 368";
 		rLen = 0;
-		rLoc = 11821;
+		rLoc = 11823;
 		rType = 0;
 		vrLen = 2393;
 		vrLoc = 7795;
@@ -2032,7 +2033,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 368";
 		rLen = 0;
-		rLoc = 11824;
+		rLoc = 11826;
 		rType = 0;
 		vrLen = 2293;
 		vrLoc = 7971;
@@ -2042,7 +2043,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 368";
 		rLen = 0;
-		rLoc = 11824;
+		rLoc = 11826;
 		rType = 0;
 		vrLen = 2293;
 		vrLoc = 7971;
@@ -2052,7 +2053,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 368";
 		rLen = 0;
-		rLoc = 11824;
+		rLoc = 11826;
 		rType = 0;
 		vrLen = 838;
 		vrLoc = 7971;
@@ -2089,7 +2090,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 262";
 		rLen = 0;
-		rLoc = 8085;
+		rLoc = 8087;
 		rType = 0;
 		vrLen = 2490;
 		vrLoc = 7261;
@@ -2099,7 +2100,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 262";
 		rLen = 0;
-		rLoc = 8085;
+		rLoc = 8087;
 		rType = 0;
 		vrLen = 2490;
 		vrLoc = 7261;
@@ -2109,7 +2110,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 368";
 		rLen = 0;
-		rLoc = 11827;
+		rLoc = 11829;
 		rType = 0;
 		vrLen = 2284;
 		vrLoc = 7718;
@@ -2119,7 +2120,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 368";
 		rLen = 0;
-		rLoc = 11827;
+		rLoc = 11829;
 		rType = 0;
 		vrLen = 952;
 		vrLoc = 7286;
@@ -2129,7 +2130,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 368";
 		rLen = 0;
-		rLoc = 11827;
+		rLoc = 11829;
 		rType = 0;
 		vrLen = 952;
 		vrLoc = 7286;
@@ -2139,7 +2140,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 368";
 		rLen = 0;
-		rLoc = 11827;
+		rLoc = 11829;
 		rType = 0;
 		vrLen = 2446;
 		vrLoc = 6534;
@@ -2149,7 +2150,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 368";
 		rLen = 0;
-		rLoc = 11827;
+		rLoc = 11829;
 		rType = 0;
 		vrLen = 2341;
 		vrLoc = 6639;
@@ -2166,7 +2167,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 129";
 		rLen = 16;
-		rLoc = 3913;
+		rLoc = 3915;
 		rType = 0;
 		vrLen = 955;
 		vrLoc = 3081;
@@ -2185,7 +2186,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 122";
 		rLen = 0;
-		rLoc = 3662;
+		rLoc = 3664;
 		rType = 0;
 		vrLen = 2333;
 		vrLoc = 2684;
@@ -2195,7 +2196,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 375";
 		rLen = 0;
-		rLoc = 12028;
+		rLoc = 12030;
 		rType = 0;
 		vrLen = 2163;
 		vrLoc = 2882;
@@ -2205,7 +2206,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 375";
 		rLen = 0;
-		rLoc = 12028;
+		rLoc = 12030;
 		rType = 0;
 		vrLen = 2163;
 		vrLoc = 2882;
@@ -2215,7 +2216,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 375";
 		rLen = 0;
-		rLoc = 12028;
+		rLoc = 12030;
 		rType = 0;
 		vrLen = 1017;
 		vrLoc = 3019;
@@ -2225,7 +2226,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 375";
 		rLen = 0;
-		rLoc = 12028;
+		rLoc = 12030;
 		rType = 0;
 		vrLen = 2164;
 		vrLoc = 2882;
@@ -2235,7 +2236,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 378";
 		rLen = 0;
-		rLoc = 12136;
+		rLoc = 12138;
 		rType = 0;
 		vrLen = 2191;
 		vrLoc = 2933;
@@ -2245,7 +2246,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 411";
 		rLen = 0;
-		rLoc = 13459;
+		rLoc = 13461;
 		rType = 0;
 		vrLen = 2263;
 		vrLoc = 3019;
@@ -2255,7 +2256,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 426";
 		rLen = 0;
-		rLoc = 13849;
+		rLoc = 13851;
 		rType = 0;
 		vrLen = 2260;
 		vrLoc = 3192;
@@ -2265,7 +2266,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 428";
 		rLen = 0;
-		rLoc = 13883;
+		rLoc = 13885;
 		rType = 0;
 		vrLen = 2174;
 		vrLoc = 3280;
@@ -2275,7 +2276,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 429";
 		rLen = 0;
-		rLoc = 13932;
+		rLoc = 13934;
 		rType = 0;
 		vrLen = 2174;
 		vrLoc = 3280;
@@ -2285,7 +2286,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 441";
 		rLen = 0;
-		rLoc = 14343;
+		rLoc = 14345;
 		rType = 0;
 		vrLen = 2174;
 		vrLoc = 3280;
@@ -2295,7 +2296,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 441";
 		rLen = 0;
-		rLoc = 14343;
+		rLoc = 14345;
 		rType = 0;
 		vrLen = 2174;
 		vrLoc = 3280;
@@ -2314,7 +2315,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 241";
 		rLen = 0;
-		rLoc = 7212;
+		rLoc = 7214;
 		rType = 0;
 		vrLen = 2418;
 		vrLoc = 5807;
@@ -2324,7 +2325,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 441";
 		rLen = 0;
-		rLoc = 14343;
+		rLoc = 14345;
 		rType = 0;
 		vrLen = 2029;
 		vrLoc = 3425;
@@ -2334,7 +2335,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 441";
 		rLen = 0;
-		rLoc = 14343;
+		rLoc = 14345;
 		rType = 0;
 		vrLen = 2029;
 		vrLoc = 3425;
@@ -2344,7 +2345,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 441";
 		rLen = 0;
-		rLoc = 14343;
+		rLoc = 14345;
 		rType = 0;
 		vrLen = 1000;
 		vrLoc = 3425;
@@ -2354,7 +2355,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 441";
 		rLen = 0;
-		rLoc = 14343;
+		rLoc = 14345;
 		rType = 0;
 		vrLen = 2026;
 		vrLoc = 728;
@@ -2364,7 +2365,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 439";
 		rLen = 0;
-		rLoc = 14197;
+		rLoc = 14199;
 		rType = 0;
 		vrLen = 2049;
 		vrLoc = 930;
@@ -2374,7 +2375,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 439";
 		rLen = 0;
-		rLoc = 14197;
+		rLoc = 14199;
 		rType = 0;
 		vrLen = 2049;
 		vrLoc = 930;
@@ -2384,7 +2385,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 439";
 		rLen = 0;
-		rLoc = 14197;
+		rLoc = 14199;
 		rType = 0;
 		vrLen = 718;
 		vrLoc = 2260;
@@ -2394,7 +2395,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 439";
 		rLen = 0;
-		rLoc = 14197;
+		rLoc = 14199;
 		rType = 0;
 		vrLen = 2049;
 		vrLoc = 930;
@@ -2404,7 +2405,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 337";
 		rLen = 0;
-		rLoc = 10727;
+		rLoc = 10729;
 		rType = 0;
 		vrLen = 2111;
 		vrLoc = 10081;
@@ -2414,7 +2415,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 337";
 		rLen = 0;
-		rLoc = 10727;
+		rLoc = 10729;
 		rType = 0;
 		vrLen = 2111;
 		vrLoc = 10081;
@@ -2424,7 +2425,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 337";
 		rLen = 0;
-		rLoc = 10727;
+		rLoc = 10729;
 		rType = 0;
 		vrLen = 2161;
 		vrLoc = 10090;
@@ -2434,7 +2435,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 337";
 		rLen = 0;
-		rLoc = 10727;
+		rLoc = 10729;
 		rType = 0;
 		vrLen = 2104;
 		vrLoc = 10089;
@@ -2444,7 +2445,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 337";
 		rLen = 0;
-		rLoc = 10727;
+		rLoc = 10729;
 		rType = 0;
 		vrLen = 2206;
 		vrLoc = 10090;
@@ -2454,7 +2455,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 337";
 		rLen = 0;
-		rLoc = 10727;
+		rLoc = 10729;
 		rType = 0;
 		vrLen = 2206;
 		vrLoc = 10090;
@@ -2464,7 +2465,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 441";
 		rLen = 0;
-		rLoc = 14312;
+		rLoc = 14314;
 		rType = 0;
 		vrLen = 2457;
 		vrLoc = 9455;
@@ -2474,7 +2475,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 442";
 		rLen = 0;
-		rLoc = 14409;
+		rLoc = 14411;
 		rType = 0;
 		vrLen = 2098;
 		vrLoc = 9084;
@@ -2484,7 +2485,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 442";
 		rLen = 0;
-		rLoc = 14409;
+		rLoc = 14411;
 		rType = 0;
 		vrLen = 2202;
 		vrLoc = 9108;
@@ -2494,7 +2495,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 442";
 		rLen = 0;
-		rLoc = 14409;
+		rLoc = 14411;
 		rType = 0;
 		vrLen = 1025;
 		vrLoc = 12813;
@@ -2504,7 +2505,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 442";
 		rLen = 0;
-		rLoc = 14409;
+		rLoc = 14411;
 		rType = 0;
 		vrLen = 2137;
 		vrLoc = 12154;
@@ -2514,7 +2515,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 443";
 		rLen = 0;
-		rLoc = 14446;
+		rLoc = 14448;
 		rType = 0;
 		vrLen = 2371;
 		vrLoc = 11198;
@@ -2524,7 +2525,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 443";
 		rLen = 0;
-		rLoc = 14446;
+		rLoc = 14448;
 		rType = 0;
 		vrLen = 2371;
 		vrLoc = 11198;
@@ -2534,7 +2535,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 445";
 		rLen = 0;
-		rLoc = 14476;
+		rLoc = 14478;
 		rType = 0;
 		vrLen = 2234;
 		vrLoc = 10596;
@@ -2544,7 +2545,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 443";
 		rLen = 0;
-		rLoc = 14449;
+		rLoc = 14451;
 		rType = 0;
 		vrLen = 1920;
 		vrLoc = 9270;
@@ -2554,7 +2555,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 450";
 		rLen = 0;
-		rLoc = 14718;
+		rLoc = 14720;
 		rType = 0;
 		vrLen = 2101;
 		vrLoc = 9390;
@@ -2564,7 +2565,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 450";
 		rLen = 0;
-		rLoc = 14718;
+		rLoc = 14720;
 		rType = 0;
 		vrLen = 1271;
 		vrLoc = 11343;
@@ -2584,7 +2585,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 102";
 		rLen = 0;
-		rLoc = 2972;
+		rLoc = 2974;
 		rType = 0;
 		vrLen = 2521;
 		vrLoc = 2045;
@@ -2594,7 +2595,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 102";
 		rLen = 0;
-		rLoc = 2972;
+		rLoc = 2974;
 		rType = 0;
 		vrLen = 2400;
 		vrLoc = 2167;
@@ -2604,7 +2605,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 102";
 		rLen = 0;
-		rLoc = 2972;
+		rLoc = 2974;
 		rType = 0;
 		vrLen = 2400;
 		vrLoc = 2167;
@@ -2614,7 +2615,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 450";
 		rLen = 0;
-		rLoc = 14730;
+		rLoc = 14732;
 		rType = 0;
 		vrLen = 2231;
 		vrLoc = 2648;
@@ -2624,7 +2625,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 451";
 		rLen = 0;
-		rLoc = 14775;
+		rLoc = 14777;
 		rType = 0;
 		vrLen = 2112;
 		vrLoc = 3597;
@@ -2634,7 +2635,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 451";
 		rLen = 0;
-		rLoc = 14775;
+		rLoc = 14777;
 		rType = 0;
 		vrLen = 2112;
 		vrLoc = 3630;
@@ -2644,7 +2645,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 451";
 		rLen = 0;
-		rLoc = 14799;
+		rLoc = 14801;
 		rType = 0;
 		vrLen = 2086;
 		vrLoc = 3542;
@@ -2663,7 +2664,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 104";
 		rLen = 0;
-		rLoc = 2980;
+		rLoc = 2982;
 		rType = 0;
 		vrLen = 693;
 		vrLoc = 2538;
@@ -2673,7 +2674,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 104";
 		rLen = 0;
-		rLoc = 2980;
+		rLoc = 2982;
 		rType = 0;
 		vrLen = 2405;
 		vrLoc = 1733;
@@ -2683,7 +2684,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 104";
 		rLen = 0;
-		rLoc = 2980;
+		rLoc = 2982;
 		rType = 0;
 		vrLen = 2405;
 		vrLoc = 1733;
@@ -2693,7 +2694,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 451";
 		rLen = 0;
-		rLoc = 14787;
+		rLoc = 14789;
 		rType = 0;
 		vrLen = 976;
 		vrLoc = 2004;
@@ -2703,7 +2704,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 270";
 		rLen = 0;
-		rLoc = 8352;
+		rLoc = 8354;
 		rType = 0;
 		vrLen = 2353;
 		vrLoc = 6532;
@@ -2713,7 +2714,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 270";
 		rLen = 0;
-		rLoc = 8352;
+		rLoc = 8354;
 		rType = 0;
 		vrLen = 2284;
 		vrLoc = 6646;
@@ -2723,7 +2724,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 270";
 		rLen = 0;
-		rLoc = 8352;
+		rLoc = 8354;
 		rType = 0;
 		vrLen = 2239;
 		vrLoc = 6646;
@@ -2733,7 +2734,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 270";
 		rLen = 0;
-		rLoc = 8352;
+		rLoc = 8354;
 		rType = 0;
 		vrLen = 829;
 		vrLoc = 6646;
@@ -2743,7 +2744,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 249";
 		rLen = 0;
-		rLoc = 7541;
+		rLoc = 7543;
 		rType = 0;
 		vrLen = 2329;
 		vrLoc = 6683;
@@ -2753,7 +2754,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 249";
 		rLen = 0;
-		rLoc = 7541;
+		rLoc = 7543;
 		rType = 0;
 		vrLen = 2329;
 		vrLoc = 6683;
@@ -2763,7 +2764,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 249";
 		rLen = 0;
-		rLoc = 7541;
+		rLoc = 7543;
 		rType = 0;
 		vrLen = 2329;
 		vrLoc = 6683;
@@ -2773,7 +2774,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 249";
 		rLen = 0;
-		rLoc = 7541;
+		rLoc = 7543;
 		rType = 0;
 		vrLen = 2329;
 		vrLoc = 6683;
@@ -2783,7 +2784,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 249";
 		rLen = 0;
-		rLoc = 7541;
+		rLoc = 7543;
 		rType = 0;
 		vrLen = 2329;
 		vrLoc = 6683;
@@ -2793,7 +2794,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 249";
 		rLen = 0;
-		rLoc = 7541;
+		rLoc = 7543;
 		rType = 0;
 		vrLen = 2480;
 		vrLoc = 7023;
@@ -2803,7 +2804,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 249";
 		rLen = 0;
-		rLoc = 7541;
+		rLoc = 7543;
 		rType = 0;
 		vrLen = 2456;
 		vrLoc = 7023;
@@ -2813,7 +2814,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 457";
 		rLen = 0;
-		rLoc = 14998;
+		rLoc = 15000;
 		rType = 0;
 		vrLen = 2112;
 		vrLoc = 7689;
@@ -2823,7 +2824,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 457";
 		rLen = 0;
-		rLoc = 14986;
+		rLoc = 14988;
 		rType = 0;
 		vrLen = 2562;
 		vrLoc = 7780;
@@ -2833,7 +2834,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 458";
 		rLen = 0;
-		rLoc = 15040;
+		rLoc = 15042;
 		rType = 0;
 		vrLen = 2145;
 		vrLoc = 8613;
@@ -2843,7 +2844,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 459";
 		rLen = 0;
-		rLoc = 15101;
+		rLoc = 15103;
 		rType = 0;
 		vrLen = 2260;
 		vrLoc = 8637;
@@ -2853,7 +2854,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 470";
 		rLen = 0;
-		rLoc = 15375;
+		rLoc = 15377;
 		rType = 0;
 		vrLen = 2112;
 		vrLoc = 8877;
@@ -2863,7 +2864,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 472";
 		rLen = 0;
-		rLoc = 15447;
+		rLoc = 15449;
 		rType = 0;
 		vrLen = 2274;
 		vrLoc = 8957;
@@ -2873,7 +2874,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 477";
 		rLen = 0;
-		rLoc = 15706;
+		rLoc = 15723;
 		rType = 0;
 		vrLen = 2112;
 		vrLoc = 9141;
@@ -2900,35 +2901,17 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 477";
 		rLen = 0;
-		rLoc = 15706;
+		rLoc = 15723;
 		rType = 0;
 		vrLen = 699;
 		vrLoc = 0;
-	};
-	187FD10F10B99BC800471B6A /* TdsConnection.m:84 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 1870CB9510987B47006AC809 /* TdsConnection.m */;
-		functionName = "err_handler()";
-		hitCount = 0;
-		ignoreCount = 0;
-		lineNumber = 84;
-		location = Tests;
-		modificationTime = 280612880.573592;
-		originalNumberOfMultipleMatches = 1;
-		state = 0;
 	};
 	187FD11110B99BD000471B6A /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 477";
 		rLen = 0;
-		rLoc = 15706;
+		rLoc = 15723;
 		rType = 0;
 		vrLen = 1539;
 		vrLoc = 0;
@@ -2988,7 +2971,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 477";
 		rLen = 0;
-		rLoc = 15706;
+		rLoc = 15723;
 		rType = 0;
 		vrLen = 699;
 		vrLoc = 0;
@@ -3076,7 +3059,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 1;
-		rLoc = 502;
+		rLoc = 503;
 		rType = 1;
 	};
 	187FD13310B9A3D400471B6A /* PBXTextBookmark */ = {
@@ -3084,7 +3067,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 503";
 		rLen = 5;
-		rLoc = 16321;
+		rLoc = 16645;
 		rType = 0;
 		vrLen = 1807;
 		vrLoc = 14540;
@@ -3094,7 +3077,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 503";
 		rLen = 5;
-		rLoc = 16321;
+		rLoc = 16645;
 		rType = 0;
 		vrLen = 1778;
 		vrLoc = 14569;
@@ -3104,7 +3087,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 503";
 		rLen = 5;
-		rLoc = 16321;
+		rLoc = 16645;
 		rType = 0;
 		vrLen = 1778;
 		vrLoc = 14569;
@@ -3114,7 +3097,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 504";
 		rLen = 0;
-		rLoc = 16329;
+		rLoc = 16653;
 		rType = 0;
 		vrLen = 1778;
 		vrLoc = 14569;
@@ -3124,7 +3107,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 528";
 		rLen = 0;
-		rLoc = 16877;
+		rLoc = 17201;
 		rType = 0;
 		vrLen = 1848;
 		vrLoc = 13992;
@@ -3144,7 +3127,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 528";
 		rLen = 0;
-		rLoc = 16877;
+		rLoc = 17201;
 		rType = 0;
 		vrLen = 786;
 		vrLoc = 15596;
@@ -3154,7 +3137,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 528";
 		rLen = 0;
-		rLoc = 16877;
+		rLoc = 17201;
 		rType = 0;
 		vrLen = 1863;
 		vrLoc = 15021;
@@ -3164,7 +3147,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 528";
 		rLen = 0;
-		rLoc = 16877;
+		rLoc = 17201;
 		rType = 0;
 		vrLen = 1799;
 		vrLoc = 15082;
@@ -3174,7 +3157,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 528";
 		rLen = 0;
-		rLoc = 16877;
+		rLoc = 17201;
 		rType = 0;
 		vrLen = 1799;
 		vrLoc = 15082;
@@ -3184,7 +3167,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 527";
 		rLen = 0;
-		rLoc = 16888;
+		rLoc = 17212;
 		rType = 0;
 		vrLen = 1731;
 		vrLoc = 14820;
@@ -3194,7 +3177,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 527";
 		rLen = 0;
-		rLoc = 16879;
+		rLoc = 17203;
 		rType = 0;
 		vrLen = 1782;
 		vrLoc = 14025;
@@ -3204,7 +3187,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 527";
 		rLen = 0;
-		rLoc = 16879;
+		rLoc = 17203;
 		rType = 0;
 		vrLen = 739;
 		vrLoc = 15763;
@@ -3224,7 +3207,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 212";
 		rLen = 44;
-		rLoc = 6460;
+		rLoc = 6462;
 		rType = 0;
 		vrLen = 1347;
 		vrLoc = 5657;
@@ -3264,7 +3247,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 205";
 		rLen = 0;
-		rLoc = 6322;
+		rLoc = 6324;
 		rType = 0;
 		vrLen = 1347;
 		vrLoc = 5657;
@@ -3274,7 +3257,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 205";
 		rLen = 0;
-		rLoc = 6322;
+		rLoc = 6324;
 		rType = 0;
 		vrLen = 1347;
 		vrLoc = 5657;
@@ -3284,7 +3267,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 205";
 		rLen = 0;
-		rLoc = 6322;
+		rLoc = 6324;
 		rType = 0;
 		vrLen = 1347;
 		vrLoc = 5657;
@@ -3294,7 +3277,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 213";
 		rLen = 0;
-		rLoc = 6506;
+		rLoc = 6508;
 		rType = 0;
 		vrLen = 1317;
 		vrLoc = 5715;
@@ -3304,7 +3287,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 213";
 		rLen = 0;
-		rLoc = 6506;
+		rLoc = 6508;
 		rType = 0;
 		vrLen = 1317;
 		vrLoc = 5715;
@@ -3314,7 +3297,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 213";
 		rLen = 0;
-		rLoc = 6506;
+		rLoc = 6508;
 		rType = 0;
 		vrLen = 1317;
 		vrLoc = 5715;
@@ -3324,7 +3307,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 532";
 		rLen = 0;
-		rLoc = 16980;
+		rLoc = 17304;
 		rType = 0;
 		vrLen = 1357;
 		vrLoc = 5533;
@@ -3334,7 +3317,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 533";
 		rLen = 0;
-		rLoc = 17060;
+		rLoc = 17384;
 		rType = 0;
 		vrLen = 1377;
 		vrLoc = 5376;
@@ -3344,7 +3327,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 539";
 		rLen = 0;
-		rLoc = 17264;
+		rLoc = 17588;
 		rType = 0;
 		vrLen = 1728;
 		vrLoc = 4928;
@@ -3354,7 +3337,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 547";
 		rLen = 0;
-		rLoc = 17478;
+		rLoc = 17802;
 		rType = 0;
 		vrLen = 1728;
 		vrLoc = 4544;
@@ -3364,7 +3347,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 551";
 		rLen = 0;
-		rLoc = 17634;
+		rLoc = 17958;
 		rType = 0;
 		vrLen = 1728;
 		vrLoc = 4160;
@@ -3374,7 +3357,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 562";
 		rLen = 0;
-		rLoc = 18118;
+		rLoc = 18442;
 		rType = 0;
 		vrLen = 1728;
 		vrLoc = 3744;
@@ -3384,7 +3367,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 562";
 		rLen = 0;
-		rLoc = 18062;
+		rLoc = 18386;
 		rType = 0;
 		vrLen = 1916;
 		vrLoc = 3596;
@@ -3413,7 +3396,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 190";
 		rLen = 60;
-		rLoc = 6020;
+		rLoc = 6022;
 		rType = 0;
 		vrLen = 611;
 		vrLoc = 5700;
@@ -3423,7 +3406,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 190";
 		rLen = 60;
-		rLoc = 6020;
+		rLoc = 6022;
 		rType = 0;
 		vrLen = 1581;
 		vrLoc = 5082;
@@ -3433,7 +3416,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 190";
 		rLen = 60;
-		rLoc = 6020;
+		rLoc = 6022;
 		rType = 0;
 		vrLen = 1581;
 		vrLoc = 5082;
@@ -3443,7 +3426,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 189";
 		rLen = 57;
-		rLoc = 5939;
+		rLoc = 5941;
 		rType = 0;
 		vrLen = 1581;
 		vrLoc = 5082;
@@ -3453,7 +3436,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 189";
 		rLen = 57;
-		rLoc = 5939;
+		rLoc = 5941;
 		rType = 0;
 		vrLen = 1665;
 		vrLoc = 5082;
@@ -3463,7 +3446,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 171";
 		rLen = 0;
-		rLoc = 5336;
+		rLoc = 5338;
 		rType = 0;
 		vrLen = 758;
 		vrLoc = 5109;
@@ -3473,7 +3456,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 256";
 		rLen = 33;
-		rLoc = 7726;
+		rLoc = 7728;
 		rType = 0;
 		vrLen = 1259;
 		vrLoc = 7257;
@@ -3483,7 +3466,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 256";
 		rLen = 33;
-		rLoc = 7726;
+		rLoc = 7728;
 		rType = 0;
 		vrLen = 1258;
 		vrLoc = 7257;
@@ -3493,7 +3476,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 256";
 		rLen = 33;
-		rLoc = 7726;
+		rLoc = 7728;
 		rType = 0;
 		vrLen = 1258;
 		vrLoc = 7257;
@@ -3503,7 +3486,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 256";
 		rLen = 33;
-		rLoc = 7726;
+		rLoc = 7728;
 		rType = 0;
 		vrLen = 1284;
 		vrLoc = 7231;
@@ -3513,7 +3496,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 250";
 		rLen = 23;
-		rLoc = 7619;
+		rLoc = 7621;
 		rType = 0;
 		vrLen = 1325;
 		vrLoc = 6710;
@@ -3523,7 +3506,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 563";
 		rLen = 0;
-		rLoc = 18198;
+		rLoc = 18522;
 		rType = 0;
 		vrLen = 1367;
 		vrLoc = 6678;
@@ -3533,7 +3516,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 563";
 		rLen = 0;
-		rLoc = 18198;
+		rLoc = 18522;
 		rType = 0;
 		vrLen = 1367;
 		vrLoc = 6678;
@@ -3543,7 +3526,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 563";
 		rLen = 0;
-		rLoc = 18198;
+		rLoc = 18522;
 		rType = 0;
 		vrLen = 518;
 		vrLoc = 6678;
@@ -3553,7 +3536,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 256";
 		rLen = 0;
-		rLoc = 7774;
+		rLoc = 7776;
 		rType = 0;
 		vrLen = 1329;
 		vrLoc = 7036;
@@ -3563,7 +3546,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 239";
 		rLen = 0;
-		rLoc = 7347;
+		rLoc = 7349;
 		rType = 0;
 		vrLen = 1305;
 		vrLoc = 7108;
@@ -3573,7 +3556,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 239";
 		rLen = 0;
-		rLoc = 7347;
+		rLoc = 7349;
 		rType = 0;
 		vrLen = 1305;
 		vrLoc = 7108;
@@ -3583,7 +3566,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 239";
 		rLen = 0;
-		rLoc = 7347;
+		rLoc = 7349;
 		rType = 0;
 		vrLen = 1257;
 		vrLoc = 7108;
@@ -3593,7 +3576,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 563";
 		rLen = 0;
-		rLoc = 18209;
+		rLoc = 18533;
 		rType = 0;
 		vrLen = 1369;
 		vrLoc = 7077;
@@ -3603,7 +3586,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 563";
 		rLen = 0;
-		rLoc = 18209;
+		rLoc = 18533;
 		rType = 0;
 		vrLen = 1532;
 		vrLoc = 7153;
@@ -3613,7 +3596,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 563";
 		rLen = 0;
-		rLoc = 18214;
+		rLoc = 18538;
 		rType = 0;
 		vrLen = 1728;
 		vrLoc = 7136;
@@ -3623,7 +3606,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 563";
 		rLen = 0;
-		rLoc = 18216;
+		rLoc = 18540;
 		rType = 0;
 		vrLen = 1304;
 		vrLoc = 7077;
@@ -3633,7 +3616,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 564";
 		rLen = 0;
-		rLoc = 18278;
+		rLoc = 18602;
 		rType = 0;
 		vrLen = 1728;
 		vrLoc = 7008;
@@ -3643,7 +3626,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 564";
 		rLen = 0;
-		rLoc = 18278;
+		rLoc = 18602;
 		rType = 0;
 		vrLen = 1307;
 		vrLoc = 7098;
@@ -3653,7 +3636,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 564";
 		rLen = 0;
-		rLoc = 18278;
+		rLoc = 18602;
 		rType = 0;
 		vrLen = 1352;
 		vrLoc = 7139;
@@ -3663,7 +3646,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 564";
 		rLen = 0;
-		rLoc = 18278;
+		rLoc = 18602;
 		rType = 0;
 		vrLen = 1300;
 		vrLoc = 7215;
@@ -3673,7 +3656,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 585";
 		rLen = 0;
-		rLoc = 18937;
+		rLoc = 19261;
 		rType = 0;
 		vrLen = 1458;
 		vrLoc = 7072;
@@ -3683,7 +3666,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 586";
 		rLen = 0;
-		rLoc = 18969;
+		rLoc = 19293;
 		rType = 0;
 		vrLen = 1475;
 		vrLoc = 6995;
@@ -3693,7 +3676,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 586";
 		rLen = 0;
-		rLoc = 18969;
+		rLoc = 19293;
 		rType = 0;
 		vrLen = 1426;
 		vrLoc = 7050;
@@ -3703,10 +3686,592 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 586";
 		rLen = 0;
-		rLoc = 18969;
+		rLoc = 19293;
 		rType = 0;
 		vrLen = 1410;
 		vrLoc = 7102;
+	};
+	187FD1E810B9DDD400471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 519";
+		rLen = 0;
+		rLoc = 16661;
+		rType = 0;
+		vrLen = 1824;
+		vrLoc = 7456;
+	};
+	187FD1EB10B9DDFB00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 519";
+		rLen = 0;
+		rLoc = 16661;
+		rType = 0;
+		vrLen = 1824;
+		vrLoc = 7456;
+	};
+	187FD1F010B9DE5600471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 519";
+		rLen = 0;
+		rLoc = 16661;
+		rType = 0;
+		vrLen = 1824;
+		vrLoc = 7456;
+	};
+	187FD1F110B9DED000471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 519";
+		rLen = 0;
+		rLoc = 16673;
+		rType = 0;
+		vrLen = 1824;
+		vrLoc = 8000;
+	};
+	187FD1F210B9DED300471B6A /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Expected ']' before 'objectAtIndex'";
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 502;
+		rType = 1;
+	};
+	187FD1F310B9DED300471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 519";
+		rLen = 0;
+		rLoc = 16673;
+		rType = 0;
+		vrLen = 1061;
+		vrLoc = 15179;
+	};
+	187FD1F810B9DEF900471B6A /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "'NSArray' may not respond to '-addObject:'";
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 506;
+		rType = 1;
+	};
+	187FD1F910B9DEF900471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 495";
+		rLen = 0;
+		rLoc = 15581;
+		rType = 0;
+		vrLen = 1967;
+		vrLoc = 14395;
+	};
+	187FD1FC10B9DEFF00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 495";
+		rLen = 0;
+		rLoc = 15581;
+		rType = 0;
+		vrLen = 1916;
+		vrLoc = 14446;
+	};
+	187FD1FD10B9DF0400471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 495";
+		rLen = 0;
+		rLoc = 15581;
+		rType = 0;
+		vrLen = 1916;
+		vrLoc = 14446;
+	};
+	187FD20110B9DF1500471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 495";
+		rLen = 0;
+		rLoc = 15581;
+		rType = 0;
+		vrLen = 1919;
+		vrLoc = 14449;
+	};
+	187FD20510B9DF2900471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 495";
+		rLen = 0;
+		rLoc = 15581;
+		rType = 0;
+		vrLen = 1895;
+		vrLoc = 14449;
+	};
+	187FD20610B9E6B900471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 495";
+		rLen = 0;
+		rLoc = 15581;
+		rType = 0;
+		vrLen = 1725;
+		vrLoc = 14449;
+	};
+	187FD20910B9E6C300471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 495";
+		rLen = 0;
+		rLoc = 15581;
+		rType = 0;
+		vrLen = 1925;
+		vrLoc = 14449;
+	};
+	187FD21510B9E85600471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 495";
+		rLen = 0;
+		rLoc = 15581;
+		rType = 0;
+		vrLen = 2211;
+		vrLoc = 13997;
+	};
+	187FD21910B9E89300471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 495";
+		rLen = 0;
+		rLoc = 15581;
+		rType = 0;
+		vrLen = 2129;
+		vrLoc = 14076;
+	};
+	187FD21D10B9E8E500471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 495";
+		rLen = 0;
+		rLoc = 15581;
+		rType = 0;
+		vrLen = 2051;
+		vrLoc = 14164;
+	};
+	187FD21F10B9E92000471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 495";
+		rLen = 0;
+		rLoc = 15581;
+		rType = 0;
+		vrLen = 1728;
+		vrLoc = 13920;
+	};
+	187FD22210B9E92800471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 495";
+		rLen = 0;
+		rLoc = 15581;
+		rType = 0;
+		vrLen = 2025;
+		vrLoc = 14288;
+	};
+	187FD22610B9EBE100471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 530";
+		rLen = 0;
+		rLoc = 16854;
+		rType = 0;
+		vrLen = 1728;
+		vrLoc = 13792;
+	};
+	187FD22D10B9EC6700471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 530";
+		rLen = 0;
+		rLoc = 16854;
+		rType = 0;
+		vrLen = 1863;
+		vrLoc = 14035;
+	};
+	187FD23110B9ECCA00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 535";
+		rLen = 0;
+		rLoc = 16982;
+		rType = 0;
+		vrLen = 1831;
+		vrLoc = 13881;
+	};
+	187FD23710B9ED4800471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 540";
+		rLen = 0;
+		rLoc = 17105;
+		rType = 0;
+		vrLen = 1851;
+		vrLoc = 13799;
+	};
+	187FD23B10B9EDC100471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 540";
+		rLen = 0;
+		rLoc = 17135;
+		rType = 0;
+		vrLen = 1778;
+		vrLoc = 13599;
+	};
+	187FD24310B9EE7700471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 544";
+		rLen = 0;
+		rLoc = 17257;
+		rType = 0;
+		vrLen = 1860;
+		vrLoc = 13470;
+	};
+	187FD24910B9EFAA00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 544";
+		rLen = 0;
+		rLoc = 17257;
+		rType = 0;
+		vrLen = 1869;
+		vrLoc = 13470;
+	};
+	187FD25210B9EFD800471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 544";
+		rLen = 0;
+		rLoc = 17257;
+		rType = 0;
+		vrLen = 1828;
+		vrLoc = 13511;
+	};
+	187FD25610B9F00900471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 544";
+		rLen = 0;
+		rLoc = 17257;
+		rType = 0;
+		vrLen = 1828;
+		vrLoc = 13511;
+	};
+	187FD25710B9F08F00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 544";
+		rLen = 0;
+		rLoc = 17257;
+		rType = 0;
+		vrLen = 1828;
+		vrLoc = 13511;
+	};
+	187FD25A10B9F12800471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 549";
+		rLen = 0;
+		rLoc = 17369;
+		rType = 0;
+		vrLen = 1814;
+		vrLoc = 13264;
+	};
+	187FD25E10B9F1FA00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 549";
+		rLen = 0;
+		rLoc = 17369;
+		rType = 0;
+		vrLen = 1765;
+		vrLoc = 13316;
+	};
+	187FD26210B9F24D00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 549";
+		rLen = 0;
+		rLoc = 17369;
+		rType = 0;
+		vrLen = 1765;
+		vrLoc = 13316;
+	};
+	187FD26510B9F2C100471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 549";
+		rLen = 0;
+		rLoc = 17369;
+		rType = 0;
+		vrLen = 1736;
+		vrLoc = 13348;
+	};
+	187FD26D10B9F43900471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 550";
+		rLen = 0;
+		rLoc = 17468;
+		rType = 0;
+		vrLen = 1866;
+		vrLoc = 12937;
+	};
+	187FD27510B9F49300471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 551";
+		rLen = 0;
+		rLoc = 17468;
+		rType = 0;
+		vrLen = 1852;
+		vrLoc = 12954;
+	};
+	187FD27910B9F4CC00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 551";
+		rLen = 0;
+		rLoc = 17468;
+		rType = 0;
+		vrLen = 1852;
+		vrLoc = 12954;
+	};
+	187FD27C10B9F55F00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 552";
+		rLen = 0;
+		rLoc = 17468;
+		rType = 0;
+		vrLen = 1934;
+		vrLoc = 12869;
+	};
+	187FD27E10B9F56600471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 552";
+		rLen = 0;
+		rLoc = 17468;
+		rType = 0;
+		vrLen = 1934;
+		vrLoc = 12869;
+	};
+	187FD27F10B9F5C300471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 551";
+		rLen = 0;
+		rLoc = 17359;
+		rType = 0;
+		vrLen = 1760;
+		vrLoc = 12000;
+	};
+	187FD28210B9F5CB00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 552";
+		rLen = 0;
+		rLoc = 17360;
+		rType = 0;
+		vrLen = 1907;
+		vrLoc = 12557;
+	};
+	187FD28410B9F66D00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 552";
+		rLen = 0;
+		rLoc = 17360;
+		rType = 0;
+		vrLen = 1907;
+		vrLoc = 12557;
+	};
+	187FD28510B9F6AF00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C954109857FC006AC809 /* ConnectionController.m */;
+		name = "ConnectionController.m: 491";
+		rLen = 0;
+		rLoc = 16305;
+		rType = 0;
+		vrLen = 983;
+		vrLoc = 16358;
+	};
+	187FD28610B9F6AF00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870CA90109864E2006AC809 /* QueryController+SyntaxHighlight.m */;
+		name = "QueryController+SyntaxHighlight.m: 836";
+		rLen = 0;
+		rLoc = 28902;
+		rType = 0;
+		vrLen = 992;
+		vrLoc = 24146;
+	};
+	187FD28710B9F6AF00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
+		name = "QueryController.h: 41";
+		rLen = 0;
+		rLoc = 1259;
+		rType = 0;
+		vrLen = 1136;
+		vrLoc = 1148;
+	};
+	187FD28810B9F6AF00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 552";
+		rLen = 0;
+		rLoc = 17360;
+		rType = 0;
+		vrLen = 709;
+		vrLoc = 16648;
+	};
+	187FD28910B9F6AF00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870CB9510987B47006AC809 /* TdsConnection.m */;
+		rLen = 0;
+		rLoc = 83;
+		rType = 1;
+	};
+	187FD28A10B9F6AF00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870CB9510987B47006AC809 /* TdsConnection.m */;
+		name = "TdsConnection.m: 84";
+		rLen = 0;
+		rLoc = 2470;
+		rType = 0;
+		vrLen = 1072;
+		vrLoc = 1976;
+	};
+	187FD28B10B9F6B600471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 551";
+		rLen = 0;
+		rLoc = 17428;
+		rType = 0;
+		vrLen = 2104;
+		vrLoc = 12002;
+	};
+	187FD28C10B9F6B600471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870CB9510987B47006AC809 /* TdsConnection.m */;
+		name = "TdsConnection.m: 84";
+		rLen = 0;
+		rLoc = 2470;
+		rType = 0;
+		vrLen = 1741;
+		vrLoc = 1586;
+	};
+	187FD29010B9F6EF00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870CB9510987B47006AC809 /* TdsConnection.m */;
+		name = "TdsConnection.m: 84";
+		rLen = 0;
+		rLoc = 2470;
+		rType = 0;
+		vrLen = 1741;
+		vrLoc = 1586;
+	};
+	187FD29110B9F6EF00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870CA90109864E2006AC809 /* QueryController+SyntaxHighlight.m */;
+		name = "QueryController+SyntaxHighlight.m: 698";
+		rLen = 8;
+		rLoc = 24517;
+		rType = 0;
+		vrLen = 2170;
+		vrLoc = 23644;
+	};
+	187FD29210B9F6EF00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
+		name = "QueryController.m: 495";
+		rLen = 8;
+		rLoc = 15406;
+		rType = 0;
+		vrLen = 2083;
+		vrLoc = 14887;
+	};
+	187FD29310B9F6EF00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
+		rLen = 0;
+		rLoc = 3974;
+		rType = 0;
+	};
+	187FD29410B9F6EF00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
+		name = "QueryController.h: 120";
+		rLen = 107;
+		rLoc = 3974;
+		rType = 0;
+		vrLen = 2482;
+		vrLoc = 2914;
+	};
+	187FD29A10B9F6F500471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
+		name = "QueryController.h: 120";
+		rLen = 107;
+		rLoc = 3974;
+		rType = 0;
+		vrLen = 2481;
+		vrLoc = 2915;
+	};
+	187FD29B10B9F6F800471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
+		name = "QueryController.h: 120";
+		rLen = 107;
+		rLoc = 3974;
+		rType = 0;
+		vrLen = 2481;
+		vrLoc = 2915;
+	};
+	187FD2A310B9FBD400471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
+		name = "QueryController.h: 149";
+		rLen = 0;
+		rLoc = 5786;
+		rType = 0;
+		vrLen = 2106;
+		vrLoc = 3666;
+	};
+	187FD2A810B9FBEB00471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
+		name = "QueryController.h: 149";
+		rLen = 0;
+		rLoc = 5786;
+		rType = 0;
+		vrLen = 2579;
+		vrLoc = 3207;
+	};
+	187FD2AA10B9FC5300471B6A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1870C9E410985B2D006AC809 /* QueryController.h */;
+		name = "QueryController.h: 145";
+		rLen = 0;
+		rLoc = 5677;
+		rType = 0;
+		vrLen = 2106;
+		vrLoc = 3276;
 	};
 	1889F1DA10A83942006EBDEA /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -3808,7 +4373,7 @@
 		fRef = 1870C9E510985B2D006AC809 /* QueryController.m */;
 		name = "QueryController.m: 370";
 		rLen = 0;
-		rLoc = 10908;
+		rLoc = 10910;
 		rType = 0;
 		vrLen = 2280;
 		vrLoc = 8513;
@@ -3818,7 +4383,7 @@
 		fRef = 1870CA90109864E2006AC809 /* QueryController+SyntaxHighlight.m */;
 		name = "QueryController+SyntaxHighlight.m: 834";
 		rLen = 0;
-		rLoc = 28836;
+		rLoc = 28898;
 		rType = 0;
 		vrLen = 2178;
 		vrLoc = 26184;
@@ -4095,7 +4660,6 @@
 			8D1107260486CEB800E47090 /* Queries */,
 		);
 		breakpoints = (
-			187FD10F10B99BC800471B6A /* TdsConnection.m:84 */,
 		);
 		codeSenseManager = 184873B810983BA600A15FC7 /* Code sense */;
 		executables = (
@@ -4490,6 +5054,65 @@
 			187FD1D810B9CE7500471B6A /* PBXTextBookmark */ = 187FD1D810B9CE7500471B6A /* PBXTextBookmark */;
 			187FD1DE10B9CECD00471B6A /* PBXTextBookmark */ = 187FD1DE10B9CECD00471B6A /* PBXTextBookmark */;
 			187FD1E410B9D01300471B6A /* PBXTextBookmark */ = 187FD1E410B9D01300471B6A /* PBXTextBookmark */;
+			187FD1E810B9DDD400471B6A /* PBXTextBookmark */ = 187FD1E810B9DDD400471B6A /* PBXTextBookmark */;
+			187FD1EB10B9DDFB00471B6A /* PBXTextBookmark */ = 187FD1EB10B9DDFB00471B6A /* PBXTextBookmark */;
+			187FD1F010B9DE5600471B6A /* PBXTextBookmark */ = 187FD1F010B9DE5600471B6A /* PBXTextBookmark */;
+			187FD1F110B9DED000471B6A /* PBXTextBookmark */ = 187FD1F110B9DED000471B6A /* PBXTextBookmark */;
+			187FD1F210B9DED300471B6A /* XCBuildMessageTextBookmark */ = 187FD1F210B9DED300471B6A /* XCBuildMessageTextBookmark */;
+			187FD1F310B9DED300471B6A /* PBXTextBookmark */ = 187FD1F310B9DED300471B6A /* PBXTextBookmark */;
+			187FD1F810B9DEF900471B6A /* XCBuildMessageTextBookmark */ = 187FD1F810B9DEF900471B6A /* XCBuildMessageTextBookmark */;
+			187FD1F910B9DEF900471B6A /* PBXTextBookmark */ = 187FD1F910B9DEF900471B6A /* PBXTextBookmark */;
+			187FD1FC10B9DEFF00471B6A /* PBXTextBookmark */ = 187FD1FC10B9DEFF00471B6A /* PBXTextBookmark */;
+			187FD1FD10B9DF0400471B6A /* PBXTextBookmark */ = 187FD1FD10B9DF0400471B6A /* PBXTextBookmark */;
+			187FD20110B9DF1500471B6A /* PBXTextBookmark */ = 187FD20110B9DF1500471B6A /* PBXTextBookmark */;
+			187FD20510B9DF2900471B6A /* PBXTextBookmark */ = 187FD20510B9DF2900471B6A /* PBXTextBookmark */;
+			187FD20610B9E6B900471B6A /* PBXTextBookmark */ = 187FD20610B9E6B900471B6A /* PBXTextBookmark */;
+			187FD20910B9E6C300471B6A /* PBXTextBookmark */ = 187FD20910B9E6C300471B6A /* PBXTextBookmark */;
+			187FD21510B9E85600471B6A /* PBXTextBookmark */ = 187FD21510B9E85600471B6A /* PBXTextBookmark */;
+			187FD21910B9E89300471B6A /* PBXTextBookmark */ = 187FD21910B9E89300471B6A /* PBXTextBookmark */;
+			187FD21D10B9E8E500471B6A /* PBXTextBookmark */ = 187FD21D10B9E8E500471B6A /* PBXTextBookmark */;
+			187FD21F10B9E92000471B6A /* PBXTextBookmark */ = 187FD21F10B9E92000471B6A /* PBXTextBookmark */;
+			187FD22210B9E92800471B6A /* PBXTextBookmark */ = 187FD22210B9E92800471B6A /* PBXTextBookmark */;
+			187FD22610B9EBE100471B6A /* PBXTextBookmark */ = 187FD22610B9EBE100471B6A /* PBXTextBookmark */;
+			187FD22D10B9EC6700471B6A /* PBXTextBookmark */ = 187FD22D10B9EC6700471B6A /* PBXTextBookmark */;
+			187FD23110B9ECCA00471B6A /* PBXTextBookmark */ = 187FD23110B9ECCA00471B6A /* PBXTextBookmark */;
+			187FD23710B9ED4800471B6A /* PBXTextBookmark */ = 187FD23710B9ED4800471B6A /* PBXTextBookmark */;
+			187FD23B10B9EDC100471B6A /* PBXTextBookmark */ = 187FD23B10B9EDC100471B6A /* PBXTextBookmark */;
+			187FD24310B9EE7700471B6A /* PBXTextBookmark */ = 187FD24310B9EE7700471B6A /* PBXTextBookmark */;
+			187FD24910B9EFAA00471B6A /* PBXTextBookmark */ = 187FD24910B9EFAA00471B6A /* PBXTextBookmark */;
+			187FD25210B9EFD800471B6A /* PBXTextBookmark */ = 187FD25210B9EFD800471B6A /* PBXTextBookmark */;
+			187FD25610B9F00900471B6A /* PBXTextBookmark */ = 187FD25610B9F00900471B6A /* PBXTextBookmark */;
+			187FD25710B9F08F00471B6A /* PBXTextBookmark */ = 187FD25710B9F08F00471B6A /* PBXTextBookmark */;
+			187FD25A10B9F12800471B6A /* PBXTextBookmark */ = 187FD25A10B9F12800471B6A /* PBXTextBookmark */;
+			187FD25E10B9F1FA00471B6A /* PBXTextBookmark */ = 187FD25E10B9F1FA00471B6A /* PBXTextBookmark */;
+			187FD26210B9F24D00471B6A /* PBXTextBookmark */ = 187FD26210B9F24D00471B6A /* PBXTextBookmark */;
+			187FD26510B9F2C100471B6A /* PBXTextBookmark */ = 187FD26510B9F2C100471B6A /* PBXTextBookmark */;
+			187FD26D10B9F43900471B6A /* PBXTextBookmark */ = 187FD26D10B9F43900471B6A /* PBXTextBookmark */;
+			187FD27510B9F49300471B6A /* PBXTextBookmark */ = 187FD27510B9F49300471B6A /* PBXTextBookmark */;
+			187FD27910B9F4CC00471B6A /* PBXTextBookmark */ = 187FD27910B9F4CC00471B6A /* PBXTextBookmark */;
+			187FD27C10B9F55F00471B6A /* PBXTextBookmark */ = 187FD27C10B9F55F00471B6A /* PBXTextBookmark */;
+			187FD27E10B9F56600471B6A /* PBXTextBookmark */ = 187FD27E10B9F56600471B6A /* PBXTextBookmark */;
+			187FD27F10B9F5C300471B6A /* PBXTextBookmark */ = 187FD27F10B9F5C300471B6A /* PBXTextBookmark */;
+			187FD28210B9F5CB00471B6A /* PBXTextBookmark */ = 187FD28210B9F5CB00471B6A /* PBXTextBookmark */;
+			187FD28410B9F66D00471B6A /* PBXTextBookmark */ = 187FD28410B9F66D00471B6A /* PBXTextBookmark */;
+			187FD28510B9F6AF00471B6A /* PBXTextBookmark */ = 187FD28510B9F6AF00471B6A /* PBXTextBookmark */;
+			187FD28610B9F6AF00471B6A /* PBXTextBookmark */ = 187FD28610B9F6AF00471B6A /* PBXTextBookmark */;
+			187FD28710B9F6AF00471B6A /* PBXTextBookmark */ = 187FD28710B9F6AF00471B6A /* PBXTextBookmark */;
+			187FD28810B9F6AF00471B6A /* PBXTextBookmark */ = 187FD28810B9F6AF00471B6A /* PBXTextBookmark */;
+			187FD28910B9F6AF00471B6A /* PBXTextBookmark */ = 187FD28910B9F6AF00471B6A /* PBXTextBookmark */;
+			187FD28A10B9F6AF00471B6A /* PBXTextBookmark */ = 187FD28A10B9F6AF00471B6A /* PBXTextBookmark */;
+			187FD28B10B9F6B600471B6A /* PBXTextBookmark */ = 187FD28B10B9F6B600471B6A /* PBXTextBookmark */;
+			187FD28C10B9F6B600471B6A /* PBXTextBookmark */ = 187FD28C10B9F6B600471B6A /* PBXTextBookmark */;
+			187FD29010B9F6EF00471B6A /* PBXTextBookmark */ = 187FD29010B9F6EF00471B6A /* PBXTextBookmark */;
+			187FD29110B9F6EF00471B6A /* PBXTextBookmark */ = 187FD29110B9F6EF00471B6A /* PBXTextBookmark */;
+			187FD29210B9F6EF00471B6A /* PBXTextBookmark */ = 187FD29210B9F6EF00471B6A /* PBXTextBookmark */;
+			187FD29310B9F6EF00471B6A /* PBXTextBookmark */ = 187FD29310B9F6EF00471B6A /* PBXTextBookmark */;
+			187FD29410B9F6EF00471B6A /* PBXTextBookmark */ = 187FD29410B9F6EF00471B6A /* PBXTextBookmark */;
+			187FD29A10B9F6F500471B6A /* PBXTextBookmark */ = 187FD29A10B9F6F500471B6A /* PBXTextBookmark */;
+			187FD29B10B9F6F800471B6A /* PBXTextBookmark */ = 187FD29B10B9F6F800471B6A /* PBXTextBookmark */;
+			187FD2A310B9FBD400471B6A /* PBXTextBookmark */ = 187FD2A310B9FBD400471B6A /* PBXTextBookmark */;
+			187FD2A810B9FBEB00471B6A /* PBXTextBookmark */ = 187FD2A810B9FBEB00471B6A /* PBXTextBookmark */;
+			187FD2AA10B9FC5300471B6A /* PBXTextBookmark */ = 187FD2AA10B9FC5300471B6A /* PBXTextBookmark */;
 			1889F1DA10A83942006EBDEA = 1889F1DA10A83942006EBDEA /* PBXTextBookmark */;
 			18AC0A40109DC785009BEE57 = 18AC0A40109DC785009BEE57 /* PBXTextBookmark */;
 			18AC847B10ADE0F10054E533 = 18AC847B10ADE0F10054E533 /* PBXTextBookmark */;

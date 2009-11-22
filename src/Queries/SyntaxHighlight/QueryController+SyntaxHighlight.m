@@ -670,8 +670,8 @@
 		[syntaxColoringStatus setStringValue: [NSString stringWithFormat: @"char %u to %u, line %u (char %u to %u in document)", startChLine, endChLine, lineNo, startCh, endCh]];
 	}
 	
-	//[selectionKindImage setImage: img];
-	
+	//[selectionKindImage setImage: img];    
+ 	
 	return newSelectedCharRange;
 }
 
