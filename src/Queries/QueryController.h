@@ -18,18 +18,28 @@
 
 	IBOutlet NSTabView *resultsTabView;
 	IBOutlet NSView *resultsContentView;
+	IBOutlet NSView *queryTextContentView;
 	IBOutlet NSSegmentedControl *resultsMessagesSegmentedControll;
 	IBOutlet NSTextView	*queryText;
-	IBOutlet NSTextView	*messagesTextView;
-	IBOutlet NSTableView *resultsTableView;
-	IBOutlet NSTableView *tableView;
-	IBOutlet NSBox *resultsCountBox;
-	IBOutlet NSTextField *resultsCountLabel;	
+	IBOutlet NSTextView	*messagesTextView; 
+	
+	//IBOutlet NSTableView *resultsTableView;
+	//IBOutlet NSTableView *tableView;
+	
+	//IBOutlet NSBox *resultsCountBox;
+	//IBOutlet NSTextField *resultsCountLabel;	
 	IBOutlet NSScrollView *queryTextScrollView;
+	IBOutlet NSView *tableResultsContentView;
 	NoodleLineNumberView *queryTextLineNumberView;
 	IBOutlet BWSplitView *splitView;
+	
+	NSSplitView *tablesSplitView;	
+	NSScrollView *tablesScrollView;    
+	NSTableView *firstTableView;
+	
 	ConnectionController *connection;
-	QueryResult *queryResult;             
+	QueryResult *queryResult;               
+	int spliterPosition;
 	
 	IBOutlet NSTextView	*textResultsTextView;
 	
@@ -61,20 +71,24 @@
 
 - (id) initWithConnection: (ConnectionController*) c;
 - (IBAction) resultsMessagesSegmentControlClicked:(id)sender;
-- (IBAction) showResults: (id) sender;                         
-- (IBAction) showTextResults: (id) sender;
-- (IBAction) showMessages: (id) sender;
-- (void) showResultsCount;
+- (void) showResults;
+- (void) showTextResults;
+- (void) showMessages;
+//- (void) showResultsCount;
 - (IBAction) nextResultsTab: (id) sender;
-- (IBAction) previousResultsTab: (id) sender;
-- (IBAction) nextResult: (id) sender;
-- (IBAction) previousResult: (id) sender;
+//- (IBAction) previousResultsTab: (id) sender;
+// - (IBAction) nextResult: (id) sender;
+// - (IBAction) previousResult: (id) sender;
 
 - (NSString*) queryString;
 - (void) setResult: (QueryResult*) r;
 
 - (void) reloadResults;
 - (void) reloadMessages;
+
+- (void) createTables;
+- (NSTableView*) createTable;
+- (void) createTablesPlaceholder;
 
 - (BOOL) saveQuery:(bool)saveAs;  
 - (void) openFile:(NSString*) fn;
@@ -83,19 +97,27 @@
 
 - (void) setString: (NSString*) s;       
 
-- (IBAction) goToQueryText: (id) sender; 
-- (IBAction) goToResults: (id) sender;
-- (IBAction) goToMessages: (id) sender;
+- (void) goToQueryText; 
+- (void) goToResults;
+- (void) goToTextResults;
+- (void) goToMessages;
 
-- (void) updateNextKeyViewRing;                                    
+//- (void) updateNextKeyViewRing;                                    
 
 - (void)splitViewDidResizeSubviews:(NSNotification *)aNotification;
 - (IBAction) splitResultsAndQueryTextEqualy: sender;
 - (IBAction) maximizeResults: sender;
 - (IBAction) maximizeQueryText: sender;
+- (IBAction) maximizeQueryResults: sender;
+- (IBAction) nextResultsTab: (id) sender;
+- (void) ensureResultsAreVisible;
+- (void) ensureQueryTextIsVisible;
+
 - (void) processingStarted;          
 - (IBAction) cancelExecutingQuery: (id) sender;
 -(void) setExecutingConnection: (TdsConnection*) tdsConnection;
+
+- (void) resizeTablesSplitView: (BOOL) andSubviews;
 
 @end
 

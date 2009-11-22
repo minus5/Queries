@@ -70,7 +70,7 @@
 	[self displayDatabase];
 		        
 	[self setNextResponder: queryController];	
-	[queryController updateNextKeyViewRing];	
+	//[queryController updateNextKeyViewRing];	
 } 
 
 - (IBAction) nextTab: (id) sender{
@@ -301,7 +301,7 @@
 			[queryController setString: [NSString stringWithFormat: @"use %@\nexec sp_helpuser '%@'\nexec sp_helprotect @username = '%@'", databaseName, objectName, objectName]];
 			[queryController setName: objectName];
 			[self executeQuery: nil];             
-			[queryController showTextResults:nil];
+			[queryController showTextResults];
 			[queryController maximizeResults:nil];			                                                        
 			return;
 		}
@@ -322,28 +322,36 @@
 }       
 
 #pragma mark ---- goto controll ----
-    
-- (IBAction) goToQueryText: (id) sender{
-	[queryController goToQueryText: [self window]];
-}
-                                        
+
 - (IBAction) goToDatabaseObjects: (id) sender{
 	[[self window] makeFirstResponder: outlineView];
 }
-
+    
+- (IBAction) goToQueryText: (id) sender{
+	[queryController goToQueryText];
+}
+                                        
 - (IBAction) goToResults: (id) sender{
-	[queryController goToResults: [self window]];
+	[queryController goToResults];
+}
+
+- (IBAction) goToTextResults: (id) sender{
+	[queryController goToTextResults];
 }
 
 - (IBAction) goToMessages: (id) sender{
-	[queryController goToMessages: [self window]];
+	[queryController goToMessages];
 }
 
 - (IBAction) showHideDatabaseObjects: sender{
 	float position = ([[[splitView subviews] objectAtIndex:0 ] frame].size.width == 0) ? 200 : 0;		
 	[splitView setPosition: position ofDividerAtIndex:0];
-}     
-
+	if (position == 0)
+		[self goToQueryText: nil];		
+	else
+		[self goToDatabaseObjects: nil];
+} 
+  
 - (void) keyDown:(NSEvent *)theEvent{         
 	//command-{}
 	if ([theEvent keyCode] == 30 && [theEvent modifierFlags] == 1179914){	
@@ -354,6 +362,28 @@
 		[self previousTab: nil];		                                       
 		return;
 	}
+	
+	// //F6 
+	// if ([theEvent keyCode] == 97 && [theEvent modifierFlags] == 8388864){
+	// 	[self showHideDatabaseObjects: nil];		                                       
+	// 	return;
+	// }
+	// //F7
+	// if ([theEvent keyCode] == 98 && [theEvent modifierFlags] == 8388864){
+	// 	[self showHideDatabaseObjects: nil];		                                       
+	// 	return;
+	// }
+	// //F8 
+	// if ([theEvent keyCode] == 100 && [theEvent modifierFlags] == 8388864){
+	// 	[self showHideDatabaseObjects: nil];		                                       
+	// 	return;
+	// }
+	// //F9 
+	// if ([theEvent keyCode] == 100 && [theEvent modifierFlags] == 8388864){
+	// 	[self showHideDatabaseObjects: nil];		                                       
+	// 	return;
+	// }  
+	
 		
 	NSLog(@"keyDown event keyCode %d modifierFlags: %d window %@", [theEvent keyCode], [theEvent modifierFlags], [theEvent window]);	
 }               

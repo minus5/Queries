@@ -60,6 +60,7 @@
 - (IBAction) goToQueryText: (id) sender;                                        
 - (IBAction) goToDatabaseObjects: (id) sender;
 - (IBAction) goToResults: (id) sender;
+- (IBAction) goToTextResults: (id) sender;
 - (IBAction) goToMessages: (id) sender;
 - (IBAction) showHideDatabaseObjects: sender;
 
