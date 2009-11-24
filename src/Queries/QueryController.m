@@ -134,7 +134,7 @@
 - (void) tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem{
 	int selectedIndex = [resultsTabView indexOfTabViewItem: tabViewItem];	
 	[resultsMessagesSegmentedControll setSelectedSegment: selectedIndex];  
-	[self makeResultsFirstResponder];	
+	//[self makeResultsFirstResponder];	
 	switch(selectedIndex){
 		case 0:                      
 			[self resizeTablesSplitView: NO];
