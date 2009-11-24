@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
    <channel>
-      <title>Your Great App's Changelog</title>
-      <link>http://you.com/app/appcast.xml</link>
+      <title>Queries Changelog</title>
+      <link>http://queries.minus5.hr/appcast</link>
       <description>Most recent changes with links to updates.</description>
-      <language>en</language>   
+      <language>en</language>        
+        <item> 
+          
+          <title>Version 0.2</title>
+          <sparkle:releaseNotesLink>
+              http://queries.minus5.hr/02-release-notes.html
+          </sparkle:releaseNotesLink>
+          <pubDate>Mon, 16 Nov 2009</pubDate>
+          <enclosure url="http://queries.minus5.hr/app/Queries_0.2.app.zip"
+                     sparkle:version="0.2"
+                     sparkle:dsaSignature="MC0CFQCBnWtLCqAvNPvSkuNFFiJ5Y5SK0wIURfK6TpgZi/ejaEEYoVLnQ8D8qrA="
+                     length="1342340"
+                     type="application/octet-stream" />
+        </item>
+      
         <item>
           <title>Version 0.1.1 (just testing update process)</title>
           <sparkle:releaseNotesLink>
