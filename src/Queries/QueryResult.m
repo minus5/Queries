@@ -2,13 +2,14 @@
 
 @implementation QueryResult
 
-@synthesize messages, results, currentResultIndex, database;
+@synthesize messages, results, currentResultIndex, database, hasErrors;
 
 - (id) init{
 	results = [NSMutableArray array];
 	[results retain];
 	messages = [NSMutableArray array];
-	[messages retain];
+	[messages retain];                                                  
+	hasErrors = NO;
 	return [super init];
 }
 
@@ -31,8 +32,8 @@
 	[messages addObject: message];		
 }
 
-- (void) addCompletedMessage{
-	if ([messages count] == 0 || [results count] == 0){
+- (void) addCompletedMessage{                       
+	if (([messages count] == 0 || [results count] == 0) && (!hasErrors)){
 		[self addMessage: @"Command(s) completed successfully.\n"];
 	}	
 }

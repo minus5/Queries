@@ -5,13 +5,15 @@
 	NSMutableArray *messages;
 	NSMutableArray *results;
 	int currentResultIndex;
-	NSString *database;
+	NSString *database;              
+	BOOL hasErrors;
 }
 
 @property (readonly) NSArray *messages;
 @property (readonly) NSArray *results;
 @property (readonly) int currentResultIndex;
 @property (copy) NSString *database;
+@property BOOL hasErrors;
 
 - (void) addResultWithColumnNames: (NSArray*) columnNames andRows: rows;
 - (void) addMessage: (NSString*) message;

@@ -267,7 +267,7 @@
 	[self reloadMessages];
 	[textResultsTextView setString: [queryResult resultsInText]];
 	
-	if ([queryResult hasResults]){           	  
+	if ([queryResult hasResults] && ![queryResult hasErrors]){           	  
 		[resultsTabView selectTabViewItemAtIndex: lastResultsTabIndex];	 
 	}else {
 		[self showMessages];

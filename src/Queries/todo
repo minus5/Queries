@@ -1,6 +1,5 @@
-  BUGS  
-  * Results 1 of 9 ne izgleda dobro ako su brojevi dovoznamenkasti, fiksene je sirine
-  * ne mogu ici shortucti s command shift i strelice 
+BUGS  
+  * nakon malo duzeg stajanja queries pukne    
   * auto updater ne radi najbolje u kombinaciji s modalnim prozorom                
   * svaki message u tdsConnection ima na kraju \n
     

@@ -38,7 +38,6 @@ NSMutableArray *activeConnections;
 	NSLog(@"logMessage failed, process not found?!");
 }
 
-//TdsConnection *active;
 int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char *msgtext, char *srvname, char *procname, int line)
 {									
 	enum {changed_database = 5701, changed_language = 5703 };	
@@ -48,59 +47,51 @@ int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char
 	
 	NSMutableString *message = [NSMutableString stringWithCapacity:0];
 	if (msgno > 0) {
-		[message appendFormat: @"Msg %ld, Level %d, State %d\n", (long) msgno, severity, msgstate];
-		
-		// if (strlen(srvname) > 0)
-		// 	[message appendFormat:@"Server '%s', ", srvname];
+		[message appendFormat: @"Msg %ld, Level %d, State %d", (long) msgno, severity, msgstate];		
+		if (strlen(srvname) > 0)
+		 	[message appendFormat:@", Server '%s'", srvname];
 		if (strlen(procname) > 0)
-			[message appendFormat:@"Procedure '%s', ", procname];
+			[message appendFormat:@", Procedure '%s'", procname];
 		if (line > 0)
-			[message appendFormat:@"Line %d", line];		
+			[message appendFormat:@", Line %d", line];		
+		[message appendFormat:@"\n"];		
 	}	          
-	if ([message length] > 0)
-		[message appendFormat:@"\n"];
 	if (strlen(msgtext) > 0)
 		[message appendFormat:@"%s\n", msgtext];
 	if ([message length] > 0){
 		[TdsConnection logMessage:message forProcess: dbproc];	
-		//NSLog(@"%@", message);  
-	}
-		
-	// if (severity > 10) {						
-	// 	[active logMessage:message];
-	// 	[NSException raise:@"Exception" format: @"error: severity %d\n", severity];
-	// }                           
-	// else{
-	 // [active logMessage:message];
-	//	[TdsConnection logMessage:message forProcess: dbproc];	
-	// }
-	
+	}			
 	return 0;							
 }
 
 int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dberrstr, char *oserrstr)
-{	
-	//todo ovdje padne na stringWithFormat kada mu pukne konekcija dberr = 20006
-	if ([[NSString stringWithFormat: @"%s", dberrstr] isEqualToString: @"Data conversion resulted in overflow"]){
-		//NSLog(@"ignoring message 'Data conversion resulted in overflow'");
-		return INT_CANCEL;
-	}	
-	if ([[NSString stringWithFormat: @"%s", dberrstr] isEqualToString: @"Server name not found in configuration files"]){
-		//NSLog(@"ignoring message 'Server name not found in configuration files'");
-		return INT_CANCEL;
-	}	
+{	                 
+	//102 i 105 je poruka 'General SQL Server error: Check messages from the SQL Server' sto ce mi to
+	if (dberr != 102 &&  dberr != 105)
+	{
+		//todo ovdje padne na stringWithFormat kada mu pukne konekcija dberr = 20006
+		if ([[NSString stringWithFormat: @"%s", dberrstr] isEqualToString: @"Data conversion resulted in overflow"]){
+			//NSLog(@"ignoring message 'Data conversion resulted in overflow'");
+			return INT_CANCEL;
+		}	
+		if ([[NSString stringWithFormat: @"%s", dberrstr] isEqualToString: @"Server name not found in configuration files"]){
+			//NSLog(@"ignoring message 'Server name not found in configuration files'");
+			return INT_CANCEL;
+		}	
 		
-	NSMutableString *message = [NSMutableString stringWithCapacity:0];
-	if (dberr) {							
-		[message appendFormat:@"Error Msg %d, Level %d\n", dberr, severity];
-		[message appendFormat:@"%s\n", dberrstr];
-	}	
-	else {
-		[message appendFormat:@"DB-LIBRARY error:\n\t"];
-		[message appendFormat:@"%s\n", dberrstr];
-	}
+		NSMutableString *message = [NSMutableString stringWithCapacity:0];
+		if (dberr) {							
+			[message appendFormat:@"Error Msg %d, Level %d\n", dberr, severity];
+			[message appendFormat:@"%s\n", dberrstr];
+			//[message appendFormat:@"%s\n", oserrstr];		
+		}	
+		else {
+			[message appendFormat:@"DB-LIBRARY error:\n\t"];
+			[message appendFormat:@"%s\n", dberrstr];
+		}
 	
-	[TdsConnection logMessage:message forProcess: dbproc];	
+		[TdsConnection logMessage:message forProcess: dbproc];	
+	}
 	return INT_CANCEL;						
 }    
 
@@ -145,17 +136,23 @@ struct COL
 	[self execute: [[NSUserDefaults standardUserDefaults] objectForKey: QueriesConnectionDefaults] withDefaultDatabase: nil logOutOnException: NO];	
 }
 
--(void) executeQuery: (NSString*) query{
+-(BOOL) executeQuery: (NSString*) query{
 	RETCODE erc;
 
-	const char *cStringQuery = [query UTF8String];
+	const char *cStringQuery = [query UTF8String];   
+	
+	erc = dbfcmd(dbproc, "%s ", cStringQuery);
+	if (erc != FAIL)               
+		erc = dbsqlexec(dbproc);
 
-	if ((erc = dbfcmd(dbproc, "%s ", cStringQuery)) == FAIL) {
-		[NSException raise:@"Exception" format: @"%d: dbcmd() failed\n", __LINE__];
-	}		
-	if ((erc = dbsqlexec(dbproc)) == FAIL) {
-		[NSException raise:@"Exception" format: @"%d: dbsqlexec() failed\n", __LINE__];		
-	}
+	// if ((erc = dbfcmd(dbproc, "%s ", cStringQuery)) == FAIL) {
+	// 	[NSException raise:@"Exception" format: @"%d: dbcmd() failed\n", __LINE__];
+	// }		
+	// if ((erc = dbsqlexec(dbproc)) == FAIL) {
+	// 	[NSException raise:@"Exception" format: @"%d: dbsqlexec() failed\n", __LINE__];		
+	// }                   
+	
+	return erc != FAIL;
 }
 
 -(NSArray*) readResultMetadata: (struct COL**) pcolumns{
@@ -181,14 +178,9 @@ struct COL
 		
 		if (SYBCHAR != pcol->type) {			
 			pcol->size = dbwillconvert(pcol->type, SYBCHAR);
-		}		
-		
-		ColumnMetadata *meta = [ColumnMetadata alloc];                                                         
-		          
-		                                                                                                                                                                   
-		[meta initWithName: [[NSString alloc] initWithUTF8String: pcol->name] size: pcol->size type:pcol->type index: (pcol - columns)];
-		//[meta initWithName:[[NSString alloc] initWithCString: pcol->name encoding:NSWindowsCP1250StringEncoding] size: pcol->size type:pcol->type index: (pcol - columns)];
-		
+		}				
+		ColumnMetadata *meta = [ColumnMetadata alloc];                                                         		          		                                                                                                                                                                   
+		[meta initWithName: [[NSString alloc] initWithUTF8String: pcol->name] size: pcol->size type:pcol->type index: (pcol - columns)];		
 		[columnNames addObject: meta];
 		
 		if ((pcol->buffer = calloc(1, pcol->size + 1)) == NULL){
@@ -309,21 +301,24 @@ struct COL
 	}	
 }                          
 
-- (void) useDatabase: (NSString*) database{ 
+- (void) useDatabase: (NSString*) database{  	
 	if (!database)
 		return;
 	if ((dbuse(dbproc, [database UTF8String])) == FAIL) {
-		[NSException raise:@"Exception" format: @"%d: unable to use to database %s\n", __LINE__, database];
+		[NSException raise:@"Exception" format: @"Unable to use to database %@\n", database];
 	}
 }
         
 - (void) executeQueries: (NSString*) query{
-	//dbsettime(30);			  
+	//TODO napravi inteligentnije splitter
 	NSArray *queries = [query componentsSeparatedByString: @"GO"];
-	for(id query in queries){
-		NSLog(@"executing query: %@", query);
-		[self executeQuery: query];				
-		[self readResults];
+	for(id query in queries){		
+		BOOL success = [self executeQuery: query];				
+		NSLog(@"executing query: %@ returned %d", query, success);
+		if (success)
+			[self readResults];
+		else
+			[queryResult setHasErrors: YES];
 	}	
 }         
 
@@ -360,7 +355,8 @@ struct COL
 		return nil;
 		
 	NSDate *timerStart = [NSDate date];        
-							
+	
+
 	[TdsConnection activate: self];
 	QueryResult *result = [[QueryResult alloc] init];
 	queryResult = result;		
@@ -370,14 +366,14 @@ struct COL
 		[self checkConnection];
 		[self useDatabase: database]; 
 		[self executeQueries: query];
-		[queryResult addCompletedMessage];																		
+		[queryResult addCompletedMessage];	
 		[queryResult setDatabase: [self currentDatabase]];
 		
 		[self logMessage: [NSString stringWithFormat: @"Query completed in %f seconds.\n", -[timerStart timeIntervalSinceNow]]];
 	}
 	@catch (NSException *exception) {                                                                           
 		if (logOutOnException)
-			[self logout];
+		  [self logout];
 		[self logMessage: [NSString stringWithFormat:@"%@", [exception reason]]];
 	} 
 	@finally{
@@ -398,6 +394,7 @@ struct COL
 
 -(void) logout{
 	if (dbproc){
+		NSLog(@"[%@ logout]", [self class]);
 		dbclose(dbproc);			
 		dbexit();	      
 		dbproc = nil;
@@ -405,7 +402,7 @@ struct COL
 }
 
 -(void) dealloc{    
-	NSLog(@"TdsConnection dealloc");
+	NSLog(@"[%@ dealloc]", [self class]);
 	[self logout]; 
 	[super dealloc];
 }
@@ -413,21 +410,19 @@ struct COL
 -(void) logMessage: (NSString*) message{
 	if (queryResult){
 		[queryResult addMessage: message];
-	}else{
-		NSLog(@"missing queryResult in logMessage");
 	}
 }
 
 -(id) initWithServer: (NSString*) s 
 			user: (NSString*) u 
 			password: (NSString*) p
-{
+{	
 	self = [super init];
 	
 	if(self){
 		server = [[NSString alloc] initWithString: s];
 		user = [[NSString alloc] initWithString: u];
-		password = [[NSString alloc] initWithString: p];
+		password = [[NSString alloc] initWithString: p];		
 	}
 	
 	return self;
@@ -447,7 +442,6 @@ struct COL
 				
 	@try{	                                                 		                                 		
 		return [[NSString alloc] initWithUTF8String: dbname(dbproc)];
-		//return [NSString stringWithCString: dbname(dbproc) encoding:NSWindowsCP1250StringEncoding];
 	}
 	@catch(NSException *e){
 		NSLog(@"currentDatabase exception: @%", e);

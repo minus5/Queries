@@ -1,15 +1,11 @@
-#import <Cocoa/Cocoa.h>
+#import <Cocoa/Cocoa.h>           
+#include <signal.h>
+
 
 int main(int argc, char *argv[])
-{
-    return NSApplicationMain(argc,  (const char **) argv);
+{	
+	//kada mi pukne konekcija na sql server onda mi freetds digne SIGPIPE singal
+	//nisam ga uspio nigdje uhvatiti da napravim nesto korisno s njime, pa stoga ovdje ignore
+	signal(SIGPIPE, SIG_IGN);
+  return NSApplicationMain(argc,  (const char **) argv);
 }
-
-/*
-#import <MacRuby/MacRuby.h>
-
-int main(int argc, char *argv[])
-{
-	return macruby_main("rb_main.rb", argc, argv);
-}
-*/

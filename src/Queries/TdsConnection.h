@@ -47,10 +47,10 @@
 -(QueryResult*) execute: (NSString*) query withDefaultDatabase: (NSString*) database logOutOnException: (bool)logOutOnException;
 - (void) executeQueries: (NSString*) query;
 
--(void) executeQuery: (NSString*) query;
+-(BOOL) executeQuery: (NSString*) query;
 -(NSArray*) readResultMetadata: (struct COL**) pcolumns;
 -(NSArray*) readResultData: (struct COL*) columns  withColumnNames: (NSArray*) columnNames;
-//-(NSArray*) readResultData: (struct COL*) columns;
+
 -(void) freeResultBuffers: (struct COL*) columns;
 -(void) readResultMessages;
 -(void) readResults;
