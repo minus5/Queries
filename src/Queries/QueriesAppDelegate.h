@@ -1,6 +1,7 @@
 #import <Cocoa/Cocoa.h>
 #import "ConnectionController.h"       
 #import "PreferencesController.h"
+#import "Constansts.h"
 
 @interface QueriesAppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *window;                              

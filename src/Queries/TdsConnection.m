@@ -1,5 +1,6 @@
 #import "TdsConnection.h"
-#import "QueriesAppDelegate.h"
+#import "Constants.h"
+//#import "QueriesAppDelegate.h"
 
 @implementation TdsConnection                                
 
@@ -322,9 +323,33 @@ struct COL
 	}	
 }         
 
+- (BOOL) executeInBackground: (NSString*) query withDatabase: (NSString*) database returnToObject: (id) receiver withSelector: (SEL) selector{			
+	if ([self isProcessing]){
+		return NO;
+	}                             
+	[self setIsProcessing: TRUE]; 
+	
+	if ([receiver respondsToSelector: @selector(setExecutingConnection:)]){          
+		[receiver setExecutingConnection: self];
+	}
+		
+  //pazi na ovu konstrukciju ako je database nil objekti nakon toga se nece dodati u dictionary, mora biti zadnji parametar
+	NSDictionary *arguments = [NSDictionary dictionaryWithObjectsAndKeys: 
+		[[NSString alloc] initWithString: query], @"query", 		
+		receiver, @"receiver",
+		NSStringFromSelector(selector), @"selector",         
+    [NSNumber numberWithBool: NO] , @"logout",
+		(database ? [[NSString alloc] initWithString: database] : nil), @"database", 
+		nil];                                                                               	                                   
+	                                                                                                  	
+	[self performSelectorInBackground:@selector(executeInBackground:) withObject: arguments];	
+	return YES;
+}
+
+
 -(void) executeInBackground: (NSDictionary*) arguments{     
 	if ([self isProcessing]) 
-		return;			
+		return;			                		  		
 	cancelQuery = NO; 
 		
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
@@ -356,7 +381,6 @@ struct COL
 		
 	NSDate *timerStart = [NSDate date];        
 	
-
 	[TdsConnection activate: self];
 	QueryResult *result = [[QueryResult alloc] init];
 	queryResult = result;		
@@ -402,8 +426,12 @@ struct COL
 }
 
 -(void) dealloc{    
-	NSLog(@"[%@ dealloc]", [self class]);
+	NSLog(@"[%@ dealloc] connectionName: %@", [self class], [self connectionName]);
 	[self logout]; 
+	[queryResult release];
+	[server release];
+	[user release];
+	[password release];		
 	[super dealloc];
 }
 

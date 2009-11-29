@@ -45,7 +45,9 @@
 -(QueryResult*) execute: (NSString*) query;
 -(QueryResult*) execute: (NSString*) query withDefaultDatabase: (NSString*) database; 
 -(QueryResult*) execute: (NSString*) query withDefaultDatabase: (NSString*) database logOutOnException: (bool)logOutOnException;
-- (void) executeQueries: (NSString*) query;
+-(void) executeQueries: (NSString*) query;
+- (BOOL) executeInBackground: (NSString*) query withDatabase: (NSString*) database returnToObject: (id) receiver withSelector: (SEL) selector;
+-(void) executeInBackground: (NSDictionary*) arguments;
 
 -(BOOL) executeQuery: (NSString*) query;
 -(NSArray*) readResultMetadata: (struct COL**) pcolumns;
@@ -61,9 +63,9 @@
   
 -(NSString*) currentDatabase;
 
-- (TdsConnection*) clone;
+-(TdsConnection*) clone;
 
-- (void) setCancelQuery;
+-(void) setCancelQuery;
 -(void) applyConnectionDefaults;
 
 @end

@@ -247,7 +247,7 @@
 	if ([conn isProcessing]){
 		NSLog(@"creating temporary connection");
 		conn = [tdsConnection clone];
-		[conn login];		
+		[conn login];
 	}
 	
 	if ([receiver respondsToSelector: @selector(setExecutingConnection:)]){          

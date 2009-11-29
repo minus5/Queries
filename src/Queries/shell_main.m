@@ -3,8 +3,9 @@
 #import "ColumnMetadata.h"
 #import "TdsConnection.h"
 #import "QueryResult.h"
-      
-#import "CreateTableScript.h"
+#import "CreateTableScript.h" 
+#import "ConnectionsManager.h"
+
 
 void testCreateTableSctipt(){
 	TdsConnection *connection = [TdsConnection alloc];	
@@ -71,15 +72,43 @@ void testMaxColumnLength(){
 	
 	NSLog(@"\n\n%@\n", [result resultsInText]);	
 }
+    
+void testConnectionsManager(){
+	ConnectionsManager *manager = [ConnectionsManager sharedInstance];
+	
+	//returns same connection 
+	TdsConnection *c1 = [manager connectionToServer:@"mssql" withUser:@"ianic" andPassword:@"string"];
+	TdsConnection *c12 = [manager connectionToServer:@"mssql" withUser:@"ianic" andPassword:@"string"];
+	TdsConnection *c13 = [manager connectionWithName:@"ianic@mssql"];
+	assert(c1 == c12);
+	assert(c1 == c13);
+	assert(1 == [manager connectionsCount: @"ianic@mssql"]); 
+	         
+	//returns cloned connection when original is busy
+	[c1 executeInBackground: @"begin\nWAITFOR DELAY '00:00:01'\nend" withDatabase: @"pubs" returnToObject: nil withSelector: nil]; 	
+	TdsConnection *c3 = [manager connectionWithName:@"ianic@mssql"];
+	TdsConnection *c31 = [manager connectionToServer:@"mssql" withUser:@"ianic" andPassword:@"string"];
+	assert(c3 != c1);   
+	assert(c31 == c3);   
+	assert(2 == [manager connectionsCount: @"ianic@mssql"]);
+		                                               
+	//cleanup clears all inactive cloned connectins
+	[NSThread sleepForTimeInterval:2]; 	
+	[manager cleanup];
+	assert(1 == [manager connectionsCount: @"ianic@mssql"]);
+		                                             
+	[ConnectionsManager releaseSharedInstance];
+}
 
 int main (int argc, const char * argv[]) {	
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];  
 	NSLog(@"uses garbage collection %d", [NSGarbageCollector defaultCollector] != nil);
 	
-	// testQueryResultsRetainCount();
+	//testQueryResultsRetainCount();
 	//testCreateTableSctipt();
 	//testMaxColumnLength();
-	testSelectEncoding();
+	//testSelectEncoding();
+	testConnectionsManager();
 	
 	NSLog(@"shell test finished...");
 	[pool drain];

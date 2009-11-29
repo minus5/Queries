@@ -1,9 +1,10 @@
 BUGS  
-  * nakon malo duzeg stajanja queries pukne    
   * auto updater ne radi najbolje u kombinaciji s modalnim prozorom                
   * svaki message u tdsConnection ima na kraju \n
     
 TODO                                                
+  * provjeri sve retain release, kod dinamicki kreiranih kontrola...
+  
   * double click, dragn drop i enter na database object neka ga dodaju u query text
   * QueryAnalyzer:
     * connect ctrl-O 
@@ -22,12 +23,6 @@ TODO
      vrijeme izvrsavanja querija 0:00:00 (sati:minute:sekunde)
 
   * close-other tabs, close all tabs  shift-command-W
-  + comand-{} navigacija prethodni slijedeci tab
-  * F5 execute query - ne ide za sada pojede ga NSTextView
-
-  * connections window
-    * stavi kotacic dok ostvaruje konekciju
-    * javiti lijepu porku kada se ne uspije konektirati
 
   * user preferences    
     * connection properties svaka konekcija bi morala imati neke defaulte, inace ne rade heterogeni queriji, preko linkanog servera, a pogledaj i za computed columns koji su uvjeti  
@@ -45,7 +40,6 @@ TODO
     * mogucnost da vidi samo trenutnu bazu    
     * testirati s userom koji ne moze vidjeti definicije svih objekata u bazi, tu bi moglo biti nekih problema
   * alter skripta za view-e i procedure  
-  
                                                                              
   * ikonice
     * za aplikaciju
@@ -89,6 +83,14 @@ TODO
   * freetds ukljuciti u projekt - pogledaj prije toga na kakvoj je licenci  
   
 FIXED:                                        
+  + plava pozadina na sidebaru
+  + connections window
+    + stavi kotacic dok ostvaruje konekciju
+    + javiti lijepu porku kada se ne uspije konektirati
+
+  + comand-{} navigacija prethodni slijedeci tab
+  + F5 execute query - ne ide za sada pojede ga NSTextView
+
   + nakon kolona kod results in text dolazi ---- onolike duzine kolika je kolona
   + testiranje s userom koji ima manje privilegija                               
   + auto update aplikacije                                                               

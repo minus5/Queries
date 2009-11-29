@@ -24,7 +24,7 @@
 	TdsConnection *tdsConnection;                       
 	QueryController *queryController;
 	
-	NSArray *dbObjectsResults;	
+	NSArray *dbObjectsResults;
 	NSMutableDictionary *dbObjectsCache;
 	NSArray *databases;
 }                     

@@ -1,10 +1,6 @@
 #import "PreferencesController.h"
 #import "QueriesAppDelegate.h"
 
-NSString *const QueriesConnectionDefaults = @"ConnectionDefaults";
-NSString *const QueriesLoginTimeout = @"QueriesLoginTimeout";
-NSString *const QueriesQueryTimeout = @"QueriesQueryTimeout";
-
 @implementation PreferencesController
 
 -(id) init

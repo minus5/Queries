@@ -35,9 +35,8 @@
 }
 
 - (void) testColumnLength{
-	QueryResult* result = [[self connection] execute: @"select * from pubs.dbo.publishers"];
-	
-}
+	QueryResult* result = [[self connection] execute: @"select * from pubs.dbo.publishers"];	
+}                                                                                         
 
 /*
 -(void) testOneResult{

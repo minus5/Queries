@@ -221,9 +221,9 @@
 																			</object>
 																			<double key="NSIntercellSpacingWidth">3</double>
 																			<double key="NSIntercellSpacingHeight">2</double>
-																			<object class="NSColor" key="NSBackgroundColor">
-																				<int key="NSColorSpace">3</int>
-																				<bytes key="NSWhite">MQA</bytes>
+																			<object class="NSColor" key="NSBackgroundColor" id="328347882">
+																				<int key="NSColorSpace">1</int>
+																				<bytes key="NSRGB">MC44NzQ1MDk4MDM5IDAuODkwMTk2MDc4NCAwLjkxMzcyNTQ5MDIAA</bytes>
 																			</object>
 																			<object class="NSColor" key="NSGridColor">
 																				<int key="NSColorSpace">6</int>
@@ -249,7 +249,7 @@
 																	<reference key="NSSuperview" ref="318849842"/>
 																	<reference key="NSNextKeyView" ref="558587861"/>
 																	<reference key="NSDocView" ref="558587861"/>
-																	<reference key="NSBGColor" ref="251538746"/>
+																	<reference key="NSBGColor" ref="328347882"/>
 																	<int key="NScvFlags">4</int>
 																</object>
 																<object class="NSScroller" id="813288822">
@@ -419,7 +419,7 @@
 								</object>
 								<object class="NSMutableArray" key="dict.values">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<integer value="300"/>
+									<integer value="500"/>
 									<integer value="100"/>
 								</object>
 							</object>
@@ -930,6 +930,7 @@
 							<string>goToMessages:</string>
 							<string>goToQueryText:</string>
 							<string>goToResults:</string>
+							<string>goToTextResults:</string>
 							<string>isEditedChanged:</string>
 							<string>newTab:</string>
 							<string>nextTab:</string>
@@ -939,6 +940,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
