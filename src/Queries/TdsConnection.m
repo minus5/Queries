@@ -327,10 +327,15 @@ struct COL
 	if ([self isProcessing]){
 		return NO;
 	}                             
-	[self setIsProcessing: TRUE]; 
+	//[self setIsProcessing: TRUE]; 
 	
 	if ([receiver respondsToSelector: @selector(setExecutingConnection:)]){          
-		[receiver setExecutingConnection: self];
+		[receiver performSelector: @selector(setExecutingConnection:) withObject: self];
+		//[receiver setExecutingConnection: self];
+	}
+	if ([receiver respondsToSelector: @selector(processingStarted)]){          		
+		[receiver performSelector: @selector(processingStarted)];		
+		//[receiver processingStarted];
 	}
 		
   //pazi na ovu konstrukciju ako je database nil objekti nakon toga se nece dodati u dictionary, mora biti zadnji parametar
@@ -338,7 +343,6 @@ struct COL
 		[[NSString alloc] initWithString: query], @"query", 		
 		receiver, @"receiver",
 		NSStringFromSelector(selector), @"selector",         
-    [NSNumber numberWithBool: NO] , @"logout",
 		(database ? [[NSString alloc] initWithString: database] : nil), @"database", 
 		nil];                                                                               	                                   
 	                                                                                                  	
@@ -349,7 +353,7 @@ struct COL
 
 -(void) executeInBackground: (NSDictionary*) arguments{     
 	if ([self isProcessing]) 
-		return;			                		  		
+		return;			                		  					
 	cancelQuery = NO; 
 		
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
@@ -358,16 +362,10 @@ struct COL
 	NSString *database = [arguments objectForKey: @"database"];
 	id receiver = [arguments objectForKey: @"receiver"];
 	SEL selector = NSSelectorFromString([arguments objectForKey: @"selector"]); 
-	NSNumber *logout =  [arguments objectForKey: @"logout"];
   QueryResult *result = [self execute: query withDefaultDatabase: database];		
 	if (!cancelQuery)
 		[receiver performSelectorOnMainThread: selector withObject: result waitUntilDone: YES];		
 	
-	if ([logout boolValue]){
-		NSLog(@"closing temporary connection");
-		[self logout];
-		[self release];
-	}
 	[pool release];
 }
                                                                                                                                
@@ -377,14 +375,13 @@ struct COL
 
 -(QueryResult*) execute: (NSString*) query withDefaultDatabase: (NSString*) database logOutOnException: (bool)logOutOnException{
 	if ([self isProcessing]) 
-		return nil;
-		
-	NSDate *timerStart = [NSDate date];        
-	
-	[TdsConnection activate: self];
+		return nil;			        	
+			
 	QueryResult *result = [[QueryResult alloc] init];
 	queryResult = result;		
 	@try{                                       
+		[TdsConnection activate: self];
+		NSDate *timerStart = [NSDate date];
 		[self setIsProcessing: TRUE]; 
 
 		[self checkConnection];

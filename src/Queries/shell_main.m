@@ -85,7 +85,8 @@ void testConnectionsManager(){
 	assert(1 == [manager connectionsCount: @"ianic@mssql"]); 
 	         
 	//returns cloned connection when original is busy
-	[c1 executeInBackground: @"begin\nWAITFOR DELAY '00:00:01'\nend" withDatabase: @"pubs" returnToObject: nil withSelector: nil]; 	
+	[c1 executeInBackground: @"begin\nWAITFOR DELAY '00:00:02'\nend" withDatabase: @"pubs" returnToObject: nil withSelector: nil]; 	
+	[NSThread sleepForTimeInterval: 1]; 	
 	TdsConnection *c3 = [manager connectionWithName:@"ianic@mssql"];
 	TdsConnection *c31 = [manager connectionToServer:@"mssql" withUser:@"ianic" andPassword:@"string"];
 	assert(c3 != c1);   

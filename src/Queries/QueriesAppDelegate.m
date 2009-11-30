@@ -5,21 +5,30 @@
 @synthesize window;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {	
-	connections = [[NSMutableArray	array] retain];
+	//connections = [[NSMutableArray	array] retain];
 	[self newDocument: nil];
 }
 
 - (IBAction) newDocument: (id) sender{
 	ConnectionController *connectionController = [[ConnectionController alloc] init];
 	[connectionController showWindow: nil];	
-	[connections addObject: connectionController];
+	//[connections addObject: connectionController];
+	// [connectionController autorelease];
+	[connectionController release];
 } 
+
+
                                                                                       
 - (int) numberOfEditedQueries{
-	int count = 0;          
-	for(ConnectionController *connectionController in connections){
-		count += [connectionController numberOfEditedQueries];
-	}                             
+	int count = 0;         
+	for(NSWindow *w in [NSApp windows]){
+		if ([[w delegate] respondsToSelector: @selector(numberOfEditedQueries)]){
+			count += [[w delegate] numberOfEditedQueries];
+		}
+	} 
+	// for(ConnectionController *connectionController in connections){
+	// 	count += [connectionController numberOfEditedQueries];
+	// }                             
 	return count;
 }
 
@@ -43,6 +52,12 @@
 	return NSTerminateNow;
 }
 
+- (void)applicationWillTerminate:(NSNotification *)aNotification{ 
+	//[connections removeAllObjects];
+	//[connections release];
+	[ConnectionsManager releaseSharedInstance];
+}
+
 + (NSString*) sqlFileContent: (NSString*) queryFileName{
 	NSString *query = [NSString stringWithContentsOfFile: 
 		[[NSBundle mainBundle] pathForResource: queryFileName ofType:@"sql"]
@@ -61,7 +76,7 @@
 
 - (void) dealloc{
 	[preferences release];
-	[connections release];
+	//[connections release];
 	[super dealloc];
 }                                
 

@@ -32,6 +32,7 @@ static ConnectionsManager *manager = nil;
 		[pool setValue: connections forKey: [newConnection connectionName]];		
 	} 
 	[connections addObject: newConnection];	 
+	NSLog(@"added new connection to the pool [%@ add:%@] connectionsCount: %d", [self class], [newConnection connectionName], [self connectionsCount: [newConnection connectionName]]);	
 } 
 
 - (int) connectionsCount: (NSString*) connectionName{
@@ -45,8 +46,10 @@ static ConnectionsManager *manager = nil;
 - (TdsConnection*) connectionToServer: (NSString*) server  withUser: (NSString*) user andPassword: (NSString*) password{
 	@try{
 		TdsConnection *existing = [self connectionWithName: [NSString stringWithFormat:@"%@@%@", user, server]];
-		if (existing) 
+		if (existing){ 
+			NSLog(@"returning connection from pool [%@ connectionToServer:%@  withUser:%@ andPassword:%@]", [self class], server, user, password);
 			return existing;
+		}
 		
 		TdsConnection *newConenction = [[TdsConnection alloc] initWithServer:server user:user password:password];
 		[newConenction login];
@@ -64,8 +67,14 @@ static ConnectionsManager *manager = nil;
 	@try{
 		NSArray *connections = [pool objectForKey: connectionName];
 		if (connections){
-			for(TdsConnection *c in connections){ if (![c isProcessing]) return c; }
+			for(TdsConnection *c in connections){ 
+				if (![c isProcessing]){
+					NSLog(@"returning connection from pool [%@ connectionWithName:%@]", [self class], connectionName);
+					return c;             
+				}
+			}                                         			
 			TdsConnection *clone = [[connections objectAtIndex: 0] clone];  
+			NSLog(@"cloning connection %@", [clone connectionName]);
 			[clone login]; 
 			[self add: clone]; 
 			[clone release]; 		

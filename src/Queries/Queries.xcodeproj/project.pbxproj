@@ -43,6 +43,9 @@
 		187FD44210C2E61900471B6A /* ConnectionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 187FD44110C2E61900471B6A /* ConnectionsManager.m */; };
 		187FD44310C2E61900471B6A /* ConnectionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 187FD44110C2E61900471B6A /* ConnectionsManager.m */; };
 		187FD44410C2E61900471B6A /* ConnectionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 187FD44110C2E61900471B6A /* ConnectionsManager.m */; };
+		187FD57010C30B3800471B6A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 187FD56F10C30B3800471B6A /* Constants.m */; };
+		187FD57110C30B3800471B6A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 187FD56F10C30B3800471B6A /* Constants.m */; };
+		187FD57210C30B3800471B6A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 187FD56F10C30B3800471B6A /* Constants.m */; };
 		1892765110A7696800C50258 /* objects_end.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892764E10A7696800C50258 /* objects_end.sql */; };
 		1892765210A7696800C50258 /* objects_in_database.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892764F10A7696800C50258 /* objects_in_database.sql */; };
 		1892765310A7696800C50258 /* objects_start.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892765010A7696800C50258 /* objects_start.sql */; };
@@ -128,6 +131,8 @@
 		187FCFAF10B6EBA600471B6A /* TableResultDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableResultDatasource.h; sourceTree = "<group>"; };
 		187FCFB010B6EBA600471B6A /* TableResultDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableResultDatasource.m; sourceTree = "<group>"; };
 		187FD44110C2E61900471B6A /* ConnectionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionsManager.m; sourceTree = "<group>"; };
+		187FD56610C30A8100471B6A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		187FD56F10C30B3800471B6A /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		1892764E10A7696800C50258 /* objects_end.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_end.sql; sourceTree = "<group>"; };
 		1892764F10A7696800C50258 /* objects_in_database.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_in_database.sql; sourceTree = "<group>"; };
 		1892765010A7696800C50258 /* objects_start.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_start.sql; sourceTree = "<group>"; };
@@ -193,6 +198,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				187FD56F10C30B3800471B6A /* Constants.m */,
+				187FD56610C30A8100471B6A /* Constants.h */,
 				187FD44110C2E61900471B6A /* ConnectionsManager.m */,
 				187FCFAF10B6EBA600471B6A /* TableResultDatasource.h */,
 				187FCFB010B6EBA600471B6A /* TableResultDatasource.m */,
@@ -500,6 +507,7 @@
 				1836B95510A20F74007B0D87 /* TdsConnection.m in Sources */,
 				1836B96710A210E8007B0D87 /* QueryResult.m in Sources */,
 				187FD44310C2E61900471B6A /* ConnectionsManager.m in Sources */,
+				187FD57110C30B3800471B6A /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +521,7 @@
 				187D3CB910A5739600415FDC /* shell_main.m in Sources */,
 				1877C5D210A60ECF00BFA7AF /* CreateTableScript.m in Sources */,
 				187FD44410C2E61900471B6A /* ConnectionsManager.m in Sources */,
+				187FD57210C30B3800471B6A /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +548,7 @@
 				187FC8C010B2F9FB00471B6A /* PreferencesController.m in Sources */,
 				187FCFB110B6EBA600471B6A /* TableResultDatasource.m in Sources */,
 				187FD44210C2E61900471B6A /* ConnectionsManager.m in Sources */,
+				187FD57010C30B3800471B6A /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

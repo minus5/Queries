@@ -6,6 +6,7 @@
 #import "QueryResult.h"                                    
 #import "CreateTableScript.h"
 #import "ConnectingController.h"
+#import "ConnectionsManager.h"
 
 @class CredentialsController;
 @class QueryController;
@@ -21,18 +22,17 @@
 	
 	CredentialsController *credentials;	
 	int queryTabsCounter;
-	TdsConnection *tdsConnection;                       
 	QueryController *queryController;
 	
 	NSArray *dbObjectsResults;
 	NSMutableDictionary *dbObjectsCache;
-	NSArray *databases;
+	NSArray *databases;       
+	NSString *connectionName;
 }                     
 
 @property (readonly) NSOutlineView *outlineView;
-@property (readonly) TdsConnection *tdsConnection;
 
-
+- (TdsConnection*) tdsConnection;
 - (IBAction) newTab: (id) sender;
 - (QueryController*) createNewTab;
 - (IBAction) nextTab: (id) sender;
@@ -50,7 +50,7 @@
 - (IBAction) reloadDbObjects: (id) sender;
 
 - (IBAction) executeQuery: (id) sender;    
-- (void) executeQueryInBackground: (NSString*) query withDatabase: (NSString*) database returnToObject: (id) receiver withSelector: (SEL) selector;
+//- (void) executeQueryInBackground: (NSString*) query withDatabase: (NSString*) database returnToObject: (id) receiver withSelector: (SEL) selector;
 
 - (int) numberOfEditedQueries;                 
 - (void) isEditedChanged: (id) sender;

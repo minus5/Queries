@@ -39,14 +39,15 @@
 
 - (id) initWithConnection: (ConnectionController*) c{
 	if (self = [super init]){
-		connection = [c retain];
+		connection = c;//[c retain];
 		return self;
 	}             
 	return nil;
 }
 
 - (void) dealloc{         
-	[connection release];
+	NSLog(@"[%@ dealloc]", [self class]);
+	//[connection release];
 	[queryResult release];
 	[super dealloc];	
 }
@@ -277,6 +278,7 @@
 	}
 		
 	[self setIsProcessing: NO];
+	[[ConnectionsManager sharedInstance] cleanup];
 }                                       
 
 -(void) reloadMessages{
