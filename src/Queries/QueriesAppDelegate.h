@@ -17,6 +17,7 @@
 - (NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication *) sender;
 + (NSString*) sqlFileContent: (NSString*) queryFileName;
 - (IBAction) userPreferences: (id) sender;
+- (void) connectionWindowClosed:(ConnectionController *)controller;
 
 +(NSString*) connectionDefaults;
 +(void) initialize;

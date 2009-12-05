@@ -5,30 +5,33 @@
 @synthesize window;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {	
-	//connections = [[NSMutableArray	array] retain];
+	connections = [[NSMutableArray	array] retain];
 	[self newDocument: nil];
 }
 
 - (IBAction) newDocument: (id) sender{
 	ConnectionController *connectionController = [[ConnectionController alloc] init];
-	[connectionController showWindow: nil];	
-	//[connections addObject: connectionController];
-	// [connectionController autorelease];
-	[connectionController release];
+	//NSLog(@"controller retainCount 1 %d", [connectionController retainCount]);	
+	[connections addObject: connectionController];	
+	[connectionController release];               
+	//NSLog(@"controller retainCount 2 %d", [connectionController retainCount]);
+	[connectionController showWindow: nil];	                      	                                                              
+	//NSLog(@"controller retainCount 3 %d", [connectionController retainCount]);
 } 
-
-
+   
+- (void) connectionWindowClosed:(ConnectionController *)controller
+{                	
+	//NSLog(@"[%@ connectionWindowClosed:%@] retainCount %d", [self class], controller, [controller retainCount]);	
+	[connections removeObject: controller];    
+	//NSLog(@"connections count: %d", [connections count]);
+	//NSLog(@"[%@ connectionWindowClosed:%@] retainCount %d", [self class], controller, [controller retainCount]);
+}
                                                                                       
 - (int) numberOfEditedQueries{
 	int count = 0;         
-	for(NSWindow *w in [NSApp windows]){
-		if ([[w delegate] respondsToSelector: @selector(numberOfEditedQueries)]){
-			count += [[w delegate] numberOfEditedQueries];
-		}
-	} 
-	// for(ConnectionController *connectionController in connections){
-	// 	count += [connectionController numberOfEditedQueries];
-	// }                             
+	for(ConnectionController *connectionController in connections){
+		count += [connectionController numberOfEditedQueries];
+	}                             
 	return count;
 }
 
@@ -53,8 +56,8 @@
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification{ 
-	//[connections removeAllObjects];
-	//[connections release];
+	[connections removeAllObjects];
+	[connections release];
 	[ConnectionsManager releaseSharedInstance];
 }
 

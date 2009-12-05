@@ -39,16 +39,15 @@
 
 - (id) initWithConnection: (ConnectionController*) c{
 	if (self = [super init]){
-		connection = c;//[c retain];
-		return self;
+		connection = c;		
 	}             
-	return nil;
+	return self;
 }
 
 - (void) dealloc{         
-	NSLog(@"[%@ dealloc]", [self class]);
-	//[connection release];
-	[queryResult release];
+	NSLog(@"[%@ dealloc]", [self class]);        	
+	[queryResult release];                       
+	[dataSources release];
 	[super dealloc];	
 }
 
@@ -73,7 +72,6 @@
   	
 	syntaxColoringTextView = queryText;
 	[self syntaxColoringInit];
-	//[self showResultsCount];
 	[self setIsEdited: NO];  
   
   //proportional font to all text views
@@ -93,6 +91,8 @@
 	//key ring
 	[messagesTextView setNextKeyView: [connection outlineView]];
 	[textResultsTextView setNextKeyView: [connection outlineView]];	
+	
+	dataSources = [[NSMutableArray alloc] init];
 }      
 
 #pragma mark ---- positioning ----
@@ -301,12 +301,16 @@
 	for(int i = count-1; i>=0; i--){
 		NSView *subview = [[tablesSplitView subviews] objectAtIndex: i];		
 		[subview removeFromSuperview];
+		[dataSources removeAllObjects];
 	}               
 	//add new
 	NSTableView *prevoiusTableView = nil;
 	for(int i=0; i<[queryResult resultsCount]; i++){
 		NSTableView *newTableView = [self createTable];
-		TableResultDatasource *dataSource = [[TableResultDatasource alloc] initWithTableView: newTableView andColumns: [queryResult columnsAtIndex:i] andRows: [queryResult resultAtIndex:i] ];
+		TableResultDatasource *dataSource = [[TableResultDatasource alloc] initWithTableView: newTableView andColumns: [queryResult columnsAtIndex:i] andRows: [queryResult resultAtIndex:i]];
+		[dataSources addObject: dataSource];		
+		[dataSource release];
+		
 		[newTableView setDataSource: dataSource];
 		[dataSource bind];		                
 		[queryResult nextResult];                               
@@ -346,6 +350,8 @@
 
 	[newScrollView setDocumentView:newTableView];
 	[tablesSplitView addSubview:newScrollView];		
+	[newTableView release];
+	[newScrollView release];
 	
 	return newTableView;
 }                    

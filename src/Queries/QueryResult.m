@@ -14,7 +14,7 @@
 }
 
 - (void) dealloc{
-	NSLog(@"QueryResult dealloc");
+	NSLog(@"[%@ dealloc]", [self class]);
 	[results release];
 	[messages release];
 	[super dealloc];

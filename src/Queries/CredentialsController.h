@@ -14,15 +14,12 @@
 	
 	NSMutableArray *credentials;
 
-	ConnectionController *owner;
 } 
 
-+ (CredentialsController*) controllerWithOwner: (ConnectionController*) o;
++(CredentialsController*) controller;
 
-- (void) showSheet;
 - (IBAction) close: (id)sender;   
 - (IBAction) connect: (id)sender;       
-- (void) closeSheet;            
          
 - (void) readCredentials;
 - (void) writeCredentials;                                 

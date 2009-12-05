@@ -22,7 +22,7 @@
 }   
 
 - (void) dealloc{
-	NSLog(@"TableResultDatasource dealloc");
+	NSLog(@"[%@ dealloc]", [self class]);
 	[columns release];
 	[rows release];
 	[super dealloc];

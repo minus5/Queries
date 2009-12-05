@@ -12,11 +12,9 @@
 
 - (void) windowDidLoad{
 	[queryTabBar setCanCloseOnlyTab: YES];         
-	//postoji neki problem u garbage collector environmentu kada ovo ukljucim
-	//[queryTabBar setHideForSingleTab: YES];	
 	[self createNewTab];
 	[self changeConnection: nil];                 	
-	[self goToQueryText: nil];
+	[self goToQueryText: nil];                                                    
 }     
 
 - (void) dealloc{
@@ -67,10 +65,8 @@
 
 - (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem{
 	queryController = [tabViewItem identifier];
-	[self displayDatabase];
-		        
+	[self displayDatabase];		        
 	[self setNextResponder: queryController];	
-	//[queryController updateNextKeyViewRing];	
 } 
 
 - (IBAction) nextTab: (id) sender{
@@ -84,16 +80,16 @@
 #pragma mark ---- close ---- 
 
 - (BOOL) windowShouldClose: (id) sender{                        
-	NSLog(@"[%@ windowShouldClose:%@]", [self class], sender);  	
+	//NSLog(@"[%@ windowShouldClose:%@]", [self class], sender);  	
 	[self shouldCloseCurrentQuery];
 	return [[queryTabs tabViewItems] count] > 0 ? NO : YES;	
 }                                                                  
 
 - (void) windowWillClose:(NSNotification *)notification
 {                	
-	NSLog(@"[%@ windowWillClose:%@] retainCount: %d", [self class], notification, [self retainCount]);      
-  //TODO ovo za sada nije prolazilo u metodi gore mi nekako pukne, ne kuzim....
-	//[self release];  
+	//NSLog(@"[%@ windowWillClose:] retainCount: %d", [self class], [self retainCount]);      
+	[[NSApp delegate] performSelector:@selector(connectionWindowClosed:) withObject:self afterDelay:0.0];
+	//NSLog(@"[%@ windowWillClose:] retainCount: %d", [self class], [self retainCount]);
 }
 
 - (void) closeCurentQuery{
@@ -171,7 +167,7 @@
 
 - (IBAction) changeConnection: (id) sender{
 	if (!credentials){
-		credentials = [CredentialsController controllerWithOwner: self];
+		credentials = [CredentialsController controller];
 		[credentials retain];
 	} 
 	[NSApp beginSheet: [credentials window]
@@ -256,33 +252,6 @@
 		returnToObject: queryController 
 		withSelector: @selector(setResult:)];
 }                                 
-
-// - (void) executeQueryInBackground: (NSString*) query withDatabase: (NSString*) database returnToObject: (id) receiver withSelector: (SEL) selector{
-// 	
-// 	TdsConnection *connection = [self tdsConnection];
-// 	
-// 	if ([receiver respondsToSelector: @selector(setExecutingConnection:)]){          
-// 		//[receiver performSelector: @selector(setExecutingConnection:) withObject: conn];
-// 		[receiver setExecutingConnection: connection];
-// 	}
-// 	
-// 	if ([receiver respondsToSelector: @selector(processingStarted)]){          		
-// 		[receiver processingStarted];
-// 	}
-// 		
-//   //pazi na ovu konstrukciju ako je database nil objekti nakon toga se nece dodati u dictionary, mora biti zadnji parametar
-// 	NSDictionary *arguments = [NSDictionary dictionaryWithObjectsAndKeys: 
-// 		[[NSString alloc] initWithString: query], @"query", 		
-// 		receiver, @"receiver",
-// 		NSStringFromSelector(selector), @"selector",         
-// 		//TODO ovaj logout parametar izbaci
-//     [NSNumber numberWithBool: NO] , @"logout",
-// 		(database ? [[NSString alloc] initWithString: database] : nil), @"database", 
-// 		nil];                                                                               	                                   
-// 	                                                                                                  	
-// 	[connection performSelectorInBackground:@selector(executeInBackground:) withObject: arguments];		
-// }
-
                               
 #pragma mark ---- explain ----
 

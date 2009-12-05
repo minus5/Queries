@@ -401,7 +401,8 @@ struct COL
 		[TdsConnection deactivate: self];
 		[self setIsProcessing: FALSE];		
 	}   
-	queryResult = nil;
+	queryResult = nil; 
+	[result autorelease];
 	return result;
 } 
  

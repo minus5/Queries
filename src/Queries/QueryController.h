@@ -44,6 +44,7 @@
 	NSString *database;                     
 	int lastResultsTabIndex;     
 	TdsConnection *executingConnection;
+	NSMutableArray *dataSources;
 		
 	////syntax highlighting internals
 	IBOutlet NSTextField*			syntaxColoringStatus;									// Status display for things like syntax coloring or background syntax checks.			

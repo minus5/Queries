@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>QueriesAppDelegate.h</string>
+	<string>ConnectionController.m</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -13,27 +13,29 @@
 					<key>filename</key>
 					<string>QueriesAppDelegate.h</string>
 					<key>lastUsed</key>
-					<date>2009-11-29T19:47:41Z</date>
+					<date>2009-11-29T19:48:42Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>QueriesAppDelegate.m</string>
 					<key>lastUsed</key>
-					<date>2009-11-29T19:47:41Z</date>
+					<date>2009-11-30T05:42:29Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>ConnectionsManager.h</string>
 					<key>lastUsed</key>
-					<date>2009-11-29T19:43:43Z</date>
+					<date>2009-11-29T20:31:56Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>ConnectionsManager.m</string>
 					<key>lastUsed</key>
-					<date>2009-11-29T19:47:38Z</date>
+					<date>2009-11-29T20:29:06Z</date>
 				</dict>
 			</array>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>managers</string>
 		</dict>
@@ -50,19 +52,19 @@
 					<key>filename</key>
 					<string>ConnectingController.m</string>
 					<key>lastUsed</key>
-					<date>2009-11-22T22:58:56Z</date>
+					<date>2009-11-29T21:28:42Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>ConnectionController.h</string>
 					<key>lastUsed</key>
-					<date>2009-11-29T11:50:01Z</date>
+					<date>2009-11-30T05:42:29Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>ConnectionController.m</string>
 					<key>lastUsed</key>
-					<date>2009-11-29T19:36:27Z</date>
+					<date>2009-11-30T05:51:49Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
@@ -98,7 +100,7 @@
 					<key>filename</key>
 					<string>QueryController.m</string>
 					<key>lastUsed</key>
-					<date>2009-11-24T18:28:51Z</date>
+					<date>2009-11-30T05:43:31Z</date>
 				</dict>
 			</array>
 			<key>name</key>
@@ -166,7 +168,7 @@
 					<key>filename</key>
 					<string>shell_main.m</string>
 					<key>lastUsed</key>
-					<date>2009-11-29T19:46:07Z</date>
+					<date>2009-11-29T21:11:57Z</date>
 				</dict>
 			</array>
 			<key>name</key>
@@ -217,9 +219,15 @@
 		</dict>
 		<dict>
 			<key>filename</key>
+			<string>Constants.m</string>
+			<key>lastUsed</key>
+			<date>2009-11-29T20:28:27Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
 			<string>Constants.h</string>
 			<key>lastUsed</key>
-			<date>2009-11-29T17:39:42Z</date>
+			<date>2009-11-29T20:05:03Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -231,7 +239,7 @@
 			<key>filename</key>
 			<string>TdsConnection.m</string>
 			<key>lastUsed</key>
-			<date>2009-11-29T19:27:46Z</date>
+			<date>2009-11-30T05:42:31Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -288,42 +296,42 @@
 				<integer>0</integer>
 			</dict>
 		</dict>
-		<key>ConnectionsManager.m</key>
+		<key>ConnectionController.h</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>30</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>13</integer>
+				<integer>52</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>20</integer>
 		</dict>
-		<key>QueriesAppDelegate.h</key>
+		<key>ConnectionController.m</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>21</integer>
+				<integer>79</integer>
 				<key>line</key>
-				<integer>3</integer>
+				<integer>94</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>51</integer>
 		</dict>
 		<key>QueriesAppDelegate.m</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>30</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>16</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -335,14 +343,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>56</integer>
+				<integer>38</integer>
 				<key>line</key>
-				<integer>269</integer>
+				<integer>48</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>223</integer>
+			<integer>0</integer>
 		</dict>
 		<key>QueryResult.h</key>
 		<dict>
@@ -386,19 +394,35 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>TdsConnection.h</key>
+		<key>TdsConnection.m</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>16</integer>
+				<integer>78</integer>
 				<key>line</key>
-				<integer>48</integer>
+				<integer>335</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>8</integer>
+			<integer>299</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>335</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>78</integer>
+				<key>line</key>
+				<integer>335</integer>
+			</dict>
 		</dict>
 		<key>main.m</key>
 		<dict>
@@ -521,17 +545,26 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>TdsConnection.h</string>
-		<string>ConnectionsManager.m</string>
 		<string>QueriesAppDelegate.m</string>
-		<string>QueriesAppDelegate.h</string>
+		<string>ConnectionController.h</string>
+		<string>ConnectionController.m</string>
+		<string>QueryController.m</string>
+		<string>TdsConnection.m</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<false/>
 	<key>showFileHierarchyPanel</key>
 	<true/>
 	<key>treeState</key>
-	<dict/>
+	<dict>
+		<key>managers</key>
+		<dict>
+			<key>isExpanded</key>
+			<true/>
+			<key>subItems</key>
+			<dict/>
+		</dict>
+	</dict>
 	<key>windowFrame</key>
 	<string>{{0, 4}, {1920, 1174}}</string>
 </dict>

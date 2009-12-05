@@ -19,16 +19,6 @@
 	return [NSString stringWithFormat: @"%@/Credentials.plist", applicationSupportDirectory];
 }
 
-- (id)initWithOwner: (ConnectionController*) o
-{
-	self = [super init];
-	if (self) {
-    owner = o;    
-		[owner retain];  								
-	}
-	return self;
-}                      
-
 - (void) readCredentials{
 	[credentials release];   			
 	credentials = [NSMutableArray arrayWithContentsOfFile: [self credentialsFileName]];
@@ -110,37 +100,24 @@
 			[passwordText setStringValue: [credential objectAtIndex:2]];
 			return;
 		}
-	}
-	
+	}	
 }
 
 - (void) dealloc{
 	[super dealloc];
-	[owner release];       
 	[credentials release];
 }
 
-+ (CredentialsController*) controllerWithOwner: (ConnectionController*) o{	
-	CredentialsController *controller = [[CredentialsController alloc] initWithOwner:o];
-	[controller window];  
-	
-	[controller readCredentials]; 
++(CredentialsController*) controller{	
+	CredentialsController *controller = [[CredentialsController alloc] init];
+ 	[controller window];  
+ 	
+ 	[controller readCredentials]; 
   [controller fillServerCombo]; 
-		
-	return controller;
+ 		
+ 	return controller;
 } 
     
-- (void) showSheet{     
-	[self readCredentials]; 
-  [self fillServerCombo]; 
-
-	[NSApp beginSheet: [self window]
-		modalForWindow: [owner window]
-		modalDelegate: self 
-		didEndSelector: nil 
-		contextInfo:nil];
-}            
-
 - (NSString*) user{
 	return [NSString stringWithString: [userCombo stringValue]];
 }
@@ -157,33 +134,14 @@
 - (IBAction) connect: (id)sender
 { 
 	[[self window] orderOut: self];   
-	[NSApp endSheet: [self window] returnCode: NSRunContinuesResponse];
-	
-	  
-	// @try {
-	// 	TdsConnection *newConnection = [TdsConnection alloc];
-	// 	[newConnection initWithServer: [serverCombo stringValue] 
-	// 											 		 user: [userCombo stringValue] 
-	// 											 password: [passwordText stringValue] ];	
-	// 	[newConnection login];
-	// 	
-	// 	[self writeCredentials];		
-	// 	[owner didChangeConnection: newConnection];  
-	// 	[self closeSheet];
+	[NSApp endSheet: [self window] returnCode: NSRunContinuesResponse]; 	  
 } 
 
 - (IBAction) close: (id)sender
 { 
 	[[self window] orderOut: self];                  
 	[NSApp endSheet: [self window] returnCode: NSRunAbortedResponse];
-			
-	//[self closeSheet];
 }   
-
-- (void) closeSheet{
-	// [NSApp endSheet: [self window]];
-	// [[self window] orderOut: self];	
-}
 
 @end
 								
