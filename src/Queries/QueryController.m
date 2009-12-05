@@ -45,7 +45,8 @@
 }
 
 - (void) dealloc{         
-	NSLog(@"[%@ dealloc]", [self class]);        	
+	NSLog(@"[%@ dealloc]", [self class]);     
+	[[NSNotificationCenter defaultCenter] removeObserver:self];   	
 	[queryResult release];                       
 	[dataSources release];
 	[super dealloc];	
@@ -83,7 +84,7 @@
 	[self setNoWrapToTextView:queryText];
 	[self setNoWrapToTextView:textResultsTextView];
 	
-	[self splitViewDidResizeSubviews: nil];  
+	[self splitViewDidResize: nil];  
 	[self splitResultsAndQueryTextEqualy: nil];
 	lastResultsTabIndex	= 0;
 	[self maximizeQueryText: nil];
@@ -92,12 +93,17 @@
 	[messagesTextView setNextKeyView: [connection outlineView]];
 	[textResultsTextView setNextKeyView: [connection outlineView]];	
 	
-	dataSources = [[NSMutableArray alloc] init];
+	dataSources = [[NSMutableArray alloc] init];   
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(splitViewDidResize:)
+																							 name: NSSplitViewDidResizeSubviewsNotification
+																						 object: splitView];
+	
 }      
 
 #pragma mark ---- positioning ----
 
-- (void)splitViewDidResizeSubviews:(NSNotification *)aNotification{		
+- (void) splitViewDidResize: (NSNotification *)aNotification{	
 	NSRect frame = [resultsTabView frame];
 	frame.size.height = [resultsContentView frame].size.height - 35;	
 	frame.origin.x = 0;
@@ -106,8 +112,51 @@
 		[resultsTabView setFrame: frame];				
 	}  
 	[self resizeTablesSplitView: NO];
-}
+}   
 
+- (CGFloat)splitView:(NSSplitView *)sender constrainMinCoordinate:(CGFloat)proposedMin ofSubviewAt:(NSInteger)dividerIndex{
+  NSView *subview = [[sender subviews] objectAtIndex: dividerIndex];
+	if (sender == tablesSplitView){
+		NSLog(@"[%@ splitView:%@ constrainMinCoordinate:%f ofSubviewAt:%d [subview frame].origin.y:%f]", [self class], sender, proposedMin, dividerIndex, [subview frame].origin.y);
+		return [subview frame].origin.y + 32.5;
+	}        
+	else
+	{
+		return proposedMin;
+	}
+} 
+
+- (CGFloat)splitView:(NSSplitView *)sender constrainMaxCoordinate:(CGFloat)proposedMax ofSubviewAt:(NSInteger)dividerIndex{  
+	if (sender == tablesSplitView){
+		NSView *subview = [[sender subviews] objectAtIndex: dividerIndex + 1];  
+		NSLog(@"[%@ splitView:%@ constrainMaxCoordinate:%f ofSubviewAt:%d]", [self class], sender, proposedMax, dividerIndex);
+		NSLog(@"[subview frame].origin.x %f", [subview frame].origin.x);
+		return [subview frame].origin.y + [subview frame].size.height - 32.5 - 9;
+	}        
+	else
+	{
+		return proposedMax;
+	}
+} 
+  
+// - (CGFloat)splitView:(NSSplitView *)sender constrainSplitPosition:(CGFloat)proposedPosition ofSubviewAt:(NSInteger)dividerIndex{
+// 	if (sender == tablesSplitView){
+// 		// NSView *subview = [[sender subviews] objectAtIndex: dividerIndex];
+// 		// float previousSplitPosition = [subview frame].origin.y + [subview frame].size.height;     
+// 		// float delta = proposedPosition - previousSplitPosition;     
+// 		                   
+// 		// if (delta > 0){
+// 		// 	NSRect splitViewRect;			
+// 		// 	splitViewRect.size.height = splitViewRect.size.height + delta;			
+// 		// 	splitViewRect.origin.y = [tablesScrollView contentSize].height - splitViewRect.size.height;	
+// 		// 	[tablesSplitView setFrame: splitViewRect];	
+// 		// 	[tablesSplitView adjustSubviews];
+// 		// }
+// 		//         
+// 		NSLog(@"[%@ splitView:%@ constrainSplitPosition:%f ofSubviewAt:%d previousSplitPosition:%f]", [self class], sender, proposedPosition, dividerIndex, previousSplitPosition);
+// 	}
+// 	return proposedPosition;
+// } 
 
 #pragma mark ---- tab navigation ----
 
@@ -371,6 +420,9 @@
 	[tablesSplitView setAutoresizesSubviews: NO];	
 	[tablesScrollView setDocumentView: tablesSplitView];
 	[tableResultsContentView addSubview: tablesScrollView];
+	[tablesSplitView release];
+	[tablesScrollView release];
+	[tablesSplitView setDelegate: self];
 }      
 
 - (float) biggerOf: (float) a and: (float) b 
@@ -397,7 +449,9 @@
 	return 32.5 + (rows > 9 ? 9 : rows) * 17.5;	
 }
 
-- (void) resizeTablesSplitView: (BOOL) andSubviews{		 
+- (void) resizeTablesSplitView: (BOOL) andSubviews{	 
+	NSLog(@"[%@ resizeTablesSplitView:%d]", [self class], andSubviews);
+	  
 	int count = [[tablesSplitView subviews] count];
 	float splitersHeight = (count - 1) * 9;            
 	
@@ -425,7 +479,7 @@
 			NSView *subview = [[tablesSplitView subviews] objectAtIndex: i];
 			NSRect frame;
 			frame.origin.x = 0;
-			frame.origin.y = i * tableHeight + 9 * (i-1);
+			//frame.origin.y = i * tableHeight + 9 * (i-1);
 			frame.size.width = [tablesSplitView frame].size.width;
 			frame.size.height = tableHeight;  
 			//NSLog(@"resizing table %d with height %f min height %f", i, tableHeight, [self minHeightForTableAtIndex: i]);

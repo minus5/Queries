@@ -69,11 +69,7 @@
 - (void) showResults;
 - (void) showTextResults;
 - (void) showMessages;
-//- (void) showResultsCount;
 - (IBAction) nextResultsTab: (id) sender;
-//- (IBAction) previousResultsTab: (id) sender;
-// - (IBAction) nextResult: (id) sender;
-// - (IBAction) previousResult: (id) sender;
 
 - (NSString*) queryString;
 - (void) setResult: (QueryResult*) r;
@@ -97,9 +93,7 @@
 - (void) goToTextResults;
 - (void) goToMessages;
 
-//- (void) updateNextKeyViewRing;                                    
 
-- (void)splitViewDidResizeSubviews:(NSNotification *)aNotification;
 - (IBAction) splitResultsAndQueryTextEqualy: sender;
 - (IBAction) maximizeResults: sender;
 - (IBAction) maximizeQueryText: sender;
@@ -114,9 +108,6 @@
 
 - (void) resizeTablesSplitView: (BOOL) andSubviews;
 
-//- (void) startCompletionTimer; 
-//- (void) stopCompletionTimer; 
-//- (void)doCompletion:(NSTimer *)timer;
 @end
 
 //syntax highlighting
