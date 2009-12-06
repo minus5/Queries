@@ -99,6 +99,21 @@ void testConnectionsManager(){
 	assert(1 == [manager connectionsCount: @"ianic@mssql"]);
 		                                             
 	[ConnectionsManager releaseSharedInstance];
+}   
+
+void testRegex(){
+	NSString *query = @"iso\n GO \nmedo\n  go  \nu ducan (mozda se zvao gogo)\na mozda I GOGO\ngo\nnije reko dobar dan";
+	NSString *regexString  = @"^\\s*go\\s*$";			
+	NSArray *queries = [query componentsSeparatedByRegex:regexString options: (2 | 8) range: NSMakeRange(0, [query length]) error:nil];
+		
+	assert(4 == [queries count]);                                       
+	NSLog(@"queries count: %d", [queries count]);
+	NSLog(@"queries: %@", queries);
+	
+	query = @"iso medo u ducan\nnije reko dobar dan\n";                                                                      
+	queries = [query componentsSeparatedByRegex:regexString options: (2 | 8) range: NSMakeRange(0, [query length]) error:nil];
+	assert(1 == [queries count]);	                                                                                                                    
+	NSLog(@"queries: %@", queries);
 }
 
 int main (int argc, const char * argv[]) {	
@@ -109,7 +124,8 @@ int main (int argc, const char * argv[]) {
 	//testCreateTableSctipt();
 	//testMaxColumnLength();
 	//testSelectEncoding();
-	testConnectionsManager();
+	//testConnectionsManager();
+	testRegex();
 	
 	NSLog(@"shell test finished...");
 	[pool drain];

@@ -117,7 +117,7 @@
 - (CGFloat)splitView:(NSSplitView *)sender constrainMinCoordinate:(CGFloat)proposedMin ofSubviewAt:(NSInteger)dividerIndex{
   NSView *subview = [[sender subviews] objectAtIndex: dividerIndex];
 	if (sender == tablesSplitView){
-		NSLog(@"[%@ splitView:%@ constrainMinCoordinate:%f ofSubviewAt:%d [subview frame].origin.y:%f]", [self class], sender, proposedMin, dividerIndex, [subview frame].origin.y);
+		//NSLog(@"[%@ splitView:%@ constrainMinCoordinate:%f ofSubviewAt:%d [subview frame].origin.y:%f]", [self class], sender, proposedMin, dividerIndex, [subview frame].origin.y);
 		return [subview frame].origin.y + 32.5;
 	}        
 	else
@@ -129,8 +129,8 @@
 - (CGFloat)splitView:(NSSplitView *)sender constrainMaxCoordinate:(CGFloat)proposedMax ofSubviewAt:(NSInteger)dividerIndex{  
 	if (sender == tablesSplitView){
 		NSView *subview = [[sender subviews] objectAtIndex: dividerIndex + 1];  
-		NSLog(@"[%@ splitView:%@ constrainMaxCoordinate:%f ofSubviewAt:%d]", [self class], sender, proposedMax, dividerIndex);
-		NSLog(@"[subview frame].origin.x %f", [subview frame].origin.x);
+		// NSLog(@"[%@ splitView:%@ constrainMaxCoordinate:%f ofSubviewAt:%d]", [self class], sender, proposedMax, dividerIndex);
+		// NSLog(@"[subview frame].origin.x %f", [subview frame].origin.x);
 		return [subview frame].origin.y + [subview frame].size.height - 32.5 - 9;
 	}        
 	else
@@ -139,25 +139,6 @@
 	}
 } 
   
-// - (CGFloat)splitView:(NSSplitView *)sender constrainSplitPosition:(CGFloat)proposedPosition ofSubviewAt:(NSInteger)dividerIndex{
-// 	if (sender == tablesSplitView){
-// 		// NSView *subview = [[sender subviews] objectAtIndex: dividerIndex];
-// 		// float previousSplitPosition = [subview frame].origin.y + [subview frame].size.height;     
-// 		// float delta = proposedPosition - previousSplitPosition;     
-// 		                   
-// 		// if (delta > 0){
-// 		// 	NSRect splitViewRect;			
-// 		// 	splitViewRect.size.height = splitViewRect.size.height + delta;			
-// 		// 	splitViewRect.origin.y = [tablesScrollView contentSize].height - splitViewRect.size.height;	
-// 		// 	[tablesSplitView setFrame: splitViewRect];	
-// 		// 	[tablesSplitView adjustSubviews];
-// 		// }
-// 		//         
-// 		NSLog(@"[%@ splitView:%@ constrainSplitPosition:%f ofSubviewAt:%d previousSplitPosition:%f]", [self class], sender, proposedPosition, dividerIndex, previousSplitPosition);
-// 	}
-// 	return proposedPosition;
-// } 
-
 #pragma mark ---- tab navigation ----
 
 - (IBAction)resultsMessagesSegmentControlClicked:(id)sender
@@ -344,7 +325,8 @@
 	[self resizeTablesSplitView: YES];
 }
 
-- (void) createTables{  	
+- (void) createTables{  
+	firstTableView = nil;	
 	//clear existing
 	int count = [[tablesSplitView subviews] count];
 	for(int i = count-1; i>=0; i--){

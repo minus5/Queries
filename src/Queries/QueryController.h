@@ -77,6 +77,7 @@
 - (void) reloadResults;
 - (void) reloadMessages;
 
+- (void) splitViewDidResize: (NSNotification *)aNotification;
 - (void) createTables;
 - (NSTableView*) createTable;
 - (void) createTablesPlaceholder;

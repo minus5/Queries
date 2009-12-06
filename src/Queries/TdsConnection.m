@@ -310,9 +310,9 @@ struct COL
 	}
 }
         
-- (void) executeQueries: (NSString*) query{
-	//TODO napravi inteligentnije splitter
-	NSArray *queries = [query componentsSeparatedByString: @"GO"];
+- (void) executeQueries: (NSString*) query{			
+	NSArray *queries = [query componentsSeparatedByRegex:@"^\\s*go\\s*$" options: (2 | 8) range: NSMakeRange(0, [query length]) error:nil];
+	//NSArray *queries = [query componentsSeparatedByString: @"GO"];
 	for(id query in queries){		
 		BOOL success = [self executeQuery: query];				
 		NSLog(@"executing query: %@ returned %d", query, success);
