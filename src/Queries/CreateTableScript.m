@@ -176,8 +176,7 @@
 		
 		[self createTable];  
 		[self columns];					                                                           
-		[self indexes];		
-		[result release];
+		[self indexes];
 	}
 	return self;
 } 

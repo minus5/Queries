@@ -432,7 +432,7 @@
 }
 
 - (void) resizeTablesSplitView: (BOOL) andSubviews{	 
-	NSLog(@"[%@ resizeTablesSplitView:%d]", [self class], andSubviews);
+	//NSLog(@"[%@ resizeTablesSplitView:%d]", [self class], andSubviews);
 	  
 	int count = [[tablesSplitView subviews] count];
 	float splitersHeight = (count - 1) * 9;            
