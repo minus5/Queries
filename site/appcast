@@ -13,7 +13,7 @@
           </sparkle:releaseNotesLink>
           <pubDate>Mon, 7 Dec 2009</pubDate>
           <enclosure url="http://queries.minus5.hr/app/Queries_0.2.1.app.zip"
-                     sparkle:version="0.2"
+                     sparkle:version="0.2.1"
                      sparkle:dsaSignature="MCwCFBYNX8Zy9KFJweLDnI/lwS4ttsMpAhRwLuuTvlYYGl0e9uLBBUtT9t+74g=="
                      length="1623856"
                      type="application/octet-stream" />
