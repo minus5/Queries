@@ -1,20 +1,24 @@
-BUGS  
-  * auto updater ne radi najbolje u kombinaciji s modalnim prozorom                
-  * svaki message u tdsConnection ima na kraju \n
+BUGS                                   
+->* ako je u queriju jedan od rezultata imao error prebaci ga na messages tab
+    i nemoj napisati da je Completed sucessfully, nego Query completed with errors
+  * auto updater ne radi najbolje u kombinaciji s modalnim prozorom                  
+  * klikom na line number se pojave neke plave oznake koje trenutno nemaju nikakovu funkciju
+  *| svaki message u tdsConnection ima na kraju \n
+  *| kada se izvrsava stored procedura koja vraca vise rezultata, ne dobijem u messages broj rows, a query analyzer to ima
     
-TODO                                                
-  * provjeri sve retain release, kod dinamicki kreiranih kontrola...
-  
+TODO                                              
+  * prikupljaj error reports na neku moju lokaciju, ako je moguce
+   
   * double click, dragn drop i enter na database object neka ga dodaju u query text
-  * QueryAnalyzer:
-    * connect ctrl-O 
-    * za tablicu prikazuje: columns, indexes, constraints, dependecies, triggers
-    * kategorije za bazu su mu: user tables, system tables, views, stored procedures, functions, user defined data types
-    * nema usere, scheme...
-    * results in text dodaju i messages
-
-    * login timeout: 15s
-    * status bar: Ready, Executing query batch, Query batch completed
+  
+  * database objects
+    * useri nisu u skladu s ostalim objektima, mozda da ih izbacim zasada
+    * opcija da budu grupirani po schemama
+    * mozda prikazivati samo objekte iz trenutno odabrane baze, imaju li ovi drugi uopce smisla
+    
+->* bolji izracun sirine kolona
+  
+->* popuni text results samo kada ga stvarno trazi
 
   * prikazi u statusnj liniji: Ready, Executing..., Completed. 
      1 Result 10 rows
@@ -25,12 +29,12 @@ TODO
   * close-other tabs, close all tabs  shift-command-W
 
   * user preferences    
-    * connection properties svaka konekcija bi morala imati neke defaulte, inace ne rade heterogeni queriji, preko linkanog servera, a pogledaj i za computed columns koji su uvjeti  
+    + connection properties svaka konekcija bi morala imati neke defaulte, inace ne rade heterogeni queriji, preko linkanog servera, a pogledaj i za computed columns koji su uvjeti  
       set ANSI_NULLS on
       set ANSI_WARNINGS on 
       rowcoun opalitit prije svakog upita, da ne uzme bas cijelu bazu
       opcija set implicit transactions on
-    * query timeout: 0s
+    + query timeout: 0s
     * saved connections
       moze obrisati neke postojece konekcije        
 
@@ -42,18 +46,17 @@ TODO
   * alter skripta za view-e i procedure  
                                                                              
   * ikonice
-    * za aplikaciju
+    + za aplikaciju
     * za results/messages
     * za database objects
     * za tip baze test/staging/production...  
             
   * drag and drop tabova
   * go to tab command 1,2,3,4...    
-  * comment/uncomment selection
+  * comment/uncomment selection  
 ------------------------------------------------  
   
   * customizacija formatiranja datuma tako da se vide i milisekunde
-  
   * kolona s row numberom? 
     
   * 32 bitni build
@@ -82,7 +85,17 @@ TODO
   
   * freetds ukljuciti u projekt - pogledaj prije toga na kakvoj je licenci  
   
-FIXED:                                        
+FIXED:                                              
+  + provjeri sve retain release, kod dinamicki kreiranih kontrola...
+  + QueryAnalyzer:
+    * connect ctrl-O 
+    * za tablicu prikazuje: columns, indexes, constraints, dependecies, triggers
+    * kategorije za bazu su mu: user tables, system tables, views, stored procedures, functions, user defined data types
+    * nema usere, scheme...
+    * results in text dodaju i messages
+    * login timeout: 15s
+    * status bar: Ready, Executing query batch, Query batch completed
+
   + plava pozadina na sidebaru
   + connections window
     + stavi kotacic dok ostvaruje konekciju
