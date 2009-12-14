@@ -20,7 +20,7 @@
 	[super dealloc];
 }
 - (void) addResultWithColumnNames: (NSArray*) columnNames andRows: rows{
-	if ([columnNames count] == 0 && [rows count] == 0){
+	if (([columnNames count] == 0 && [rows count] == 0) || ([rows count] == 0 && hasErrors)){
 		return;
 	}                                    
 	[results addObject: [NSArray arrayWithObjects: columnNames, rows, nil]];					

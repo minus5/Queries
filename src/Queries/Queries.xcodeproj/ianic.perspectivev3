@@ -312,7 +312,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>184873E6109857C600A15FC7</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>TdsConnection.m</string>
+								<string>QueryResult.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -320,11 +320,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>184873E7109857C600A15FC7</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>TdsConnection.m</string>
+										<string>QueryResult.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>182BA4BD10D2998100612265</string>
+										<string>182BA53910D50B8100612265</string>
 										<key>history</key>
 										<array>
 											<string>1870CC9A1098988E006AC809</string>
@@ -353,7 +353,6 @@
 											<string>187FC9F810B33E8E00471B6A</string>
 											<string>187FCFC710B701E000471B6A</string>
 											<string>187FCFC810B701E000471B6A</string>
-											<string>187FD16610B9AF4A00471B6A</string>
 											<string>187FD29110B9F6EF00471B6A</string>
 											<string>187FD32E10BC47EF00471B6A</string>
 											<string>187FD46510C2E9CF00471B6A</string>
@@ -375,7 +374,8 @@
 											<string>1840435510CD513A006B923F</string>
 											<string>182BA48B10D27A6A00612265</string>
 											<string>182BA4A010D27AB800612265</string>
-											<string>182BA4B610D2916D00612265</string>
+											<string>182BA51B10D50A4F00612265</string>
+											<string>182BA52910D50A9900612265</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -389,16 +389,16 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1675, 964}}</string>
+								<string>{{0, 0}, {1675, 982}}</string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>964pt</string>
+							<string>982pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>114pt</string>
+							<string>96pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -412,7 +412,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1675, 87}}</string>
+										<string>{{10, 27}, {1675, 69}}</string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -428,7 +428,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1666, 137}}</string>
+										<string>{{10, 27}, {1675, 69}}</string>
 									</dict>
 									<key>Module</key>
 									<string>PBXProjectFindModule</string>
@@ -539,6 +539,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXProjectModuleGUID</key>
@@ -549,14 +551,14 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {1920, 385}}</string>
+						<string>{{0, 0}, {1920, 237}}</string>
 						<key>RubberWindowFrame</key>
 						<string>0 54 1920 1124 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXDebugCLIModule</string>
 					<key>Proportion</key>
-					<string>385pt</string>
+					<string>237pt</string>
 				</dict>
 				<dict>
 					<key>ContentConfiguration</key>
@@ -575,8 +577,8 @@
 								<string>yes</string>
 								<key>sizes</key>
 								<array>
-									<string>{{0, 0}, {937, 337}}</string>
-									<string>{{937, 0}, {983, 337}}</string>
+									<string>{{0, 0}, {937, 409}}</string>
+									<string>{{937, 0}, {983, 409}}</string>
 								</array>
 							</dict>
 							<key>VerticalSplitView</key>
@@ -591,8 +593,8 @@
 								<string>yes</string>
 								<key>sizes</key>
 								<array>
-									<string>{{0, 0}, {1920, 337}}</string>
-									<string>{{0, 337}, {1920, 356}}</string>
+									<string>{{0, 0}, {1920, 409}}</string>
+									<string>{{0, 409}, {1920, 432}}</string>
 								</array>
 							</dict>
 						</dict>
@@ -612,7 +614,7 @@
 						<key>DebugSTDIOWindowFrame</key>
 						<string>{{200, 200}, {500, 300}}</string>
 						<key>Frame</key>
-						<string>{{0, 390}, {1920, 693}}</string>
+						<string>{{0, 242}, {1920, 841}}</string>
 						<key>PBXDebugSessionStackFrameViewKey</key>
 						<dict>
 							<key>DebugVariablesTableConfiguration</key>
@@ -625,7 +627,7 @@
 								<real>737</real>
 							</array>
 							<key>Frame</key>
-							<string>{{937, 0}, {983, 337}}</string>
+							<string>{{937, 0}, {983, 409}}</string>
 							<key>RubberWindowFrame</key>
 							<string>0 54 1920 1124 0 0 1920 1178 </string>
 						</dict>
@@ -635,7 +637,7 @@
 					<key>Module</key>
 					<string>PBXDebugSessionModule</string>
 					<key>Proportion</key>
-					<string>693pt</string>
+					<string>841pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -694,7 +696,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>182BA4BB10D2995100612265</string>
+		<string>182BA53A10D50B8100612265</string>
 		<string>182BA49810D27A6B00612265</string>
 		<string>182BA49910D27A6B00612265</string>
 		<string>/Users/ianic/Work/CocoaQueryAnalyzer/src/Queries/Queries.xcodeproj</string>

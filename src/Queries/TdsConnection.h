@@ -29,7 +29,7 @@
 	QueryResult *queryResult;
 	  
 	BOOL isProcessing; 	  
-	BOOL cancelQuery;
+	BOOL cancelQuery;   
 	DBPROCESS *dbproc;
 }
 
@@ -56,8 +56,9 @@
 -(void) freeResultBuffers: (struct COL*) columns;
 -(void) readResultMessages;
 -(void) readResults;
-
--(void) logMessage: (NSString*) message;
+                
++ (void) logMessage: (NSString*) message forProcess: (DBPROCESS*) dbproc error: (BOOL)isError;
+-(void) logMessage: (NSString*) message error: (BOOL) isError;
 
 -(NSString*) connectionName;
   

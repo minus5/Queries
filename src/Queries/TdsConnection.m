@@ -29,10 +29,10 @@ NSMutableArray *activeConnections;
 	return dbproc;
 }    
 
-+ (void) logMessage: (NSString*) message forProcess: (DBPROCESS*) dbproc{
++ (void) logMessage: (NSString*) message forProcess: (DBPROCESS*) dbproc error: (BOOL)isError{
 	for(id c in activeConnections){
 		if ([c dbproc] == dbproc){
-			[c logMessage: message];
+			[c logMessage: message error: isError];
 			return;
 		}
 	}                                           
@@ -60,7 +60,7 @@ int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char
 	if (strlen(msgtext) > 0)
 		[message appendFormat:@"%s\n", msgtext];
 	if ([message length] > 0){
-		[TdsConnection logMessage:message forProcess: dbproc];	
+		[TdsConnection logMessage:message forProcess: dbproc error: NO];	
 	}			
 	return 0;							
 }
@@ -70,7 +70,6 @@ int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dbe
 	//102 i 105 je poruka 'General SQL Server error: Check messages from the SQL Server' sto ce mi to
 	if (dberr != 102 &&  dberr != 105)
 	{
-		//todo ovdje padne na stringWithFormat kada mu pukne konekcija dberr = 20006
 		if ([[NSString stringWithFormat: @"%s", dberrstr] isEqualToString: @"Data conversion resulted in overflow"]){
 			//NSLog(@"ignoring message 'Data conversion resulted in overflow'");
 			return INT_CANCEL;
@@ -91,7 +90,7 @@ int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dbe
 			[message appendFormat:@"%s\n", dberrstr];
 		}
 	
-		[TdsConnection logMessage:message forProcess: dbproc];	
+		[TdsConnection logMessage:message forProcess: dbproc error: YES];	
 	}
 	return INT_CANCEL;						
 }    
@@ -135,25 +134,6 @@ struct COL
 
 -(void) applyConnectionDefaults{
 	[self execute: [[NSUserDefaults standardUserDefaults] objectForKey: QueriesConnectionDefaults] withDefaultDatabase: nil logOutOnException: NO];	
-}
-
--(BOOL) executeQuery: (NSString*) query{
-	RETCODE erc;
-
-	const char *cStringQuery = [query UTF8String];   
-	
-	erc = dbfcmd(dbproc, "%s ", cStringQuery);
-	if (erc != FAIL)               
-		erc = dbsqlexec(dbproc);
-
-	// if ((erc = dbfcmd(dbproc, "%s ", cStringQuery)) == FAIL) {
-	// 	[NSException raise:@"Exception" format: @"%d: dbcmd() failed\n", __LINE__];
-	// }		
-	// if ((erc = dbsqlexec(dbproc)) == FAIL) {
-	// 	[NSException raise:@"Exception" format: @"%d: dbsqlexec() failed\n", __LINE__];		
-	// }                   
-	
-	return erc != FAIL;
 }
 
 -(NSArray*) readResultMetadata: (struct COL**) pcolumns{
@@ -262,13 +242,13 @@ struct COL
 -(void) readResultMessages{
 	//Get row count, if available.   
 	if (DBCOUNT(dbproc) > -1){
-		[self logMessage: [NSString stringWithFormat:@"%d rows affected\n", DBCOUNT(dbproc)]];
+		[self logMessage: [NSString stringWithFormat:@"%d rows affected\n", DBCOUNT(dbproc)] error: NO];
 		NSLog(@"%d rows affected\n", DBCOUNT(dbproc));
 	}
 	
 	//Check return status 			 
 	if (dbhasretstat(dbproc) == TRUE) {
-		[self logMessage: [NSString stringWithFormat:@"Procedure returned %d\n", dbretstatus(dbproc)]];
+		[self logMessage: [NSString stringWithFormat:@"Procedure returned %d\n", dbretstatus(dbproc)] error: NO];
 		NSLog(@"Procedure returned %d\n", dbretstatus(dbproc));
 	}
 }
@@ -322,6 +302,14 @@ struct COL
 			[queryResult setHasErrors: YES];
 	}	
 }         
+
+-(BOOL) executeQuery: (NSString*) query{
+	RETCODE erc = dbfcmd(dbproc, "%s ", [query UTF8String]);
+	if (erc != FAIL)               
+		erc = dbsqlexec(dbproc);
+	
+	return (erc != FAIL);
+}
 
 - (BOOL) executeInBackground: (NSString*) query withDatabase: (NSString*) database returnToObject: (id) receiver withSelector: (SEL) selector{			
 	if ([self isProcessing]){
@@ -390,12 +378,12 @@ struct COL
 		[queryResult addCompletedMessage];	
 		[queryResult setDatabase: [self currentDatabase]];
 		
-		[self logMessage: [NSString stringWithFormat: @"Query completed in %f seconds.\n", -[timerStart timeIntervalSinceNow]]];
+		[self logMessage: [NSString stringWithFormat: @"Query completed in %f seconds.\n", -[timerStart timeIntervalSinceNow]] error: NO];
 	}
 	@catch (NSException *exception) {                                                                           
 		if (logOutOnException)
 		  [self logout];
-		[self logMessage: [NSString stringWithFormat:@"%@", [exception reason]]];
+		[self logMessage: [NSString stringWithFormat:@"%@", [exception reason]] error: YES];
 	} 
 	@finally{
 		[TdsConnection deactivate: self];
@@ -433,9 +421,12 @@ struct COL
 	[super dealloc];
 }
 
--(void) logMessage: (NSString*) message{
+-(void) logMessage: (NSString*) message error: (BOOL) isError{
 	if (queryResult){
-		[queryResult addMessage: message];
+		[queryResult addMessage: message];         
+		if (isError){
+			[queryResult setHasErrors: YES];
+		}
 	}
 }
 
