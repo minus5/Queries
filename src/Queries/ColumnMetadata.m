@@ -19,13 +19,16 @@
 	return self;
 }
 
-- (void) updateMaxLength: (int) l{
-	if (l > length)
-		length = l;
-}                        
+- (void) dealloc
+{
+	[name release];
+	[super dealloc];
+}
 
-// - (NSString*) formatString{
-// 	return [NSString stringWithFormat: @"%%-%ds", [self length] + 2];
-// }
+- (void) updateMaxLength: (int) l{
+	if (l > length){ 
+		length = l;
+	}
+}                        
 
 @end

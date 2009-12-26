@@ -172,7 +172,10 @@
 			if (firstTableView)
 				[queryText setNextKeyView: firstTableView];
 			break;
-		case 1:
+		case 1:                                                      
+			if ([[textResultsTextView string] length] == 0){
+				[textResultsTextView setString: [queryResult resultsInText]];
+			}
 			[queryText setNextKeyView: textResultsTextView];
 			break;
 		case 2: 
@@ -296,7 +299,7 @@
 		
 	[self reloadResults];
 	[self reloadMessages];
-	[textResultsTextView setString: [queryResult resultsInText]];
+	[textResultsTextView setString: @""];
 	
 	if ([queryResult hasResults] && ![queryResult hasErrors]){           	  
 		[resultsTabView selectTabViewItemAtIndex: lastResultsTabIndex];	 
@@ -377,7 +380,8 @@
 	[newTableView setUsesAlternatingRowBackgroundColors: YES];
 	[newTableView setGridStyleMask:NSTableViewSolidVerticalGridLineMask];
 	[newTableView setRowHeight: 14];
-	[newTableView setFocusRingType: NSFocusRingTypeNone];
+	[newTableView setFocusRingType: NSFocusRingTypeNone];  
+	[newTableView setColumnAutoresizingStyle: NSTableViewNoColumnAutoresizing];
 
 	[newScrollView setDocumentView:newTableView];
 	[tablesSplitView addSubview:newScrollView];		

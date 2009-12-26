@@ -6,7 +6,7 @@ BUGS
   * otvaranje velikog file-a traje, zbog bojanja, cursor zavrsi na dnu, mozada da ne ide na dno ne bi toliko trajalo
     
 TODO                                              
-  * dokumnetacija
+  * dokumentacija
    * opisati features
     * multiple queries
     * databse object scripts
@@ -28,10 +28,6 @@ TODO
     
   * bolji izracun sirine kolona
   
-->* popuni text results samo kada ga stvarno trazi
-
-->* umjesto create skripte za view, procedure, function napravi alter
-
   * prikazi u statusnj liniji: Ready, Executing..., Completed. 
      1 Result 10 rows
      2 results 10,20 rows 
@@ -170,4 +166,6 @@ FIXED:
       rowcoun opalitit prije svakog upita, da ne uzme bas cijelu bazu
       opcija set implicit transactions on
     + query timeout: 0s
+ + umjesto create skripte za view, procedure, function napravi alter    
+ + popuni text results samo kada ga stvarno trazi
 OSTAVI NESTO I ZA SLIJEDECE VERZIJE  

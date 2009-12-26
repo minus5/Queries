@@ -53,37 +53,19 @@
 	
 	[[column headerCell] setStringValue:meta.name];
 	[column setIdentifier: [NSNumber numberWithInt: meta.index]];	
-	[column setWidth: 80];
-	[[column dataCell] setFont: [NSFont fontWithName: @"Lucida Grande" size: 11.0]];
 	
-	switch (meta.type) {
-		case SYBINTN:
-		case SYBINT2:
-		case SYBINT4:
-			[[column dataCell] setAlignment: NSRightTextAlignment];
-			[column setWidth: 80];
-			break;			
-		case SYBMONEY:
-		case SYBMONEY4:			
-		case SYBREAL:
-		case SYBNUMERIC:		
-			[[column dataCell] setAlignment: NSRightTextAlignment];
-			[column setWidth: 100];
-			break;
-		case SYBBIT:
-			[[column dataCell] setAlignment: NSCenterTextAlignment];
-			[column setWidth: 50];
-			break;
-		case SYBCHAR:
-		case SYBVARCHAR:
-		case SYBDATETIME:
-		case SYBDATETIME4:
-		case SYBDATETIMN:			
-			[column setWidth: 150];
-		default:
-			break;
-	}		
-	//[column retain];
+	//column width algoritam, nije bas najinteligentnije stvar na svijetu
+	if ([meta length] > 40)  		             
+		[column setWidth: 400];
+	else if ([meta length] > 20)
+		[column setWidth: [meta length] * 6];
+	else if ([meta length] > 10)
+		[column setWidth: [meta length] * 7];
+	else                                   
+		[column setWidth: [meta length] * 9];
+	
+	[[column dataCell] setFont: [NSFont fontWithName: @"Lucida Grande" size: 11.0]];
+	[column setResizingMask:NSTableColumnUserResizingMask];
 }
 
 - (void) removeAllColumns{
