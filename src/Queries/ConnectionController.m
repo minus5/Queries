@@ -275,8 +275,15 @@
 		if ([objectType isEqualToString: @"procedures"] || [objectType isEqualToString: @"functions"] || [objectType isEqualToString: @"views"]){	
 			QueryResult *queryResult = [[self tdsConnection] execute: [NSString stringWithFormat: @"use %@\nexec sp_helptext '%@'", databaseName, objectName]];
 			if (queryResult){
-				[self createNewTab];
-				[queryController setString:[queryResult resultAsString]];    
+				//create to alter
+				NSString *typeName =  [[objectType substringToIndex: [objectType length] - 1] uppercaseString];
+				NSString *script = [queryResult resultAsString];                                                                             				
+				NSString *createRegexString = [NSString stringWithFormat: @"(?im)(^\\s*CREATE\\s+%@\\s+)", typeName]; 
+				NSString *alterRegexString = [NSString stringWithFormat: @"ALTER %@ ", typeName]; 
+				script = [script stringByReplacingOccurrencesOfRegex:createRegexString withString:alterRegexString];                                        
+				
+				[self createNewTab];              								                                                                           
+				[queryController setString: script];    
 				[queryController setName: objectName];
 			}
 			return;

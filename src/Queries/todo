@@ -8,10 +8,18 @@ BUGS
 TODO                                              
   * dokumnetacija
    * opisati features
-    * multiplet queries
+    * multiple queries
     * databse object scripts
+    * remembering recent connections
+    * keyboard shortcuts
+       keyring navigation
+    * results in text            
+    * syntax highlighting
+    * table name auto completion
     
   * double click, dragn drop i enter na database object neka ga dodaju u query text
+  
+  * save results as csv
   
   * database objects
     * useri nisu u skladu s ostalim objektima, mozda da ih izbacim zasada
@@ -31,17 +39,12 @@ TODO
      vrijeme izvrsavanja querija 0:00:00 (sati:minute:sekunde)
 
   * close-other tabs, close all tabs  shift-command-W
-
-  * user preferences    
-    + connection properties svaka konekcija bi morala imati neke defaulte, inace ne rade heterogeni queriji, preko linkanog servera, a pogledaj i za computed columns koji su uvjeti  
-      set ANSI_NULLS on
-      set ANSI_WARNINGS on 
-      rowcoun opalitit prije svakog upita, da ne uzme bas cijelu bazu
-      opcija set implicit transactions on
-    + query timeout: 0s
+  
+  * user preferences
+    * check boxes umjetio direktnog upisa
     * saved connections
-      moze obrisati neke postojece konekcije        
-
+      moze obrisati neke postojece konekcije
+        
   * dorade outline view-a
     * triggeri   
     * kolone od tablice                                                                
@@ -66,13 +69,7 @@ TODO
   * kolona s row numberom? 
     
   * 32 bitni build
-  
-  * dolje lijevo prikazi detalje o konekciji:
-    * server
-    * username
-    * row counter 7/236
-    * vrijeme izvrsavanja querija
-  
+   
   * filter database objekata
   * Error oboji crveno
   * skok na liniju u kojoj je greska          
@@ -90,6 +87,12 @@ TODO
   * sto ako sql server nije na portu 1433 
   
   * freetds ukljuciti u projekt - pogledaj prije toga na kakvoj je licenci  
+  
+  * dolje lijevo prikazi detalje o konekciji:
+    * server
+    * username
+    * row counter 7/236
+    * vrijeme izvrsavanja querija  
   
 FIXED:                                              
   * ako je u queriju jedan od rezultata imao error prebaci ga na messages tab
@@ -160,4 +163,11 @@ FIXED:
   + proglasiti neku konekciju defaultnom
   + resize splitview-a
   + unicode za freetds
+  + user preferences    
+    + connection properties svaka konekcija bi morala imati neke defaulte, inace ne rade heterogeni queriji, preko linkanog servera, a pogledaj i za computed columns koji su uvjeti  
+      set ANSI_NULLS on
+      set ANSI_WARNINGS on 
+      rowcoun opalitit prije svakog upita, da ne uzme bas cijelu bazu
+      opcija set implicit transactions on
+    + query timeout: 0s
 OSTAVI NESTO I ZA SLIJEDECE VERZIJE  
