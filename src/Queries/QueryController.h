@@ -39,6 +39,7 @@
 	
 	BOOL isEdited;
 	BOOL isProcessing;
+	NSString *status;
 	NSString *fileName;          
 	NSString *name;
 	NSString *database;                     
@@ -63,6 +64,7 @@
 @property (copy) NSString *fileName;
 @property (copy) NSString *name;
 @property (copy) NSString *database; 
+@property (copy) NSString *status; 
 
 - (id) initWithConnection: (ConnectionController*) c;
 - (IBAction) resultsMessagesSegmentControlClicked:(id)sender;

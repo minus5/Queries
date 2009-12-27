@@ -29,12 +29,12 @@
 
 - (void) textDidChange: (NSNotification *) aNotification{
 	[self saveDefaults];
-	NSLog(@"didChangeText");
+	//NSLog(@"didChangeText");
 }
 
 - (void)controlTextDidChange:(NSNotification *)aNotification{
 	[self saveDefaults];
-	NSLog(@"controlTextDidChange");	
+	//NSLog(@"controlTextDidChange");	
 }
                                                         
 - (IBAction) resetDefaults:(id)sender{ 
@@ -42,7 +42,7 @@
 	[[NSUserDefaults standardUserDefaults] removeObjectForKey: QueriesQueryTimeout];
 	[[NSUserDefaults standardUserDefaults] removeObjectForKey: QueriesLoginTimeout];
 	[self readDefaults];            
-	NSLog(@"resetDefaults");	
+	//NSLog(@"resetDefaults");	
 	}
 
 @end

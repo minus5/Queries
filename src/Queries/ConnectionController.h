@@ -7,6 +7,7 @@
 #import "CreateTableScript.h"
 #import "ConnectingController.h"
 #import "ConnectionsManager.h"
+#import <BWToolkitFramework/BWToolkitFramework.h>  
 
 @class CredentialsController;
 @class QueryController;
@@ -19,6 +20,7 @@
 	IBOutlet PSMTabBarControl *queryTabBar; 		
 	IBOutlet NSOutlineView *outlineView;
 	IBOutlet NSPopUpButton *databasesPopUp;
+	IBOutlet BWInsetTextField *statusLabel;
 	
 	CredentialsController *credentials;	
 	int queryTabsCounter;
@@ -73,7 +75,7 @@
 - (NSString*) databaseObjectsQuery;
 -(NSArray*) dbObjectsForParent: (NSString*) parentId;
 -(NSArray*) dbObjectsForDatabase: (NSString*) database;
-   
+  
 - (void) displayDatabase;
 - (void) databaseChanged:(id)sender;
 - (void) setQueryDatabaseToDefault;
@@ -81,4 +83,5 @@
 - (void) setDatabasesResult: (QueryResult*) queryResult;
 - (void) setObjectsResult: (QueryResult*) queryResult;
 
+- (void) displayStatus;
 @end

@@ -18,26 +18,16 @@ TODO
     * table name auto completion
     
   * double click, dragn drop i enter na database object neka ga dodaju u query text
-  
-  * save results as csv
-  
+      
   * database objects
     * useri nisu u skladu s ostalim objektima, mozda da ih izbacim zasada
     * opcija da budu grupirani po schemama
-    * mozda prikazivati samo objekte iz trenutno odabrane baze, imaju li ovi drugi uopce smisla
-    
-  * bolji izracun sirine kolona
-  
-  * prikazi u statusnj liniji: Ready, Executing..., Completed. 
-     1 Result 10 rows
-     2 results 10,20 rows 
-     3 results 10,20,8 rows
-     vrijeme izvrsavanja querija 0:00:00 (sati:minute:sekunde)
+    * mozda prikazivati samo objekte iz trenutno odabrane baze, imaju li ovi drugi uopce smisla    
 
   * close-other tabs, close all tabs  shift-command-W
   
   * user preferences
-    * check boxes umjetio direktnog upisa
+    * check boxes umjesto direktnog upisa
     * saved connections
       moze obrisati neke postojece konekcije
         
@@ -46,10 +36,8 @@ TODO
     * kolone od tablice                                                                
     * mogucnost da vidi samo trenutnu bazu    
     * testirati s userom koji ne moze vidjeti definicije svih objekata u bazi, tu bi moglo biti nekih problema
-  * alter skripta za view-e i procedure  
                                                                              
   * ikonice
-    + za aplikaciju
     * za results/messages
     * za database objects
     * za tip baze test/staging/production...  
@@ -58,8 +46,12 @@ TODO
   * go to tab command 1,2,3,4...    
   * comment/uncomment selection                   
   
-  * prikupljaj error reports na neku moju lokaciju, ako je moguce
+ * gdje se snimaju logovi od aplikacije 
+ 
 ------------------------------------------------  
+  * prikupljaj error reports na neku moju lokaciju, ako je moguce
+  
+  * save results as csv
   
   * customizacija formatiranja datuma tako da se vide i milisekunde
   * kolona s row numberom? 
@@ -167,5 +159,13 @@ FIXED:
       opcija set implicit transactions on
     + query timeout: 0s
  + umjesto create skripte za view, procedure, function napravi alter    
- + popuni text results samo kada ga stvarno trazi
+ + popuni text results samo kada ga stvarno trazi                                              
+ + bolji izracun sirine kolona
+ + ikonica za aplikaciju                                                                          
+ + prikazi u statusnj liniji: Ready, Executing..., Completed. 
+  1 Result 10 rows
+  2 results 10,20 rows 
+  3 results 10,20,8 rows
+  vrijeme izvrsavanja querija 0:00:00 (sati:minute:sekunde)
+ 
 OSTAVI NESTO I ZA SLIJEDECE VERZIJE  

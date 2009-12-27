@@ -375,10 +375,11 @@ struct COL
 		[self checkConnection];
 		[self useDatabase: database]; 
 		[self executeQueries: query];
+		[queryResult setQueryTime: [NSNumber numberWithDouble: -[timerStart timeIntervalSinceNow]]];
 		[queryResult addCompletedMessage];	
-		[queryResult setDatabase: [self currentDatabase]];
-		
-		[self logMessage: [NSString stringWithFormat: @"Query completed in %f seconds.\n", -[timerStart timeIntervalSinceNow]] error: NO];
+		[queryResult setDatabase: [self currentDatabase]];                
+						
+		//[self logMessage: [NSString stringWithFormat: @"Query completed in %f seconds.\n", -[timerStart timeIntervalSinceNow]] error: NO];
 	}
 	@catch (NSException *exception) {                                                                           
 		if (logOutOnException)

@@ -43,10 +43,15 @@
 		
 		[newQuerycontroller addObserver: self forKeyPath: @"database" options: NSKeyValueObservingOptionNew context: nil];
 		[newQuerycontroller addObserver: self forKeyPath: @"name" options: NSKeyValueObservingOptionNew context: nil];
+		[newQuerycontroller addObserver: self forKeyPath: @"status" options: NSKeyValueObservingOptionNew context: nil];
 		[queryTabs selectTabViewItem:newTabViewItem];
 		[newQuerycontroller setName: [NSString stringWithFormat:@"Query %d", ++queryTabsCounter]];
 	}                              
 	return newQuerycontroller;
+}
+
+- (void) displayStatus{
+	[statusLabel setStringValue: [queryController status]];
 }
 
 - (void) observeValueForKeyPath: (NSString*) keyPath 
@@ -61,11 +66,15 @@
 		[[queryTabs selectedTabViewItem] setLabel: [queryController name]];
 		[self displayDatabase];		
 	}
-}
+	if ([keyPath isEqualToString: @"status"] && object == queryController){ 
+		[self displayStatus];		
+	}
+}                      
 
 - (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem{
 	queryController = [tabViewItem identifier];
-	[self displayDatabase];		        
+	[self displayDatabase];	 
+	[self displayStatus];         
 	[self setNextResponder: queryController];	
 } 
 
@@ -229,7 +238,7 @@
 	
 	[self databaseChanged: nil];	
 	[self dbObjectsFillSidebar];	
-	NSLog(@"didChangeConnection");
+	//NSLog(@"didChangeConnection");
 }              
 
 - (TdsConnection*) tdsConnection{
@@ -355,7 +364,7 @@
 		return;
 	}
 			
-	NSLog(@"keyDown event keyCode %d modifierFlags: %d window %@", [theEvent keyCode], [theEvent modifierFlags], [theEvent window]);	
+	//NSLog(@"keyDown event keyCode %d modifierFlags: %d window %@", [theEvent keyCode], [theEvent modifierFlags], [theEvent window]);	
 }               
 
 - (void)doCommandBySelector:(SEL)aSelector

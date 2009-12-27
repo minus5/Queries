@@ -2,7 +2,7 @@
 
 @implementation QueryResult
 
-@synthesize messages, results, currentResultIndex, database, hasErrors;
+@synthesize messages, results, currentResultIndex, database, hasErrors, queryTime;
 
 - (id) init{
 	results = [NSMutableArray array];
@@ -18,7 +18,33 @@
 	[results release];
 	[messages release];
 	[super dealloc];
+}                                                       
+
+- (NSString*) status{
+	NSMutableString *statusMessage = [NSMutableString string];
+	
+	if (hasErrors && [results count] == 0)                                                              
+		[statusMessage appendFormat: @"Error executing query"];		
+	else                             
+	{
+		[statusMessage appendFormat: hasErrors ? @"Completed with errors" : @"Completed successfully"];		
+		
+		if ([results count] == 1){
+			[statusMessage appendFormat: @"  %d rows", [[self rows] count]];
+		}
+		else if ([results count] > 1){
+			[statusMessage appendFormat: @"  %d results ", [results count]];
+			for(int i=0; i < [results count]; i++){
+				[statusMessage appendFormat: @" %d%@", [[self resultAtIndex:i] count], (i == [results count] - 1) ? @"" : @","];
+			}                                                           
+			[statusMessage appendFormat: @" rows"];
+		} 
+	
+		[statusMessage appendFormat: @"  %f seconds", [queryTime doubleValue]];
+ 	}
+	return statusMessage;
 }
+
 - (void) addResultWithColumnNames: (NSArray*) columnNames andRows: rows{
 	if (([columnNames count] == 0 && [rows count] == 0) || ([rows count] == 0 && hasErrors)){
 		return;
@@ -35,7 +61,9 @@
 - (void) addCompletedMessage{                       
 	if (([messages count] == 0 || [results count] == 0) && (!hasErrors)){
 		[self addMessage: @"Command(s) completed successfully.\n"];
-	}	
+	}	                                                                                                  
+	
+	[self addMessage: [NSString stringWithFormat: @"Query completed in %f seconds.\n", queryTime]];
 }
 
 -(BOOL) nextResult{

@@ -32,7 +32,7 @@ static ConnectionsManager *manager = nil;
 		[pool setValue: connections forKey: [newConnection connectionName]];		
 	} 
 	[connections addObject: newConnection];	 
-	NSLog(@"added new connection to the pool [%@ add:%@] connectionsCount: %d", [self class], [newConnection connectionName], [self connectionsCount: [newConnection connectionName]]);	
+	//NSLog(@"added new connection to the pool [%@ add:%@] connectionsCount: %d", [self class], [newConnection connectionName], [self connectionsCount: [newConnection connectionName]]);	
 } 
 
 - (int) connectionsCount: (NSString*) connectionName{
@@ -47,7 +47,7 @@ static ConnectionsManager *manager = nil;
 	@try{
 		TdsConnection *existing = [self connectionWithName: [NSString stringWithFormat:@"%@@%@", user, server]];
 		if (existing){ 
-			NSLog(@"returning connection from pool [%@ connectionToServer:%@  withUser:%@ andPassword:%@]", [self class], server, user, password);
+			//NSLog(@"returning connection from pool [%@ connectionToServer:%@  withUser:%@ andPassword:%@]", [self class], server, user, password);
 			return existing;
 		}
 		
@@ -69,12 +69,12 @@ static ConnectionsManager *manager = nil;
 		if (connections){
 			for(TdsConnection *c in connections){ 
 				if (![c isProcessing]){
-					NSLog(@"returning connection from pool [%@ connectionWithName:%@]", [self class], connectionName);
+					//NSLog(@"returning connection from pool [%@ connectionWithName:%@]", [self class], connectionName);
 					return c;             
 				}
 			}                                         			
 			TdsConnection *clone = [[connections objectAtIndex: 0] clone];  
-			NSLog(@"cloning connection %@", [clone connectionName]);
+			//NSLog(@"cloning connection %@", [clone connectionName]);
 			[clone login]; 
 			[self add: clone]; 
 			[clone release]; 		
@@ -101,13 +101,13 @@ static ConnectionsManager *manager = nil;
 }  
 
 - (void) dealloc{     
-	NSLog(@"[%@ dealloc] start", [self class]);
+	//NSLog(@"[%@ dealloc] start", [self class]);
 	for(NSMutableArray *connections in [pool allValues]){             
 		[connections removeAllObjects];
 	}	
 	[pool removeAllObjects];
 	[pool release];
 	[super dealloc];                     
-	NSLog(@"[%@ dealloc] end", [self class]);
+	//NSLog(@"[%@ dealloc] end", [self class]);
 }
 @end

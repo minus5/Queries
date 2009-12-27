@@ -2,12 +2,14 @@
 
 @implementation QueryController
 
-@synthesize isEdited, isProcessing, fileName, database, name;
+@synthesize isEdited, isProcessing, fileName, database, name, status;
                            
 #pragma mark ---- properties ----
 
 - (void) processingStarted{
-	[self setIsProcessing: YES];
+	[self setIsProcessing: YES];          
+	
+ 	[self setStatus: @"Executing query..."];
 	[messagesTextView insertText: @"\nExecuting query...\n"];
 }
 
@@ -39,7 +41,8 @@
 
 - (id) initWithConnection: (ConnectionController*) c{
 	if (self = [super init]){
-		connection = c;		
+		connection = c;
+		status = @"";		
 	}             
 	return self;
 }
@@ -312,6 +315,7 @@
 		
 	[self setIsProcessing: NO];
 	[[ConnectionsManager sharedInstance] cleanup];
+	[self setStatus: [queryResult status]];
 }                                       
 
 -(void) reloadMessages{
@@ -527,6 +531,7 @@
 		[executingConnection setCancelQuery];
 		[self setIsProcessing: NO];
 		[messagesTextView insertText: @"\nQuery canceled\n"];
+		[self setStatus: @"Query canceled"];
 	}
 }
 
@@ -535,7 +540,7 @@
 }                                                             
 
 - (void) keyDown:(NSEvent *)theEvent{
-	NSLog(@"query received keyDown event");	
+	//NSLog(@"query received keyDown event");	
 }
       
 
@@ -546,7 +551,7 @@
 	NSString *string = [[queryText string] substringWithRange:charRange];                                          
 			
 	if ([string length] > 0){      		
-		NSLog(@"running completion for string '%@'", string);	
+		//NSLog(@"running completion for string '%@'", string);	
 		NSArray *objects = [connection dbObjectsForDatabase: database];
 		NSRange r = {0, [string length]};
 		for(id row in objects){

@@ -6,7 +6,8 @@
 	NSMutableArray *results;
 	int currentResultIndex;
 	NSString *database;              
-	BOOL hasErrors;
+	BOOL hasErrors;    
+	NSNumber *queryTime;
 }
 
 @property (readonly) NSArray *messages;
@@ -14,6 +15,7 @@
 @property (readonly) int currentResultIndex;
 @property (copy) NSString *database;
 @property BOOL hasErrors;
+@property (assign) NSNumber *queryTime;
 
 - (void) addResultWithColumnNames: (NSArray*) columnNames andRows: rows;
 - (void) addMessage: (NSString*) message;
@@ -35,5 +37,6 @@
 - (NSArray*) valuesInFirstColumn;             
 - (NSArray*) resultWithFirstColumnNamed:(NSString*) columnName;
 - (NSString*) resultsInText;
+- (NSString*) status;
 
 @end

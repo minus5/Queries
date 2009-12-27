@@ -57,7 +57,7 @@
 	//column width algoritam, nije bas najinteligentnije stvar na svijetu
 	if ([meta length] > 40)  		             
 		[column setWidth: 400];
-	else if ([meta length] > 20)
+	else if ([meta length] > 30)
 		[column setWidth: [meta length] * 6];
 	else if ([meta length] > 10)
 		[column setWidth: [meta length] * 7];
