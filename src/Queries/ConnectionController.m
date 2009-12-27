@@ -568,10 +568,10 @@
 
 #pragma mark ---- drag and drop ----
 
-// - (NSArray *)allowedDraggedTypesForTabView:(NSTabView *)aTabView
-// {
-// 	return [NSArray arrayWithObjects:NSFilenamesPboardType, NSStringPboardType, nil];
-// }
+- (NSArray *)allowedDraggedTypesForTabView:(NSTabView *)aTabView
+{
+	return [NSArray arrayWithObjects:NSFilenamesPboardType, NSStringPboardType, nil];
+}
 
 - (BOOL)tabView:(NSTabView*)aTabView shouldDragTabViewItem:(NSTabViewItem *)tabViewItem fromTabBar:(PSMTabBarControl *)tabBarControl
 {
@@ -581,8 +581,6 @@
 - (BOOL)tabView:(NSTabView*)aTabView shouldDropTabViewItem:(NSTabViewItem *)tabViewItem inTabBar:(PSMTabBarControl *)tabBarControl
 {                               
 	return queryTabs == aTabView;
-	//return YES;
 }
                 
-
 @end
