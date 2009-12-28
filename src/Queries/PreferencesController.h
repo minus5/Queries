@@ -11,6 +11,7 @@
 - (void) readDefaults;
 - (void) saveDefaults;              
 - (IBAction)checkboxClicked:(id)sender;
-- (IBAction) resetDefaults:(id)sender;
+- (IBAction) resetDefaults:(id)sender; 
+- (IBAction) close: (id)sender;
 
 @end

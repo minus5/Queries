@@ -48,6 +48,11 @@
 	[[NSUserDefaults standardUserDefaults] removeObjectForKey: QueriesLoginTimeout];
 	[[NSUserDefaults standardUserDefaults] removeObjectForKey: QueriesGroupBySchema];
 	[self readDefaults];            
-	}
+}
+
+- (IBAction) close: (id)sender
+{ 
+	[[self window] close];
+}
 
 @end
