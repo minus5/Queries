@@ -176,9 +176,7 @@
 				[queryText setNextKeyView: firstTableView];
 			break;
 		case 1:                                                      
-			if ([[textResultsTextView string] length] == 0){
-				[textResultsTextView setString: [queryResult resultsInText]];
-			}
+			[self displayTextResults];	
 			[queryText setNextKeyView: textResultsTextView];
 			break;
 		case 2: 
@@ -187,6 +185,15 @@
 	} 
 	if (selectedIndex != 2)
 		lastResultsTabIndex = selectedIndex;
+}
+
+- (void) displayTextResults{
+	int selectedIndex = [resultsTabView indexOfTabViewItem: [resultsTabView selectedTabViewItem]];
+	if (selectedIndex == 1){
+		if ([[textResultsTextView string] length] == 0){
+			[textResultsTextView setString: [queryResult resultsInText]];
+		}                       
+	}
 }  
                              
 - (void) showResults{
@@ -306,6 +313,7 @@
 	
 	if ([queryResult hasResults] && ![queryResult hasErrors]){           	  
 		[resultsTabView selectTabViewItemAtIndex: lastResultsTabIndex];	 
+		[self displayTextResults];
 	}else {
 		[self showMessages];
 	}
@@ -386,6 +394,7 @@
 	[newTableView setRowHeight: 14];
 	[newTableView setFocusRingType: NSFocusRingTypeNone];  
 	[newTableView setColumnAutoresizingStyle: NSTableViewNoColumnAutoresizing];
+	[newTableView setAllowsMultipleSelection: YES];
 
 	[newScrollView setDocumentView:newTableView];
 	[tablesSplitView addSubview:newScrollView];		
@@ -547,26 +556,7 @@
 #pragma mark ---- auto compleletioin ---- 
 
 - (NSArray *)textView:(NSTextView *)textView completions:(NSArray *) words forPartialWordRange:(NSRange)charRange indexOfSelectedItem:(int *)index {
-	NSMutableArray *result = [NSMutableArray array];
-	NSString *string = [[queryText string] substringWithRange:charRange];                                          
-			
-	if ([string length] > 0){      		
-		//NSLog(@"running completion for string '%@'", string);	
-		NSArray *objects = [connection dbObjectsForDatabase: database];
-		NSRange r = {0, [string length]};
-		for(id row in objects){
-			NSString *fullTableName = [row objectAtIndex: 2];
-		  NSArray *tableNameParts = [fullTableName componentsSeparatedByString:@"."]; 
-			NSString *tableName = [tableNameParts objectAtIndex: 1];
-		
-			if (NSOrderedSame == [tableName compare:string options:NSCaseInsensitiveSearch range: r] ||
-					NSOrderedSame == [fullTableName compare:string options:NSCaseInsensitiveSearch range: r]){
-				[result addObject: fullTableName];
-			}
-		
-		}	                       
-	}
-	return result;
+	return [connection objectNamesForAutocompletionInDatabase: database withSearchString: [[queryText string] substringWithRange:charRange]];					                       
 }
 
 @end

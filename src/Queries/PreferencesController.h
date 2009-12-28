@@ -5,10 +5,12 @@
 	IBOutlet NSTextView *connectionDefaults;
 	IBOutlet NSTextField *queryTimeout;
   IBOutlet NSTextField *loginTimeout;
+	IBOutlet NSButton *groupBySchema;
 }                                 
                                                   
 - (void) readDefaults;
-- (void) saveDefaults;
+- (void) saveDefaults;              
+- (IBAction)checkboxClicked:(id)sender;
 - (IBAction) resetDefaults:(id)sender;
 
 @end

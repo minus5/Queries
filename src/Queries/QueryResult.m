@@ -61,9 +61,8 @@
 - (void) addCompletedMessage{                       
 	if (([messages count] == 0 || [results count] == 0) && (!hasErrors)){
 		[self addMessage: @"Command(s) completed successfully.\n"];
-	}	                                                                                                  
-	
-	[self addMessage: [NSString stringWithFormat: @"Query completed in %f seconds.\n", queryTime]];
+	}	                                                                                                  	
+	[self addMessage: [NSString stringWithFormat: @"Query completed in %f seconds.\n", [queryTime doubleValue]]];
 }
 
 -(BOOL) nextResult{

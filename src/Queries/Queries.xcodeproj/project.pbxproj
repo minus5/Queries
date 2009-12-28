@@ -20,9 +20,6 @@
 		183B54C71098B7D70024A1B4 /* MarkerLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B54C21098B7D70024A1B4 /* MarkerLineNumberView.m */; };
 		183B54C81098B7D70024A1B4 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B54C41098B7D70024A1B4 /* NoodleLineNumberMarker.m */; };
 		183B54C91098B7D70024A1B4 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B54C61098B7D70024A1B4 /* NoodleLineNumberView.m */; };
-		1840434F10CD50F3006B923F /* queries_icons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1840434E10CD50F3006B923F /* queries_icons.icns */; };
-		1840435010CD50F3006B923F /* queries_icons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1840434E10CD50F3006B923F /* queries_icons.icns */; };
-		1840435110CD50F3006B923F /* queries_icons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1840434E10CD50F3006B923F /* queries_icons.icns */; };
 		184873C010983E7400A15FC7 /* ConnectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184873BE10983E7400A15FC7 /* ConnectionView.xib */; };
 		184873C110983E7400A15FC7 /* QueryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184873BF10983E7400A15FC7 /* QueryView.xib */; };
 		1870C955109857FC006AC809 /* ConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870C954109857FC006AC809 /* ConnectionController.m */; };
@@ -53,7 +50,6 @@
 		187FD57110C30B3800471B6A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 187FD56F10C30B3800471B6A /* Constants.m */; };
 		187FD57210C30B3800471B6A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 187FD56F10C30B3800471B6A /* Constants.m */; };
 		1892765110A7696800C50258 /* objects_end.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892764E10A7696800C50258 /* objects_end.sql */; };
-		1892765210A7696800C50258 /* objects_in_database.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892764F10A7696800C50258 /* objects_in_database.sql */; };
 		1892765310A7696800C50258 /* objects_start.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892765010A7696800C50258 /* objects_start.sql */; };
 		18A44ABF10CAF0E100584106 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A44ABE10CAF0E100584106 /* RegexKitLite.m */; };
 		18A44AC010CAF0E100584106 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A44ABE10CAF0E100584106 /* RegexKitLite.m */; };
@@ -75,6 +71,9 @@
 		18B75B3810AA2F0B00265159 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B75B3410AA2F0B00265159 /* libsybdb.a */; };
 		18B75B3910AA2F0B00265159 /* libiconv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B75B3310AA2F0B00265159 /* libiconv.a */; };
 		18B75B3A10AA2F0B00265159 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B75B3410AA2F0B00265159 /* libsybdb.a */; };
+		18D367CF10E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18D367CE10E8DEEC00F1AAE4 /* objects_in_database2.sql */; };
+		18D367D010E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18D367CE10E8DEEC00F1AAE4 /* objects_in_database2.sql */; };
+		18D367D110E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18D367CE10E8DEEC00F1AAE4 /* objects_in_database2.sql */; };
 		18DD252310A3813B00108BE8 /* database_objects.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18DD252210A3813B00108BE8 /* database_objects.sql */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* QueriesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* QueriesAppDelegate.m */; };
@@ -113,7 +112,6 @@
 		183B54C41098B7D70024A1B4 /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberMarker.m; sourceTree = "<group>"; };
 		183B54C51098B7D70024A1B4 /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberView.h; sourceTree = "<group>"; };
 		183B54C61098B7D70024A1B4 /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberView.m; sourceTree = "<group>"; };
-		1840434E10CD50F3006B923F /* queries_icons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = queries_icons.icns; sourceTree = "<group>"; };
 		184873BE10983E7400A15FC7 /* ConnectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectionView.xib; sourceTree = "<group>"; };
 		184873BF10983E7400A15FC7 /* QueryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueryView.xib; sourceTree = "<group>"; };
 		1870C953109857FC006AC809 /* ConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionController.h; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 		187FD56610C30A8100471B6A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		187FD56F10C30B3800471B6A /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		1892764E10A7696800C50258 /* objects_end.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_end.sql; sourceTree = "<group>"; };
-		1892764F10A7696800C50258 /* objects_in_database.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_in_database.sql; sourceTree = "<group>"; };
 		1892765010A7696800C50258 /* objects_start.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_start.sql; sourceTree = "<group>"; };
 		18A44ABD10CAF0E100584106 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		18A44ABE10CAF0E100584106 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
@@ -163,6 +160,7 @@
 		18B04ACD10B1E0670051D28E /* ConnectingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectingController.h; sourceTree = "<group>"; };
 		18B75B3310AA2F0B00265159 /* libiconv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiconv.a; path = ../../../../lib/libiconv.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B75B3410AA2F0B00265159 /* libsybdb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsybdb.a; path = ../../../../lib/libsybdb.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		18D367CE10E8DEEC00F1AAE4 /* objects_in_database2.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_in_database2.sql; sourceTree = "<group>"; };
 		18DD252210A3813B00108BE8 /* database_objects.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = database_objects.sql; sourceTree = "<group>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		256AC3D80F4B6AC300CF3369 /* QueriesAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueriesAppDelegate.h; sourceTree = "<group>"; };
@@ -328,9 +326,9 @@
 		18DD252110A3813B00108BE8 /* sql */ = {
 			isa = PBXGroup;
 			children = (
+				18D367CE10E8DEEC00F1AAE4 /* objects_in_database2.sql */,
 				187FC9B410B3392300471B6A /* connection_defaults.sql */,
 				1892764E10A7696800C50258 /* objects_end.sql */,
-				1892764F10A7696800C50258 /* objects_in_database.sql */,
 				1892765010A7696800C50258 /* objects_start.sql */,
 				18DD252210A3813B00108BE8 /* database_objects.sql */,
 			);
@@ -376,7 +374,6 @@
 			isa = PBXGroup;
 			children = (
 				182BA54710D799EC00612265 /* queries_v2.icns */,
-				1840434E10CD50F3006B923F /* queries_icons.icns */,
 				18B04A2910B1948C0051D28E /* dsa_pub.pem */,
 				1870CA95109864E2006AC809 /* TSQL.plist */,
 				1870CA0010985E00006AC809 /* CredentialsView.xib */,
@@ -481,8 +478,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1840435010CD50F3006B923F /* queries_icons.icns in Resources */,
 				182BA54910D799EC00612265 /* queries_v2.icns in Resources */,
+				18D367D010E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,8 +487,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1840435110CD50F3006B923F /* queries_icons.icns in Resources */,
 				182BA54A10D799EC00612265 /* queries_v2.icns in Resources */,
+				18D367D110E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,14 +504,13 @@
 				1870CA99109864E2006AC809 /* TSQL.plist in Resources */,
 				18DD252310A3813B00108BE8 /* database_objects.sql in Resources */,
 				1892765110A7696800C50258 /* objects_end.sql in Resources */,
-				1892765210A7696800C50258 /* objects_in_database.sql in Resources */,
 				1892765310A7696800C50258 /* objects_start.sql in Resources */,
 				18B04A2A10B1948C0051D28E /* dsa_pub.pem in Resources */,
 				18B04AAD10B1D6F70051D28E /* Connecting.xib in Resources */,
 				187FC90410B3164600471B6A /* Preferences.xib in Resources */,
 				187FC9B510B3392300471B6A /* connection_defaults.sql in Resources */,
-				1840434F10CD50F3006B923F /* queries_icons.icns in Resources */,
 				182BA54810D799EC00612265 /* queries_v2.icns in Resources */,
+				18D367CF10E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

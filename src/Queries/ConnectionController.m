@@ -109,6 +109,7 @@
 	                                                                                                        		
 	[controller removeObserver: self forKeyPath: @"database"];
 	[controller removeObserver: self forKeyPath: @"name"];	
+	[controller removeObserver: self forKeyPath: @"status"];
 	[tabViewItem release];
 	[controller release];                                                                                 
 		
@@ -266,26 +267,25 @@
 
 -(IBAction) explain: (id) sender{                                  
 	@try{			
-		NSArray *rowData = [self selectedDbObject];
-		if (!rowData)
+		NSArray *row = [self selectedDbObject];
+		if (!row)
 		  return;
-			
-		NSArray *idParts = [[rowData objectAtIndex: 0] componentsSeparatedByString:@"."];
-		NSString *databaseName = [idParts objectAtIndex: 0];
-		NSString *objectType = [idParts objectAtIndex: 1];
-		NSString *objectName = [rowData objectAtIndex: 2];
+					
+		NSString *database = [row objectAtIndex: 4];
+		NSString *type = [row objectAtIndex: 5];
+		NSString *nameWithSchema = [row objectAtIndex: 8];
 
-		if ([objectType isEqualToString: @"tables"]){
+		if ([type isEqualToString: @"tables"]){
 		  [self createNewTab];  		                                           
-			[queryController setString: [CreateTableScript scriptWithConnection: [self tdsConnection] database: databaseName table: objectName]];
-			[queryController setName: objectName];
+			[queryController setString: [CreateTableScript scriptWithConnection: [self tdsConnection] database: database table: nameWithSchema]];
+			[queryController setName: nameWithSchema];
 			return;
 		}					
-		if ([objectType isEqualToString: @"procedures"] || [objectType isEqualToString: @"functions"] || [objectType isEqualToString: @"views"]){	
-			QueryResult *queryResult = [[self tdsConnection] execute: [NSString stringWithFormat: @"use %@\nexec sp_helptext '%@'", databaseName, objectName]];
+		if ([type isEqualToString: @"procedures"] || [type isEqualToString: @"functions"] || [type isEqualToString: @"views"]){	
+			QueryResult *queryResult = [[self tdsConnection] execute: [NSString stringWithFormat: @"use %@\nexec sp_helptext '%@'", database, nameWithSchema]];
 			if (queryResult){
 				//create to alter
-				NSString *typeName =  [[objectType substringToIndex: [objectType length] - 1] uppercaseString];
+				NSString *typeName =  [[type substringToIndex: [type length] - 1] uppercaseString];
 				NSString *script = [queryResult resultAsString];                                                                             				
 				NSString *createRegexString = [NSString stringWithFormat: @"(?im)(^\\s*CREATE\\s+%@\\s+)", typeName]; 
 				NSString *alterRegexString = [NSString stringWithFormat: @"ALTER %@ ", typeName]; 
@@ -293,19 +293,19 @@
 				
 				[self createNewTab];              								                                                                           
 				[queryController setString: script];    
-				[queryController setName: objectName];
+				[queryController setName: nameWithSchema];
 			}
 			return;
 		}	       
-		if ([objectType isEqualToString: @"users"]){
-			[self createNewTab];                                       
-			[queryController setString: [NSString stringWithFormat: @"use %@\nexec sp_helpuser '%@'\nexec sp_helprotect @username = '%@'", databaseName, objectName, objectName]];
-			[queryController setName: objectName];
-			[self executeQuery: nil];             
-			[queryController showTextResults];
-			[queryController maximizeResults:nil];			                                                        
-			return;
-		}
+		// if ([objectType isEqualToString: @"users"]){
+		// 	[self createNewTab];                                       
+		// 	[queryController setString: [NSString stringWithFormat: @"use %@\nexec sp_helpuser '%@'\nexec sp_helprotect @username = '%@'", databaseName, objectName, objectName]];
+		// 	[queryController setName: objectName];
+		// 	[self executeQuery: nil];             
+		// 	[queryController showTextResults];
+		// 	[queryController maximizeResults:nil];			                                                        
+		// 	return;
+		// }  
 
 	}
 	@catch(NSException *e){
@@ -406,7 +406,7 @@
 	[query appendFormat: @"\n\n"];
 	for(id db in databases){
 		[query appendFormat: @"begin try\nuse %@\n\n", db];
-		[query appendFormat: @"%@\n", [self queryFileContents: @"objects_in_database"]];
+		[query appendFormat: @"%@\n", [self queryFileContents: @"objects_in_database2"]];
 		[query appendFormat: @"\nend try\nbegin catch\nend catch\n", db];
 	} 	
 	[query appendFormat: @"%@\n", [self queryFileContents: @"objects_end"]];
@@ -423,9 +423,38 @@
 }
 
 - (void) setObjectsResult: (QueryResult*) queryResult{ 
-	[dbObjectsResults release];	
-	dbObjectsResults = [queryResult rows];	
-	[dbObjectsResults retain];
+		
+	NSMutableSet *dbObjectsSet = [NSMutableSet set];
+	for(NSArray *row in [queryResult rows]){
+
+		NSString *database = [row objectAtIndex: 0];
+		NSString *type = [row objectAtIndex: 1];
+		NSString *schema = [row objectAtIndex: 2];
+		NSString *name = [row objectAtIndex: 3];                                       
+		
+		NSString *id = [NSString stringWithFormat: @"%@.%@.%@.%@", database, schema, type, name];
+		NSString *nameWithSchema = [NSString stringWithFormat: @"%@.%@", schema, name];
+		NSString *level1 = database;
+		 
+		if ([[[NSUserDefaults standardUserDefaults] objectForKey: QueriesGroupBySchema] boolValue]){
+			NSString *level2 = [NSString stringWithFormat: @"%@.%@", database, schema]; 
+	 	  NSString *level3 = [NSString stringWithFormat: @"%@.%@.%@", database, schema, type];
+					
+			[dbObjectsSet addObject: [NSArray arrayWithObjects: level1, @"",    database, @"+", nil]];
+			[dbObjectsSet addObject: [NSArray arrayWithObjects: level2, level1, schema,   @"+", nil]];
+			[dbObjectsSet addObject: [NSArray arrayWithObjects: level3, level2, type,     @"+", nil]];
+			[dbObjectsSet addObject: [NSArray arrayWithObjects: id, 		level3, name,     @"",  database, type, schema, name, nameWithSchema, nil]];
+						
+		}else{							
+			NSString *level2 = [NSString stringWithFormat: @"%@.%@", database, type];
+			 								
+			[dbObjectsSet addObject: [NSArray arrayWithObjects: level1, @"",    database,       @"+", nil]];
+			[dbObjectsSet addObject: [NSArray arrayWithObjects: level2, level1, type,    				@"+", nil]];
+			[dbObjectsSet addObject: [NSArray arrayWithObjects: id, 		level2, nameWithSchema, @"",  database, type, schema, name, nameWithSchema, nil]];
+		}
+	}
+	[dbObjectsResults release];
+	dbObjectsResults = [[dbObjectsSet allObjects] retain];
 	
 	[dbObjectsCache release];		
 	dbObjectsCache = [NSMutableDictionary dictionary];		
@@ -505,15 +534,27 @@
 	return selected;
 }
 
--(NSArray*) dbObjectsForDatabase: (NSString*) database{	
-	NSMutableArray *objects = [NSMutableArray array];
-	[objects addObjectsFromArray: [self dbObjectsForParent: [NSString stringWithFormat: @"%@.%@", database, @"tables"]]];
-	[objects addObjectsFromArray: [self dbObjectsForParent: [NSString stringWithFormat: @"%@.%@", database, @"views"]]];
-	[objects addObjectsFromArray: [self dbObjectsForParent: [NSString stringWithFormat: @"%@.%@", database, @"procedures"]]];
-	[objects addObjectsFromArray: [self dbObjectsForParent: [NSString stringWithFormat: @"%@.%@", database, @"functions"]]];   
-	return objects;
+-(NSArray*) objectNamesForAutocompletionInDatabase: (NSString*)database withSearchString: (NSString*)searchString{	
+	NSMutableArray *objectNames = [NSMutableArray array]; 
+	if ([searchString length] > 0){
+		NSRange r = {0, [searchString length]};
+		for (NSArray *row in dbObjectsResults){
+			if ([row count] == 9){
+				if ([[row objectAtIndex:4] isEqualToString: database]){									
+			
+					NSString *name = [row objectAtIndex: 7];
+					NSString *nameWithSchema = [row objectAtIndex: 8];
+				
+					if (NSOrderedSame == [name compare:searchString options:NSCaseInsensitiveSearch range: r] ||
+							NSOrderedSame == [nameWithSchema compare:searchString options:NSCaseInsensitiveSearch range: r]){
+						[objectNames addObject: nameWithSchema];
+					}				
+				}    								
+			}	
+		}
+	}	
+	return objectNames;
 }
-
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item {
 	NSArray *selected = [self dbObjectsForParent: (item == nil ? @"" : [item objectAtIndex:0])];
@@ -521,7 +562,7 @@
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item {
-	return [[item objectAtIndex:3 ] isEqualToString: @"NULL"];
+	return [[item objectAtIndex:3 ] isEqualToString: @"+"];
 }
 
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item {
@@ -541,22 +582,20 @@
 
 - (NSArray*) selectedDbObject
 {
-	int row = [outlineView selectedRow];
-	if( row >= 0 ){
-		NSArray *item = [outlineView itemAtRow: row];
-		if (![[item objectAtIndex:3 ] isEqualToString: @"NULL"]){
-			return item;                                          
-		}
+	int rowIndex = [outlineView selectedRow];
+	if( rowIndex >= 0 ){
+		NSArray *row = [outlineView itemAtRow: rowIndex];
+		if ([row count] == 9)
+			return row;
 	}
-
   return nil;
 }     
 
 - (NSArray*) selectedDbObjectName
 {                                
-	NSArray *selected = [self selectedDbObject];
-	if (selected){
-		return [selected objectAtIndex: 2];
+	NSArray *row = [self selectedDbObject];
+	if (row){ 				
+		return [row objectAtIndex: 8];
 	} 
 	return nil;
 }

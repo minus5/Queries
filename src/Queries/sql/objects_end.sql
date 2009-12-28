@@ -1,3 +1,3 @@
-select id, parent_id, name, type, ident
+select [database], [type], [schema], [name] 
 from @results		
-order by ident
+order by id

@@ -22,33 +22,29 @@ TODO
   * database objects
     * useri nisu u skladu s ostalim objektima, mozda da ih izbacim zasada
     * opcija da budu grupirani po schemama
-    * mozda prikazivati samo objekte iz trenutno odabrane baze, imaju li ovi drugi uopce smisla    
-
-  * close-other tabs, close all tabs  shift-command-W
+    * mozda prikazivati samo objekte iz trenutno odabrane baze, imaju li ovi drugi uopce smisla      
   
   * user preferences
     * check boxes umjesto direktnog upisa
     * saved connections
       moze obrisati neke postojece konekcije
-        
+                                                                                                 
+  * go to tab command 1,2,3,4...    
+  * close-other tabs, close all tabs  shift-command-W
+  * comment/uncomment selection                   
+    
+------------------------------------------------                             
   * dorade outline view-a
     * triggeri   
     * kolone od tablice                                                                
     * mogucnost da vidi samo trenutnu bazu    
     * testirati s userom koji ne moze vidjeti definicije svih objekata u bazi, tu bi moglo biti nekih problema
-                                                                             
+  
   * ikonice
     * za results/messages
     * za database objects
     * za tip baze test/staging/production...  
-            
-  * drag and drop tabova
-  * go to tab command 1,2,3,4...    
-  * comment/uncomment selection                   
-  
- * gdje se snimaju logovi od aplikacije 
- 
-------------------------------------------------  
+
   * prikupljaj error reports na neku moju lokaciju, ako je moguce
   
   * save results as csv
@@ -167,5 +163,5 @@ FIXED:
   2 results 10,20 rows 
   3 results 10,20,8 rows
   vrijeme izvrsavanja querija 0:00:00 (sati:minute:sekunde)
- 
+ + drag and drop tabova 
 OSTAVI NESTO I ZA SLIJEDECE VERZIJE  

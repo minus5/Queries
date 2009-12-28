@@ -110,6 +110,7 @@
 -(void) setExecutingConnection: (TdsConnection*) tdsConnection;
 
 - (void) resizeTablesSplitView: (BOOL) andSubviews;
+- (void) displayTextResults;
 
 @end
 

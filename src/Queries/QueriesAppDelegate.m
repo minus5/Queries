@@ -90,6 +90,7 @@
 	[defaultValues setObject:[QueriesAppDelegate connectionDefaults] forKey:	QueriesConnectionDefaults];
 	[defaultValues setObject:[NSNumber numberWithInteger: 15] forKey:	QueriesLoginTimeout];
 	[defaultValues setObject:[NSNumber numberWithInteger: 0] forKey:	QueriesQueryTimeout];	
+	[defaultValues setObject:[NSNumber numberWithBool: NO] forKey:	QueriesGroupBySchema];
 	[[NSUserDefaults standardUserDefaults] registerDefaults: defaultValues];
 } 
 

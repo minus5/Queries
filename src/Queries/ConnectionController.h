@@ -8,6 +8,7 @@
 #import "ConnectingController.h"
 #import "ConnectionsManager.h"
 #import <BWToolkitFramework/BWToolkitFramework.h>  
+#import "Constants.h"
 
 @class CredentialsController;
 @class QueryController;
@@ -74,7 +75,7 @@
 - (NSArray*) selectedDbObject;     
 - (NSString*) databaseObjectsQuery;
 -(NSArray*) dbObjectsForParent: (NSString*) parentId;
--(NSArray*) dbObjectsForDatabase: (NSString*) database;
+-(NSArray*) objectNamesForAutocompletionInDatabase: database withSearchString: searchString;
   
 - (void) displayDatabase;
 - (void) databaseChanged:(id)sender;
