@@ -192,6 +192,7 @@
 	if (selectedIndex == 1){
 		if ([[textResultsTextView string] length] == 0){
 			[textResultsTextView setString: [queryResult resultsInText]];
+			[textResultsTextView setSelectedRange: NSMakeRange(0, 0)];
 		}                       
 	}
 }  
@@ -529,6 +530,7 @@
 	[self setName: [[fileName lastPathComponent] stringByDeletingPathExtension]];
 	NSString *fileContents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
 	[queryText setString: fileContents];
+	[queryText setSelectedRange: NSMakeRange(0, 0)];
 	[self setIsEdited: NO];
 }
 

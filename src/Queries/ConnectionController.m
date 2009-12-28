@@ -297,16 +297,6 @@
 			}
 			return;
 		}	       
-		// if ([objectType isEqualToString: @"users"]){
-		// 	[self createNewTab];                                       
-		// 	[queryController setString: [NSString stringWithFormat: @"use %@\nexec sp_helpuser '%@'\nexec sp_helprotect @username = '%@'", databaseName, objectName, objectName]];
-		// 	[queryController setName: objectName];
-		// 	[self executeQuery: nil];             
-		// 	[queryController showTextResults];
-		// 	[queryController maximizeResults:nil];			                                                        
-		// 	return;
-		// }  
-
 	}
 	@catch(NSException *e){
 		NSLog(@"explain exception %@", e);
