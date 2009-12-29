@@ -329,7 +329,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>18D3696710EA3BA700F1AAE4</string>
+										<string>18D3697210EA431100F1AAE4</string>
 										<key>history</key>
 										<array>
 											<string>1870CC9A1098988E006AC809</string>
@@ -381,7 +381,7 @@
 											<string>18D368F110EA300700F1AAE4</string>
 											<string>18D368F210EA300700F1AAE4</string>
 											<string>18D3692A10EA339F00F1AAE4</string>
-											<string>18D3695710EA39E100F1AAE4</string>
+											<string>18D3697010EA430E00F1AAE4</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -702,7 +702,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>18D3696810EA3BA700F1AAE4</string>
 		<string>18D3672810E77EC400F1AAE4</string>
 		<string>18D3672910E77EC400F1AAE4</string>
 		<string>/Users/ianic/Work/CocoaQueryAnalyzer/src/Queries/Queries.xcodeproj</string>
