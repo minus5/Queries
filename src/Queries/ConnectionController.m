@@ -345,16 +345,44 @@
   
 - (void) keyDown:(NSEvent *)theEvent{         
 	//command-{}
-	if ([theEvent keyCode] == 30 && [theEvent modifierFlags] == 1179914){	
-		[self nextTab: nil];                                               
+	if ( ( [theEvent modifierFlags] & NSCommandKeyMask ) && ( [theEvent modifierFlags] & NSShiftKeyMask ) ){
+		if ([theEvent keyCode] == 30)
+			[self nextTab: nil];                                               
+		if ([theEvent keyCode] == 33)
+			[self previousTab: nil];		                                       
 		return;
 	}
-	if ([theEvent keyCode] == 33 && [theEvent modifierFlags] == 1179914){
-		[self previousTab: nil];		                                       
-		return;
+	//command-1 command-0 odabire odredjni tab
+	if ( [theEvent modifierFlags] & NSCommandKeyMask && [theEvent keyCode] > 17 && [theEvent keyCode] < 30)
+	{     
+		int tabIndex = [theEvent keyCode] - 18;
+		switch ([theEvent keyCode]) {
+			case 23:
+				tabIndex = 4;
+				break;					
+			case 22:
+				tabIndex = 5;
+				break;
+			case 26:
+				tabIndex = 6;
+				break;		
+			case 28:
+				tabIndex = 7;
+				break;		
+			case 25:
+				tabIndex = 8;
+				break;
+			case 29:
+				tabIndex = 9;
+				break;						
+			default:
+				break;
+		}		
+		if ([[queryTabs tabViewItems] count] > tabIndex)
+			[queryTabs selectTabViewItemAtIndex:tabIndex];
 	}
 			
-	//NSLog(@"keyDown event keyCode %d modifierFlags: %d window %@", [theEvent keyCode], [theEvent modifierFlags], [theEvent window]);	
+	NSLog(@"keyDown event keyCode %d modifierFlags: %d window %@", [theEvent keyCode], [theEvent modifierFlags], [theEvent window]);	
 }               
 
 - (void)doCommandBySelector:(SEL)aSelector

@@ -16,25 +16,18 @@ TODO
     * results in text            
     * syntax highlighting
     * table name auto completion
-    * window authentication
+    * windows authentication        
+    * go to tab command 1,2,3,4...    
     
   * double click, dragn drop i enter na database object neka ga dodaju u query text
-      
-  * database objects
-    * useri nisu u skladu s ostalim objektima, mozda da ih izbacim zasada
-    * opcija da budu grupirani po schemama
-    * mozda prikazivati samo objekte iz trenutno odabrane baze, imaju li ovi drugi uopce smisla      
-  
-  * user preferences
-    * check boxes umjesto direktnog upisa
-    * saved connections
-      moze obrisati neke postojece konekcije
-                                                                                                 
-  * go to tab command 1,2,3,4...    
+                                                                                                           
+  * comment/uncomment selection      
+------------------------------------------------                                                         
   * close-other tabs, close all tabs  shift-command-W
-  * comment/uncomment selection   
-      
-------------------------------------------------                             
+  
+  * user preferences - saved connections
+    - moze obrisati neke postojece konekcije
+
   * dorade outline view-a
     * triggeri   
     * kolone od tablice                                                                
@@ -165,4 +158,10 @@ FIXED:
   3 results 10,20,8 rows
   vrijeme izvrsavanja querija 0:00:00 (sati:minute:sekunde)
  + drag and drop tabova 
+ + database objects
+   + useri nisu u skladu s ostalim objektima, mozda da ih izbacim zasada
+   + opcija da budu grupirani po schemama
+   - mozda prikazivati samo objekte iz trenutno odabrane baze, imaju li ovi drugi uopce smisla   
+ + go to tab command 1,2,3,4...          
+ 
 OSTAVI NESTO I ZA SLIJEDECE VERZIJE  

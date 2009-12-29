@@ -551,7 +551,7 @@
 }                                                             
 
 - (void) keyDown:(NSEvent *)theEvent{
-	//NSLog(@"query received keyDown event");	
+	NSLog(@"query received keyDown event");	
 }
       
 
