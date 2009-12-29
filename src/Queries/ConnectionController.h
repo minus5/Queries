@@ -9,6 +9,7 @@
 #import "ConnectionsManager.h"
 #import <BWToolkitFramework/BWToolkitFramework.h>  
 #import "Constants.h"
+#import "RegexKitLite.h"
 
 @class CredentialsController;
 @class QueryController;
@@ -68,7 +69,6 @@
 - (IBAction) showHideDatabaseObjects: sender;
 
 
-- (NSString*) queryFileContents: (NSString*) queryFileName;
 - (void) readDatabaseObjects;
 - (void) fillDatabasesCombo;
 - (void) dbObjectsFillSidebar;     

@@ -61,15 +61,6 @@
 	[ConnectionsManager releaseSharedInstance];
 }
 
-+ (NSString*) sqlFileContent: (NSString*) queryFileName{
-	NSString *query = [NSString stringWithContentsOfFile: 
-		[[NSBundle mainBundle] pathForResource: queryFileName ofType:@"sql"]
-		encoding: NSUTF8StringEncoding
-		error: nil
-		];
-	return query;
-}
-
 - (IBAction) userPreferences: (id) sender{
 	if (!preferences){
 		preferences = [[PreferencesController alloc] init];
@@ -87,15 +78,11 @@
 
 +(void) initialize{
 	NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];   					
-	[defaultValues setObject:[QueriesAppDelegate connectionDefaults] forKey:	QueriesConnectionDefaults];
+	//[defaultValues setObject:[QueriesAppDelegate connectionDefaults] forKey:	QueriesConnectionDefaults];
 	[defaultValues setObject:[NSNumber numberWithInteger: 15] forKey:	QueriesLoginTimeout];
 	[defaultValues setObject:[NSNumber numberWithInteger: 0] forKey:	QueriesQueryTimeout];	
 	[defaultValues setObject:[NSNumber numberWithBool: NO] forKey:	QueriesGroupBySchema];
 	[[NSUserDefaults standardUserDefaults] registerDefaults: defaultValues];
 } 
-
-+(NSString*) connectionDefaults{
-	return [QueriesAppDelegate sqlFileContent: @"connection_defaults"];
-}
 
 @end

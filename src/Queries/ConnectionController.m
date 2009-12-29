@@ -392,23 +392,14 @@
 }                                                                 
                                                
 - (NSString*) databaseObjectsQuery{
-	NSMutableString *query = [NSMutableString stringWithString:[self queryFileContents: @"objects_start"]];
+	NSMutableString *query = [NSMutableString stringWithString:[ConnectionsManager sqlFileContent: @"objects_start"]];
 	[query appendFormat: @"\n\n"];
 	for(id db in databases){
 		[query appendFormat: @"begin try\nuse %@\n\n", db];
-		[query appendFormat: @"%@\n", [self queryFileContents: @"objects_in_database2"]];
+		[query appendFormat: @"%@\n", [ConnectionsManager sqlFileContent: @"objects_in_database2"]];
 		[query appendFormat: @"\nend try\nbegin catch\nend catch\n", db];
 	} 	
-	[query appendFormat: @"%@\n", [self queryFileContents: @"objects_end"]];
-	return query;
-}
-
-- (NSString*) queryFileContents: (NSString*) queryFileName{
-	NSString *query = [NSString stringWithContentsOfFile: 
-		[[NSBundle mainBundle] pathForResource: queryFileName ofType:@"sql"]
-		encoding: NSUTF8StringEncoding
-		error: nil
-		];
+	[query appendFormat: @"%@\n", [ConnectionsManager sqlFileContent: @"objects_end"]];
 	return query;
 }
 

@@ -11,6 +11,8 @@
 - (void) cleanup;
 
 + (ConnectionsManager*) sharedInstance;              
-+ (void) releaseSharedInstance;
++ (void) releaseSharedInstance;  
+
++ (NSString*) sqlFileContent: (NSString*) queryFileName;
 
 @end

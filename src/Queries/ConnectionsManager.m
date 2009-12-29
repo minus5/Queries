@@ -51,7 +51,12 @@ static ConnectionsManager *manager = nil;
 			return existing;
 		}
 		
-		TdsConnection *newConenction = [[TdsConnection alloc] initWithServer:server user:user password:password];
+		TdsConnection *newConenction = [[TdsConnection alloc] 
+			initWithServer:server 
+			user:user 
+			password:password 
+			connectionDefaults: [ConnectionsManager sqlFileContent: @"connection_defaults"]
+			];
 		[newConenction login];
 		[self add: newConenction];  
 		[newConenction release];
@@ -109,5 +114,15 @@ static ConnectionsManager *manager = nil;
 	[pool release];
 	[super dealloc];                     
 	//NSLog(@"[%@ dealloc] end", [self class]);
+}   
+
++ (NSString*) sqlFileContent: (NSString*) queryFileName{
+	NSString *query = [NSString stringWithContentsOfFile: 
+		[[NSBundle mainBundle] pathForResource: queryFileName ofType:@"sql"]
+		encoding: NSUTF8StringEncoding
+		error: nil
+		];
+	return query;
 }
+
 @end

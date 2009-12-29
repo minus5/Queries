@@ -9,7 +9,7 @@
 
 void testCreateTableSctipt(){
 	TdsConnection *connection = [TdsConnection alloc];	
-	[connection initWithServer: @"mssql.mobilnet.hr" user: @"sa" password: @""];
+	[connection initWithServer: @"mssql.mobilnet.hr" user: @"sa" password: @"", connectionDefaults: @""];
 	[connection login];  
 	
 	NSLog(@"\n%@", [CreateTableScript scriptWithConnection: connection database: @"pubs" table: @"authors"]);
@@ -21,7 +21,7 @@ void testCreateTableSctipt(){
 
 void testSelectEncoding(){
 	TdsConnection *connection = [TdsConnection alloc];	
-	[connection initWithServer: @"mssql.mobilnet.hr" user: @"sa" password: @""];
+	[connection initWithServer: @"mssql.mobilnet.hr" user: @"sa" password: @"", connectionDefaults: @""];
 	[connection login];  
 	[connection execute: @"use pubs\nselect * from publishers"];
 	[connection release];
@@ -29,7 +29,7 @@ void testSelectEncoding(){
 
 void testQueryResultsRetainCount(){
 	TdsConnection *connection = [TdsConnection alloc];	
-	[connection initWithServer: @"mssql.mobilnet.hr" user: @"sa" password: @""];
+	[connection initWithServer: @"mssql.mobilnet.hr" user: @"sa" password: @"", connectionDefaults: @""];
 	[connection login];
 	
 	for(size_t i = 0; i < 10; ++i)
@@ -46,7 +46,7 @@ void testQueryResultsRetainCount(){
 
 void testMaxColumnLength(){
 	TdsConnection *connection = [TdsConnection alloc];	
-	[connection initWithServer: @"mssql.mobilnet.hr" user: @"sa" password: @""];
+	[connection initWithServer: @"mssql.mobilnet.hr" user: @"sa" password: @"", connectionDefaults: @""];
 	[connection login];	                                                                                      
 	QueryResult* result = [connection execute: @"use pubs\nexec sp_help 'dbo.publishers'"];			
 	

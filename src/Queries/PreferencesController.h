@@ -2,7 +2,7 @@
 #import "Constants.h"
 
 @interface PreferencesController : NSWindowController { 	
-	IBOutlet NSTextView *connectionDefaults;
+	//IBOutlet NSTextView *connectionDefaults;
 	IBOutlet NSTextField *queryTimeout;
   IBOutlet NSTextField *loginTimeout;
 	IBOutlet NSButton *groupBySchema;

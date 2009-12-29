@@ -20,6 +20,6 @@ insert into @results([database], [type], [schema], [name])
 			when type in ('P') then 3
 			when type in ('V') then 2
 			when type in ('U') then 1
-			else '???'
+			else 100
 		end,		
 		s.name, o.name

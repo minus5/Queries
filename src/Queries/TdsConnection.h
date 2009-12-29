@@ -25,6 +25,7 @@
 	NSString *server;
 	NSString *user;
 	NSString *password;     
+	NSString *connectionDefaults;
 		
 	QueryResult *queryResult;
 	  
@@ -35,7 +36,7 @@
 
 @property BOOL isProcessing;
 
--(id) initWithServer: (NSString*) s user: (NSString*) u password: (NSString*) p;
+-(id) initWithServer: (NSString*) s user: (NSString*) u password: (NSString*) p connectionDefaults: (NSString*) d;
 								
 - (DBPROCESS*) dbproc;
 

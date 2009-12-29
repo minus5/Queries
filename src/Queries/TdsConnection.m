@@ -1,6 +1,5 @@
 #import "TdsConnection.h"
 #import "Constants.h"
-//#import "QueriesAppDelegate.h"
 
 @implementation TdsConnection                                
 
@@ -132,8 +131,13 @@ struct COL
 	[self applyConnectionDefaults];
 } 
 
--(void) applyConnectionDefaults{
-	[self execute: [[NSUserDefaults standardUserDefaults] objectForKey: QueriesConnectionDefaults] withDefaultDatabase: nil logOutOnException: NO];	
+-(void) applyConnectionDefaults{                                                                                              
+	@try{
+		[self executeQuery: connectionDefaults];
+	} 
+	@catch (NSException *e) {         
+		NSLog(@"applyConnectionDefaults exception %@", e);	 
+	}
 }
 
 -(NSArray*) readResultMetadata: (struct COL**) pcolumns{
@@ -418,7 +422,8 @@ struct COL
 	[queryResult release];
 	[server release];
 	[user release];
-	[password release];		
+	[password release];	
+	[connectionDefaults release];	
 	[super dealloc];
 }
 
@@ -434,6 +439,7 @@ struct COL
 -(id) initWithServer: (NSString*) s 
 			user: (NSString*) u 
 			password: (NSString*) p
+			connectionDefaults: (NSString*) d
 {	
 	self = [super init];
 	
@@ -441,13 +447,14 @@ struct COL
 		server = [[NSString alloc] initWithString: s];
 		user = [[NSString alloc] initWithString: u];
 		password = [[NSString alloc] initWithString: p];		
+		connectionDefaults = [[NSString alloc] initWithString: d];
 	}
 	
 	return self;
 }    
 
 - (TdsConnection*) clone{
-	return [[TdsConnection alloc] initWithServer: server user: user password: password];
+	return [[TdsConnection alloc] initWithServer: server user: user password: password, connectionDefaults: connectionDefaults];
 }
 
 -(NSString*) connectionName{
