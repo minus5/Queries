@@ -454,7 +454,7 @@ struct COL
 }    
 
 - (TdsConnection*) clone{
-	return [[TdsConnection alloc] initWithServer: server user: user password: password, connectionDefaults: connectionDefaults];
+	return [[TdsConnection alloc] initWithServer: server user: user password: password connectionDefaults: connectionDefaults];
 }
 
 -(NSString*) connectionName{

@@ -5,6 +5,19 @@
       <link>http://queries.minus5.hr/appcast</link>
       <description>Most recent changes with links to updates.</description>
       <language>en</language>        
+
+        <item>   
+          <title>Version 0.2.3</title>
+          <sparkle:releaseNotesLink>
+              http://queries.minus5.hr/023-release-notes.html
+          </sparkle:releaseNotesLink>
+          <pubDate>Tue, 19 Jan 2010</pubDate>
+          <enclosure url="http://queries.minus5.hr/app/Queries_0.2.3.app.zip"
+                     sparkle:version="0.2.3"
+                     sparkle:dsaSignature="MCwCFBs53FJ7epuNHgtGKP5BYoeR9nsPAhRoaI+EyRgluMWc+8sukGdAaxzUuw=="
+                     length="2056180"
+                     type="application/octet-stream" />
+        </item>    
                       
         <item>   
           <title>Version 0.2.2</title>

@@ -4,6 +4,8 @@ BUGS
   *| svaki message u tdsConnection ima na kraju \n
   *| kada se izvrsava stored procedura koja vraca vise rezultata, ne dobijem u messages broj rows, a query analyzer to ima 
   * otvaranje velikog file-a traje, zbog bojanja, cursor zavrsi na dnu, mozada da ne ide na dno ne bi toliko trajalo
+  * money tip podataka zaokruzuje na 2 decimale
+  * ne boja money, datetime
     
 TODO                                              
   * dokumentacija
@@ -17,7 +19,8 @@ TODO
     * syntax highlighting
     * table name auto completion
     * windows authentication        
-    * go to tab command 1,2,3,4...    
+    * go to tab command 1,2,3,4...
+    * objects sidebar sortiran po schemama    
     
 ------------------------------------------------
   * double click, dragn drop i enter na database object neka ga dodaju u query text

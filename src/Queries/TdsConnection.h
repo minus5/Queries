@@ -17,6 +17,7 @@
 #include <sqlfront.h>	
 #include <sybdb.h>
 #include "QueryResult.h"
+#import "RegexKitLite.h"
 
 @class QueryResult;
 
