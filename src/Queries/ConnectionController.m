@@ -282,7 +282,9 @@
 			return;
 		}					
 		if ([type isEqualToString: @"procedures"] || [type isEqualToString: @"functions"] || [type isEqualToString: @"views"]){	
-			QueryResult *queryResult = [[self tdsConnection] execute: [NSString stringWithFormat: @"use %@\nexec sp_helptext '%@'", database, nameWithSchema]];
+			//QueryResult *queryResult = [[self tdsConnection] execute: [NSString stringWithFormat: @"use %@\nexec sp_helptext '%@'", database, nameWithSchema]];
+			QueryResult *queryResult = [[self tdsConnection] execute: [NSString stringWithFormat: @"use %@\nselect text from syscomments where id = object_id('%@')", database, nameWithSchema]];
+			
 			if (queryResult){
 				//create to alter
 				NSString *typeName =  [[type substringToIndex: [type length] - 1] uppercaseString];

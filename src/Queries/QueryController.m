@@ -64,7 +64,7 @@
 	[[tv textContainer] setWidthTracksTextView:NO];
 	[tv setHorizontallyResizable:YES];
 	[tv setMaxSize:NSMakeSize(FLT_MAX, FLT_MAX)];                                             
-	[tv setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
+	//[tv setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
 }
 
 - (void) awakeFromNib{

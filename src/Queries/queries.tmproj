@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>TdsConnection.h</string>
+	<string>QueryController.m</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -31,7 +31,7 @@
 					<key>filename</key>
 					<string>ConnectionController.m</string>
 					<key>lastUsed</key>
-					<date>2009-12-29T12:09:09Z</date>
+					<date>2010-03-06T20:44:34Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
@@ -67,7 +67,9 @@
 					<key>filename</key>
 					<string>QueryController.m</string>
 					<key>lastUsed</key>
-					<date>2009-12-29T12:09:09Z</date>
+					<date>2010-03-06T20:44:34Z</date>
+					<key>selected</key>
+					<true/>
 				</dict>
 			</array>
 			<key>expanded</key>
@@ -106,13 +108,13 @@
 					<key>filename</key>
 					<string>QueryResult.h</string>
 					<key>lastUsed</key>
-					<date>2009-12-27T12:04:46Z</date>
+					<date>2010-03-06T20:13:19Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>QueryResult.m</string>
 					<key>lastUsed</key>
-					<date>2009-12-28T13:45:13Z</date>
+					<date>2010-03-06T20:25:39Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
@@ -175,10 +177,14 @@
 					<date>2009-12-27T12:24:50Z</date>
 				</dict>
 			</array>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>ShellTest</string>
 		</dict>
 		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>site</string>
 			<key>regexFolderFilter</key>
@@ -216,6 +222,8 @@
 					<date>2009-11-29T19:39:37Z</date>
 				</dict>
 			</array>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>tests</string>
 		</dict>
@@ -241,9 +249,7 @@
 			<key>filename</key>
 			<string>TdsConnection.h</string>
 			<key>lastUsed</key>
-			<date>2009-12-29T12:09:11Z</date>
-			<key>selected</key>
-			<true/>
+			<date>2010-01-19T21:41:03Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -262,6 +268,64 @@
 	<integer>234</integer>
 	<key>metaData</key>
 	<dict>
+		<key>../../site/022-release-notes.html</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>7</integer>
+				<key>line</key>
+				<integer>11</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>7</integer>
+				<key>line</key>
+				<integer>11</integer>
+			</dict>
+		</dict>
+		<key>../../site/appcast</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>42</integer>
+				<key>line</key>
+				<integer>11</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>../../site/index.html</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>94</integer>
+				<key>line</key>
+				<integer>7</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>ConnectionController.m</key>
 		<dict>
 			<key>caret</key>
@@ -269,12 +333,12 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>305</integer>
+				<integer>285</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>288</integer>
+			<integer>244</integer>
 		</dict>
 		<key>CredentialsController.h</key>
 		<dict>
@@ -369,7 +433,7 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>67</integer>
+				<integer>0</integer>
 				<key>line</key>
 				<integer>19</integer>
 			</dict>
@@ -383,30 +447,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>26</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>89</integer>
+				<integer>88</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>37</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>66</integer>
-				<key>line</key>
-				<integer>89</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>26</integer>
-				<key>line</key>
-				<integer>89</integer>
-			</dict>
 		</dict>
 		<key>QueryController.h</key>
 		<dict>
@@ -443,14 +491,58 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>11</integer>
+				<integer>3</integer>
 				<key>line</key>
-				<integer>532</integer>
+				<integer>66</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>495</integer>
+			<integer>29</integer>
+		</dict>
+		<key>QueryResult.h</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>28</integer>
+				<key>line</key>
+				<integer>35</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>14</integer>
+				<key>line</key>
+				<integer>35</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>28</integer>
+				<key>line</key>
+				<integer>35</integer>
+			</dict>
+		</dict>
+		<key>QueryResult.m</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>49</integer>
+				<key>line</key>
+				<integer>174</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>142</integer>
 		</dict>
 		<key>SyntaxHighlight/QueryController+SyntaxHighlight.m</key>
 		<dict>
@@ -501,7 +593,7 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>29</integer>
+				<integer>0</integer>
 				<key>line</key>
 				<integer>3</integer>
 			</dict>
@@ -515,7 +607,7 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>63</integer>
+				<integer>35</integer>
 				<key>line</key>
 				<integer>137</integer>
 			</dict>
@@ -569,24 +661,22 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>CredentialsController.m</string>
-		<string>PreferencesController.m</string>
-		<string>PreferencesController.h</string>
-		<string>ConnectionController.m</string>
 		<string>QueryController.m</string>
-		<string>QueryController.h</string>
-		<string>SyntaxHighlight/QueryController+SyntaxHighlight.m</string>
-		<string>todo</string>
-		<string>TdsConnection.m</string>
-		<string>TdsConnection.h</string>
-		<string>sql/connection_defaults.sql</string>
-		<string>QueriesAppDelegate.m</string>
-		<string>QueriesAppDelegate.h</string>
+		<string>ConnectionController.m</string>
+		<string>QueryResult.m</string>
+		<string>QueryResult.h</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>treeState</key>
 	<dict>
+		<key>ShellTest</key>
+		<dict>
+			<key>isExpanded</key>
+			<true/>
+			<key>subItems</key>
+			<dict/>
+		</dict>
 		<key>SyntaxHighlight</key>
 		<dict>
 			<key>isExpanded</key>
@@ -615,7 +705,21 @@
 			<key>subItems</key>
 			<dict/>
 		</dict>
+		<key>site</key>
+		<dict>
+			<key>isExpanded</key>
+			<true/>
+			<key>subItems</key>
+			<dict/>
+		</dict>
 		<key>sql</key>
+		<dict>
+			<key>isExpanded</key>
+			<true/>
+			<key>subItems</key>
+			<dict/>
+		</dict>
+		<key>tests</key>
 		<dict>
 			<key>isExpanded</key>
 			<true/>
@@ -624,6 +728,6 @@
 		</dict>
 	</dict>
 	<key>windowFrame</key>
-	<string>{{0, 4}, {1675, 1174}}</string>
+	<string>{{37, 0}, {1423, 1178}}</string>
 </dict>
 </plist>
