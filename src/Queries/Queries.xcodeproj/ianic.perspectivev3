@@ -313,7 +313,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>184873E6109857C600A15FC7</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Queries-Info.plist</string>
+								<string>ConnectionController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -321,11 +321,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>184873E7109857C600A15FC7</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Queries-Info.plist</string>
+										<string>ConnectionController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>184F7E141143C73500C352F9</string>
+										<string>184F7E221143D0FF00C352F9</string>
 										<key>history</key>
 										<array>
 											<string>1870CC9A1098988E006AC809</string>
@@ -379,9 +379,9 @@
 											<string>186B425411438FBB00E72660</string>
 											<string>186B43011143C04400E72660</string>
 											<string>186B430C1143C0F800E72660</string>
-											<string>184F7E0A1143C71600C352F9</string>
 											<string>184F7E0B1143C71600C352F9</string>
-											<string>186B425311438FBB00E72660</string>
+											<string>184F7E1D1143D0DF00C352F9</string>
+											<string>184F7E1E1143D0DF00C352F9</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -421,8 +421,6 @@
 									<dict>
 										<key>Frame</key>
 										<string>{{10, 27}, {1654, 173}}</string>
-										<key>RubberWindowFrame</key>
-										<string>0 54 1920 1124 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -476,7 +474,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1654, 169}}</string>
+										<string>{{10, 27}, {1654, 173}}</string>
+										<key>RubberWindowFrame</key>
+										<string>0 54 1920 1124 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXBuildResultsModule</string>

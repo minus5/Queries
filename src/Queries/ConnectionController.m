@@ -473,15 +473,17 @@
 	[dbObjectsResultsAll release];
 	dbObjectsResultsAll =  [queryResult rows];
 	[dbObjectsResultsAll retain];
-	[self filterDatabaseObjects: nil];
+	[self filterDatabaseObjects];
 }
 		    
-- (void) filterDatabaseObjects: (NSString*) filterString{		
+- (void) filterDatabaseObjects{		
+	
+	NSString *filterString = [searchField stringValue]; 	
 	NSMutableSet *dbObjectsSet = [NSMutableSet set];   
 	BOOL useFilter = filterString && [filterString length] > 0;
 	NSString *currentDatabase = [databasesPopUp titleOfSelectedItem];	
 	NSString *regexFilterString = [NSString stringWithFormat: @"(?im)%@", filterString];
-	
+		
 	for(NSArray *row in dbObjectsResultsAll){
                     
 		
@@ -543,9 +545,7 @@
 }             
 
 - (IBAction) searchDatabaseObjects: (id) sender{
-  NSString *searchString = [searchField stringValue];
-	NSLog(@"searching for %@", searchString);                   
-	[self filterDatabaseObjects: searchString];	
+	[self filterDatabaseObjects];	
 }
 
 - (IBAction) selectFilter: (id) sender{
@@ -572,9 +572,8 @@
 
 - (void) databaseChanged:(id)sender{                              
 	[queryController setDatabase: [sender titleOfSelectedItem]];  
-	NSString *searchString = [searchField stringValue];
-	if ([searchString length] > 0){
-		[self searchDatabaseObjects: searchString];
+	if ([[searchField stringValue] length] > 0){
+		[self filterDatabaseObjects];
 	}
 }                                       
 

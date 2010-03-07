@@ -91,7 +91,7 @@
 
 - (void) setDatabasesResult: (QueryResult*) queryResult;
 - (void) setObjectsResult: (QueryResult*) queryResult;
-- (void) filterDatabaseObjects: (NSString*) filterString;
+- (void) filterDatabaseObjects;
 
 - (void) displayStatus;         
 
