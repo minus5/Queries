@@ -35,7 +35,7 @@ NSMutableArray *activeConnections;
 			return;
 		}
 	}                                           
-	NSLog(@"logMessage failed, process not found?!");
+	NSLog(@"logMessage failed, process not found?! Message: %@", message);
 }
 
 int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char *msgtext, char *srvname, char *procname, int line)

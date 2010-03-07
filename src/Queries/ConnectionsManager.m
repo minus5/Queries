@@ -74,12 +74,12 @@ static ConnectionsManager *manager = nil;
 		if (connections){
 			for(TdsConnection *c in connections){ 
 				if (![c isProcessing]){
-					//NSLog(@"returning connection from pool [%@ connectionWithName:%@]", [self class], connectionName);
+					NSLog(@"returning connection from pool [%@ connectionWithName:%@]", [self class], connectionName);
 					return c;             
 				}
 			}                                         			
 			TdsConnection *clone = [[connections objectAtIndex: 0] clone];  
-			//NSLog(@"cloning connection %@", [clone connectionName]);
+			NSLog(@"cloning connection %@", [clone connectionName]);
 			[clone login]; 
 			[self add: clone]; 
 			[clone release]; 		

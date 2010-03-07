@@ -115,6 +115,10 @@
 		
 	if ([[queryTabs tabViewItems] count] == 0)
 		[[self window] close];
+	else{
+		if (previousSelectedTabViewItem != NULL)
+			[queryTabs selectTabViewItem: previousSelectedTabViewItem];		
+	}
 }
                        
 - (int) numberOfEditedQueries {
@@ -156,7 +160,13 @@
 } 
 
 - (BOOL)tabView:(NSTabView *)aTabView shouldCloseTabViewItem:(NSTabViewItem *)tabViewItem
-{
+{          	  	
+	previousSelectedTabViewItem = [queryTabs selectedTabViewItem];                                          
+	if (previousSelectedTabViewItem != tabViewItem){
+		[queryTabs selectTabViewItem: tabViewItem];
+	}else{
+		previousSelectedTabViewItem = NULL; 
+	}	
 	[self shouldCloseCurrentQuery];
   return NO;
 }
@@ -402,18 +412,44 @@
 #pragma mark ---- database objects sidebar ----
 
 -(void) dbObjectsFillSidebar{         
-	@try{	       
-		[self fillDatabasesCombo];		
-		[self readDatabaseObjects];	  
+	@try{	                            
+		[databasesPopUp removeAllItems];      
+						 		
+		[self clearObjectsCache];		
+		[outlineView reloadData];
+		
+		[self readDatabases];		
 	}@catch(NSException *exception){    
-		NSLog(@"error in fillSidebar: %@", exception);
+		NSLog(@"error in dbObjectsFillSidebar: %@", exception);
 	}
 }                         
 
+- (void) readDatabases{
+	[[self tdsConnection] executeInBackground: @"select name from master.sys.databases where state_desc = 'ONLINE' and (owner_sid != 01 or name = 'master') and isnull(has_dbaccess([Name]), 0) = 1 order by name"
+		withDatabase: @"master" 
+		returnToObject: self
+		withSelector: @selector(setDatabasesQueryResult:)];
+}  
+
+- (void) setDatabasesQueryResult: (QueryResult*) queryResult{	  
+	NSMutableArray *dbs = [NSMutableArray array];    
+	if (queryResult){         
+		[databasesPopUp removeAllItems];
+		for(NSArray *row in [queryResult rows]){     
+			NSString *title = [row objectAtIndex: 0];
+			[dbs addObject: title];
+			[databasesPopUp addItemWithTitle: title];
+		} 
+		[databasesPopUp selectItemWithTitle: [[self tdsConnection] currentDatabase]];     
+		[self databaseChanged: nil]; 
+	}       
+	[databases release];
+	databases = dbs;
+	[databases retain];             
+	[self readDatabaseObjects];
+}
+
 - (void) readDatabaseObjects{        
-	[dbObjectsResults release];	
-	dbObjectsResults = nil;
-	[outlineView reloadData];
 	[outlineView setDoubleAction: @selector(databaseObjectSelected)];
 	[[self tdsConnection] executeInBackground: [self databaseObjectsQuery]
 		withDatabase: @"master" 
@@ -434,10 +470,21 @@
 }
 
 - (void) setObjectsResult: (QueryResult*) queryResult{ 
+	[dbObjectsResultsAll release];
+	dbObjectsResultsAll =  [queryResult rows];
+	[dbObjectsResultsAll retain];
+	[self filterDatabaseObjects: nil];
+}
+		    
+- (void) filterDatabaseObjects: (NSString*) filterString{		
+	NSMutableSet *dbObjectsSet = [NSMutableSet set];   
+	BOOL useFilter = filterString && [filterString length] > 0;
+	NSString *currentDatabase = [databasesPopUp titleOfSelectedItem];	
+	NSString *regexFilterString = [NSString stringWithFormat: @"(?im)%@", filterString];
+	
+	for(NSArray *row in dbObjectsResultsAll){
+                    
 		
-	NSMutableSet *dbObjectsSet = [NSMutableSet set];
-	for(NSArray *row in [queryResult rows]){
-
 		NSString *database = [row objectAtIndex: 0];
 		NSString *type = [row objectAtIndex: 1];
 		NSString *schema = [row objectAtIndex: 2];
@@ -446,53 +493,45 @@
 		NSString *id = [NSString stringWithFormat: @"%@.%@.%@.%@", database, schema, type, name];
 		NSString *nameWithSchema = [NSString stringWithFormat: @"%@.%@", schema, name];
 		NSString *level1 = database;
-		 
-		if ([[[NSUserDefaults standardUserDefaults] objectForKey: QueriesGroupBySchema] boolValue]){
-			NSString *level2 = [NSString stringWithFormat: @"%@.%@", database, schema]; 
-	 	  NSString *level3 = [NSString stringWithFormat: @"%@.%@.%@", database, schema, type];
+				
+		//if (!useFilter || ([database isEqualToString: currentDatabase] && ([name hasPrefix: filterString] || [schema hasPrefix: filterString])) ){
+    if (!useFilter || ([database isEqualToString: currentDatabase] && [nameWithSchema isMatchedByRegex: regexFilterString])){			
+			if ([[[NSUserDefaults standardUserDefaults] objectForKey: QueriesGroupBySchema] boolValue]){
+				NSString *level2 = [NSString stringWithFormat: @"%@.%@", database, schema]; 
+		 	  NSString *level3 = [NSString stringWithFormat: @"%@.%@.%@", database, schema, type];
 					
-			[dbObjectsSet addObject: [NSArray arrayWithObjects: level1, @"",    database, @"+", nil]];
-			[dbObjectsSet addObject: [NSArray arrayWithObjects: level2, level1, schema,   @"+", nil]];
-			[dbObjectsSet addObject: [NSArray arrayWithObjects: level3, level2, type,     @"+", nil]];
-			[dbObjectsSet addObject: [NSArray arrayWithObjects: id, 		level3, name,     @"",  database, type, schema, name, nameWithSchema, nil]];
+				[dbObjectsSet addObject: [NSArray arrayWithObjects: level1, @"",    database, @"+", nil]];
+				[dbObjectsSet addObject: [NSArray arrayWithObjects: level2, level1, schema,   @"+", nil]];
+				[dbObjectsSet addObject: [NSArray arrayWithObjects: level3, level2, type,     @"+", nil]];
+				[dbObjectsSet addObject: [NSArray arrayWithObjects: id, 		level3, name,     @"",  database, type, schema, name, nameWithSchema, nil]];
 						
-		}else{							
-			NSString *level2 = [NSString stringWithFormat: @"%@.%@", database, type];
+			}else{							
+				NSString *level2 = [NSString stringWithFormat: @"%@.%@", database, type];
 			 								
-			[dbObjectsSet addObject: [NSArray arrayWithObjects: level1, @"",    database,       @"+", nil]];
-			[dbObjectsSet addObject: [NSArray arrayWithObjects: level2, level1, type,    				@"+", nil]];
-			[dbObjectsSet addObject: [NSArray arrayWithObjects: id, 		level2, nameWithSchema, @"",  database, type, schema, name, nameWithSchema, nil]];
+				[dbObjectsSet addObject: [NSArray arrayWithObjects: level1, @"",    database,       @"+", nil]];
+				[dbObjectsSet addObject: [NSArray arrayWithObjects: level2, level1, type,    				@"+", nil]];
+				[dbObjectsSet addObject: [NSArray arrayWithObjects: id, 		level2, nameWithSchema, @"",  database, type, schema, name, nameWithSchema, nil]];
+			}
 		}
-	}
-	[dbObjectsResults release];
-	dbObjectsResults = [[dbObjectsSet allObjects] retain];
-	
-	[dbObjectsCache release];		
-	dbObjectsCache = [NSMutableDictionary dictionary];		
-	[dbObjectsCache retain];             
+	}			
+	[self clearObjectsCache];       
+	dbObjectsResults = [[dbObjectsSet allObjects] retain];  
 	
 	[outlineView reloadData];
-	[outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];	
+	[outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO]; 
+	if (useFilter){
+		[outlineView expandItem:nil expandChildren:YES]; 
+	}
+}   
+
+- (void) clearObjectsCache{      
+	[dbObjectsResults release];	
+	dbObjectsResults = nil;
+	[dbObjectsCache release];		
+	dbObjectsCache = [NSMutableDictionary dictionary];		
+	[dbObjectsCache retain];
 }
-
-- (void) fillDatabasesCombo{	     
-	NSMutableArray *dbs = [NSMutableArray array];
-	QueryResult *queryResult = [[self tdsConnection] execute: @"select name from master.sys.databases where state_desc = 'ONLINE' and (owner_sid != 01 or name = 'master') and isnull(has_dbaccess([Name]), 0) = 1 order by name"];	
-	if (queryResult){         
-		[databasesPopUp removeAllItems];
-		for(NSArray *row in [queryResult rows]){     
-			NSString *title = [row objectAtIndex: 0];
-			[dbs addObject: title];
-			[databasesPopUp addItemWithTitle: title];
-		} 
-		[databasesPopUp selectItemWithTitle: [[self tdsConnection] currentDatabase]];     
-		[self databaseChanged: nil]; 
-	}       
-	[databases release];
-	databases = dbs;
-	[databases retain]; 
-}    
-
+   
 - (void) setDatabasesResult: (QueryResult*) queryResult{    
 	[databasesPopUp removeAllItems];	
 	for(NSArray *row in [queryResult rows]){     
@@ -501,6 +540,16 @@
 	} 
 	[databasesPopUp selectItemWithTitle: [[self tdsConnection] currentDatabase]];
 	[self databaseChanged: nil];	
+}             
+
+- (IBAction) searchDatabaseObjects: (id) sender{
+  NSString *searchString = [searchField stringValue];
+	NSLog(@"searching for %@", searchString);                   
+	[self filterDatabaseObjects: searchString];	
+}
+
+- (IBAction) selectFilter: (id) sender{
+	[[self window] makeFirstResponder: searchField]; 
 }
  
 #pragma mark ---- current database ---- 
@@ -522,7 +571,11 @@
 }
 
 - (void) databaseChanged:(id)sender{                              
-	[queryController setDatabase: [sender titleOfSelectedItem]];	
+	[queryController setDatabase: [sender titleOfSelectedItem]];  
+	NSString *searchString = [searchField stringValue];
+	if ([searchString length] > 0){
+		[self searchDatabaseObjects: searchString];
+	}
 }                                       
 
 #pragma mark ---- database objects outline data source ---- 

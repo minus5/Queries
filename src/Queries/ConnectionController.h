@@ -22,16 +22,20 @@
 	IBOutlet PSMTabBarControl *queryTabBar; 		
 	IBOutlet NSOutlineView *outlineView;
 	IBOutlet NSPopUpButton *databasesPopUp;
-	IBOutlet BWInsetTextField *statusLabel;
+	IBOutlet BWInsetTextField *statusLabel;       
+	IBOutlet NSSearchField *searchField;
 	
 	CredentialsController *credentials;	
 	int queryTabsCounter;
 	QueryController *queryController;
 	
 	NSArray *dbObjectsResults;
+	NSArray *dbObjectsResultsAll;
 	NSMutableDictionary *dbObjectsCache;
 	NSArray *databases;       
-	NSString *connectionName;
+	NSString *connectionName;     
+	
+	NSTabViewItem *previousSelectedTabViewItem;
 }                     
 
 @property (readonly) NSOutlineView *outlineView;
@@ -54,12 +58,13 @@
 - (IBAction) reloadDbObjects: (id) sender;
 
 - (IBAction) executeQuery: (id) sender;    
-//- (void) executeQueryInBackground: (NSString*) query withDatabase: (NSString*) database returnToObject: (id) receiver withSelector: (SEL) selector;
 
 - (int) numberOfEditedQueries;                 
 - (void) isEditedChanged: (id) sender;
 
 - (IBAction) explain: (id) sender;
+
+- (IBAction) selectFilter: (id) sender;
 
 - (IBAction) goToQueryText: (id) sender;                                        
 - (IBAction) goToDatabaseObjects: (id) sender;
@@ -70,7 +75,10 @@
 
 
 - (void) readDatabaseObjects;
-- (void) fillDatabasesCombo;
+- (void) readDatabases;
+- (void) setDatabasesQueryResult: (QueryResult*) queryResult;
+- (void) clearObjectsCache;
+
 - (void) dbObjectsFillSidebar;     
 - (NSArray*) selectedDbObject;     
 - (NSString*) databaseObjectsQuery;
@@ -83,6 +91,9 @@
 
 - (void) setDatabasesResult: (QueryResult*) queryResult;
 - (void) setObjectsResult: (QueryResult*) queryResult;
+- (void) filterDatabaseObjects: (NSString*) filterString;
 
-- (void) displayStatus;
+- (void) displayStatus;         
+
+- (IBAction) searchDatabaseObjects: (id) sender;
 @end
