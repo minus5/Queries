@@ -1,0 +1,193 @@
+<html>
+  <head>
+    <title>Queries.app</title>   
+    <style type="text/css" media="screen">
+      body {
+        color:#333333;
+        font-family:"Lucida Grande",Geneva,Arial,Verdana,sans-serif;
+        font-size:12px;
+        font-size-adjust:none;
+        font-style:normal;
+        font-variant:normal;
+        font-weight:normal;
+        line-height:18px;
+      }   
+      h4{
+        margin-top: 20px;
+        margin-bottom:10px;
+      }
+      table.kbtable {
+        border-left:1px solid #A1A5A9;
+        border-top:1px solid #A1A5A9;   
+        border-collapse:collapse;
+        border-spacing:0;
+        width: 600px;
+      }  
+      .kbtable tr {
+        background-color:#FFFFFF;
+        font-size:10px;
+      }
+      .kbtable td, .kbtable th {
+        border-bottom:1px solid #A1A5A9;
+        border-right:1px solid #A1A5A9;
+        font-size:10px;
+        padding:4px;
+      }  
+      .kbtable th {
+        background-color:#E2E2E2;
+        font-size:12px;
+        font-weight:bold;
+      }
+      .kbtable td.keycode{
+        font-size: 12px;
+        width: 100px;
+      }       
+      .kbtable th.keycode{
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>              
+    <h4>Query Execution</h4>      
+    <table border="0" cellspacing="0" class="kbtable">
+      <tr>
+        <th class="keycode">Key combination</th>
+        <th>What it does</th>
+      </tr>
+      <tr>
+          <td class="keycode">&#x2318; E</td>
+          <td>Execute query</td>
+      </tr>
+      <tr>
+          <td class="keycode">&#x2325; &#x2318; E</td>
+          <td>Cancel current query execution</td>
+      </tr>
+      <tr>
+          <td class="keycode">&#x2318; U</td>
+          <td>Change current database</td>
+      </tr>
+      <tr>
+          <td class="keycode">&#x21E7; &#x2318; C</td>
+          <td>Change database server for the current Queries window</td>
+      </tr>
+      <tr>
+          <td class="keycode">&#x2318; R</td>
+          <td>Reload database objects sidebar</td>
+      </tr>
+      <tr>
+          <td class="keycode">&#x2318; I</td>
+          <td>Explain currently selected database object in objects sidebar.<br/>Generates create table script for tables, alter script for views, stored procedures and functions.</td>
+      </tr>      
+      <tr>
+          <td class="keycode">&#x2325; &#x2318; F</td>
+          <td>Search database objects in current database.<br/>Uses regular expression to matches full object name (schema.name) for all objects in current database.</td>
+      </tr>            
+    </table>   
+    
+    <h4>Query Tabs</h4> 
+    <table border="0" cellspacing="0" class="kbtable">
+      <tr>
+        <th class="keycode">Key combination</th>
+        <th>What it does</th>
+      </tr>
+      <tr>
+          <td class="keycode">&#x2318; O</td>
+          <td>Open file in current tab</td>
+      </tr>
+     <tr>
+          <td class="keycode">&#x2318; S</td>
+          <td>Save current tab</td>
+      </tr>
+      <tr>
+           <td class="keycode">&#x21E7; &#x2318;S</td>
+           <td>Save As current tab</td>
+       </tr>      
+      <tr>
+          <td class="keycode">&#x2318; T</td>
+          <td>New Tab</td>
+      </tr>
+      <tr>
+          <td class="keycode">&#x2318; W</td>
+          <td>Close current Tab</td>
+      </tr>
+      <tr>
+          <td class="keycode">
+            &#x21E7; &#x2318; } <br/>
+            &#x2325; &#x2318; &#x2192;
+          </td>
+          <td>Next Tab</td>
+      </tr>
+      <tr>
+          <td class="keycode">
+            &#x21E7; &#x2318; { <br/>
+            &#x2325; &#x2318; &#x2190;
+          </td>
+          <td>Previous Tab</td>
+      </tr>                       
+    </table>
+    
+    <h4>Go To</h4> 
+    <table border="0" cellspacing="0" class="kbtable">
+      <tr>
+        <th class="keycode">Key combination</th>
+        <th>What it does</th>
+      </tr>
+      <tr>
+          <td class="keycode">&#x2325; &#x2318; &#x2191;</td>
+          <td>Go to query text view. Returns focus to query text view.</td>
+      </tr>      
+      <tr>
+          <td class="keycode">&#x2325; &#x2318; &#x2193;</td>
+          <td>Go to next results view tab. Cycles through results view tabs (table results, text results, messages) when pressed repeatedly</td>
+      </tr>
+      <tr>
+          <td class="keycode">F9</td>
+          <td>Go to database objects sidebar</td>
+      </tr>      
+      <tr>
+          <td class="keycode">F10</td>
+          <td>Go to Table results</td>
+      </tr>      
+      <tr>
+          <td class="keycode">F11</td>
+          <td>Go to Text results</td>
+      </tr>      
+      <tr>
+          <td class="keycode">F12</td>
+          <td>Go to Messages</td>
+      </tr>                  
+      <tr>
+          <td class="keycode">&#x2303; &#x2318; &#x2191;</td>
+          <td>Cycle through: maximized query view, maximized results, query and result split equally</td>
+      </tr>      
+      <tr>
+          <td class="keycode">&#x2303; &#x2318; &#x2190;</td>
+          <td>Show/hide database objects sidebar</td>
+      </tr>
+      <tr>
+          <td class="keycode">
+              &#x2318; 1<br/>
+              &#x2318; 2<br/>
+              ...<br/>
+              &#x2318; 0
+           </td>
+          <td>
+              Go to first query tab<br/>
+              Go to second query tab<br/>
+              ...<br/>
+              Go to tenth query tab
+          </td>
+      </tr>
+      <tr>
+          <td class="keycode">&#x2303; &#x21E5;</td>
+          <td>Cycles through all active views (query text view, query results, objects sidebar)</td>
+      </tr>
+      <tr>
+          <td class="keycode">&#x2303; &#x21E7; &#x21E5;</td>
+          <td>Same as previous but cycles backwards.</td>
+      </tr>
+    </table>  
+
+    
+  </body>
+</html>
