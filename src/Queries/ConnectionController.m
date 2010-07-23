@@ -2,7 +2,7 @@
 
 @implementation ConnectionController
 
-@synthesize outlineView;
+@synthesize outlineView, defaultDatabase;;
 
 #pragma mark ---- init ----
 
@@ -213,8 +213,11 @@
 	
 	@try{	
     [NSApp beginSheet: [cc window] modalForWindow: [self window] modalDelegate: nil didEndSelector: nil contextInfo:nil];		
-		TdsConnection *newConnection = [[ConnectionsManager sharedInstance] connectionToServer: [credentials server] withUser: [credentials user] andPassword:[credentials password]];		
+		TdsConnection *newConnection = [[ConnectionsManager sharedInstance] connectionToServer: [credentials server] 
+		  withUser: [credentials user] 
+		  andPassword:[credentials password]];		
 		[credentials writeCredentials];		
+    [self setDefaultDatabase: [credentials currentDatabase]];
 		[self didChangeConnection: newConnection];
 	}
 	@catch (NSException * e) {
@@ -271,6 +274,8 @@
 		withDatabase: [queryController database] 
 		returnToObject: queryController 
 		withSelector: @selector(setResult:)];
+		
+  [[self tdsConnection] updateCredentials];
 }                                 
                               
 #pragma mark ---- explain ----
@@ -440,7 +445,14 @@
 			[dbs addObject: title];
 			[databasesPopUp addItemWithTitle: title];
 		} 
-		[databasesPopUp selectItemWithTitle: [[self tdsConnection] currentDatabase]];     
+		//[databasesPopUp selectItemWithTitle: [[self tdsConnection] currentDatabase]]; 
+		@try {  
+      [[self tdsConnection] useDatabase: [self defaultDatabase]];    
+    }
+    @catch (NSException *e) {         
+  		 NSLog(@"exception %@", e);
+		}
+		//self[databasesPopUp selectItemWithTitle: [self defaultDatabase]];     
 		[self databaseChanged: nil]; 
 	}       
 	[databases release];
@@ -540,7 +552,7 @@
 		NSString *title = [row objectAtIndex: 0];
 		[databasesPopUp addItemWithTitle: title];
 	} 
-	[databasesPopUp selectItemWithTitle: [[self tdsConnection] currentDatabase]];
+	[databasesPopUp selectItemWithTitle: [[self tdsConnection] currentDatabase]];   
 	[self databaseChanged: nil];	
 }             
 
@@ -570,9 +582,11 @@
 		}
 }
 
-- (void) databaseChanged:(id)sender{                              
-	[queryController setDatabase: [sender titleOfSelectedItem]];  
-	if ([[searchField stringValue] length] > 0){
+- (void) databaseChanged:(id)sender{    
+  NSString* database = [sender titleOfSelectedItem];                          
+  [queryController setDatabase: database];  
+	if ([[searchField stringValue] length] > 0){                  
+    [self setDefaultDatabase: database]; 
 		[self filterDatabaseObjects];
 	}
 }                                       

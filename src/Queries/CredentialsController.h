@@ -1,8 +1,4 @@
 #import <Cocoa/Cocoa.h>
-#import "ConnectionController.h"
-#import "TdsConnection.h" 
-
-
 @class ConnectionController;
 @class TdsConnection;
 
@@ -12,9 +8,12 @@
 	IBOutlet NSComboBox *userCombo;
 	IBOutlet NSSecureTextField *passwordText;
 	
-	NSMutableArray *credentials;
+	NSMutableArray *credentials;    
+  NSString *currentDatabase;  
 
-} 
+}                             
+
+@property (copy) NSString *currentDatabase;
 
 +(CredentialsController*) controller;
 
@@ -29,6 +28,12 @@
 
 - (NSString*) user;
 - (NSString*) server;
-- (NSString*) password;
+- (NSString*) password; 
+
++ (NSString*) credentialsFileName;
++ (void) updateCredentialsWithServer: (NSString*) server 
+  user: (NSString*) user
+  password: (NSString*) password
+  database: (NSString*) database;
 
 @end

@@ -33,12 +33,14 @@
 	NSArray *dbObjectsResultsAll;
 	NSMutableDictionary *dbObjectsCache;
 	NSArray *databases;       
-	NSString *connectionName;     
+	NSString *connectionName;
+  NSString *defaultDatabase;     
 	
 	NSTabViewItem *previousSelectedTabViewItem;
 }                     
 
 @property (readonly) NSOutlineView *outlineView;
+@property (copy) NSString *defaultDatabase;
 
 - (TdsConnection*) tdsConnection;
 - (IBAction) newTab: (id) sender;

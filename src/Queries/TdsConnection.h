@@ -69,6 +69,8 @@
 -(TdsConnection*) clone;
 
 -(void) setCancelQuery;
--(void) applyConnectionDefaults;
+-(void) applyConnectionDefaults;      
+-(void) useDatabase: (NSString*) database;
+-(void) updateCredentials;
 
 @end

@@ -1,4 +1,5 @@
 #import "TdsConnection.h"
+#import "CredentialsController.h"
 #import "Constants.h"
 
 @implementation TdsConnection                                
@@ -381,8 +382,7 @@ struct COL
 		[self executeQueries: query];
 		[queryResult setQueryTime: [NSNumber numberWithDouble: -[timerStart timeIntervalSinceNow]]];
 		[queryResult addCompletedMessage];	
-		[queryResult setDatabase: [self currentDatabase]];                
-						
+		[queryResult setDatabase: [self currentDatabase]];                                                                         
 		//[self logMessage: [NSString stringWithFormat: @"Query completed in %f seconds.\n", -[timerStart timeIntervalSinceNow]] error: NO];
 	}
 	@catch (NSException *exception) {                                                                           
@@ -472,6 +472,13 @@ struct COL
 		NSLog(@"currentDatabase exception: @%", e);
 		return nil;
 	}
+}
+
+- (void) updateCredentials{
+  [CredentialsController updateCredentialsWithServer: server 
+	  user: user 
+	  password: password 
+	  database: [self currentDatabase]];
 } 
 
 @end

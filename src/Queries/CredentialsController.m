@@ -2,11 +2,13 @@
 
 @implementation CredentialsController
 
+@synthesize currentDatabase;
+
 - (NSString*) windowNibName{
 	return @"CredentialsView";
 }
                                     
-- (NSString*) credentialsFileName{  
++ (NSString*) credentialsFileName{  
   NSArray* librarySearchPaths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES); 
 	NSString* applicationSupportDirectory = [NSString stringWithFormat: @"%@/Queries", [librarySearchPaths objectAtIndex: 0]];
 	if (![[NSFileManager defaultManager] fileExistsAtPath: applicationSupportDirectory]){
@@ -21,15 +23,21 @@
 
 - (void) readCredentials{
 	[credentials release];   			
-	credentials = [NSMutableArray arrayWithContentsOfFile: [self credentialsFileName]];
+	credentials = [NSMutableArray arrayWithContentsOfFile: [CredentialsController credentialsFileName]];
 	if (!credentials)
 		credentials = [NSMutableArray array];
 	[credentials retain];
 }                         
 
 - (void) writeCredentials{    
+  [CredentialsController updateCredentialsWithServer: [serverCombo stringValue] 
+	  user: [userCombo stringValue]
+	  password: [passwordText stringValue]
+    database: currentDatabase];
+	/*
 	NSString *selectedServer = [serverCombo stringValue];
-	NSString *selectedUser = [userCombo stringValue];
+	NSString *selectedUser = [userCombo stringValue];   
+	
 	                                         
 	int indexToRemove = -1;
 	for(id credential in credentials){              
@@ -42,7 +50,34 @@
 		[credentials removeObjectAtIndex: indexToRemove];		
 	
 	[credentials insertObject: [NSArray arrayWithObjects: selectedServer, selectedUser, [passwordText stringValue], nil] atIndex: 0];		
-	[credentials writeToFile: [self credentialsFileName] atomically: YES];			
+	[credentials writeToFile: [CredentialsController credentialsFileName] atomically: YES];			
+	*/
+}     
+
++ (void) updateCredentialsWithServer: (NSString*) server 
+  user: (NSString*) user
+  password: (NSString*) password
+  database: (NSString*) database{
+    
+  NSMutableArray* credentials = [NSMutableArray arrayWithContentsOfFile: [CredentialsController credentialsFileName]];
+ 
+ 	int indexToRemove = -1;
+	for(id credential in credentials){              
+		NSString *s = [credential objectAtIndex: 0];
+		NSString *u = [credential objectAtIndex: 1];
+		if ([server isEqualToString:s] && [user isEqualToString:u]){
+			indexToRemove = [credentials indexOfObject: credential];  
+			if (!database && [credential count] > 3){
+        database = [credential objectAtIndex: 3]; 
+      }
+		}
+	}                   	
+	if (indexToRemove >= 0)
+		[credentials removeObjectAtIndex: indexToRemove];		
+	
+	[credentials insertObject: [NSArray arrayWithObjects: server, user, password, database, nil] atIndex: 0];		
+	[credentials writeToFile: [CredentialsController credentialsFileName] atomically: YES]; 
+  
 }
                                    
 - (void) fillServerCombo{		
@@ -97,7 +132,12 @@
 		NSString *serverName = [credential objectAtIndex: 0];
 		NSString *user = [credential objectAtIndex: 1];
 		if ([selectedServer isEqualToString:serverName] && [selectedUser isEqualToString:user]){
-			[passwordText setStringValue: [credential objectAtIndex:2]];
+			[passwordText setStringValue: [credential objectAtIndex:2]]; 
+			if ([credential count] > 3)
+        [self setCurrentDatabase: (NSString*) [credential objectAtIndex: 3]];
+      else 
+        [self setCurrentDatabase: @"master"];
+        //NSLog(@"current database: %@", [self currentDatabase]);
 			return;
 		}
 	}	
@@ -128,9 +168,12 @@
 
 - (NSString*) password{
 	return [NSString stringWithString: [passwordText stringValue]];
-}
+}       
 
-                                  
+- (NSString*) database{
+	return currentDatabase;
+}
+                                
 - (IBAction) connect: (id)sender
 { 
 	[[self window] orderOut: self];   
@@ -139,7 +182,8 @@
 
 - (IBAction) close: (id)sender
 { 
-	[[self window] orderOut: self];                  
+	[[self window] orderOut: self];  
+  [currentDatabase release];                
 	[NSApp endSheet: [self window] returnCode: NSRunAbortedResponse];
 }   
 

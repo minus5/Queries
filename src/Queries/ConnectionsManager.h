@@ -5,7 +5,9 @@
 	NSMutableDictionary *pool;
 }
 
-- (TdsConnection*) connectionToServer: (NSString*) server  withUser: (NSString*) user andPassword: (NSString*) password;
+- (TdsConnection*) connectionToServer: (NSString*) server  
+  withUser: (NSString*) user 
+  andPassword: (NSString*) password;
 - (TdsConnection*) connectionWithName: (NSString*) connectionName;
 - (int) connectionsCount: (NSString*) connectionName;
 - (void) cleanup;

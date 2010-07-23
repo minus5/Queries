@@ -43,7 +43,10 @@ static ConnectionsManager *manager = nil;
 		return [connections count];
 }                      
 
-- (TdsConnection*) connectionToServer: (NSString*) server  withUser: (NSString*) user andPassword: (NSString*) password{
+- (TdsConnection*) connectionToServer: (NSString*) server  
+    withUser: (NSString*) user 
+    andPassword: (NSString*) password
+{
 	@try{
 		TdsConnection *existing = [self connectionWithName: [NSString stringWithFormat:@"%@@%@", user, server]];
 		if (existing){ 
