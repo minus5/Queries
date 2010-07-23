@@ -34,24 +34,6 @@
 	  user: [userCombo stringValue]
 	  password: [passwordText stringValue]
     database: currentDatabase];
-	/*
-	NSString *selectedServer = [serverCombo stringValue];
-	NSString *selectedUser = [userCombo stringValue];   
-	
-	                                         
-	int indexToRemove = -1;
-	for(id credential in credentials){              
-		NSString *serverName = [credential objectAtIndex: 0];
-		NSString *user = [credential objectAtIndex: 1];
-		if ([selectedServer isEqualToString:serverName] && [selectedUser isEqualToString:user])
-			indexToRemove = [credentials indexOfObject: credential];
-	}                   	
-	if (indexToRemove >= 0)
-		[credentials removeObjectAtIndex: indexToRemove];		
-	
-	[credentials insertObject: [NSArray arrayWithObjects: selectedServer, selectedUser, [passwordText stringValue], nil] atIndex: 0];		
-	[credentials writeToFile: [CredentialsController credentialsFileName] atomically: YES];			
-	*/
 }     
 
 + (void) updateCredentialsWithServer: (NSString*) server 
@@ -137,7 +119,6 @@
         [self setCurrentDatabase: (NSString*) [credential objectAtIndex: 3]];
       else 
         [self setCurrentDatabase: @"master"];
-        //NSLog(@"current database: %@", [self currentDatabase]);
 			return;
 		}
 	}	

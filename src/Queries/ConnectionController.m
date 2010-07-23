@@ -445,14 +445,12 @@
 			[dbs addObject: title];
 			[databasesPopUp addItemWithTitle: title];
 		} 
-		//[databasesPopUp selectItemWithTitle: [[self tdsConnection] currentDatabase]]; 
 		@try {  
       [[self tdsConnection] useDatabase: [self defaultDatabase]];    
     }
     @catch (NSException *e) {         
   		 NSLog(@"exception %@", e);
 		}
-		//self[databasesPopUp selectItemWithTitle: [self defaultDatabase]];     
 		[self databaseChanged: nil]; 
 	}       
 	[databases release];
