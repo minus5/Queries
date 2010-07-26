@@ -31,6 +31,8 @@
 	
 	NSArray *dbObjectsResults;
 	NSArray *dbObjectsResultsAll;
+	NSArray *dbAllObjects;
+	 
 	NSMutableDictionary *dbObjectsCache;
 	NSArray *databases;       
 	NSString *connectionName;

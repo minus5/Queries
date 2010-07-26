@@ -20,7 +20,9 @@
 - (void) dealloc{
 	NSLog(@"[%@ dealloc]", [self class]);
 	[databases release];
-	[dbObjectsResults release];	
+	[dbObjectsResults release];	 
+  [dbObjectsResultsAll release];
+  [dbAllObjects release];
 	[dbObjectsCache release];	  
 	[connectionName release];
 	[credentials release];
@@ -525,10 +527,11 @@
 	BOOL useFilter = filterString && [filterString length] > 0;
 	NSString *currentDatabase = [databasesPopUp titleOfSelectedItem];	
 	NSString *regexFilterString = [NSString stringWithFormat: @"(?im)%@", filterString];
+	
+	NSMutableSet *dbAllObjectsSet = [NSMutableSet set]; 
 		
 	for(NSArray *row in dbObjectsResultsAll){
                     
-		
 		NSString *database = [row objectAtIndex: 0];
 		NSString *type = [row objectAtIndex: 1];
 		NSString *schema = [row objectAtIndex: 2];
@@ -536,9 +539,10 @@
 		
 		NSString *id = [NSString stringWithFormat: @"%@.%@.%@.%@", database, schema, type, name];
 		NSString *nameWithSchema = [NSString stringWithFormat: @"%@.%@", schema, name];
-		NSString *level1 = database;
+		NSString *level1 = database;      
+		
+    [dbAllObjectsSet addObject: [NSArray arrayWithObjects: database, name, schema, nameWithSchema, nil]];
 				
-		//if (!useFilter || ([database isEqualToString: currentDatabase] && ([name hasPrefix: filterString] || [schema hasPrefix: filterString])) ){
     if (!useFilter || ([database isEqualToString: currentDatabase] && [nameWithSchema isMatchedByRegex: regexFilterString])){			
 			if ([[[NSUserDefaults standardUserDefaults] objectForKey: QueriesGroupBySchema] boolValue]){
 				NSString *level2 = [NSString stringWithFormat: @"%@.%@", database, schema]; 
@@ -559,7 +563,8 @@
 		}
 	}			
 	[self clearObjectsCache];       
-	dbObjectsResults = [[dbObjectsSet allObjects] retain];  
+	dbObjectsResults = [[dbObjectsSet allObjects] retain]; 
+  dbAllObjects = [[dbAllObjectsSet allObjects] retain]; 
 	
 	[outlineView reloadData];
 	[outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO]; 
@@ -645,19 +650,19 @@
 	NSMutableArray *objectNames = [NSMutableArray array]; 
 	if ([searchString length] > 0){
 		NSRange r = {0, [searchString length]};
-		for (NSArray *row in dbObjectsResults){
-			if ([row count] == 9){
-				if ([[row objectAtIndex:4] isEqualToString: database]){									
+		for (NSArray *row in dbAllObjects){
+			//if ([row count] == 9){
+				if ([[row objectAtIndex:0] isEqualToString: database]){									
 			
-					NSString *name = [row objectAtIndex: 7];
-					NSString *nameWithSchema = [row objectAtIndex: 8];
+					NSString *name = [row objectAtIndex: 1];
+					NSString *nameWithSchema = [row objectAtIndex: 3];
 				
 					if (NSOrderedSame == [name compare:searchString options:NSCaseInsensitiveSearch range: r] ||
 							NSOrderedSame == [nameWithSchema compare:searchString options:NSCaseInsensitiveSearch range: r]){
 						[objectNames addObject: nameWithSchema];
 					}				
 				}    								
-			}	
+			//}	
 		}
 	}	
 	return objectNames;

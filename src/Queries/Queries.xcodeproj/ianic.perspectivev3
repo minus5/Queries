@@ -312,7 +312,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>184873E6109857C600A15FC7</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ConnectionController.m</string>
+								<string>ConnectionController.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -320,11 +320,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>184873E7109857C600A15FC7</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ConnectionController.m</string>
+										<string>ConnectionController.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>183F95C311FDA5630043DB57</string>
+										<string>183F95D511FDB4B90043DB57</string>
 										<key>history</key>
 										<array>
 											<string>1870CC9A1098988E006AC809</string>
@@ -379,9 +379,9 @@
 											<string>183F953D11FD88E60043DB57</string>
 											<string>183F953E11FD88E60043DB57</string>
 											<string>183F958111FD9AEA0043DB57</string>
-											<string>183F958711FD9AF90043DB57</string>
 											<string>183F95B911FDA5360043DB57</string>
-											<string>183F95BA11FDA5360043DB57</string>
+											<string>183F95D011FDB4AE0043DB57</string>
+											<string>183F958711FD9AF90043DB57</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -702,7 +702,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>183F95C411FDA5630043DB57</string>
+		<string>183F95D611FDB4B90043DB57</string>
 		<string>183F93CD11F95F5B0043DB57</string>
 		<string>183F93CE11F95F5B0043DB57</string>
 		<string>/Users/ianic/Work/CocoaQueryAnalyzer/src/Queries/Queries.xcodeproj</string>
