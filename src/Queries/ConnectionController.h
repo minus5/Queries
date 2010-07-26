@@ -100,4 +100,6 @@
 - (IBAction) searchDatabaseObjects: (id) sender; 
 
 - (void) openFile:(NSString*) filename;
+- (IBAction) closeWindow: (id) sender;   
+-(void) closeWindowAlertEnded:(NSAlert *) alert code:(int) choice context:(void *) v;
 @end

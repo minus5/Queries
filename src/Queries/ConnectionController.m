@@ -182,6 +182,34 @@
 	}
 	[self closeCurentQuery];
 }    
+ 
+- (IBAction) closeWindow: (id) sender{
+  int numberOfEditedQuries = [self numberOfEditedQueries];
+	if (numberOfEditedQuries > 0){                         
+		NSString *message = @"You have unsaved query. Close anyway?";
+		if (numberOfEditedQuries > 1){                                                                                       
+			message = [NSString stringWithFormat: @"You have %d unsaved queries. Close anyway?", numberOfEditedQuries];         
+		}   										
+		NSAlert *alert = [NSAlert alertWithMessageText: message
+			defaultButton: @"Close"
+			alternateButton: @"Don't Close"
+      otherButton: nil								
+      informativeTextWithFormat: @"Your changes will be lost if you don't save them."];		
+   
+    [alert beginSheetModalForWindow: [self window]
+  		modalDelegate :self
+  		didEndSelector: @selector(closeWindowAlertEnded:code:context:)
+  		contextInfo: NULL ];                                                                                       
+	}
+}                                 
+
+-(void) closeWindowAlertEnded:(NSAlert *) alert code:(int) choice context:(void *) v{   		
+	if (choice == NSAlertDefaultReturn){   	     
+    for(int i = [[queryTabs tabViewItems] count]; i>0; i--){
+      [self closeCurentQuery];
+    } 
+  }
+}
 
 #pragma mark ---- connection ----
 
