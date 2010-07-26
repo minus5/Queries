@@ -17,6 +17,7 @@
 - (NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication *) sender;
 - (IBAction) userPreferences: (id) sender;
 - (void) connectionWindowClosed:(ConnectionController *)controller;
+- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename;
 
 +(void) initialize;
 

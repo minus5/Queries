@@ -520,7 +520,8 @@
 		[self setFileName: [panel filename]];  
 		[self setName: [[fileName lastPathComponent] stringByDeletingPathExtension]];		
 	}	
-	[[queryText string] writeToFile: fileName atomically:YES encoding:NSUTF8StringEncoding error:NULL];		
+	[[queryText string] writeToFile: fileName atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+  [[NSDocumentController sharedDocumentController] noteNewRecentDocumentURL:[NSURL fileURLWithPath:fileName]];		
 	[self setIsEdited: NO];            	
 	return YES;
 }

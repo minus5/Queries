@@ -97,5 +97,7 @@
 
 - (void) displayStatus;         
 
-- (IBAction) searchDatabaseObjects: (id) sender;
+- (IBAction) searchDatabaseObjects: (id) sender; 
+
+- (void) openFile:(NSString*) filename;
 @end

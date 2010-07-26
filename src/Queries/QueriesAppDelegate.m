@@ -72,7 +72,17 @@
 	[preferences release];
 	//[connections release];
 	[super dealloc];
-}                                
+}      
+
+- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename{  
+  id controller = [[NSApp keyWindow] windowController];
+  if ([controller respondsToSelector: @selector(openFile:)]){
+    [controller openFile: filename];
+    return YES;
+  }else{
+    return NO;
+  }            
+}                          
 
 #pragma mark ---- register factory defaults ----
 

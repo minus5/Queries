@@ -322,11 +322,15 @@
 
 - (IBAction) openDocument:(id)sender{
 	NSOpenPanel *panel = [NSOpenPanel openPanel];
-	if ([panel runModal] == NSOKButton) {
-		if ([queryController isEdited])
-			[self createNewTab];
-		[queryController openFile: [panel filename]];
+	if ([panel runModal] == NSOKButton) { 
+    [self openFile: [panel filename]];
 	}
+}
+
+- (void) openFile:(NSString*)filename{
+  if ([queryController isEdited])
+  	[self createNewTab];
+  [queryController openFile: filename];
 }       
 
 #pragma mark ---- goto controll ----

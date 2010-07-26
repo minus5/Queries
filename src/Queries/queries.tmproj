@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>ConnectionController.m</string>
+	<string>CredentialsController.m</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -31,21 +31,21 @@
 					<key>filename</key>
 					<string>ConnectionController.m</string>
 					<key>lastUsed</key>
-					<date>2010-07-23T13:02:41Z</date>
-					<key>selected</key>
-					<true/>
+					<date>2010-07-23T13:07:30Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>CredentialsController.h</string>
 					<key>lastUsed</key>
-					<date>2010-07-23T12:58:24Z</date>
+					<date>2010-07-23T13:07:33Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>CredentialsController.m</string>
 					<key>lastUsed</key>
-					<date>2010-07-23T12:58:23Z</date>
+					<date>2010-07-26T09:03:21Z</date>
+					<key>selected</key>
+					<true/>
 				</dict>
 				<dict>
 					<key>filename</key>
@@ -365,14 +365,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>3</integer>
 				<key>line</key>
-				<integer>443</integer>
+				<integer>452</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>425</integer>
+			<integer>64</integer>
 		</dict>
 		<key>ConnectionsManager.h</key>
 		<dict>
@@ -421,14 +421,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>42</integer>
+				<integer>45</integer>
 				<key>line</key>
-				<integer>138</integer>
+				<integer>120</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>117</integer>
+			<integer>87</integer>
 		</dict>
 		<key>PreferencesController.h</key>
 		<dict>
@@ -751,8 +751,6 @@
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<false/>
-	<key>showFileHierarchyPanel</key>
-	<true/>
 	<key>treeState</key>
 	<dict>
 		<key>controllers</key>
@@ -778,6 +776,6 @@
 		</dict>
 	</dict>
 	<key>windowFrame</key>
-	<string>{{0, 4}, {1675, 1024}}</string>
+	<string>{{233, 4}, {1437, 1024}}</string>
 </dict>
 </plist>

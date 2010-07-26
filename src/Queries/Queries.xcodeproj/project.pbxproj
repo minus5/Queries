@@ -20,6 +20,9 @@
 		183B54C71098B7D70024A1B4 /* MarkerLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B54C21098B7D70024A1B4 /* MarkerLineNumberView.m */; };
 		183B54C81098B7D70024A1B4 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B54C41098B7D70024A1B4 /* NoodleLineNumberMarker.m */; };
 		183B54C91098B7D70024A1B4 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B54C61098B7D70024A1B4 /* NoodleLineNumberView.m */; };
+		183F953911FD88D20043DB57 /* queries_v3.icns in Resources */ = {isa = PBXBuildFile; fileRef = 183F953811FD88D10043DB57 /* queries_v3.icns */; };
+		183F953A11FD88D20043DB57 /* queries_v3.icns in Resources */ = {isa = PBXBuildFile; fileRef = 183F953811FD88D10043DB57 /* queries_v3.icns */; };
+		183F953B11FD88D20043DB57 /* queries_v3.icns in Resources */ = {isa = PBXBuildFile; fileRef = 183F953811FD88D10043DB57 /* queries_v3.icns */; };
 		184873C010983E7400A15FC7 /* ConnectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184873BE10983E7400A15FC7 /* ConnectionView.xib */; };
 		184873C110983E7400A15FC7 /* QueryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184873BF10983E7400A15FC7 /* QueryView.xib */; };
 		1870C955109857FC006AC809 /* ConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870C954109857FC006AC809 /* ConnectionController.m */; };
@@ -112,6 +115,7 @@
 		183B54C41098B7D70024A1B4 /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberMarker.m; sourceTree = "<group>"; };
 		183B54C51098B7D70024A1B4 /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberView.h; sourceTree = "<group>"; };
 		183B54C61098B7D70024A1B4 /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberView.m; sourceTree = "<group>"; };
+		183F953811FD88D10043DB57 /* queries_v3.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = queries_v3.icns; sourceTree = "<group>"; };
 		184873BE10983E7400A15FC7 /* ConnectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectionView.xib; sourceTree = "<group>"; };
 		184873BF10983E7400A15FC7 /* QueryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueryView.xib; sourceTree = "<group>"; };
 		1870C953109857FC006AC809 /* ConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionController.h; sourceTree = "<group>"; };
@@ -373,6 +377,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				183F953811FD88D10043DB57 /* queries_v3.icns */,
 				182BA54710D799EC00612265 /* queries_v2.icns */,
 				18B04A2910B1948C0051D28E /* dsa_pub.pem */,
 				1870CA95109864E2006AC809 /* TSQL.plist */,
@@ -480,6 +485,7 @@
 			files = (
 				182BA54910D799EC00612265 /* queries_v2.icns in Resources */,
 				18D367D010E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */,
+				183F953A11FD88D20043DB57 /* queries_v3.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +495,7 @@
 			files = (
 				182BA54A10D799EC00612265 /* queries_v2.icns in Resources */,
 				18D367D110E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */,
+				183F953B11FD88D20043DB57 /* queries_v3.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +518,7 @@
 				187FC9B510B3392300471B6A /* connection_defaults.sql in Resources */,
 				182BA54810D799EC00612265 /* queries_v2.icns in Resources */,
 				18D367CF10E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */,
+				183F953911FD88D20043DB57 /* queries_v3.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
