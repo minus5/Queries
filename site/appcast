@@ -6,7 +6,7 @@
       <description>Most recent changes with links to updates.</description>
       <language>en</language>        
 
-      <!-- <item>   
+      <item>   
         <title>Version 0.4</title>
         <sparkle:releaseNotesLink>
             http://queries.minus5.hr/04-release-notes.html
@@ -17,7 +17,7 @@
                    sparkle:dsaSignature="MC0CFGRkKKJ76+iiXcn3yxFDzNADvYaTAhUAgP9XSBNePO51Y1L0wNFCTUfCryI="
                    length="2080059"
                    type="application/octet-stream" />
-      </item>    -->
+      </item>
 
       <item>   
         <title>Version 0.3</title>
