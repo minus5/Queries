@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+body{
+	background-color:#f3f3f3;
+}
+
+a{
+	cursor:pointer;
+	color:#49aada;
+	text-decoration:none;
+}
+
+a:hover{
+	color:#49aada;
+}
+
+
+.quotedText{
+	font-size: 1.2em;
+	font-style: italic;
+	font-stretch: semi-condensed;
+	text-align: justify;
+}
+
+div.headerBlock{
+	background-image:url(../images/header_back_tile.png);
+	background-position:top;
+	background-repeat:repeat-x;
+	width:100%;
+	line-height:0;
+}
+
+div.contentBlock{
+	background-image:url(../images/content_area_bacck_tile.png);
+	background-position:top;
+	background-repeat:repeat-x;
+	background-color:#f3f3f3;
+	width:100%;
+	min-height:326px;
+	clear:both;
+}
+
+div.contentBlock hr{
+	color:#f3f3f3;
+	background-color:#f3f3f3;
+	margin:0;
+	padding:0;
+}
+
+div.mediaBlock{	
+	background-image:url(../images/media_footer_back_tile.png);
+	background-position:top;
+	background-repeat:repeat-x;	
+	width:100%;
+	min-height:181px;
+	clear:both;
+}
+
+div.footerBlock{
+	background-color:#272727;
+	background-image:url(../images/footer_back_tile.png);
+	background-position:top;
+	background-repeat:repeat-x;
+	width:100%;
+	min-height:280px;
+	clear:both;;
+}
+
+div.title_image{
+	width:870px;
+	height:285px;
+	margin-top:41px;
+	background-image:url(../images/title_image.jpg);
+	background-repeat:no-repeat;
+}
+
+div.info_vertical_separator{
+	height:510px;
+	background-image:url(../images/divider_vertical_full.png);
+	background-position:center;
+	background-repeat:repeat-y;
+	}
+	
+div.footer_vertical_separator{
+	height:190px;
+	background-image:url(../images/footer_separator_vertical.png);
+	background-position:center;
+	background-repeat:repeat-y;
+	}
+
+
+/* Navigation buttons */
+div.headerBlock div.container a.button{
+	display:inline-block;
+	width:107px;
+	height:77px;
+	margin: 0;
+	padding: 0;
+	background-position:top;
+	cursor:pointer;
+}
+
+div.headerBlock div.container a.button.home{ background-image:url(../images/button_nav_home.png); }
+div.headerBlock div.container a.button.examples{ background-image:url(../images/button_nav_examples.png); }
+div.headerBlock div.container a.button.download{ background-image:url(../images/button_nav_download.png); }
+div.headerBlock div.container a.button.contact{	background-image:url(../images/button_nav_contact.png); }
+div.headerBlock div.container a.button.selected{ background-position:0px -154px; }
+div.headerBlock div.container a.button:hover{ background-position:0px -77px; }
+div.headerBlock div.container a.button.selected:hover{background-position:0px -231px;}
+
+

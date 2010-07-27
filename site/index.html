@@ -1,47 +1,213 @@
-<html>
-  <head>
-    <title>Queries.app</title>  
-    <style type="text/css" media="screen">
-      body {
-        color:#333333;
-        font-family:"Lucida Grande",Geneva,Arial,Verdana,sans-serif;
-        font-size:12px;
-        font-size-adjust:none;
-        font-style:normal;
-        font-variant:normal;
-        font-weight:normal;
-        line-height:18px;
-      }   
-      p {
-        margin-top:4px;
-        margin-bottom:4px;
-        width: 600px;
-      } 
-      h4{
-        margin-top: 20px;
-        margin-bottom:10px;
-      }   
-      h3{
-        margin-top: 40px;
-        margin-bottom:10px;
-      }
-     </style> 
-  </head>
-  <body>                                                                     
-    <h2>Queries.app</h2>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Queries</title>
+<!-- Framework CSS -->  
+<link rel="stylesheet" href="stylesheets/blueprint/screen.css" type="text/css" media="screen, projection" />  
+<link rel="stylesheet" href="stylesheets/blueprint/print.css" type="text/css" media="print" />  
+<!--[if IE]><link rel="stylesheet" href="stylesheets/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->  
+  
+<!-- Import fancy-type plugin. -->
+<link rel="stylesheet" href="stylesheets/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection" />
+
+<!-- Queries page main css. -->
+<link href="stylesheets/queries.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+<!-- HEADER NAVIGATION -->
+<div class="headerBlock">
+	<div class="container">
+  	<div class="span-24">
+	    <a class="button home selected"></a>
+      <a class="button examples" href='shortcuts.html'></a>
+      <a class="button download" href="app/Queries_0.4.app.zip"></a>
+      <a class="button contact"  href="mailto:ianic@minus5.hr"></a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="contentBlock">
+	<div class="container" style="display:block; margin-bottom:40px;">
+  
+		<!-- title image -->		
+    <div class="span-24 push-1 last">			
+    	<div class="title_image"></div>
+    </div>
     
-    <h3>Downlaod</h3>
-    <p>Latest version: <a href="http://queries.minus5.hr/app/Queries_0.3.app.zip">Queries_0.3.app.zip</a> </p>                                                               
+    <!-- first info column -->
+    <div class="span-7">
+    	<div class="container span-7 last">
+	      <img src="images/why_queries.png" />
+        <div  style="padding-top:20px;">
+          <div class="span-1"><img src="images/icon_flexible.png" /></div>
+          <div class="span-6 last"><h4 style="padding-top:5px; padding-bottom:0px; margin-bottom:0px;"><strong>Manage SQL Server from your Mac</strong></h4></div>
+          <div class="span-7 last" style="padding-top:10px;">
+            <div class="quiet">
+              <ul>
+                <li>Connect to Microsoft SQL Server using SQL server or Windows authentication
+                <li>Execute queries 
+                <li>View multiple resultsets 
+                <li>Browse database objects
+                <li>View database objects scripts
+                <li>Database objects filter
+              </ul>
+              </div>
+          </div>
+        </div>
+        <hr />
+        <div  style="padding-top:20px;">
+          <div class="span-1"><img src="images/icon_small_fast.png" /></div>
+          <div class="span-6 last"><h4 style="padding-top:5px; padding-bottom:0px; margin-bottom:0px;"><strong>Small, Fast, Reliable</strong></h4></div>
+          <div class="span-7 last" style="padding-top:10px;">
+            <div class="quiet">
+              <ul>
+                <li>Native Cocoa application
+                <li>Multiple windows, multiple tabs in each window  
+                <li>Intelligent keyboard navigation 
+               </ul>    
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div  style="padding-top:20px;">
+          <div class="span-1"><img src="images/icon_query_editor.png" /></div>
+          <div class="span-6 last"><h4 style="padding-top:5px; padding-bottom:0px; margin-bottom:0px;"><strong>Programmers tool</strong></h4></div>
+          <div class="span-7 last" style="padding-top:10px;">
+            <div class="quiet">                   
+              <ul>
+                <li>Powerfull query editor
+                <li>Automatic syntax highlighting
+                <li>Database objects auto completion
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>     
+    </div>
+    <div class="span-1">
+      <div class="info_vertical_separator"></div>
+    </div>
     
+    <!-- second info column -->
+    <div class="span-8">
+      <div class="container span-8">
+				<img src="images/what_people.png" />
+        <hr />            	
+        <div class="span-8" style="padding-top:20px;">
+          <p class="quotedText quiet">“For a log time I was missing Query Analyzer's effectivnes and simpliciti. And since I switched to mac I got tired of using virtual machine and Enterprise Manager to just execute simple query. So I build a Query Analyzer like tool for my platform of choice.”</p>
+          <p style="text-align:right; padding-top:10px;"><span class="quiet">Igor Anić (author)</span> - <strong>minus5</strong></p>
+        </div>
+        <hr />
+        <div class="span-8" style="padding-top:10px;">
+          <p class="quotedText quiet">“I'm developing Ruby on Rails applications with SQL Server database. Queries and Textmate is all that I need. I’m extremely impressed how this small application changed my daily duties! For the first time I incredibly enjoy writing SQL queries and I have already begun recommending Queries to all my friends.”</p>
+          <p style="text-align:right; padding-top:10px;"><span class="quiet">Dragutin Vdović</span> - <strong>42</strong></p>
+        </div>
+	 	  </div>      
+    </div>
+    <div class="span-1">
+      <div class="info_vertical_separator"></div>      
+    </div>
     
-    <h3>Productivity tips</h3>
-    Check Queries <a href='shortcuts.html'>keyboard shortcuts</a> 
+     <!-- third info column -->
+    <div class="span-7 last">
+      <div class="container span-7">
+        <img src="images/get_queries.png" />
+        <hr />            	
+        <div class="span-7" style="padding-top:20px;">
+        	<p class="quiet">Purchase Queries and get free upgrades for the new features and fixes.</p>
+          <hr />
+          <a href="#"><img src="images/button_buy_now.png" alt="Buy the Queries" width="270" height="128" /></a>
+          <p class="quiet" style="padding-top:10px;">Or download the time limited demo <a href="#">here.</a></p>
+        </div>
+      </div>    	
+    </div>
     
-    <h4>Database objects filter</h4>                               
-    <p>
-      Press &#x2325; &#x2318; F to switch to database objects filter.
-    </p>
-    <p>Filter is using regular expressions to select database objects in the currently selected database. Filter is matched with full database object name: schema_name.object_name.</p>
-      
-  </body>
+  </div>
+</div>
+
+<!-- MEDIA - IMAGES AND VIDEOS -->
+<div class="mediaBlock">
+	<div class="container" style="padding-top:15px;">
+  	<div class="span-16">
+    	<p><strong>Screenshots</strong></p>
+    </div>
+    <div class="span-8 last">
+    	<p>Example Videos</p>
+    </div>
+    <div class="span-4">
+    	<a href="images/screenshots/connect.png"><img src="images/screenshots/connect.png" width="150" /></a>
+    </div>
+    <div class="span-4">
+    	<a href="images/screenshots/result.png"><img src="images/screenshots/result.png" width="150" /></a>
+    </div>
+    <div class="span-4">
+    	<a href="images/screenshots/results1.png"><img src="images/screenshots/results1.png" width="150" /></a>
+    </div>
+    <div class="span-4">
+    	<a href="images/screenshots/tabs.png"><img src="images/screenshots/tabs.png" width="150" /></a>
+    </div>
+    <div class="span-4">
+    	<a href="images/screenshots/autocomplete.png"><img src="images/screenshots/autocomplete.png" width="150" /></a> 
+    </div>
+    <div class="span-4 last">
+    	<a href="#"><img src="images/media_box_template.png" /></a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footerBlock">
+	<div class="container" style="padding-top:40px;">
+  
+  	 <!-- first footer column -->
+    <div class="span-7">
+    	<img src="images/footer_whos_behind.png" />
+      <h4 class="quiet" style="padding-top:20px;">Queries are developed by minus5.</h4>
+      <a href="http://www.minus5.hr"><img src="images/footer_minus5.png" alt="Minus 5 - The Developers of the Queries." /></a>
+    </div>
+    <div class="span-1">
+      <div class="footer_vertical_separator"></div>
+    </div>
+    
+    <!-- second footer column -->
+    <div class="span-8">
+      <div class="container span-8">
+				<img src="images/footer_what_you_need.png" />
+        <div class="span-5">
+          <h4 class="quiet" style="padding-top:20px;">System requirements:
+Intel Mac, Mac OSX 10.5 or above</h4>
+        </div>
+        <div class="span-3 last">
+        	<img style="padding-top:24px;" src="images/footer_mac_icons.png" />
+        </div>     
+	 	  </div>      
+    </div>
+    <div class="span-1">
+      <div class="footer_vertical_separator"></div>      
+    </div>
+    
+     <!-- third footer column -->
+    <div class="span-7 last">
+      <div class="container span-7">
+        <img src="images/footer_follow.png" />
+        <div class="span-7 last">
+          <h4 class="quiet" style="padding-top:20px;">Subscribe to our RSS feed, follow us on the Tweeter and Facebook. Get the latest informations about the new releases, bug fixes and other news</h4>
+        </div>
+        <div class="span-2"><a href="#"><img src="images/icon_rss.png" alt="Get the Queries RSS feed" /></a></div>
+        <div class="span-2"><a href="#"><img src="images/icon_tweeter.png" alt="Follow the Queries on Tweeter" /></a></div>
+        <div class="span-2"><a href="#"><img src="images/icon_facebook.png" alt="Be Queries friend on the Facebook" /></a></div>
+      </div>    	
+    </div>
+    
+    <!-- Make more room and the end -->
+    <div class="span-24 last" style="padding-top:50px;">
+  </div>    
+  </div>
+</div>
+
+</body>
 </html>

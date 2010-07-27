@@ -1,53 +1,77 @@
-<html>
-  <head>
-    <title>Queries.app</title>   
-    <style type="text/css" media="screen">
-      body {
-        color:#333333;
-        font-family:"Lucida Grande",Geneva,Arial,Verdana,sans-serif;
-        font-size:12px;
-        font-size-adjust:none;
-        font-style:normal;
-        font-variant:normal;
-        font-weight:normal;
-        line-height:18px;
-      }   
-      h4{
-        margin-top: 20px;
-        margin-bottom:10px;
-      }
-      table.kbtable {
-        border-left:1px solid #A1A5A9;
-        border-top:1px solid #A1A5A9;   
-        border-collapse:collapse;
-        border-spacing:0;
-        width: 600px;
-      }  
-      .kbtable tr {
-        background-color:#FFFFFF;
-        font-size:10px;
-      }
-      .kbtable td, .kbtable th {
-        border-bottom:1px solid #A1A5A9;
-        border-right:1px solid #A1A5A9;
-        font-size:10px;
-        padding:4px;
-      }  
-      .kbtable th {
-        background-color:#E2E2E2;
-        font-size:12px;
-        font-weight:bold;
-      }
-      .kbtable td.keycode{
-        font-size: 12px;
-        width: 100px;
-      }       
-      .kbtable th.keycode{
-        width: 100px;
-      }
-    </style>
-  </head>
-  <body>              
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Queries - shortcuts</title>
+<!-- Framework CSS -->  
+<link rel="stylesheet" href="stylesheets/blueprint/screen.css" type="text/css" media="screen, projection" />  
+<link rel="stylesheet" href="stylesheets/blueprint/print.css" type="text/css" media="print" />  
+<!--[if IE]><link rel="stylesheet" href="stylesheets/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->  
+  
+<!-- Import fancy-type plugin. -->
+<link rel="stylesheet" href="stylesheets/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection" />
+
+<!-- Queries page main css. -->
+<link href="stylesheets/queries.css" rel="stylesheet" type="text/css" />     
+
+
+<style type="text/css" media="screen">  
+ 
+  .contentBlock h4{
+    margin-top: 0px;
+    padding-top: 20px;
+    margin-bottom:10px;
+  }
+  table.kbtable {
+    border-left:1px solid #A1A5A9;
+    border-top:1px solid #A1A5A9;   
+    border-collapse:collapse;
+    border-spacing:0;
+    width: 600px;
+  }  
+  .kbtable tr {
+    background-color:#FFFFFF;
+    font-size:10px;
+  }
+  .kbtable td, .kbtable th {
+    border-bottom:1px solid #A1A5A9;
+    border-right:1px solid #A1A5A9;
+    font-size:10px;
+    padding:4px;
+  }  
+  .kbtable th {
+    background-color:#E2E2E2;
+    font-size:12px;
+    font-weight:bold;
+  }
+  .kbtable td.keycode{
+    font-size: 12px;
+    width: 100px;
+  }       
+  .kbtable th.keycode{
+    width: 100px;
+  }
+</style>
+
+</head>
+<body>
+
+<!-- HEADER NAVIGATION -->
+<div class="headerBlock">
+	<div class="container">
+  	<div class="span-24">
+	    <a class="button home" href='index.html' ></a>
+      <a class="button examples selected" href='shortcuts.html'></a>
+      <a class="button download" href="app/Queries_0.4.app.zip"></a>
+      <a class="button contact"  href="mailto:ianic@minus5.hr"></a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="contentBlock">
+	<div class="container" style="display:block; margin-bottom:40px;">
+  
     <h4>Query Execution</h4>      
     <table border="0" cellspacing="0" class="kbtable">
       <tr>
@@ -109,6 +133,10 @@
       <tr>
           <td class="keycode">&#x2318; W</td>
           <td>Close current Tab</td>
+      </tr>  
+      <tr>
+          <td class="keycode">&#x21E7; &#x2318; W</td>
+          <td>Close current Window</td>
       </tr>
       <tr>
           <td class="keycode">
@@ -186,7 +214,117 @@
           <td class="keycode">&#x2303; &#x21E7; &#x21E5;</td>
           <td>Same as previous but cycles backwards.</td>
       </tr>
-    </table>  
+    </table>
+     
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footerBlock">
+	<div class="container" style="padding-top:40px;">
+  
+  	 <!-- first footer column -->
+    <div class="span-7">
+    	<img src="images/footer_whos_behind.png" />
+      <h4 class="quiet" style="padding-top:20px;">Queries are developed by minus5.</h4>
+      <a href="http://www.minus5.hr"><img src="images/footer_minus5.png" alt="Minus 5 - The Developers of the Queries." /></a>
+    </div>
+    <div class="span-1">
+      <div class="footer_vertical_separator"></div>
+    </div>
+    
+    <!-- second footer column -->
+    <div class="span-8">
+      <div class="container span-8">
+				<img src="images/footer_what_you_need.png" />
+        <div class="span-5">
+          <h4 class="quiet" style="padding-top:20px;">System requirements:
+Intel Mac, Mac OSX 10.5 or above</h4>
+        </div>
+        <div class="span-3 last">
+        	<img style="padding-top:24px;" src="images/footer_mac_icons.png" />
+        </div>     
+	 	  </div>      
+    </div>
+    <div class="span-1">
+      <div class="footer_vertical_separator"></div>      
+    </div>
+    
+     <!-- third footer column -->
+    <div class="span-7 last">
+      <div class="container span-7">
+        <img src="images/footer_follow.png" />
+        <div class="span-7 last">
+          <h4 class="quiet" style="padding-top:20px;">Subscribe to our RSS feed, follow us on the Tweeter and Facebook. Get the latest informations about the new releases, bug fixes and other news</h4>
+        </div>
+        <div class="span-2"><a href="#"><img src="images/icon_rss.png" alt="Get the Queries RSS feed" /></a></div>
+        <div class="span-2"><a href="#"><img src="images/icon_tweeter.png" alt="Follow the Queries on Tweeter" /></a></div>
+        <div class="span-2"><a href="#"><img src="images/icon_facebook.png" alt="Be Queries friend on the Facebook" /></a></div>
+      </div>    	
+    </div>
+    
+    <!-- Make more room and the end -->
+    <div class="span-24 last" style="padding-top:50px;">
+  </div>    
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+<html>
+  <head>
+    <title>Queries.app</title>   
+    <style type="text/css" media="screen">
+      body {
+        color:#333333;
+        font-family:"Lucida Grande",Geneva,Arial,Verdana,sans-serif;
+        font-size:12px;
+        font-size-adjust:none;
+        font-style:normal;
+        font-variant:normal;
+        font-weight:normal;
+        line-height:18px;
+      }   
+      h4{
+        margin-top: 20px;
+        margin-bottom:10px;
+      }
+      table.kbtable {
+        border-left:1px solid #A1A5A9;
+        border-top:1px solid #A1A5A9;   
+        border-collapse:collapse;
+        border-spacing:0;
+        width: 600px;
+      }  
+      .kbtable tr {
+        background-color:#FFFFFF;
+        font-size:10px;
+      }
+      .kbtable td, .kbtable th {
+        border-bottom:1px solid #A1A5A9;
+        border-right:1px solid #A1A5A9;
+        font-size:10px;
+        padding:4px;
+      }  
+      .kbtable th {
+        background-color:#E2E2E2;
+        font-size:12px;
+        font-weight:bold;
+      }
+      .kbtable td.keycode{
+        font-size: 12px;
+        width: 100px;
+      }       
+      .kbtable th.keycode{
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>              
+ 
 
     
   </body>
