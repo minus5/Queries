@@ -6,12 +6,25 @@
       <description>Most recent changes with links to updates.</description>
       <language>en</language>        
 
+      <!-- <item>   
+        <title>Version 0.4</title>
+        <sparkle:releaseNotesLink>
+            http://queries.minus5.hr/04-release-notes.html
+        </sparkle:releaseNotesLink>
+        <pubDate>27 Jul 2010</pubDate>
+        <enclosure url="http://queries.minus5.hr/app/Queries_0.4.app.zip"
+                   sparkle:version="0.4"
+                   sparkle:dsaSignature="MC0CFGRkKKJ76+iiXcn3yxFDzNADvYaTAhUAgP9XSBNePO51Y1L0wNFCTUfCryI="
+                   length="2080059"
+                   type="application/octet-stream" />
+      </item>    -->
+
       <item>   
         <title>Version 0.3</title>
         <sparkle:releaseNotesLink>
             http://queries.minus5.hr/03-release-notes.html
         </sparkle:releaseNotesLink>
-        <pubDate>Tue, 7 Mar 2010</pubDate>
+        <pubDate>7 Mar 2010</pubDate>
         <enclosure url="http://queries.minus5.hr/app/Queries_0.3.app.zip"
                    sparkle:version="0.3"
                    sparkle:dsaSignature="MC0CFHTvmCxoeo8WsgTLPjm/80BoGBN1AhUAoFjtQli4TDEfodpXAwUPj2+kU6E="
