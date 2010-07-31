@@ -382,8 +382,14 @@ struct COL
 		[self executeQueries: query];
 		[queryResult setQueryTime: [NSNumber numberWithDouble: -[timerStart timeIntervalSinceNow]]];
 		[queryResult addCompletedMessage];	
-		[queryResult setDatabase: [self currentDatabase]];                                                                         
-		//[self logMessage: [NSString stringWithFormat: @"Query completed in %f seconds.\n", -[timerStart timeIntervalSinceNow]] error: NO];
+		
+    NSString *currentDb = [self currentDatabase];
+		[queryResult setDatabase: currentDb];
+		if (![currentDb isEqualToString: @"master"])
+      [CredentialsController updateCredentialsWithServer: server 
+    	  user: user 
+    	  password: password 
+    	  database: currentDb];                                                                         
 	}
 	@catch (NSException *exception) {                                                                           
 		if (logOutOnException)
@@ -423,7 +429,7 @@ struct COL
 	[server release];
 	[user release];
 	[password release];	
-	[connectionDefaults release];	
+	[connectionDefaults release];
 	[super dealloc];
 }
 

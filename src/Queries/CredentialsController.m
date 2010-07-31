@@ -40,26 +40,29 @@
   user: (NSString*) user
   password: (NSString*) password
   database: (NSString*) database{
-    
-  NSMutableArray* credentials = [NSMutableArray arrayWithContentsOfFile: [CredentialsController credentialsFileName]];
+  @try{      
+    NSMutableArray* credentials = [NSMutableArray arrayWithContentsOfFile: [CredentialsController credentialsFileName]];
  
- 	int indexToRemove = -1;
-	for(id credential in credentials){              
-		NSString *s = [credential objectAtIndex: 0];
-		NSString *u = [credential objectAtIndex: 1];
-		if ([server isEqualToString:s] && [user isEqualToString:u]){
-			indexToRemove = [credentials indexOfObject: credential];  
-			if (!database && [credential count] > 3){
+    int indexToRemove = -1;
+    for(id credential in credentials){              
+    	NSString *s = [credential objectAtIndex: 0];
+    	NSString *u = [credential objectAtIndex: 1];
+    	if ([server isEqualToString:s] && [user isEqualToString:u]){
+    		indexToRemove = [credentials indexOfObject: credential];  
+    		if (!database && [credential count] > 3){
         database = [credential objectAtIndex: 3]; 
       }
-		}
-	}                   	
-	if (indexToRemove >= 0)
-		[credentials removeObjectAtIndex: indexToRemove];		
-	
-	[credentials insertObject: [NSArray arrayWithObjects: server, user, password, database, nil] atIndex: 0];		
-	[credentials writeToFile: [CredentialsController credentialsFileName] atomically: YES]; 
-  
+    	}
+    }                   	
+    if (indexToRemove >= 0)
+    	[credentials removeObjectAtIndex: indexToRemove];		
+
+    [credentials insertObject: [NSArray arrayWithObjects: server, user, password, database, nil] atIndex: 0];		
+    [credentials writeToFile: [CredentialsController credentialsFileName] atomically: YES];     
+  }
+	@catch (NSException *e) { 
+	  NSLog(@"exception %@", e);                                                                           
+	}  
 }
                                    
 - (void) fillServerCombo{		

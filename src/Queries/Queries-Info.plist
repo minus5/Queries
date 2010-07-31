@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string>queries_v3.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>mr.minus5.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -29,8 +29,8 @@
 	<key>SUFeedURL</key>
 	<string>http://queries.minus5.hr/appcast</string>
 	<key>CFBundleVersion</key>
-	<string>0.3</string>
+	<string>0.4</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.3</string>
+	<string>0.4</string>
 </dict>
 </plist>

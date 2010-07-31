@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>QueriesAppDelegate.m</string>
+	<string>../../site/04-release-notes.html</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -25,13 +25,13 @@
 					<key>filename</key>
 					<string>ConnectionController.h</string>
 					<key>lastUsed</key>
-					<date>2010-07-26T10:29:15Z</date>
+					<date>2010-07-26T12:16:37Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>ConnectionController.m</string>
 					<key>lastUsed</key>
-					<date>2010-07-26T10:49:45Z</date>
+					<date>2010-07-27T13:29:16Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
@@ -67,7 +67,7 @@
 					<key>filename</key>
 					<string>QueryController.m</string>
 					<key>lastUsed</key>
-					<date>2010-07-26T10:13:35Z</date>
+					<date>2010-07-27T13:29:25Z</date>
 				</dict>
 			</array>
 			<key>expanded</key>
@@ -157,9 +157,7 @@
 					<key>filename</key>
 					<string>QueriesAppDelegate.m</string>
 					<key>lastUsed</key>
-					<date>2010-07-26T10:49:45Z</date>
-					<key>selected</key>
-					<true/>
+					<date>2010-07-26T12:03:19Z</date>
 				</dict>
 			</array>
 			<key>expanded</key>
@@ -199,6 +197,8 @@
 			<string>sql</string>
 		</dict>
 		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>SyntaxHighlight</string>
 			<key>regexFolderFilter</key>
@@ -253,7 +253,7 @@
 			<key>filename</key>
 			<string>todo</string>
 			<key>lastUsed</key>
-			<date>2010-07-26T09:06:50Z</date>
+			<date>2010-07-27T12:30:24Z</date>
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
@@ -290,33 +290,93 @@
 				<integer>10</integer>
 			</dict>
 		</dict>
-		<key>../../site/shortcuts.html</key>
+		<key>../../site/04-release-notes.html</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>10</integer>
+				<integer>48</integer>
 				<key>line</key>
-				<integer>13</integer>
+				<integer>12</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>ConnectionController.m</key>
+		<key>../../site/appcast</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>6</integer>
+				<integer>13</integer>
 				<key>line</key>
-				<integer>129</integer>
+				<integer>19</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>126</integer>
+			<integer>0</integer>
+		</dict>
+		<key>../../site/shortcuts.html</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>12</integer>
+				<key>line</key>
+				<integer>19</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>3</integer>
+				<key>line</key>
+				<integer>19</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>15</integer>
+				<key>line</key>
+				<integer>19</integer>
+			</dict>
+		</dict>
+		<key>ConnectionController.h</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>18</integer>
+				<key>line</key>
+				<integer>32</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>10</integer>
+				<key>line</key>
+				<integer>32</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>29</integer>
+				<key>line</key>
+				<integer>32</integer>
+			</dict>
 		</dict>
 		<key>ConnectionsManager.h</key>
 		<dict>
@@ -389,20 +449,6 @@
 				<key>line</key>
 				<integer>52</integer>
 			</dict>
-		</dict>
-		<key>QueriesAppDelegate.m</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>36</integer>
-				<key>line</key>
-				<integer>79</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>50</integer>
 		</dict>
 		<key>QueryResult.h</key>
 		<dict>
@@ -536,16 +582,39 @@
 			<key>firstVisibleLine</key>
 			<integer>55</integer>
 		</dict>
+		<key>todo</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>2</integer>
+				<key>line</key>
+				<integer>35</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>3</integer>
+		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>QueriesAppDelegate.m</string>
-		<string>ConnectionController.m</string>
+		<string>../../site/appcast</string>
+		<string>../../site/04-release-notes.html</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
+	<false/>
+	<key>showFileHierarchyPanel</key>
 	<true/>
 	<key>treeState</key>
 	<dict>
+		<key>SyntaxHighlight</key>
+		<dict>
+			<key>isExpanded</key>
+			<true/>
+			<key>subItems</key>
+			<dict/>
+		</dict>
 		<key>controllers</key>
 		<dict>
 			<key>isExpanded</key>
@@ -576,6 +645,6 @@
 		</dict>
 	</dict>
 	<key>windowFrame</key>
-	<string>{{241, 4}, {1439, 1024}}</string>
+	<string>{{0, 4}, {1680, 1024}}</string>
 </dict>
 </plist>

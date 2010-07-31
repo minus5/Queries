@@ -305,7 +305,6 @@
 		returnToObject: queryController 
 		withSelector: @selector(setResult:)];
 		
-  [[self tdsConnection] updateCredentials];
 }                                 
                               
 #pragma mark ---- explain ----
