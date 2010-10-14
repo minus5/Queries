@@ -248,6 +248,7 @@
 		  andPassword:[credentials password]];		
 		[credentials writeCredentials];		
     [self setDefaultDatabase: [credentials currentDatabase]];
+		NSLog(@"setDefatultDatabase %@", [credentials currentDatabase]);
 		[self didChangeConnection: newConnection];
 	}
 	@catch (NSException * e) {
@@ -299,13 +300,21 @@
 	if (!connectionName){                                                       			
 		[self changeConnection: nil];
 		return;		
-	}      
-	[[self tdsConnection] executeInBackground: [queryController queryString] 
-		withDatabase: [queryController database] 
-		returnToObject: queryController 
-		withSelector: @selector(setResult:)];
-		
-}                                 
+	}    
+  @try {
+		[[self tdsConnection] executeInBackground: [queryController queryString] 
+																 withDatabase: [queryController database] 
+															 returnToObject: queryController 
+																 withSelector: @selector(setResult:)];		
+	}
+	@catch (NSException * e) {
+		[self showException: e];		
+	}		
+}     
+
+- (void) showException: (NSException*) e {
+	[queryController showErrorMessage: [NSString stringWithFormat:@"%@", e]];
+}
                               
 #pragma mark ---- explain ----
 
@@ -326,7 +335,6 @@
 			return;
 		}					
 		if ([type isEqualToString: @"procedures"] || [type isEqualToString: @"functions"] || [type isEqualToString: @"views"]){	
-			//QueryResult *queryResult = [[self tdsConnection] execute: [NSString stringWithFormat: @"use %@\nexec sp_helptext '%@'", database, nameWithSchema]];
 			QueryResult *queryResult = [[self tdsConnection] execute: [NSString stringWithFormat: @"use %@\nselect text from syscomments where id = object_id('%@')", database, nameWithSchema]];
 			
 			if (queryResult){
@@ -345,6 +353,7 @@
 		}	       
 	}
 	@catch(NSException *e){
+		[self showException: e];				
 		NSLog(@"explain exception %@", e);
 	} 
 }
@@ -451,10 +460,10 @@
 
 -(void) dbObjectsFillSidebar{         
 	@try{	                            
-		[databasesPopUp removeAllItems];      
+//		[databasesPopUp removeAllItems];      
 						 		
-		[self clearObjectsCache];		
-		[outlineView reloadData];
+//		[self clearObjectsCache];		
+//		[outlineView reloadData];
 		
 		[self readDatabases];		
 	}@catch(NSException *exception){    
@@ -463,10 +472,15 @@
 }                         
 
 - (void) readDatabases{
-	[[self tdsConnection] executeInBackground: @"select name from master.sys.databases where state_desc = 'ONLINE' and (owner_sid != 01 or name = 'master') and isnull(has_dbaccess([Name]), 0) = 1 order by name"
-		withDatabase: @"master" 
-		returnToObject: self
-		withSelector: @selector(setDatabasesQueryResult:)];
+	@try{
+		[[self tdsConnection] executeInBackground: @"select name from master.sys.databases where state_desc = 'ONLINE' and (owner_sid != 01 or name = 'master') and isnull(has_dbaccess([Name]), 0) = 1 order by name"
+			withDatabase: @"master" 
+			returnToObject: self
+			withSelector: @selector(setDatabasesQueryResult:)];
+	}
+	@catch (NSException * e) {
+		[self showException: e];		
+	}				
 }  
 
 - (void) setDatabasesQueryResult: (QueryResult*) queryResult{	  
@@ -492,12 +506,17 @@
 	[self readDatabaseObjects];
 }
 
-- (void) readDatabaseObjects{        
+- (void) readDatabaseObjects{  
 	[outlineView setDoubleAction: @selector(databaseObjectSelected)];
-	[[self tdsConnection] executeInBackground: [self databaseObjectsQuery]
-		withDatabase: @"master" 
-		returnToObject: self
-		withSelector: @selector(setObjectsResult:)];		
+	@try{		
+		[[self tdsConnection] executeInBackground: [self databaseObjectsQuery]
+			withDatabase: @"master" 
+			returnToObject: self
+			withSelector: @selector(setObjectsResult:)];		
+	}
+	@catch (NSException * e) {
+		[self showException: e];		
+	}			
 }                                                                 
                                                
 - (NSString*) databaseObjectsQuery{
@@ -513,6 +532,9 @@
 }
 
 - (void) setObjectsResult: (QueryResult*) queryResult{ 
+	[self clearObjectsCache];		
+	[outlineView reloadData];
+	
 	[dbObjectsResultsAll release];
 	dbObjectsResultsAll =  [queryResult rows];
 	[dbObjectsResultsAll retain];
@@ -608,12 +630,15 @@
 }                                               
 
 - (void) setQueryDatabaseToDefault{
-		if ([self tdsConnection]){
-			NSString *dbName = [[self tdsConnection] currentDatabase];
-			if (dbName && [databasesPopUp itemWithTitle: dbName]){ 
-				[queryController setDatabase: dbName];
-			}
+	@try{
+		NSString *dbName = [[self tdsConnection] currentDatabase];
+		if (dbName && [databasesPopUp itemWithTitle: dbName]){ 
+			[queryController setDatabase: dbName];
 		}
+	}		
+	@catch (NSException * e) {
+		NSLog(@"setQueryDatabaseToDefault exception %@", e);	
+	}		
 }
 
 - (void) databaseChanged:(id)sender{    
@@ -621,6 +646,7 @@
   [queryController setDatabase: database];  
 	if ([[searchField stringValue] length] > 0){                  
     [self setDefaultDatabase: database]; 
+		NSLog(@"setDefatultDatabase %@", [credentials currentDatabase]);
 		[self filterDatabaseObjects];
 	}
 }                                       

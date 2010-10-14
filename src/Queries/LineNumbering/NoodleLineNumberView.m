@@ -422,9 +422,7 @@
 		
 		for (line = [self lineNumberForCharacterIndex:range.location inText:text]; line < count; line++)
 		{
-			index = [[lines objectAtIndex:line] unsignedIntegerValue];
-			
-			NSLog(@"line: %d", line);
+			index = [[lines objectAtIndex:line] unsignedIntegerValue];		
 			
 			if (NSLocationInRange(index, range))
 			{

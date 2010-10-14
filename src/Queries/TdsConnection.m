@@ -297,7 +297,6 @@ struct COL
         
 - (void) executeQueries: (NSString*) query{			
 	NSArray *queries = [query componentsSeparatedByRegex:@"^\\s*go\\s*$" options: (2 | 8) range: NSMakeRange(0, [query length]) error:nil];
-	//NSArray *queries = [query componentsSeparatedByString: @"GO"];
 	for(id query in queries){		
 		BOOL success = [self executeQuery: query];				
 		NSLog(@"executing query: %@ returned %d", query, success);
@@ -320,15 +319,12 @@ struct COL
 	if ([self isProcessing]){
 		return NO;
 	}                             
-	//[self setIsProcessing: TRUE]; 
 	
 	if ([receiver respondsToSelector: @selector(setExecutingConnection:)]){          
 		[receiver performSelector: @selector(setExecutingConnection:) withObject: self];
-		//[receiver setExecutingConnection: self];
 	}
 	if ([receiver respondsToSelector: @selector(processingStarted)]){          		
 		[receiver performSelector: @selector(processingStarted)];		
-		//[receiver processingStarted];
 	}
 		
   //pazi na ovu konstrukciju ako je database nil objekti nakon toga se nece dodati u dictionary, mora biti zadnji parametar
@@ -385,11 +381,7 @@ struct COL
 		
     NSString *currentDb = [self currentDatabase];
 		[queryResult setDatabase: currentDb];
-		if (![currentDb isEqualToString: @"master"])
-      [CredentialsController updateCredentialsWithServer: server 
-    	  user: user 
-    	  password: password 
-    	  database: currentDb];                                                                         
+		[self updateCredentials];
 	}
 	@catch (NSException *exception) {                                                                           
 		if (logOutOnException)

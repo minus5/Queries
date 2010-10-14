@@ -59,6 +59,8 @@
 
     [credentials insertObject: [NSArray arrayWithObjects: server, user, password, database, nil] atIndex: 0];		
     [credentials writeToFile: [CredentialsController credentialsFileName] atomically: YES];     
+		
+		NSLog(@"updating credentials server: %@ user: %@ database %@", server, user, database);
   }
 	@catch (NSException *e) { 
 	  NSLog(@"exception %@", e);                                                                           

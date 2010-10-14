@@ -333,7 +333,15 @@
 		[messagesTextView insertText: message];	
 	}   
 	[messagesTextView insertText: @"\n"];			
-} 
+}
+
+-(void) showErrorMessage: (NSString*) message{
+	//[messagesTextView insertText: @"\n"];
+	[messagesTextView insertText: message];		
+	//[messagesTextView insertText: @"\n"];
+  [self showMessages];
+	[self setStatus: @"Error"];
+}
         
 - (void) reloadResults{
 	[self createTablesPlaceholder];
@@ -542,7 +550,7 @@
 		NSLog(@"canceling current query execution");
 		[executingConnection setCancelQuery];
 		[self setIsProcessing: NO];
-		[messagesTextView insertText: @"\nQuery canceled\n"];
+		[messagesTextView insertText: @"Query canceled\n"];
 		[self setStatus: @"Query canceled"];
 	}
 }

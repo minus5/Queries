@@ -103,5 +103,6 @@
 
 - (void) openFile:(NSString*) filename;
 - (IBAction) closeWindow: (id) sender;   
--(void) closeWindowAlertEnded:(NSAlert *) alert code:(int) choice context:(void *) v;
+- (void) closeWindowAlertEnded:(NSAlert *) alert code:(int) choice context:(void *) v;
+- (void) showException: (NSException*) e;
 @end

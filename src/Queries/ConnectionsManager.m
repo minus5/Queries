@@ -92,6 +92,7 @@ static ConnectionsManager *manager = nil;
 	}
 	@catch(NSException *e){  
 		NSLog(@"[%@ connectionWithName:%@ exception]%@", [self class], connectionName, e);
+		@throw;
 		return nil;
 	}
 }  

@@ -107,10 +107,12 @@
 
 - (void) processingStarted;          
 - (IBAction) cancelExecutingQuery: (id) sender;
--(void) setExecutingConnection: (TdsConnection*) tdsConnection;
+- (void) setExecutingConnection: (TdsConnection*) tdsConnection;
 
 - (void) resizeTablesSplitView: (BOOL) andSubviews;
 - (void) displayTextResults;
+
+- (void) showErrorMessage: (NSString*) message;
 
 @end
 
