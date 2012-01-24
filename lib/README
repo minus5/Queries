@@ -1,0 +1,59 @@
+komponete koje koristimo:
+
+freetds
+  site: www.freetds.org
+  odandje sam uzeo neki nightly build, tocnije freetds-0.83.dev.20091012
+	i njega buildao
+	koristimo dva lib-a: libsybdb.a i libiconv.a
+
+BWToolkitFramework.framework			
+  site: http://www.brandonwalkin.com/bwtoolkit/
+
+PSMTabBarControl.framework
+	tab kontrola			
+  site: http://code.google.com/p/maccode/source/browse/#svn%2Ftrunk%2FUtilities%2FPSMTabBarControl
+	uzeo sam code ondande i buildao, pa to ukljucio
+
+Sparkle
+	rjesava automatski update aplikacije			
+  site: http://sparkle.andymatuschak.org/
+
+
+
+komponente od koje su dodane kao source:
+
+RegexKitLite
+  regular expression parser
+  site: http://regexkit.sourceforge.net/RegexKitLite/
+
+UKSyntaxColoredTextDocument
+  syntax highlighter
+  site: https://github.com/uliwitness/UKSyntaxColoredTextDocument
+
+NoodleLineNumberView
+  brojevi linija uz editor
+  originalni site: http://www.noodlesoft.com/blog/2008/10/05/displaying-line-numbers-with-nstextview/ 
+	taj kod se sada moze naci na: https://github.com/MrNoodle/NoodleKit
+	uzeo sam verziju sa: http://code.google.com/p/sequel-pro/source/browse/branches/outlineview/Source/?r=2967
+  i nju mrvicu doradio
+
+
+
+freetds formatiranje datuma
+  definira se u locale.conf koji se nalazi uz freetds.conf
+  http://www.freetds.org/userguide/locales.htm
+  moj se nalazi u /usr/local/etc/locales.conf
+  a sadrzaj je:
+
+[default]
+  date format = %Y-%m-%d %H:%M:%S.%z
+
+
+freetds logging: http://www.freetds.org/userguide/logging.htm
+  postavio sam: 
+	  TDSDUMP=/tmp/freetds.log
+    TDSDUMPCONFIG=/tmp/freetds_config.log
+  pa se tamo moze ocitati koje konfiguracije tds ocitava i sto radi
+
+
+  

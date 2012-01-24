@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Queries - Contact</title>
+<!-- Framework CSS -->
+<link rel="stylesheet" href="stylesheets/blueprint/screen.css" type="text/css" media="screen, projection" />  
+<link rel="stylesheet" href="stylesheets/blueprint/print.css" type="text/css" media="print" />  
+<!--[if IE]><link rel="stylesheet" href="stylesheets/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->  
+  
+<!-- Import fancy-type plugin. -->
+<link rel="stylesheet" href="stylesheets/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection" />
+
+<!-- Queries page main css. -->
+<link href="stylesheets/queries.css" rel="stylesheet" type="text/css" />
+
+<script language="JavaScript1.2">
+	function checkMe() {
+				
+		if (document.contact.fname.value=="") {
+		alert("Please enter your first name!");
+		document.contact.fname.focus();
+		return false;
+		}
+		
+		if (document.contact.lname.value=="") {
+		alert("Please enter your last name!");
+		document.contact.lname.focus();
+		return false;
+		}	
+		
+		if (document.contact.email.value=="") {
+		alert("Please enter your email address!");
+		document.contact.email.focus();
+		return false;
+		}
+		
+		if (document.contact.comments.value=="") {
+		alert("Please enter comments!");
+		document.contact.comments.focus();
+		return false;
+		}
+		
+		
+	return true;
+	}
+</script>
+
+</head>
+<body>
+
+<!-- HEADER NAVIGATION -->
+<div class="headerBlock">
+	<div class="container">
+  	<div class="span-24">
+	    <a class="button home" href="index.html"></a>
+      <a class="button examples" href="examples.html"></a>
+      <a class="button download" href="download.html"></a>
+      <a class="button contact selected"  href="#"></a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="contentBlock">
+	<div class="container" style="display:block; margin-bottom:40px;">
+  
+		<!-- title image -->	
+    <div class="span-24 last">			
+    	<div class="title_image contact"></div>
+    </div>
+    
+    <div class="span-24 last contact-box quiet">
+    	<div class="span-22 prepend-1 last" style="margin-top:30px;">
+    		<p>Sagittis augue in elit platea nec. Egestas turpis mus! Turpis dolor nunc augue? Rhoncus amet ridiculus. Ac, facilisis eros vel? Platea! Elementum dignissim eu! Mus? Duis dapibus?</p>
+      </div>
+      
+      <div class="span-22 prepend-1 last" style="margin-top:30px; margin-bottom:30px;">
+      
+          <form id="contact" name="contact" action="form_contact.php" method="POST" onSubmit="return checkMe();">
+          
+            <div class="span-11">
+              <div>
+                <p>First Name</p>
+                <input id="fname" class="textinput" type="text" name="fname" />
+              </div>
+              <div>
+                <p>Last Name</p>
+                <input id="lname" class="textinput" type="text" name="lname" />
+              </div>
+              <div>
+                <p>Email</p>
+                <input id="email" class="textinput" type="text" name="email" />
+              </div>
+              <div>
+                <p>Description</p>
+                <select id="question_type" name="question_type" onmousewheel="return false;" >
+                    <option selected="selected" value="General Inquiry">General Inquiry</option>
+                    <option value="Bug Report">Bug Report</option>
+                    <option value="Business Proposal">Business Proposal</option>
+                    <option value="Just To Say Hi">Just To Say Hi</option>
+                  </select>
+              </div>
+            </div>
+            
+            <div class="span-11 last">
+              <div>Comments<textarea id="comments" name="text_reason"></textarea></div>
+                        
+              <!-- submit button -->
+              <div><input type="submit" value="" class="submit_button"/></div>
+            </div>
+            
+          </form>
+
+      </div>
+    </div>
+    
+    <div class="span-12">
+    	<div class="container span-11 prepend-1">
+        <div class="span-12 last title_buy">
+        </div>
+        <a class="span-12 last button_buy_large" href="app/Queries_0.4.app.zip"></a>
+        <div class="span-10 last">
+          <p>Queries are available on the Mac App Store for purchase. Using your iTunes password you can buy Queries in one step just like on iPad, iPhone and iPod touch.</p>
+        </div>
+      </div>
+    </div>    
+    
+    <div class="span-12 last">
+	    <div class="container span-11 prepend-1">
+        <div class="span-12 last title_demo">
+        </div>
+        <a class="span-12 last button_demo_large" href="#"></a>
+        <div class="span-10 last">
+          <p>Sagittis augue in elit platea nec. Egestas turpis mus! Turpis dolor nunc augue? Rhoncus amet ridiculus. Ac, facilisis eros vel? Platea! Elementum dignissim eu! Mus? Duis dapibus?</p>
+        </div>
+      </div>
+    </div>
+    
+  </div>  
+</div>    
+
+<!-- FOOTER -->
+<div class="footerBlock">
+	<div class="container" style="padding-top:40px;">
+  
+  	 <!-- first footer column -->
+    <div class="span-7">
+    	<div class="span-7 last">
+    		<img src="images/footer/footer_whos_behind.png" />
+      </div>
+      <div class="span-4">
+      	<a href="http://www.minus5.hr"><img src="images/footer/footer_minus5.png" alt="Minus 5 - The Developers of the Queries." style="padding-top:18px;"/></a>
+      </div>
+      <h4 class="span-3 last quiet" style="padding-top:20px;">Queries are developed by minus5 LLC.</h4>
+      <h4 class="span-7 last quiet">Check out minus5 site for more interesing projects for Mac, PC, iPhone, Android and others.</h4>
+      
+    </div>
+    <div class="span-1">
+      <div class="footer_vertical_separator"></div>
+    </div>
+    
+    <!-- second footer column -->
+    <div class="span-8">
+      <div class="container span-8">
+				<img src="images/footer/footer_what_you_need.png" />
+        <div class="span-5">
+          <h4 class="quiet" style="padding-top:20px;">System requirements:
+Intel Mac, Mac OSX 10.5 or above</h4>
+        </div>
+        <div class="span-3 last">
+        	<img style="padding-top:24px;" src="images/footer/footer_mac_icons.png" />
+        </div>     
+	 	  </div>      
+    </div>
+    <div class="span-1">
+      <div class="footer_vertical_separator"></div>      
+    </div>
+    
+     <!-- third footer column -->
+    <div class="span-7 last">
+      <div class="container span-7">
+      	<div class="span-7 last"><img src="images/footer/footer_follow.png" /></div>        
+        <div class="span-2">
+        	<a href="#"><img src="images/footer/icon_tweeter.png" alt="Follow Queries on Tweeter" style="padding-top:18px;"/></a>
+        </div>
+        <div class="span-5 last">
+        	<a href="#">
+          	<h4 class="quiet" style="padding-top:20px;">Follow Queries on Tweeter. Get the latest informations about the new releases, bug fixes and other news.</h4>
+          </a>
+        </div>
+        
+        <!-- <div class="span-2"><a href="#"><img src="images/icon_rss.png" alt="Get the Queries RSS feed" /></a></div> -->
+        <!-- <div class="span-2"><a href="#"><img src="images/icon_facebook.png" alt="Be Queries friend on the Facebook" /></a></div> -->
+        
+      </div>    	
+    </div>
+    
+    <!-- Make more room and the end -->
+    <div class="span-24 last" style="padding-top:50px;">
+  </div>    
+  </div>
+</div>
+
+</body>
+</html>

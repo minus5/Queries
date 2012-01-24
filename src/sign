@@ -1,0 +1,3 @@
+cd /Users/ianic/Work/CocoaQueryAnalyzer/src/Queries
+ruby ../../lib/Sparkle/Extras/Signing\ Tools/sign_update.rb ../../site/app/Queries_0.4.1.app.zip ../../keys/dsa_priv.pem          
+ls -alt ../../site/app/Queries_0.4.1.app.zip

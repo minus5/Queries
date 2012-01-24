@@ -1,0 +1,105 @@
+APP_VERSION          = "0.6.0"
+ROOT                 = "#{File.dirname(__FILE__)}"
+INFO_PLIST           = "Queries-Info.plist"
+APPCAST              = "../site/appcast"
+
+require 'date'
+
+signed_key = ""
+size = 0
+
+desc "build, sign, compress release version"
+task :build => [:info_plist] do
+  #Dir.chdir ROOT
+  #print "\nsigned key: #{signed_key}\n"
+end
+
+task :build_release do
+  Dir.chdir ROOT
+  #`xcodebuild -project Queries.xcodeproj -target Queries -configuration Release clean`
+  output = `xcodebuild -project Queries.xcodeproj -target Queries -configuration Release build`
+  if output =~ /\*\* BUILD SUCCEEDED \*\*/
+    print "build succedded\n"
+  else
+    raise "build failed, output\n#{output}"
+  end
+end
+
+task :compress => [:build_release] do
+  compressed_file = "../site/app/Queries_#{APP_VERSION}.app.zip"
+  `zip -u9vr #{compressed_file}  build/Release/Queries.app`
+  size = File.size(compressed_file)
+  print "created compressed app file: #{compressed_file}\n"
+end
+
+task :sign => [:compress] do
+  signed_key = `ruby "../lib/Sparkle/Extras/Signing\ Tools/sign_update.rb" ../site/app/Queries_#{APP_VERSION}.app.zip ../keys/dsa_priv.pem`.gsub("\n","")  
+end
+
+task :info_plist => [:appcast] do
+  content = File.read(INFO_PLIST)
+  old_version = content.match(/<key>CFBundleVersion<\/key>[\t\n]*<string>(.*)<\/string>/)[1]  
+  if old_version != APP_VERSION
+    print "old_version: #{old_version}\n"
+    content.gsub!("<string>#{old_version}</string>", "<string>#{APP_VERSION}</string>")
+    File.open(INFO_PLIST, "w+") { |f| f.puts(content) }
+    print "updated info plist file: #{INFO_PLIST}\n"
+  end
+end
+
+task :appcast => [:sign] do
+  release_notes_file_name = "#{APP_VERSION.gsub('.','')}-release-notes.html"
+  release_notes = "http://queries.minus5.hr/#{release_notes_file_name}"
+  download_file = "http://queries.minus5.hr/app/Queries_#{APP_VERSION}.app.zip"
+
+content = "<?xml version=\"1.0\" encoding=\"utf-8\"?>
+<rss version=\"2.0\" xmlns:sparkle=\"http://www.andymatuschak.org/xml-namespaces/sparkle\"  xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
+   <channel>
+      <title>Queries Changelog</title>
+      <link>http://queries.minus5.hr/appcast</link>
+      <description>Most recent changes with links to updates.</description>
+      <language>en</language>        
+      
+      <item>   
+        <title>Version #{APP_VERSION}</title>
+        <sparkle:releaseNotesLink>#{release_notes}</sparkle:releaseNotesLink>
+        <pubDate>#{Date.today.to_s}</pubDate>
+        <enclosure url=\"#{download_file}\"
+                   sparkle:version=\"#{APP_VERSION}\"
+                   sparkle:dsaSignature=\"#{signed_key}\"
+                   length=\"#{size}\"
+                   type=\"application/octet-stream\" />
+      </item>
+   </channel>
+</rss>"
+  
+  File.open(APPCAST, "w+") { |f| f.puts(content) }
+  print "updated appcast file: #{APPCAST}\n"
+
+content = "<html>
+  <head>
+    <title>Queries.app</title>
+  </head>
+  <body>              
+    <h3>Queries #{APP_VERSION} release notes</h3>  
+    <ul>                                                                                               
+      <li>ovo 
+      </li><li>i ono
+      </li><li>i jos ponesto
+    </li></ul>
+  </body>
+</html>"
+
+  release_notes_file = "../site/#{release_notes_file_name}"
+  unless File.exist?(release_notes_file) 
+    File.open(release_notes_file, "w+") {|f| f.puts(content)} 
+    print "created EMPTY release notes file: #{release_notes_file}\n"
+    print "please update it with details\n"
+  end
+
+end
+
+desc "deploy release to queries.minus5.hr"
+task :deploy do
+  print `ssh queries.minus5.hr "cd /var/www/apps/queries; svn up"`
+end

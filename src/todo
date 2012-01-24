@@ -1,0 +1,171 @@
+BUGS                                   
+  * auto updater ne radi najbolje u kombinaciji s modalnim prozorom                  
+  * klikom na line number se pojave neke plave oznake koje trenutno nemaju nikakovu funkciju
+  *| svaki message u tdsConnection ima na kraju \n
+  *| kada se izvrsava stored procedura koja vraca vise rezultata, ne dobijem u messages broj rows, a query analyzer to ima 
+  * otvaranje velikog file-a traje, zbog bojanja, cursor zavrsi na dnu, mozada da ne ide na dno ne bi toliko trajalo
+  * money tip podataka zaokruzuje na 2 decimale
+  * ne boja money, datetime
+    
+TODO                                              
+  * dokumentacija
+   * opisati features
+    * multiple queries
+    * databse object scripts
+    * remembering recent connections
+    * keyboard shortcuts
+       keyring navigation
+    * results in text            
+    * syntax highlighting
+    * table name auto completion
+    * windows authentication        
+    * go to tab command 1,2,3,4...
+    * objects sidebar sortiran po schemama    
+    
+------------------------------------------------
+  * double click, dragn drop i enter na database object neka ga dodaju u query text
+                                                                                                         
+  * comment/uncomment selection      
+
+  * close-other tabs, close all tabs  shift-command-W
+  
+  * user preferences - saved connections
+    - moze obrisati neke postojece konekcije
+
+  * dorade outline view-a
+    * triggeri   
+    * kolone od tablice                                                                
+    * mogucnost da vidi samo trenutnu bazu    
+    * testirati s userom koji ne moze vidjeti definicije svih objekata u bazi, tu bi moglo biti nekih problema
+  
+  * ikonice
+    * za results/messages
+    * za database objects
+    * za tip baze test/staging/production...  
+
+  * prikupljaj error reports na neku moju lokaciju, ako je moguce
+  
+  * save results as csv
+  
+  * customizacija formatiranja datuma tako da se vide i milisekunde
+  * kolona s row numberom? 
+    
+  * 32 bitni build
+   
+  * filter database objekata
+  * Error oboji crveno
+  * skok na liniju u kojoj je greska          
+         
+  * export u Numbers
+  * kopiranje iz grida kolone ili redka ili svega
+
+  * query library - mozda cak uzeti onaj koji postoji uz stari query analyzer
+    
+  * highlight imena tablica i procedura u trenutnoj bazi  
+    + db_name nije obojan
+    + min max funkcije nisu obojane
+    * login nije obojan        
+  
+  * sto ako sql server nije na portu 1433 
+  
+  * freetds ukljuciti u projekt - pogledaj prije toga na kakvoj je licenci  
+  
+  * dolje lijevo prikazi detalje o konekciji:
+    * server
+    * username
+    * row counter 7/236
+    * vrijeme izvrsavanja querija  
+  
+FIXED:                                              
+  * ako je u queriju jedan od rezultata imao error prebaci ga na messages tab
+    i nemoj napisati da je Completed sucessfully, nego Query completed with errors
+
+  + provjeri sve retain release, kod dinamicki kreiranih kontrola...
+  + QueryAnalyzer:
+    * connect ctrl-O 
+    * za tablicu prikazuje: columns, indexes, constraints, dependecies, triggers
+    * kategorije za bazu su mu: user tables, system tables, views, stored procedures, functions, user defined data types
+    * nema usere, scheme...
+    * results in text dodaju i messages
+    * login timeout: 15s
+    * status bar: Ready, Executing query batch, Query batch completed
+
+  + plava pozadina na sidebaru
+  + connections window
+    + stavi kotacic dok ostvaruje konekciju
+    + javiti lijepu porku kada se ne uspije konektirati
+
+  + comand-{} navigacija prethodni slijedeci tab
+  + F5 execute query - ne ide za sada pojede ga NSTextView
+
+  + nakon kolona kod results in text dolazi ---- onolike duzine kolika je kolona
+  + testiranje s userom koji ima manje privilegija                               
+  + auto update aplikacije                                                               
+  + undo ne radi dobro u kombinaciji s indent/unindent       
+  + threading 
+   - mogucnost zaustavljanja
+   - ako closa query zaustavi thread u kome se izvrsava     
+  + save/open files  
+    + pazi na open ako je file edited  
+    + Save As implementiraj  
+  + imenuj tabove 
+    + ako se file snimi daj mu ime po file-u
+    + ako je autmatski generiran daj mu ime po objektu na koji se odnosi
+ 
+  + za vrijeme izvrsavanje querija izbrisi poruke ili jos bolje napisi Executing...
+  + Results 1 of 9 prikazuj samo kada je prikazan grid ne i kada su prikazani messages
+  + results in text poseban tab
+  + zasto focus handling ponvo revidirati, ne ide na outline, napravi to u kodu nakon svake promjene taba dodaj nextKeyView svim potrebnim kontrolama
+  + zadnja kolona je prosirena u gridu   
+  + kada skriptira tablicu koja nije u dbo schemi, ne napise dobru schemu, odnoso stavlja ownera
+  + preko taba moze zatvoriti tab i kad je modified bez upita da li to smije        
+  + highlight 
+    + sistemskih stored procedura
+    + int
+  + ikonica na tabu processing
+  + dodaj 'Command(s) completed succesfully na sve querije koji ne vracaju resultset
+  + zasto kod logiranja poruka imam onu zabranu da ne mora biti duga barem 5 znakova
+  + keyboard shortcuts
+    * otvori databases
+    * jump to objects
+    * jump to query
+    * jump to results
+    * jump to messsages  
+  + focus handling
+  + threading
+  + speling se pojavljuje
+  + izbaci print iz sp_cqa_...
+  + staviti sistemske tablice u objects (ali u poseban dir), pazi tada ce se raspasti 
+  + ne radi "select * from pubs.publishers" 
+    * tocnije: select * from publishers where pub_id = 9901
+    * problem je u Minhenu
+  + use [pubs] ne radi 
+  + create skripta za tablice  
+  + sacuvati detalje konekcije
+  + proglasiti neku konekciju defaultnom
+  + resize splitview-a
+  + unicode za freetds
+  + user preferences    
+    + connection properties svaka konekcija bi morala imati neke defaulte, inace ne rade heterogeni queriji, preko linkanog servera, a pogledaj i za computed columns koji su uvjeti  
+      set ANSI_NULLS on
+      set ANSI_WARNINGS on 
+      rowcoun opalitit prije svakog upita, da ne uzme bas cijelu bazu
+      opcija set implicit transactions on
+    + query timeout: 0s
+ + umjesto create skripte za view, procedure, function napravi alter    
+ + popuni text results samo kada ga stvarno trazi                                              
+ + bolji izracun sirine kolona
+ + ikonica za aplikaciju                                                                          
+ + prikazi u statusnj liniji: Ready, Executing..., Completed. 
+  1 Result 10 rows
+  2 results 10,20 rows 
+  3 results 10,20,8 rows
+  vrijeme izvrsavanja querija 0:00:00 (sati:minute:sekunde)
+ + drag and drop tabova 
+ + database objects
+   + useri nisu u skladu s ostalim objektima, mozda da ih izbacim zasada
+   + opcija da budu grupirani po schemama
+   - mozda prikazivati samo objekte iz trenutno odabrane baze, imaju li ovi drugi uopce smisla   
+ + go to tab command 1,2,3,4...          
+ 
+OSTAVI NESTO I ZA SLIJEDECE VERZIJE  
