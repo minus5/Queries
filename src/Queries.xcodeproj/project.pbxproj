@@ -75,8 +75,6 @@
 		18A44AD110CAF2C300584106 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A44ACF10CAF2C300584106 /* libicucore.dylib */; };
 		18A44AD210CAF2C300584106 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A44ACF10CAF2C300584106 /* libicucore.dylib */; };
 		18AC09BB109DAEF5009BEE57 /* QueryResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC09BA109DAEF5009BEE57 /* QueryResult.m */; };
-		18AC847410ADDF490054E533 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AC847310ADDF490054E533 /* BWToolkitFramework.framework */; };
-		18AC847510ADDF5B0054E533 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18AC847310ADDF490054E533 /* BWToolkitFramework.framework */; };
 		18B04A1910B192630051D28E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B04A1810B192630051D28E /* Sparkle.framework */; };
 		18B04A2210B192A90051D28E /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18B04A1810B192630051D28E /* Sparkle.framework */; };
 		18B04A2A10B1948C0051D28E /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 18B04A2910B1948C0051D28E /* dsa_pub.pem */; };
@@ -103,7 +101,6 @@
 			files = (
 				18983A6714CD805E00C5EAD9 /* libsybdb.a in CopyFiles */,
 				18B04A2210B192A90051D28E /* Sparkle.framework in CopyFiles */,
-				18AC847510ADDF5B0054E533 /* BWToolkitFramework.framework in CopyFiles */,
 				1877C67310A6122E00BFA7AF /* PSMTabBarControl.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,7 +165,6 @@
 		18A44ACF10CAF2C300584106 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = /usr/lib/libicucore.dylib; sourceTree = "<absolute>"; };
 		18AC09B9109DAEF5009BEE57 /* QueryResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryResult.h; sourceTree = "<group>"; };
 		18AC09BA109DAEF5009BEE57 /* QueryResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryResult.m; sourceTree = "<group>"; };
-		18AC847310ADDF490054E533 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = ../lib/BWToolkitFramework.framework; sourceTree = SOURCE_ROOT; };
 		18B04A1810B192630051D28E /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = /Users/ianic/Work/Queries/lib/Sparkle/Sparkle.framework; sourceTree = "<absolute>"; };
 		18B04A2910B1948C0051D28E /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		18B04AAC10B1D6F70051D28E /* Connecting.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Connecting.xib; sourceTree = "<group>"; };
@@ -216,7 +212,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18AC847410ADDF490054E533 /* BWToolkitFramework.framework in Frameworks */,
 				1877C67210A6122900BFA7AF /* PSMTabBarControl.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				18B04A1910B192630051D28E /* Sparkle.framework in Frameworks */,
@@ -251,7 +246,6 @@
 				18983A3B14CD76AA00C5EAD9 /* libiconv.a */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				1877C66710A6122400BFA7AF /* PSMTabBarControl.framework */,
-				18AC847310ADDF490054E533 /* BWToolkitFramework.framework */,
 				18B04A1810B192630051D28E /* Sparkle.framework */,
 			);
 			name = "Linked Frameworks";

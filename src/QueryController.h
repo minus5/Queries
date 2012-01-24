@@ -1,6 +1,6 @@
 #import <Cocoa/Cocoa.h>
 
-#import <BWToolkitFramework/BWToolkitFramework.h>       
+//#import <BWToolkitFramework/BWToolkitFramework.h>       
 #import "NoodleLineNumberView.h"
 //#import "NoodleLineNumberMarker.h"
 //#import "MarkerLineNumberView.h"
@@ -28,7 +28,7 @@
 	IBOutlet NSTextView	*messagesTextView; 
 	IBOutlet NSScrollView *queryTextScrollView;
 	IBOutlet NSView *tableResultsContentView;	
-	IBOutlet BWSplitView *splitView;
+	IBOutlet NSSplitView *splitView;
 	IBOutlet NSTextView	*textResultsTextView;
 	                                         
 	NoodleLineNumberView *queryTextLineNumberView;

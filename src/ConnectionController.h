@@ -8,7 +8,7 @@
 #import "CreateProcedureScript.h"
 #import "ConnectingController.h"
 #import "ConnectionsManager.h"
-#import <BWToolkitFramework/BWToolkitFramework.h>  
+//#import <BWToolkitFramework/BWToolkitFramework.h>  
 #import "Constants.h"
 #import "RegexKitLite.h"
 
@@ -23,7 +23,7 @@
 	IBOutlet PSMTabBarControl *queryTabBar; 		
 	IBOutlet NSOutlineView *outlineView;
 	IBOutlet NSPopUpButton *databasesPopUp;
-	IBOutlet BWInsetTextField *statusLabel;       
+	IBOutlet NSTextField *statusLabel;       
 	IBOutlet NSSearchField *searchField;
 	
 	CredentialsController *credentials;	
