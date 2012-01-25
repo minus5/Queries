@@ -69,7 +69,6 @@
 	[[tv textContainer] setWidthTracksTextView:NO];
 	[tv setHorizontallyResizable:YES];
 	[tv setMaxSize:NSMakeSize(FLT_MAX, FLT_MAX)];                                             
-	//[tv setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
 }
 
 /**
@@ -82,24 +81,21 @@
 }
 
 - (void) awakeFromNib{
-	queryTextLineNumberView = [[NoodleLineNumberView alloc] initWithScrollView:queryTextScrollView];
-  [queryTextScrollView setVerticalRulerView:queryTextLineNumberView];
-  [queryTextScrollView setHasHorizontalRuler:NO];
-  [queryTextScrollView setHasVerticalRuler:YES];
-  [queryTextScrollView setRulersVisible:YES];  
-	// add NSViewBoundsDidChangeNotification to scrollView
+    queryTextLineNumberView = [[NoodleLineNumberView alloc] initWithScrollView:queryTextScrollView];
+    [queryTextScrollView setVerticalRulerView:queryTextLineNumberView];
+    [queryTextScrollView setHasHorizontalRuler:NO];
+    [queryTextScrollView setHasVerticalRuler:YES];
+    [queryTextScrollView setRulersVisible:YES];  
 	[queryTextScrollView setPostsBoundsChangedNotifications:YES];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(boundsDidChangeNotification:) name:NSViewBoundsDidChangeNotification object:[queryTextScrollView contentView]];
   	
-	//syntaxColoringTextView = queryText;
-	//[self syntaxColoringInit];
 	syntaxColoringController = [[UKSyntaxColoredTextViewController alloc] init];
 	[syntaxColoringController setDelegate: self];
 	[syntaxColoringController setView: queryText];
 	
 	[self setIsEdited: NO];  
   
-  //proportional font to all text views
+    //proportional font to all text views
 	[queryText setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];                                     
  	[messagesTextView setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
 	[textResultsTextView setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
@@ -109,7 +105,7 @@
 	[self setNoWrapToTextView:textResultsTextView];
 	
 	[self splitViewDidResize: nil];  
-	[self splitResultsAndQueryTextEqualy: nil];
+    spliterPosition = 0;
 	lastResultsTabIndex	= 0;
 	[self maximizeQueryText: nil];
 	                                                               
@@ -141,7 +137,6 @@
 - (CGFloat)splitView:(NSSplitView *)sender constrainMinCoordinate:(CGFloat)proposedMin ofSubviewAt:(NSInteger)dividerIndex{
   NSView *subview = [[sender subviews] objectAtIndex: dividerIndex];
 	if (sender == tablesSplitView){
-		//NSLog(@"[%@ splitView:%@ constrainMinCoordinate:%f ofSubviewAt:%d [subview frame].origin.y:%f]", [self class], sender, proposedMin, dividerIndex, [subview frame].origin.y);
 		return [subview frame].origin.y + 32.5;
 	}        
 	else
@@ -153,8 +148,6 @@
 - (CGFloat)splitView:(NSSplitView *)sender constrainMaxCoordinate:(CGFloat)proposedMax ofSubviewAt:(NSInteger)dividerIndex{  
 	if (sender == tablesSplitView){
 		NSView *subview = [[sender subviews] objectAtIndex: dividerIndex + 1];  
-		// NSLog(@"[%@ splitView:%@ constrainMaxCoordinate:%f ofSubviewAt:%d]", [self class], sender, proposedMax, dividerIndex);
-		// NSLog(@"[subview frame].origin.x %f", [subview frame].origin.x);
 		return [subview frame].origin.y + [subview frame].size.height - 32.5 - 9;
 	}        
 	else
@@ -189,7 +182,6 @@
 - (void) tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem{
 	int selectedIndex = [resultsTabView indexOfTabViewItem: tabViewItem];	
 	[resultsMessagesSegmentedControll setSelectedSegment: selectedIndex];  
-	//[self makeResultsFirstResponder];	
 	switch(selectedIndex){
 		case 0:                      
 			[self resizeTablesSplitView: NO];
@@ -311,7 +303,7 @@
 }
 
 - (IBAction) maximizeQueryText: sender{
-	[splitView setPosition: ([splitView frame].size.height - 20) ofDividerAtIndex:0];
+    [splitView setPosition: ([splitView frame].size.height) ofDividerAtIndex:0];
 	spliterPosition = 0;             
 	[[connection window] makeFirstResponder: queryText];
 }
@@ -335,13 +327,11 @@
 	
 	if ([queryResult hasResults] && ![queryResult hasErrors]){           	  
 		[resultsTabView selectTabViewItemAtIndex: lastResultsTabIndex];	 
-		[self displayTextResults];
+		[self displayTextResults];        
 	}else {
 		[self showMessages];
 	}
-  if ([splitView isSubviewCollapsed: resultsContentView]){
-		[self splitResultsAndQueryTextEqualy: nil];
-	}
+    [self ensureResultsAreVisible];
 		
 	[self setIsProcessing: NO];
 	[[ConnectionsManager sharedInstance] cleanup];
@@ -357,10 +347,8 @@
 }
 
 -(void) showErrorMessage: (NSString*) message{
-	//[messagesTextView insertText: @"\n"];
 	[messagesTextView insertText: message];		
-	//[messagesTextView insertText: @"\n"];
-  [self showMessages];
+    [self showMessages];
 	[self setStatus: @"Error"];
 }
         
@@ -478,9 +466,7 @@
 	return 32.5 + (rows > 9 ? 9 : rows) * 17.5;	
 }
 
-- (void) resizeTablesSplitView: (BOOL) andSubviews{	 
-	//NSLog(@"[%@ resizeTablesSplitView:%d]", [self class], andSubviews);
-	  
+- (void) resizeTablesSplitView: (BOOL) andSubviews{	 	  
 	int count = [[tablesSplitView subviews] count];
 	float splitersHeight = (count - 1) * 9;            
 	
@@ -502,16 +488,13 @@
 	
 	if (andSubviews){
 		float allTablesHeight = splitViewHeight - splitersHeight; 
-		//NSLog(@"allTablesHeight %f minHeightOfAllTables: %f", allTablesHeight, minHeightOfAllTables);
 		for(int i=0; i < count; i++){
 			float tableHeight = ([self minHeightForTableAtIndex: i] / minHeightOfAllTables) * allTablesHeight;
 			NSView *subview = [[tablesSplitView subviews] objectAtIndex: i];
 			NSRect frame;
 			frame.origin.x = 0;
-			//frame.origin.y = i * tableHeight + 9 * (i-1);
 			frame.size.width = [tablesSplitView frame].size.width;
 			frame.size.height = tableHeight;  
-			//NSLog(@"resizing table %d with height %f min height %f", i, tableHeight, [self minHeightForTableAtIndex: i]);
 			[subview setFrame:frame];
 		}		
 	}

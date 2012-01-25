@@ -61,13 +61,6 @@
 		187FD57210C30B3800471B6A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 187FD56F10C30B3800471B6A /* Constants.m */; };
 		1892765110A7696800C50258 /* objects_end.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892764E10A7696800C50258 /* objects_end.sql */; };
 		1892765310A7696800C50258 /* objects_start.sql in Resources */ = {isa = PBXBuildFile; fileRef = 1892765010A7696800C50258 /* objects_start.sql */; };
-		18983A3D14CD76AA00C5EAD9 /* libiconv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18983A3B14CD76AA00C5EAD9 /* libiconv.a */; };
-		18983A3F14CD76AA00C5EAD9 /* libiconv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18983A3B14CD76AA00C5EAD9 /* libiconv.a */; };
-		18983A4114CD76AA00C5EAD9 /* libiconv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18983A3B14CD76AA00C5EAD9 /* libiconv.a */; };
-		18983A5C14CD802700C5EAD9 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18983A5B14CD802700C5EAD9 /* libsybdb.a */; };
-		18983A5D14CD802700C5EAD9 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18983A5B14CD802700C5EAD9 /* libsybdb.a */; };
-		18983A5E14CD802700C5EAD9 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18983A5B14CD802700C5EAD9 /* libsybdb.a */; };
-		18983A6714CD805E00C5EAD9 /* libsybdb.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18983A5B14CD802700C5EAD9 /* libsybdb.a */; };
 		18A44ABF10CAF0E100584106 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A44ABE10CAF0E100584106 /* RegexKitLite.m */; };
 		18A44AC010CAF0E100584106 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A44ABE10CAF0E100584106 /* RegexKitLite.m */; };
 		18A44AC110CAF0E100584106 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A44ABE10CAF0E100584106 /* RegexKitLite.m */; };
@@ -80,6 +73,8 @@
 		18B04A2A10B1948C0051D28E /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 18B04A2910B1948C0051D28E /* dsa_pub.pem */; };
 		18B04AAD10B1D6F70051D28E /* Connecting.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B04AAC10B1D6F70051D28E /* Connecting.xib */; };
 		18B04ACE10B1E0670051D28E /* ConnectingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B04ACC10B1E0670051D28E /* ConnectingController.m */; };
+		18B49A3114CEB95000A56D62 /* libsybdb.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B49A3014CEB95000A56D62 /* libsybdb.5.dylib */; };
+		18B49A3314CEB95C00A56D62 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B49A3214CEB95C00A56D62 /* libiconv.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		18D367CF10E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18D367CE10E8DEEC00F1AAE4 /* objects_in_database2.sql */; };
 		18D367D010E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18D367CE10E8DEEC00F1AAE4 /* objects_in_database2.sql */; };
 		18D367D110E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18D367CE10E8DEEC00F1AAE4 /* objects_in_database2.sql */; };
@@ -99,7 +94,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				18983A6714CD805E00C5EAD9 /* libsybdb.a in CopyFiles */,
 				18B04A2210B192A90051D28E /* Sparkle.framework in CopyFiles */,
 				1877C67310A6122E00BFA7AF /* PSMTabBarControl.framework in CopyFiles */,
 			);
@@ -158,8 +152,6 @@
 		187FD56F10C30B3800471B6A /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		1892764E10A7696800C50258 /* objects_end.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_end.sql; sourceTree = "<group>"; };
 		1892765010A7696800C50258 /* objects_start.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_start.sql; sourceTree = "<group>"; };
-		18983A3B14CD76AA00C5EAD9 /* libiconv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiconv.a; path = "../lib/freetds-0.9.1/libiconv.a"; sourceTree = SOURCE_ROOT; };
-		18983A5B14CD802700C5EAD9 /* libsybdb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libsybdb.a; path = "../lib/freetds-0.9.1/libsybdb.a"; sourceTree = SOURCE_ROOT; };
 		18A44ABD10CAF0E100584106 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		18A44ABE10CAF0E100584106 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		18A44ACF10CAF2C300584106 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = /usr/lib/libicucore.dylib; sourceTree = "<absolute>"; };
@@ -170,6 +162,8 @@
 		18B04AAC10B1D6F70051D28E /* Connecting.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Connecting.xib; sourceTree = "<group>"; };
 		18B04ACC10B1E0670051D28E /* ConnectingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectingController.m; sourceTree = "<group>"; };
 		18B04ACD10B1E0670051D28E /* ConnectingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectingController.h; sourceTree = "<group>"; };
+		18B49A3014CEB95000A56D62 /* libsybdb.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsybdb.5.dylib; path = usr/local/lib/libsybdb/libsybdb.5.dylib; sourceTree = SDKROOT; };
+		18B49A3214CEB95C00A56D62 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		18D367CE10E8DEEC00F1AAE4 /* objects_in_database2.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_in_database2.sql; sourceTree = "<group>"; };
 		18DD252210A3813B00108BE8 /* database_objects.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = database_objects.sql; sourceTree = "<group>"; };
 		18EF943E12E5A52500AECE6D /* ConnectionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionsManager.h; sourceTree = "<group>"; };
@@ -192,8 +186,6 @@
 			files = (
 				1836B94D10A20EDB007B0D87 /* SenTestingKit.framework in Frameworks */,
 				18A44AD110CAF2C300584106 /* libicucore.dylib in Frameworks */,
-				18983A3F14CD76AA00C5EAD9 /* libiconv.a in Frameworks */,
-				18983A5D14CD802700C5EAD9 /* libsybdb.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,8 +195,6 @@
 			files = (
 				1877C28A10A5961300BFA7AF /* Cocoa.framework in Frameworks */,
 				18A44AD210CAF2C300584106 /* libicucore.dylib in Frameworks */,
-				18983A4114CD76AA00C5EAD9 /* libiconv.a in Frameworks */,
-				18983A5E14CD802700C5EAD9 /* libsybdb.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,13 +202,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B49A3314CEB95C00A56D62 /* libiconv.dylib in Frameworks */,
+				18B49A3114CEB95000A56D62 /* libsybdb.5.dylib in Frameworks */,
 				1877C67210A6122900BFA7AF /* PSMTabBarControl.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				18B04A1910B192630051D28E /* Sparkle.framework in Frameworks */,
 				18A44AD010CAF2C300584106 /* libicucore.dylib in Frameworks */,
 				18F1AFFC12E5B1F900008C8D /* Security.framework in Frameworks */,
-				18983A3D14CD76AA00C5EAD9 /* libiconv.a in Frameworks */,
-				18983A5C14CD802700C5EAD9 /* libsybdb.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,9 +231,9 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				18983A5B14CD802700C5EAD9 /* libsybdb.a */,
+				18B49A3214CEB95C00A56D62 /* libiconv.dylib */,
+				18B49A3014CEB95000A56D62 /* libsybdb.5.dylib */,
 				18A44ACF10CAF2C300584106 /* libicucore.dylib */,
-				18983A3B14CD76AA00C5EAD9 /* libiconv.a */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				1877C66710A6122400BFA7AF /* PSMTabBarControl.framework */,
 				18B04A1810B192630051D28E /* Sparkle.framework */,
