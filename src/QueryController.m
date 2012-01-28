@@ -23,11 +23,34 @@
 - (NSString*) queryString{          
 	NSRange selection = [queryText selectedRange]; 
 	NSString *query = [NSString stringWithString: [queryText string]];                
-	//[query autorelease];
 	if(selection.length > 0){
 		return [query substringWithRange: selection];
 	}else{
 		return query;
+	}
+}
+
+
+- (NSString*) queryParagraphString{          
+	NSRange selection = [queryText selectedRange]; 
+	NSString *query = [NSString stringWithString: [queryText string]];                  
+  NSRange currentLine = [query lineRangeForRange: selection];
+  
+  NSRange startParagraph = currentLine;
+  NSRange endParagraph = currentLine;
+  while(startParagraph.location > 0 && startParagraph.length > 1){
+    startParagraph = [query lineRangeForRange: NSMakeRange(startParagraph.location - 1, 1)];
+  }
+  while((endParagraph.location + endParagraph.length) < [query length] && endParagraph.length > 1){
+    endParagraph = [query lineRangeForRange: NSMakeRange((endParagraph.location + endParagraph.length), 1)];
+  }
+  
+  NSRange paragraph = NSMakeRange(startParagraph.location, endParagraph.location - startParagraph.location + endParagraph.length);  
+	if(paragraph.length > 1){
+    //[queryText setSelectedRange: paragraph];
+		return [query substringWithRange: paragraph];
+	}else{
+		return NULL;
 	}
 }
 
@@ -525,7 +548,8 @@
 		else
 		  if (name)	  	                                                
 				[panel setNameFieldStringValue: name];
-		[panel setRequiredFileType:@"sql"];
+    NSArray* types = [NSArray arrayWithObject:(id) @"sql"];
+		[panel setAllowedFileTypes: types];
 		if (![panel runModal] == NSOKButton) {
 			return NO;
 		}                                                                      

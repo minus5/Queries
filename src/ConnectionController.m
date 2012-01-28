@@ -337,11 +337,8 @@
 		return;		
 	}    
   @try {
-		NSString *query = [queryController queryString];
-		NSString *database = [queryController database];
-
-		[[self tdsConnection] executeInBackground: query 
-																 withDatabase: database
+		[[self tdsConnection] executeInBackground: [queryController queryString] 
+																 withDatabase: [queryController database]
 															 returnToObject: queryController 
 																 withSelector: @selector(setResult:)];		
 	}
@@ -349,6 +346,23 @@
 		[self showException: e];		
 	}		
 }     
+
+-(IBAction) executeQueryParagraph:(id)sender{     
+	if (!connectionName){                                                       			
+		[self changeConnection: nil];
+		return;		
+	}    
+  @try {    
+    //NSLog(@"query paragraph: %@", [queryController queryParagraphString]);
+		[[self tdsConnection] executeInBackground: [queryController queryParagraphString]
+																 withDatabase: [queryController database]
+															 returnToObject: queryController 
+																 withSelector: @selector(setResult:)];		
+	}
+	@catch (NSException * e) {
+		[self showException: e];		
+	}		
+} 
 
 - (void) showException: (NSException*) e {
 	[queryController showErrorMessage: [NSString stringWithFormat:@"%@", e]];

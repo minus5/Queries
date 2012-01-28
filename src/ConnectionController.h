@@ -66,7 +66,8 @@
 
 - (IBAction) reloadDbObjects: (id) sender;
 
-- (IBAction) executeQuery: (id) sender;    
+- (IBAction) executeQuery: (id) sender;
+- (IBAction) executeQueryParagraph: (id) sender;
 
 - (int) numberOfEditedQueries;                 
 - (void) isEditedChanged: (id) sender;

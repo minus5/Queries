@@ -208,8 +208,12 @@ struct COL
 				for (pcol=columns; pcol - columns < ncols; pcol++) {															
           int columnIndex = pcol - columns + 1;
           BYTE *data     = dbdata(dbproc, columnIndex);
+          if (data == NULL) {
+              value = @"NULL";
+          }  else {
           switch (pcol->type){
           case SYBMONEY: {
+            //TODO - ovo dolje moze biti null pointer, pa se onda raspadne  
             DBMONEY *money = (DBMONEY *)data;
             char converted_money[25];
             long long money_value = ((long long)money->mnyhigh << 32) | money->mnylow;
@@ -235,6 +239,7 @@ struct COL
 					value = [[NSString alloc] initWithUTF8String: buffer];										          
 					if (!value)
 						value = [[NSString alloc] initWithCString: buffer encoding:NSASCIIStringEncoding];
+          }
           }
           }
 	

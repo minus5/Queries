@@ -359,6 +359,15 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
+								<object class="NSMenuItem" id="923924764">
+									<reference key="NSMenu" ref="512113944"/>
+									<string key="NSTitle">Execute Paragraph</string>
+									<string key="NSKeyEquiv">E</string>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
 								<object class="NSMenuItem" id="601729662">
 									<reference key="NSMenu" ref="512113944"/>
 									<string key="NSTitle">Cancel Query</string>
@@ -2422,6 +2431,14 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
+						<string key="label">executeQueryParagraph:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="923924764"/>
+					</object>
+					<int key="connectionID">637</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
 						<string key="label">addFontTrait:</string>
 						<reference key="source" ref="755631768"/>
 						<reference key="destination" ref="305399458"/>
@@ -3626,6 +3643,7 @@
 							<reference ref="601729662"/>
 							<reference ref="507284548"/>
 							<reference ref="151183859"/>
+							<reference ref="923924764"/>
 						</object>
 						<reference key="parent" ref="810912793"/>
 					</object>
@@ -3718,6 +3736,11 @@
 						<int key="objectID">634</int>
 						<reference key="object" ref="325996843"/>
 						<reference key="parent" ref="466310130"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">636</int>
+						<reference key="object" ref="923924764"/>
+						<reference key="parent" ref="512113944"/>
 					</object>
 				</object>
 			</object>
@@ -3897,6 +3920,7 @@
 					<string>629.IBPluginDependency</string>
 					<string>632.IBPluginDependency</string>
 					<string>634.IBPluginDependency</string>
+					<string>636.IBPluginDependency</string>
 					<string>72.IBPluginDependency</string>
 					<string>73.IBPluginDependency</string>
 					<string>74.IBPluginDependency</string>
@@ -4096,6 +4120,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -4110,7 +4135,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">635</int>
+			<int key="maxID">637</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4125,6 +4150,7 @@
 							<string>changeConnection:</string>
 							<string>closeWindow:</string>
 							<string>executeQuery:</string>
+							<string>executeQueryParagraph:</string>
 							<string>explain:</string>
 							<string>goToDatabaseObjects:</string>
 							<string>goToMessages:</string>
@@ -4157,6 +4183,7 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
+							<string>id</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
@@ -4166,6 +4193,7 @@
 							<string>changeConnection:</string>
 							<string>closeWindow:</string>
 							<string>executeQuery:</string>
+							<string>executeQueryParagraph:</string>
 							<string>explain:</string>
 							<string>goToDatabaseObjects:</string>
 							<string>goToMessages:</string>
@@ -4192,6 +4220,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">executeQuery:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">executeQueryParagraph:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

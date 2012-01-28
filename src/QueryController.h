@@ -80,6 +80,7 @@
 - (IBAction) nextResultsTab: (id) sender;
 
 - (NSString*) queryString;
+- (NSString*) queryParagraphString;
 - (void) setResult: (QueryResult*) r;
 
 - (void) reloadResults;
