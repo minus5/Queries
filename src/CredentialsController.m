@@ -42,10 +42,15 @@
 														password: (NSString*) password
 														database: (NSString*) database{
   @try{
+    if (server == NULL || user == NULL || database == NULL)
+      return;
+    
 		NSString *account = [NSString stringWithFormat: @"%@@%@", user, server];
 		[CredentialsController savePassword: password forAccount: account];
 		      
     NSMutableArray* credentials = [NSMutableArray arrayWithContentsOfFile: [CredentialsController credentialsFileName]];
+    if (credentials == NULL)
+      credentials = [[NSMutableArray alloc] init];
  
     int indexToRemove = -1;
     for(id credential in credentials){              
@@ -62,9 +67,9 @@
     	[credentials removeObjectAtIndex: indexToRemove];		
 
     [credentials insertObject: [NSArray arrayWithObjects: server, user, account, database, nil] atIndex: 0];		
-    [credentials writeToFile: [CredentialsController credentialsFileName] atomically: YES];     
+    BOOL ret = [credentials writeToFile: [CredentialsController credentialsFileName] atomically: YES];     
 		
-		NSLog(@"updating credentials server: %@ user: %@ database %@", server, user, database);
+		NSLog(@"updating credentials server: %@ user: %@ database: %@ ok?: %d", server, user, database, ret);
   }
 	@catch (NSException *e) { 
 	  NSLog(@"exception %@", e);                                                                           
@@ -172,7 +177,7 @@
 
 - (NSDictionary*) credentials{
 	return [NSDictionary dictionaryWithObjectsAndKeys: 
-												 [self server], @"server", 		
+											 [self server], @"server", 		
 											 [self user], @"user",
 											 [self password], @"password",
 											 nil]; 

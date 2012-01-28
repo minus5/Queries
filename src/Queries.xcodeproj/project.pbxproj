@@ -73,13 +73,14 @@
 		18B04A2A10B1948C0051D28E /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 18B04A2910B1948C0051D28E /* dsa_pub.pem */; };
 		18B04AAD10B1D6F70051D28E /* Connecting.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B04AAC10B1D6F70051D28E /* Connecting.xib */; };
 		18B04ACE10B1E0670051D28E /* ConnectingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B04ACC10B1E0670051D28E /* ConnectingController.m */; };
-		18B49A3114CEB95000A56D62 /* libsybdb.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B49A3014CEB95000A56D62 /* libsybdb.5.dylib */; };
-		18B49A3314CEB95C00A56D62 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B49A3214CEB95C00A56D62 /* libiconv.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		18D367CF10E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18D367CE10E8DEEC00F1AAE4 /* objects_in_database2.sql */; };
 		18D367D010E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18D367CE10E8DEEC00F1AAE4 /* objects_in_database2.sql */; };
 		18D367D110E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18D367CE10E8DEEC00F1AAE4 /* objects_in_database2.sql */; };
 		18DD252310A3813B00108BE8 /* database_objects.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18DD252210A3813B00108BE8 /* database_objects.sql */; };
 		18F1AFFC12E5B1F900008C8D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F1AFFB12E5B1F900008C8D /* Security.framework */; };
+		18FBFED114D4583600B3AC8B /* libiconv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FBFECF14D4583600B3AC8B /* libiconv.a */; };
+		18FBFED214D4583600B3AC8B /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FBFED014D4583600B3AC8B /* libsybdb.a */; };
+		18FBFED614D458AE00B3AC8B /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FBFED514D458AE00B3AC8B /* libiconv.2.dylib */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* QueriesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* QueriesAppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -90,7 +91,7 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		1870C98A10985964006AC809 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
@@ -162,12 +163,13 @@
 		18B04AAC10B1D6F70051D28E /* Connecting.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Connecting.xib; sourceTree = "<group>"; };
 		18B04ACC10B1E0670051D28E /* ConnectingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectingController.m; sourceTree = "<group>"; };
 		18B04ACD10B1E0670051D28E /* ConnectingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectingController.h; sourceTree = "<group>"; };
-		18B49A3014CEB95000A56D62 /* libsybdb.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsybdb.5.dylib; path = usr/local/lib/libsybdb/libsybdb.5.dylib; sourceTree = SDKROOT; };
-		18B49A3214CEB95C00A56D62 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		18D367CE10E8DEEC00F1AAE4 /* objects_in_database2.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objects_in_database2.sql; sourceTree = "<group>"; };
 		18DD252210A3813B00108BE8 /* database_objects.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = database_objects.sql; sourceTree = "<group>"; };
 		18EF943E12E5A52500AECE6D /* ConnectionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionsManager.h; sourceTree = "<group>"; };
 		18F1AFFB12E5B1F900008C8D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		18FBFECF14D4583600B3AC8B /* libiconv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiconv.a; path = "../lib/freetds-0.9.1/libiconv.a"; sourceTree = "<group>"; };
+		18FBFED014D4583600B3AC8B /* libsybdb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsybdb.a; path = "../lib/freetds-0.9.1/libsybdb.a"; sourceTree = "<group>"; };
+		18FBFED514D458AE00B3AC8B /* libiconv.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.dylib; path = usr/lib/libiconv.2.dylib; sourceTree = SDKROOT; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		256AC3D80F4B6AC300CF3369 /* QueriesAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueriesAppDelegate.h; sourceTree = "<group>"; };
 		256AC3D90F4B6AC300CF3369 /* QueriesAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueriesAppDelegate.m; sourceTree = "<group>"; };
@@ -202,8 +204,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18B49A3314CEB95C00A56D62 /* libiconv.dylib in Frameworks */,
-				18B49A3114CEB95000A56D62 /* libsybdb.5.dylib in Frameworks */,
+				18FBFED614D458AE00B3AC8B /* libiconv.2.dylib in Frameworks */,
+				18FBFED114D4583600B3AC8B /* libiconv.a in Frameworks */,
+				18FBFED214D4583600B3AC8B /* libsybdb.a in Frameworks */,
 				1877C67210A6122900BFA7AF /* PSMTabBarControl.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				18B04A1910B192630051D28E /* Sparkle.framework in Frameworks */,
@@ -231,8 +234,8 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				18B49A3214CEB95C00A56D62 /* libiconv.dylib */,
-				18B49A3014CEB95000A56D62 /* libsybdb.5.dylib */,
+				18FBFECF14D4583600B3AC8B /* libiconv.a */,
+				18FBFED014D4583600B3AC8B /* libsybdb.a */,
 				18A44ACF10CAF2C300584106 /* libicucore.dylib */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				1877C66710A6122400BFA7AF /* PSMTabBarControl.framework */,
@@ -400,6 +403,7 @@
 		29B97314FDCFA39411CA2CEA /* Queries */ = {
 			isa = PBXGroup;
 			children = (
+				18FBFED514D458AE00B3AC8B /* libiconv.2.dylib */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				18DD252110A3813B00108BE8 /* SQL */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,

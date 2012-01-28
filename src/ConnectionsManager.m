@@ -53,10 +53,6 @@ static ConnectionsManager *manager = nil;
 	id receiver = [arguments objectForKey: @"receiver"];
 	SEL selector = NSSelectorFromString([arguments objectForKey: @"selector"]); 
 	
-	// NSLog(@"is thread canceled %@ %d", [NSThread currentThread], [[NSThread currentThread] isCancelled]); 
-	// sleep(5);
-	// NSLog(@"is thread canceled %@ %d", [NSThread currentThread], [[NSThread currentThread] isCancelled]); 
-
   TdsConnection *connection = [self connectionToServer: server withUser: user andPassword: password];
   if (![[NSThread currentThread] isCancelled]){		
 		[receiver performSelectorOnMainThread: selector withObject: connection waitUntilDone: YES];		
@@ -74,7 +70,7 @@ static ConnectionsManager *manager = nil;
 
 		TdsConnection *existing = [self connectionWithName: [NSString stringWithFormat:@"%@@%@", user, server]];
 		if (existing){ 
-			NSLog(@"returning connection from pool [%@ connectionToServer:%@  withUser:%@ andPassword:%@]", [self class], server, user, password);
+			//NSLog(@"returning connection from pool [%@ connectionToServer:%@  withUser:%@ andPassword:%@]", [self class], server, user, password);
 			return existing;
 		}
 		
@@ -87,7 +83,7 @@ static ConnectionsManager *manager = nil;
 		[newConenction login];
 		[self add: newConenction];  
 		[newConenction release];
-		NSLog(@"returning new connection [%@ connectionToServer:%@  withUser:%@ andPassword:%@]", [self class], server, user, password);
+		//NSLog(@"returning new connection [%@ connectionToServer:%@  withUser:%@ andPassword:%@]", [self class], server, user, password);
 
 		return newConenction;
 	}
@@ -109,7 +105,6 @@ static ConnectionsManager *manager = nil;
 			}                                         			
 			TdsConnection *clone = [[connections objectAtIndex: 0] clone];  
 			NSLog(@"cloning connection %@", [clone connectionName]);
-			//[clone login]; 
 			[self add: clone]; 
 			[clone release]; 		
 			return clone;		
@@ -136,14 +131,12 @@ static ConnectionsManager *manager = nil;
 }  
 
 - (void) dealloc{     
-	//NSLog(@"[%@ dealloc] start", [self class]);
 	for(NSMutableArray *connections in [pool allValues]){             
 		[connections removeAllObjects];
 	}	
 	[pool removeAllObjects];
 	[pool release];
 	[super dealloc];                     
-	//NSLog(@"[%@ dealloc] end", [self class]);
 }   
 
 + (NSString*) sqlFileContent: (NSString*) queryFileName{

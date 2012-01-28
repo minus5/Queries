@@ -1,4 +1,4 @@
-APP_VERSION          = "0.6.0"
+APP_VERSION          = "0.6.1"
 ROOT                 = "#{File.dirname(__FILE__)}"
 INFO_PLIST           = "Queries-Info.plist"
 APPCAST              = "../site/appcast"
@@ -9,14 +9,13 @@ signed_key = ""
 size = 0
 
 desc "build, sign, compress release version"
-task :build => [:info_plist] do
-  #Dir.chdir ROOT
-  #print "\nsigned key: #{signed_key}\n"
+task :build => [:build_release, :appcast] do
 end
 
-task :build_release do
+task :build_release => [:info_plist] do
   Dir.chdir ROOT
   #`xcodebuild -project Queries.xcodeproj -target Queries -configuration Release clean`
+  #output = `xcodebuild -project Queries.xcodeproj -target Queries -configuration Release build`
   output = `xcodebuild -project Queries.xcodeproj -target Queries -configuration Release build`
   if output =~ /\*\* BUILD SUCCEEDED \*\*/
     print "build succedded\n"
@@ -26,8 +25,9 @@ task :build_release do
 end
 
 task :compress => [:build_release] do
-  compressed_file = "../site/app/Queries_#{APP_VERSION}.app.zip"
-  `zip -u9vr #{compressed_file}  build/Release/Queries.app`
+  dir = Dir.pwd
+  compressed_file = "#{dir}/../site/app/Queries_#{APP_VERSION}.app.zip"
+  `cd build/Release ; zip -u9vr #{compressed_file} Queries.app`
   size = File.size(compressed_file)
   print "created compressed app file: #{compressed_file}\n"
 end
@@ -36,7 +36,7 @@ task :sign => [:compress] do
   signed_key = `ruby "../lib/Sparkle/Extras/Signing\ Tools/sign_update.rb" ../site/app/Queries_#{APP_VERSION}.app.zip ../keys/dsa_priv.pem`.gsub("\n","")  
 end
 
-task :info_plist => [:appcast] do
+task :info_plist do
   content = File.read(INFO_PLIST)
   old_version = content.match(/<key>CFBundleVersion<\/key>[\t\n]*<string>(.*)<\/string>/)[1]  
   if old_version != APP_VERSION
