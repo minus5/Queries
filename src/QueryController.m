@@ -13,6 +13,10 @@
 	[messagesTextView insertText: @"\nExecuting query...\n"];
 }
 
+-(BOOL) isEdited
+{
+    return isEdited;
+}
 - (void) setIsEdited: (BOOL) value{
 	if (value != isEdited){
 		isEdited = value;
@@ -553,7 +557,7 @@
 		if (![panel runModal] == NSOKButton) {
 			return NO;
 		}                                                                      
-		[self setFileName: [panel filename]];  
+		[self setFileName: [panel URL].path];  
 		[self setName: [[fileName lastPathComponent] stringByDeletingPathExtension]];		
 	}	
 	[[queryText string] writeToFile: fileName atomically:YES encoding:NSUTF8StringEncoding error:NULL];

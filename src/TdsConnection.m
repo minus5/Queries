@@ -95,12 +95,7 @@ int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dbe
 	return INT_CANCEL;						
 }    
 
-struct COL 						
-{ 
-	char *name; 
-	char *buffer; 
-	int type, size, status; 
-};
+
 
 -(void) login{
 	LOGINREC *login;	
@@ -375,7 +370,7 @@ struct COL
 		return YES;
 	}
 	@catch(NSException *e){
-		NSLog(@"executeInBackground exception: @%", e);
+		NSLog(@"executeInBackground exception: %@", e.description);
 		return NO;
 	}
 }
@@ -504,7 +499,7 @@ struct COL
 		return [[NSString alloc] initWithUTF8String: dbname(dbproc)];
 	}
 	@catch(NSException *e){
-		NSLog(@"currentDatabase exception: @%", e);
+		NSLog(@"currentDatabase exception: %@", e.description);
 		return nil;
 	}
 }

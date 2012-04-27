@@ -20,6 +20,13 @@
 #include "QueryResult.h"
 #import "RegexKitLite.h"
 
+struct COL 						
+{ 
+	char *name; 
+	char *buffer; 
+	int type, size, status; 
+};
+
 @class QueryResult;
 
 @interface TdsConnection : NSObject {

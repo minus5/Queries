@@ -52,7 +52,7 @@
 	[tableView addTableColumn: column];	
 	
 	[[column headerCell] setStringValue:meta.name];
-	[column setIdentifier: [NSNumber numberWithInt: meta.index]];	
+	[column setIdentifier: [NSString stringWithFormat:@"%d", meta.index ]];	
 	
 	//column width algoritam, nije bas najinteligentnije stvar na svijetu
 	if ([meta length] > 40)  		             

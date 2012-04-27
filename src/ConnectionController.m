@@ -127,7 +127,7 @@
                        
 - (int) numberOfEditedQueries {
 	int count = 0;
-	for(id item in [queryTabs tabViewItems]){
+	for(NSTabViewItem *item in [queryTabs tabViewItems]){
 		if ([[item identifier] isEdited]){
 			count++;
 		}
@@ -417,8 +417,8 @@
 - (IBAction) openDocument:(id)sender{
 	NSOpenPanel *panel = [NSOpenPanel openPanel];
 	if ([panel runModal] == NSOKButton) { 
-    [self openFile: [panel filename]];
-	}
+        [self openFile: [panel URL].path];  
+    }
 }
 
 - (BOOL) openFile:(NSString*)filename{
@@ -498,7 +498,7 @@
 				[queryTabs selectTabViewItemAtIndex:tabIndex];
 		}
 			
-	NSLog(@"keyDown event keyCode %d modifierFlags: %d window %@", [theEvent keyCode], [theEvent modifierFlags], [theEvent window]);	
+	NSLog(@"keyDown event keyCode %d modifierFlags: %lu window %@", [theEvent keyCode], [theEvent modifierFlags], [theEvent window]);	
 }               
 
 - (void)doCommandBySelector:(SEL)aSelector
