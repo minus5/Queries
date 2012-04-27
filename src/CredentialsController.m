@@ -150,7 +150,7 @@
 }
 
 +(CredentialsController*) controller{	
-	CredentialsController *controller = [[CredentialsController alloc] init];
+	CredentialsController *controller = [[[CredentialsController alloc] init] autorelease];
  	[controller window];  
  	
  	[controller readCredentials]; 

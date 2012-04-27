@@ -160,9 +160,11 @@ int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dbe
 		if (SYBCHAR != pcol->type) {			
 			pcol->size = dbwillconvert(pcol->type, SYBCHAR);
 		}				
-		ColumnMetadata *meta = [ColumnMetadata alloc];                                                         		          		                                                                                                                                                                   
-		[meta initWithName: [[NSString alloc] initWithUTF8String: pcol->name] size: pcol->size type:pcol->type index: (pcol - columns)];		
+        NSString *name = [[NSString alloc] initWithUTF8String: pcol->name];
+		ColumnMetadata *meta = [[ColumnMetadata alloc] initWithName: name size: pcol->size type:pcol->type index: (pcol - columns)];
 		[columnNames addObject: meta];
+        [meta release];
+        [name release];
 		
 		if ((pcol->buffer = calloc(1, pcol->size + 1)) == NULL){
 			perror(NULL);
@@ -196,68 +198,68 @@ int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dbe
 		}
 		
 		switch (row_code) {
-		case REG_ROW:
+            case REG_ROW:
 			{
 				NSMutableArray *rowValues = [NSMutableArray arrayWithCapacity: ncols];
-        NSString *value;        
+                NSString *value;        
 				for (pcol=columns; pcol - columns < ncols; pcol++) {															
-          int columnIndex = pcol - columns + 1;
-          BYTE *data     = dbdata(dbproc, columnIndex);
-          if (data == NULL) {
-              value = @"NULL";
-          }  else {
-          switch (pcol->type){
-          case SYBMONEY: {
-            //TODO - ovo dolje moze biti null pointer, pa se onda raspadne  
-            DBMONEY *money = (DBMONEY *)data;
-            char converted_money[25];
-            long long money_value = ((long long)money->mnyhigh << 32) | money->mnylow;
-            sprintf(converted_money, "%.5lld", money_value);
-            //converted_money is string without decimal places
-            //so add decimal sign at index 4
-            NSString *ns_converted_money = [[NSString alloc] initWithUTF8String: converted_money];
-            int ns_len = [ns_converted_money length];
-            value = [NSString stringWithFormat:@"%@.%@", 
-                              [ns_converted_money substringToIndex: ns_len - 4], 
-                              [ns_converted_money substringFromIndex: ns_len - 4]];
-            break;
-          }
-          case SYBMONEY4: {
-            DBMONEY4 *money = (DBMONEY4 *)data;
-            char converted_money[20];
-            sprintf(converted_money, "%f", money->mny4 / 10000.0);
-            value = [[NSString alloc] initWithUTF8String: converted_money];										
-            break;
-          }
-          default:{
-					char *buffer = pcol->status == -1? "NULL" : pcol->buffer;
-					value = [[NSString alloc] initWithUTF8String: buffer];										          
-					if (!value)
-						value = [[NSString alloc] initWithCString: buffer encoding:NSASCIIStringEncoding];
-          }
-          }
-          }
-	
+                    int columnIndex = pcol - columns + 1;
+                    BYTE *data     = dbdata(dbproc, columnIndex);
+                    if (data == NULL) {
+                        value = @"NULL";
+                    } else {
+                        switch (pcol->type){
+                            case SYBMONEY: {
+                                //TODO - ovo dolje moze biti null pointer, pa se onda raspadne  
+                                DBMONEY *money = (DBMONEY *)data;
+                                char converted_money[25];
+                                long long money_value = ((long long)money->mnyhigh << 32) | money->mnylow;
+                                sprintf(converted_money, "%.5lld", money_value);
+                                //converted_money is string without decimal places
+                                //so add decimal sign at index 4
+                                NSString *ns_converted_money = [[[NSString alloc] initWithUTF8String: converted_money]autorelease];
+                                int ns_len = [ns_converted_money length];
+                                value = [NSString stringWithFormat:@"%@.%@", 
+                                         [ns_converted_money substringToIndex: ns_len - 4], 
+                                         [ns_converted_money substringFromIndex: ns_len - 4]];
+                                break;
+                            }
+                            case SYBMONEY4: {
+                                DBMONEY4 *money = (DBMONEY4 *)data;
+                                char converted_money[20];
+                                sprintf(converted_money, "%f", money->mny4 / 10000.0);
+                                value = [[[NSString alloc] initWithUTF8String: converted_money]autorelease];
+                                break;
+                            }
+                            default:{
+                                char *buffer = pcol->status == -1? "NULL" : pcol->buffer;
+                                value = [[[NSString alloc] initWithUTF8String: buffer]autorelease];
+                                if (!value)
+                                    value = [[[NSString alloc] initWithCString: buffer encoding:NSASCIIStringEncoding]autorelease];
+                            }
+                        }
+                    }
+                    
 					if (!value)
 						value = @"???";
 					
 					[[columnNames objectAtIndex: (pcol - columns)] updateMaxLength: [value length]];					
-					[rowValues addObject: value];					
+					[rowValues addObject: value];	
 				}				
 				[rows addObject: rowValues];				
 			}
-			break;
+                break;
 				
-		case BUF_FULL:
-			assert(row_code != BUF_FULL);
-			break;
+            case BUF_FULL:
+                assert(row_code != BUF_FULL);
+                break;
 				
-		case FAIL:
-			[NSException raise:@"Exception" format: @"%d: dbresults failed\n", __LINE__];
-			break;
+            case FAIL:
+                [NSException raise:@"Exception" format: @"%d: dbresults failed\n", __LINE__];
+                break;
 				
-		default: 					
-			NSLog(@"Data for computeid %d ignored\n", row_code);
+            default: 					
+                NSLog(@"Data for computeid %d ignored\n", row_code);
 		}				
 	}
 	return rows;
@@ -484,7 +486,7 @@ int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dbe
 }    
 
 - (TdsConnection*) clone{
-	return [[TdsConnection alloc] initWithServer: server user: user password: password connectionDefaults: connectionDefaults];
+	return [[[TdsConnection alloc] initWithServer: server user: user password: password connectionDefaults: connectionDefaults] autorelease];
 }
 
 -(NSString*) connectionName{

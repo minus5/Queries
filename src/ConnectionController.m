@@ -39,7 +39,7 @@
 }  
 
 - (QueryController*) createNewTab{
-	QueryController *newQuerycontroller = [[QueryController alloc] initWithConnection: self];
+	QueryController *newQuerycontroller = [[[QueryController alloc] initWithConnection: self] autorelease];
 	if (newQuerycontroller)
 		{		
 			NSTabViewItem *newTabViewItem = [[NSTabViewItem alloc] initWithIdentifier: newQuerycontroller];
@@ -50,6 +50,7 @@
 			[newQuerycontroller addObserver: self forKeyPath: @"name" options: NSKeyValueObservingOptionNew context: nil];
 			[newQuerycontroller addObserver: self forKeyPath: @"status" options: NSKeyValueObservingOptionNew context: nil];
 			[queryTabs selectTabViewItem:newTabViewItem];
+            [newTabViewItem release];
 			[newQuerycontroller setName: [NSString stringWithFormat:@"Query %d", ++queryTabsCounter]];
 		}                              
 	return newQuerycontroller;
@@ -114,7 +115,6 @@
 	[controller removeObserver: self forKeyPath: @"database"];
 	[controller removeObserver: self forKeyPath: @"name"];	
 	[controller removeObserver: self forKeyPath: @"status"];
-	[tabViewItem release];
 	[controller release];                                                                                 
 		
 	if ([[queryTabs tabViewItems] count] == 0)

@@ -47,8 +47,7 @@
 }
 
 - (void) addColumn:(ColumnMetadata*) meta{
-	NSTableColumn *column;
-	column = [[NSTableColumn alloc] initWithIdentifier: meta.name];
+	NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier: meta.name];
 	[tableView addTableColumn: column];	
 	
 	[[column headerCell] setStringValue:meta.name];
@@ -66,6 +65,7 @@
 	
 	[[column dataCell] setFont: [NSFont fontWithName: @"Lucida Grande" size: 11.0]];
 	[column setResizingMask:NSTableColumnUserResizingMask];
+    [column release];
 }
 
 - (void) removeAllColumns{
