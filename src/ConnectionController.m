@@ -39,21 +39,23 @@
 }  
 
 - (QueryController*) createNewTab{
-	QueryController *newQuerycontroller = [[[QueryController alloc] initWithConnection: self] autorelease];
+	QueryController *newQuerycontroller = [[QueryController alloc] initWithConnection: self];
 	if (newQuerycontroller)
-		{		
-			NSTabViewItem *newTabViewItem = [[NSTabViewItem alloc] initWithIdentifier: newQuerycontroller];
-			[newTabViewItem setView: [newQuerycontroller view]];	
-			[queryTabs addTabViewItem:newTabViewItem];
+    {
+		// funkcija initWithIdentifier prima id, a ne NSObject koji bi retainao referencu
+        // i zbog toga ne smijemo odmah brisati allocirani newQueryController
+        NSTabViewItem *newTabViewItem = [[NSTabViewItem alloc] initWithIdentifier: newQuerycontroller];
+        [newTabViewItem setView: [newQuerycontroller view]];
+        [queryTabs addTabViewItem:newTabViewItem];
 		
-			[newQuerycontroller addObserver: self forKeyPath: @"database" options: NSKeyValueObservingOptionNew context: nil];
-			[newQuerycontroller addObserver: self forKeyPath: @"name" options: NSKeyValueObservingOptionNew context: nil];
-			[newQuerycontroller addObserver: self forKeyPath: @"status" options: NSKeyValueObservingOptionNew context: nil];
-			[queryTabs selectTabViewItem:newTabViewItem];
-            [newTabViewItem release];
-			[newQuerycontroller setName: [NSString stringWithFormat:@"Query %d", ++queryTabsCounter]];
-		}                              
-	return newQuerycontroller;
+        [newQuerycontroller addObserver: self forKeyPath: @"database" options: NSKeyValueObservingOptionNew context: nil];
+        [newQuerycontroller addObserver: self forKeyPath: @"name" options: NSKeyValueObservingOptionNew context: nil];
+        [newQuerycontroller addObserver: self forKeyPath: @"status" options: NSKeyValueObservingOptionNew context: nil];
+        [queryTabs selectTabViewItem:newTabViewItem];
+        [newTabViewItem release];
+        [newQuerycontroller setName: [NSString stringWithFormat:@"Query %d", ++queryTabsCounter]];
+    }
+    return newQuerycontroller;
 }
 
 - (void) displayStatus{
@@ -109,6 +111,7 @@
 - (void) closeCurentQuery{
 	QueryController *controller = queryController;
 	NSTabViewItem *tabViewItem = [queryTabs selectedTabViewItem];
+    
 	[queryTabs removeTabViewItem: tabViewItem];
 	[self isEditedChanged: nil]; 	
 	                                                                                                        		

@@ -69,7 +69,8 @@
 - (id) initWithConnection: (ConnectionController*) c{
 	if (self = [super init]){
 		connection = c;
-		status = @"";		
+		status = @"";	
+        dataSources = [[NSMutableArray alloc] init];   
 	}             
 	return self;
 }
@@ -139,8 +140,6 @@
 	//key ring
 	[messagesTextView setNextKeyView: [connection outlineView]];
 	[textResultsTextView setNextKeyView: [connection outlineView]];	
-	
-	dataSources = [[NSMutableArray alloc] init];   
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(splitViewDidResize:)
 																							 name: NSSplitViewDidResizeSubviewsNotification
