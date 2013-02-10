@@ -88,8 +88,7 @@
 - (void) readDatabases;
 - (void) setDatabasesQueryResult: (QueryResult*) queryResult;
 - (void) clearObjectsCache;
-
-- (void) dbObjectsFillSidebar;     
+    
 - (NSArray*) selectedDbObject;     
 - (NSString*) databaseObjectsQuery;
 - (NSArray*) dbObjectsForParent: (NSString*) parentId;

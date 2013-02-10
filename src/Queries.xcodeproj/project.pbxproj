@@ -20,6 +20,8 @@
 		183F953B11FD88D20043DB57 /* queries_v3.icns in Resources */ = {isa = PBXBuildFile; fileRef = 183F953811FD88D10043DB57 /* queries_v3.icns */; };
 		184873C010983E7400A15FC7 /* ConnectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184873BE10983E7400A15FC7 /* ConnectionView.xib */; };
 		184873C110983E7400A15FC7 /* QueryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184873BF10983E7400A15FC7 /* QueryView.xib */; };
+		18509DAD16C84D6300A2D95A /* libiconv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18509DAC16C84D6300A2D95A /* libiconv.a */; };
+		18509DAF16C84D6E00A2D95A /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18509DAE16C84D6E00A2D95A /* libsybdb.a */; };
 		185349ED12E4A44800FAFAE4 /* NSArray+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 185349E612E4A44800FAFAE4 /* NSArray+Color.m */; };
 		185349EE12E4A44800FAFAE4 /* NSMenu+DeepSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 185349E812E4A44800FAFAE4 /* NSMenu+DeepSearch.m */; };
 		185349EF12E4A44800FAFAE4 /* NSScanner+SkipUpToCharset.m in Sources */ = {isa = PBXBuildFile; fileRef = 185349EA12E4A44800FAFAE4 /* NSScanner+SkipUpToCharset.m */; };
@@ -78,8 +80,6 @@
 		18D367D110E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18D367CE10E8DEEC00F1AAE4 /* objects_in_database2.sql */; };
 		18DD252310A3813B00108BE8 /* database_objects.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18DD252210A3813B00108BE8 /* database_objects.sql */; };
 		18F1AFFC12E5B1F900008C8D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F1AFFB12E5B1F900008C8D /* Security.framework */; };
-		18FBFED114D4583600B3AC8B /* libiconv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FBFECF14D4583600B3AC8B /* libiconv.a */; };
-		18FBFED214D4583600B3AC8B /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FBFED014D4583600B3AC8B /* libsybdb.a */; };
 		18FBFED614D458AE00B3AC8B /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FBFED514D458AE00B3AC8B /* libiconv.2.dylib */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* QueriesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* QueriesAppDelegate.m */; };
@@ -115,6 +115,8 @@
 		183F953811FD88D10043DB57 /* queries_v3.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = queries_v3.icns; sourceTree = "<group>"; };
 		184873BE10983E7400A15FC7 /* ConnectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectionView.xib; sourceTree = "<group>"; };
 		184873BF10983E7400A15FC7 /* QueryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueryView.xib; sourceTree = "<group>"; };
+		18509DAC16C84D6300A2D95A /* libiconv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiconv.a; path = ../lib/freetds/libiconv.a; sourceTree = "<group>"; };
+		18509DAE16C84D6E00A2D95A /* libsybdb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsybdb.a; path = ../lib/freetds/lib/libsybdb.a; sourceTree = "<group>"; };
 		185349E512E4A44800FAFAE4 /* NSArray+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Color.h"; sourceTree = "<group>"; };
 		185349E612E4A44800FAFAE4 /* NSArray+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Color.m"; sourceTree = "<group>"; };
 		185349E712E4A44800FAFAE4 /* NSMenu+DeepSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMenu+DeepSearch.h"; sourceTree = "<group>"; };
@@ -167,8 +169,6 @@
 		18DD252210A3813B00108BE8 /* database_objects.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = database_objects.sql; sourceTree = "<group>"; };
 		18EF943E12E5A52500AECE6D /* ConnectionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionsManager.h; sourceTree = "<group>"; };
 		18F1AFFB12E5B1F900008C8D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		18FBFECF14D4583600B3AC8B /* libiconv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiconv.a; path = "../lib/freetds-0.9.1/libiconv.a"; sourceTree = "<group>"; };
-		18FBFED014D4583600B3AC8B /* libsybdb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsybdb.a; path = "../lib/freetds-0.9.1/libsybdb.a"; sourceTree = "<group>"; };
 		18FBFED514D458AE00B3AC8B /* libiconv.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.dylib; path = usr/lib/libiconv.2.dylib; sourceTree = SDKROOT; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		256AC3D80F4B6AC300CF3369 /* QueriesAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueriesAppDelegate.h; sourceTree = "<group>"; };
@@ -205,13 +205,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				18FBFED614D458AE00B3AC8B /* libiconv.2.dylib in Frameworks */,
-				18FBFED114D4583600B3AC8B /* libiconv.a in Frameworks */,
-				18FBFED214D4583600B3AC8B /* libsybdb.a in Frameworks */,
 				1877C67210A6122900BFA7AF /* PSMTabBarControl.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				18B04A1910B192630051D28E /* Sparkle.framework in Frameworks */,
 				18A44AD010CAF2C300584106 /* libicucore.dylib in Frameworks */,
 				18F1AFFC12E5B1F900008C8D /* Security.framework in Frameworks */,
+				18509DAD16C84D6300A2D95A /* libiconv.a in Frameworks */,
+				18509DAF16C84D6E00A2D95A /* libsybdb.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,8 +234,9 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				18FBFECF14D4583600B3AC8B /* libiconv.a */,
-				18FBFED014D4583600B3AC8B /* libsybdb.a */,
+				18509DAE16C84D6E00A2D95A /* libsybdb.a */,
+				18509DAC16C84D6300A2D95A /* libiconv.a */,
+				18FBFED514D458AE00B3AC8B /* libiconv.2.dylib */,
 				18A44ACF10CAF2C300584106 /* libicucore.dylib */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				1877C66710A6122400BFA7AF /* PSMTabBarControl.framework */,
@@ -403,7 +404,6 @@
 		29B97314FDCFA39411CA2CEA /* Queries */ = {
 			isa = PBXGroup;
 			children = (
-				18FBFED514D458AE00B3AC8B /* libiconv.2.dylib */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				18DD252110A3813B00108BE8 /* SQL */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -844,9 +844,7 @@
 				INFOPLIST_FILE = "Queries-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../lib/freetds-0.9.1",
 					"$(SRCROOT)/../lib/**",
-					"$(SRCROOT)",
 					"$(inherited)",
 				);
 				PRODUCT_NAME = Queries;
@@ -866,9 +864,7 @@
 				INFOPLIST_FILE = "Queries-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../lib/freetds-0.9.1",
 					"$(SRCROOT)/../lib/**",
-					"$(SRCROOT)",
 					"$(inherited)",
 				);
 				PRODUCT_NAME = Queries;
@@ -887,14 +883,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../lib/**";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../lib/**",
-					"$(SRCROOT)/../lib/freetds-0.9.1",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
+				LIBRARY_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-Wl";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 			};
 			name = Debug;
 		};
@@ -909,14 +901,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../lib/**";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../lib/**",
-					"$(SRCROOT)/../lib/freetds-0.9.1",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
+				LIBRARY_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-Wl";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 			};
 			name = Release;
 		};

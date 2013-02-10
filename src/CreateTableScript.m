@@ -188,6 +188,11 @@
 }
 
 - (void) setResult: (QueryResult*) r{
+  if (![r hasResults]) {
+    NSLog(@"creating db script for table %@ failed", tableName);
+    return;
+  }
+  
 	result = [r retain];
 	[self createTable];  
 	[self columns];					                                                           

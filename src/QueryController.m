@@ -114,12 +114,12 @@
     [queryTextScrollView setHasHorizontalRuler:NO];
     [queryTextScrollView setHasVerticalRuler:YES];
     [queryTextScrollView setRulersVisible:YES];  
-	[queryTextScrollView setPostsBoundsChangedNotifications:YES];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(boundsDidChangeNotification:) name:NSViewBoundsDidChangeNotification object:[queryTextScrollView contentView]];
+    [queryTextScrollView setPostsBoundsChangedNotifications:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(boundsDidChangeNotification:) name:NSViewBoundsDidChangeNotification object:[queryTextScrollView contentView]];
   	
-	syntaxColoringController = [[UKSyntaxColoredTextViewController alloc] init];
-	[syntaxColoringController setDelegate: self];
-	[syntaxColoringController setView: queryText];
+    syntaxColoringController = [[UKSyntaxColoredTextViewController alloc] init];
+    [syntaxColoringController setDelegate: self];
+    [syntaxColoringController setView: queryText];
 	
 	[self setIsEdited: NO];  
   

@@ -23,13 +23,13 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "TdsConnection.m"
-         timestampString = "349089222.829873"
+         timestampString = "382211469.274453"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "139"
-         endingLineNumber = "139"
-         landmarkName = "-applyConnectionDefaults"
-         landmarkType = "5">
+         startingLineNumber = "140"
+         endingLineNumber = "140"
+         landmarkName = "@implementation TdsConnection"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -79,11 +79,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "ConnectionController.m"
-         timestampString = "349448674.349484"
+         timestampString = "382206847.798193"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "690"
-         endingLineNumber = "690"
+         startingLineNumber = "693"
+         endingLineNumber = "693"
          landmarkName = "-setDatabasesResult:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -97,7 +97,9 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "212"
-         endingLineNumber = "212">
+         endingLineNumber = "212"
+         landmarkName = "-lineNumberForLocation:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -109,7 +111,9 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "212"
-         endingLineNumber = "212">
+         endingLineNumber = "212"
+         landmarkName = "-lineNumberForLocation:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -122,7 +126,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "159"
          endingLineNumber = "159"
-         landmarkName = "-user"
+         landmarkName = "+controller"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -150,7 +154,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "66"
          endingLineNumber = "66"
-         landmarkName = "-getConnection:"
+         landmarkName = "-connectionToServer:withUser:andPassword:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -159,11 +163,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "ConnectionController.m"
-         timestampString = "349448674.349484"
+         timestampString = "382206847.798193"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "676"
-         endingLineNumber = "676"
+         startingLineNumber = "679"
+         endingLineNumber = "679"
          landmarkName = "-filterDatabaseObjects"
          landmarkType = "5">
       </FileBreakpoint>
@@ -177,7 +181,9 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "73"
-         endingLineNumber = "73">
+         endingLineNumber = "73"
+         landmarkName = "-initWithNibName:bundle:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -189,7 +195,9 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "103"
-         endingLineNumber = "103">
+         endingLineNumber = "103"
+         landmarkName = "-setUpSyntaxColoring"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -215,7 +223,9 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "188"
-         endingLineNumber = "188">
+         endingLineNumber = "188"
+         landmarkName = "-lineNumberForLocation:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -227,7 +237,9 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "53"
-         endingLineNumber = "53">
+         endingLineNumber = "53"
+         landmarkName = "-initWithScrollView:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -239,7 +251,9 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "181"
-         endingLineNumber = "181">
+         endingLineNumber = "181"
+         landmarkName = "-textDidChange:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -251,7 +265,9 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "306"
-         endingLineNumber = "306">
+         endingLineNumber = "306"
+         landmarkName = "-lineNumberForCharacterIndex:inText:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -263,7 +279,9 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "416"
-         endingLineNumber = "416">
+         endingLineNumber = "416"
+         landmarkName = "-drawHashMarksAndLabelsInRect:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -271,13 +289,27 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "TdsConnection.m"
-         timestampString = "349089222.834482"
+         timestampString = "382211092.205157"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "210"
+         endingLineNumber = "210"
+         landmarkName = "@implementation TdsConnection"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "TdsConnection.m"
+         timestampString = "382211092.205157"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "209"
          endingLineNumber = "209"
-         landmarkName = "-readResultData:withColumnNames:"
-         landmarkType = "5">
+         landmarkName = "@implementation TdsConnection"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -285,13 +317,13 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "TdsConnection.m"
-         timestampString = "349089222.8347121"
+         timestampString = "382211092.205157"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "208"
-         endingLineNumber = "208"
-         landmarkName = "-readResultData:withColumnNames:"
-         landmarkType = "5">
+         startingLineNumber = "215"
+         endingLineNumber = "215"
+         landmarkName = "@implementation TdsConnection"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -299,13 +331,13 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "TdsConnection.m"
-         timestampString = "349270004.981265"
+         timestampString = "382211092.205157"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "214"
-         endingLineNumber = "214"
-         landmarkName = "-readResultData:withColumnNames:"
-         landmarkType = "5">
+         startingLineNumber = "226"
+         endingLineNumber = "226"
+         landmarkName = "@implementation TdsConnection"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -313,55 +345,41 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "TdsConnection.m"
-         timestampString = "349270004.981265"
+         timestampString = "382211092.205157"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "218"
+         endingLineNumber = "218"
+         landmarkName = "@implementation TdsConnection"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "TdsConnection.m"
+         timestampString = "382211092.205157"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "222"
+         endingLineNumber = "222"
+         landmarkName = "@implementation TdsConnection"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "TdsConnection.m"
+         timestampString = "382211092.205157"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "225"
          endingLineNumber = "225"
-         landmarkName = "-readResultData:withColumnNames:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "TdsConnection.m"
-         timestampString = "349270004.981265"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "217"
-         endingLineNumber = "217"
-         landmarkName = "-readResultData:withColumnNames:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "TdsConnection.m"
-         timestampString = "349270004.981265"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "221"
-         endingLineNumber = "221"
-         landmarkName = "-readResultData:withColumnNames:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "TdsConnection.m"
-         timestampString = "349270004.981265"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "224"
-         endingLineNumber = "224"
-         landmarkName = "-readResultData:withColumnNames:"
-         landmarkType = "5">
+         landmarkName = "@implementation TdsConnection"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -445,6 +463,110 @@
          startingLineNumber = "557"
          endingLineNumber = "557"
          landmarkName = "-saveQuery:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ConnectionController.m"
+         timestampString = "382205118.410431"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "525"
+         endingLineNumber = "525"
+         landmarkName = "-setDatabasesQueryResult:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ConnectionController.m"
+         timestampString = "382204510.897806"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "327"
+         endingLineNumber = "327"
+         landmarkName = "-reloadDbObjects:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ConnectionController.m"
+         timestampString = "382205038.824616"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "549"
+         endingLineNumber = "549"
+         landmarkName = "-readDatabaseObjects"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ConnectionController.m"
+         timestampString = "382205100.787945"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "545"
+         endingLineNumber = "545"
+         landmarkName = "-setDatabasesQueryResult:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ConnectionController.m"
+         timestampString = "382206415.948024"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "609"
+         endingLineNumber = "609"
+         landmarkName = "-setObjectsResult:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CreateProcedureScript.m"
+         timestampString = "382207741.773377"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "34"
+         endingLineNumber = "34"
+         landmarkName = "-setResult:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CreateProcedureScript.m"
+         timestampString = "382207741.773377"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "37"
+         endingLineNumber = "37"
+         landmarkName = "-setResult:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CreateProcedureScript.m"
+         timestampString = "382207741.773377"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "33"
+         endingLineNumber = "33"
+         landmarkName = "-setResult:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

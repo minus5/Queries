@@ -14,9 +14,8 @@ end
 
 task :build_release => [:info_plist] do
   Dir.chdir ROOT
-  #`xcodebuild -project Queries.xcodeproj -target Queries -configuration Release clean`
-  #output = `xcodebuild -project Queries.xcodeproj -target Queries -configuration Release build`
   output = `xcodebuild -project Queries.xcodeproj -target Queries -configuration Release build`
+  #output = `xcodebuild -project Queries.xcodeproj -target Queries -sdk macosx10.6 -configuration Release build`
   if output =~ /\*\* BUILD SUCCEEDED \*\*/
     print "build succedded\n"
   else

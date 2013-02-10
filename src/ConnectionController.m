@@ -319,7 +319,7 @@
 	//[self databaseChanged: nil];	
 	//[self databaseChangedTo: [credentials database]];
 
-	[self dbObjectsFillSidebar];	
+  [self readDatabases];
 }              
 
 - (TdsConnection*) tdsConnection{
@@ -329,7 +329,7 @@
 -(IBAction) reloadDbObjects: (id) sender{
   [dbObjectsByDatabaseCache release];
   dbObjectsByDatabaseCache = nil;
-	[self dbObjectsFillSidebar];
+  [self readDatabaseObjectsFromDb];
 }                                        
 
 #pragma mark ---- execute ----
@@ -515,11 +515,7 @@
 }    
 
 
-#pragma mark ---- database objects sidebar ----
-
--(void) dbObjectsFillSidebar{         
-	[self readDatabases];			
-}                         
+#pragma mark ---- database objects sidebar ----                       
 
 - (void) readDatabases{
 	[[self tdsConnection] executeInBackground: @"select name from master.sys.databases where state_desc = 'ONLINE' and (owner_sid != 01 or name = 'master') and isnull(has_dbaccess([Name]), 0) = 1 order by name"
@@ -558,10 +554,10 @@
 		NSArray *row = [dbObjectsResultsAll objectAtIndex: 0];
     NSString *dbInOutline = [row objectAtIndex:0];
     if ([dbInOutline isEqualToString: currentDatabase]){
+      //if database is not changed do nothing
       return;  
     }
   }
-
 
   if (dbObjectsByDatabaseCache != nil){
       if ([dbObjectsByDatabaseCache objectForKey:currentDatabase] != nil){
@@ -574,17 +570,21 @@
       }
 	}	
 
-  //read database objects from database
-	@try{		
+	[self readDatabaseObjectsFromDb];
+}
+
+- (void) readDatabaseObjectsFromDb{
+	@try{
 		[[self tdsConnection] executeInBackground: [self databaseObjectsQuery]
-																 withDatabase: @"master" 
+																 withDatabase: @"master"
 															 returnToObject: self
-																 withSelector: @selector(setObjectsResult:)];		
+																 withSelector: @selector(setObjectsResult:)];
 	}
 	@catch (NSException * e) {
-		[self showException: e];		
-	}			
-}                                                                 
+		[self showException: e];
+	}
+}
+
                                                
 - (NSString*) databaseObjectsQuery{
 	NSMutableString *query = [NSMutableString stringWithString:[ConnectionsManager sqlFileContent: @"objects_start"]];
@@ -607,7 +607,10 @@
 	return query;
 }
 
-- (void) setObjectsResult: (QueryResult*) queryResult{ 
+- (void) setObjectsResult: (QueryResult*) queryResult{
+  if (![queryResult hasResults]) {
+    return;
+  }
 	[self clearObjectsCache];		
 	[outlineView reloadData];
 	

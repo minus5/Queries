@@ -29,6 +29,10 @@
 }
 
 - (void) setResult: (QueryResult*) result{
+  if (![result hasResults]) {
+    NSLog(@"creating db script for object %@ failed", object);
+    return;
+  }
 	
 	NSString *script = [result resultAsString];                                                                             				
 	NSString *createRegexString = [NSString stringWithFormat: @"(?im)(^\\s*CREATE\\s+%@\\s+)", type]; 

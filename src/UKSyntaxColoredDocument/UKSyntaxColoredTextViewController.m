@@ -685,8 +685,9 @@ static BOOL			sSyntaxColoredTextDocPrefsInited = NO;
 	[[self undoManager] registerUndoWithTarget: self selector: @selector(restoreText:) object: prevText];
 	
 	// Unselect any trailing returns so we don't comment the next line after a full-line selection.
-	while( selRange.length > 0 && ([str characterAtIndex: selRange.location +selRange.length -1] == '\n' ||
-				[str characterAtIndex: selRange.location +selRange.length -1] == '\r'))
+	while( [str characterAtIndex: selRange.location +selRange.length -1] == '\n' ||
+				([str characterAtIndex: selRange.location +selRange.length -1] == '\r'
+				&& selRange.length > 0) )
 	{
 		selRange.length--;
 	}
@@ -1119,8 +1120,8 @@ static BOOL			sSyntaxColoredTextDocPrefsInited = NO;
 
 			// Look for associated end-of-comment marker:
 			[vScanner scanUpToString: endCh intoString: nil];
-//			if( ![vScanner scanString: endCh intoString: nil] )
-//				/*return*/;  // Don't exit. If user forgot trailing marker, indicate this by "bleeding" until end of string.
+			//if( ![vScanner scanString: endCh intoString: nil] )
+				/*return*/;  // Don't exit. If user forgot trailing marker, indicate this by "bleeding" until end of string.
 			vEndOffs = [vScanner scanLocation];
 			
 			// Now mess with the string's styles:
@@ -1169,8 +1170,8 @@ static BOOL			sSyntaxColoredTextDocPrefsInited = NO;
 				return;
 
 			// Look for associated line break:
-//			if( ![vScanner skipUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString: @"\n\r"]] )
-//				;
+			//if( ![vScanner skipUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString: @"\n\r"]] )
+			//	;
 			
 			vEndOffs = [vScanner scanLocation];
 			
