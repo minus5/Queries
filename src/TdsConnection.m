@@ -95,13 +95,6 @@ int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dbe
   return INT_CANCEL;
 }
 
-struct COL
-{
-  char *name;
-  char *buffer;
-  int type, size, status;
-};
-
 -(void) login{
   LOGINREC *login;
 

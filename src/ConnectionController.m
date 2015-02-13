@@ -548,29 +548,29 @@
 	[self readDatabaseObjects];
 }
 
-- (void) readDatabaseObjects{ 
-  NSString *currentDatabase = [databasesPopUp titleOfSelectedItem];	
-  if (dbObjectsResultsAll){
-		NSArray *row = [dbObjectsResultsAll objectAtIndex: 0];
-    NSString *dbInOutline = [row objectAtIndex:0];
-    if ([dbInOutline isEqualToString: currentDatabase]){
-      //if database is not changed do nothing
-      return;  
+- (void) readDatabaseObjects{
+    NSString *currentDatabase = [databasesPopUp titleOfSelectedItem];
+    if (dbObjectsResultsAll && [dbObjectsResultsAll count]){
+        NSArray *row = [dbObjectsResultsAll objectAtIndex: 0];
+        NSString *dbInOutline = [row objectAtIndex:0];
+        if ([dbInOutline isEqualToString: currentDatabase]){
+            //if database is not changed do nothing
+            return;
+        }
     }
-  }
-
-  if (dbObjectsByDatabaseCache != nil){
-      if ([dbObjectsByDatabaseCache objectForKey:currentDatabase] != nil){
-        //read database objects from cache
-        [dbObjectsResultsAll release];
-        dbObjectsResultsAll = [dbObjectsByDatabaseCache objectForKey:currentDatabase]; 
-        [dbObjectsResultsAll retain];
-        [self filterDatabaseObjects];
-        return;
-      }
-	}	
-
-	[self readDatabaseObjectsFromDb];
+    
+    if (dbObjectsByDatabaseCache != nil){
+        if ([dbObjectsByDatabaseCache objectForKey:currentDatabase] != nil){
+            //read database objects from cache
+            [dbObjectsResultsAll release];
+            dbObjectsResultsAll = [dbObjectsByDatabaseCache objectForKey:currentDatabase];
+            [dbObjectsResultsAll retain];
+            [self filterDatabaseObjects];
+            return;
+        }
+    }	
+    
+    [self readDatabaseObjectsFromDb];
 }
 
 - (void) readDatabaseObjectsFromDb{
@@ -608,25 +608,25 @@
 }
 
 - (void) setObjectsResult: (QueryResult*) queryResult{
-  if (![queryResult hasResults]) {
-    return;
-  }
-	[self clearObjectsCache];		
-	[outlineView reloadData];
-	
-	[dbObjectsResultsAll release];
-	dbObjectsResultsAll =  [queryResult rows];
-	[dbObjectsResultsAll retain];
-  
-  //store objects in cache
-  NSString *currentDatabase = [[dbObjectsResultsAll objectAtIndex:0] objectAtIndex:0];
-  if (dbObjectsByDatabaseCache == nil){
-    dbObjectsByDatabaseCache = [NSMutableDictionary dictionary];	
-    [dbObjectsByDatabaseCache retain];
-  }
-  [dbObjectsByDatabaseCache setObject:dbObjectsResultsAll forKey:currentDatabase];	
+    if (![queryResult hasResults]) {
+        return;
+    }
+    [self clearObjectsCache];
+    [outlineView reloadData];
+    
+    [dbObjectsResultsAll release];
+    dbObjectsResultsAll =  [queryResult rows];
+    [dbObjectsResultsAll retain];
 
-	[self filterDatabaseObjects];
+    //store objects in cache
+    NSString *currentDatabase = [queryResult database];
+    if (dbObjectsByDatabaseCache == nil){
+        dbObjectsByDatabaseCache = [NSMutableDictionary dictionary];
+        [dbObjectsByDatabaseCache retain];
+    }
+    [dbObjectsByDatabaseCache setObject:dbObjectsResultsAll forKey:currentDatabase];
+    
+    [self filterDatabaseObjects];
 }
 		    
 - (void) filterDatabaseObjects{		
