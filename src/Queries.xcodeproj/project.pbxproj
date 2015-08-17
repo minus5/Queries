@@ -80,9 +80,11 @@
 		18D367D110E8DEEC00F1AAE4 /* objects_in_database2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18D367CE10E8DEEC00F1AAE4 /* objects_in_database2.sql */; };
 		18DD252310A3813B00108BE8 /* database_objects.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18DD252210A3813B00108BE8 /* database_objects.sql */; };
 		18F1AFFC12E5B1F900008C8D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F1AFFB12E5B1F900008C8D /* Security.framework */; };
-		18FBFED614D458AE00B3AC8B /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FBFED514D458AE00B3AC8B /* libiconv.2.dylib */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* QueriesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* QueriesAppDelegate.m */; };
+		2F483AB51B1DC21300A914B4 /* Scintilla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F483AB01B1DBFEB00A914B4 /* Scintilla.framework */; };
+		2F483AB61B1DC21300A914B4 /* Scintilla.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2F483AB01B1DBFEB00A914B4 /* Scintilla.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2F7596BE19FE9E8C00AC1824 /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7596BD19FE9E8C00AC1824 /* libiconv.2.dylib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -97,6 +99,7 @@
 			files = (
 				18B04A2210B192A90051D28E /* Sparkle.framework in CopyFiles */,
 				1877C67310A6122E00BFA7AF /* PSMTabBarControl.framework in CopyFiles */,
+				2F483AB61B1DC21300A914B4 /* Scintilla.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +133,7 @@
 		1870C953109857FC006AC809 /* ConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionController.h; sourceTree = "<group>"; };
 		1870C954109857FC006AC809 /* ConnectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionController.m; sourceTree = "<group>"; };
 		1870C9E410985B2D006AC809 /* QueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryController.h; sourceTree = "<group>"; };
-		1870C9E510985B2D006AC809 /* QueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryController.m; sourceTree = "<group>"; };
+		1870C9E510985B2D006AC809 /* QueryController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = QueryController.m; sourceTree = "<group>"; };
 		1870CA0010985E00006AC809 /* CredentialsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CredentialsView.xib; sourceTree = "<group>"; };
 		1870CA0210985E19006AC809 /* CredentialsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsController.m; sourceTree = "<group>"; };
 		1870CA0310985E19006AC809 /* CredentialsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialsController.h; sourceTree = "<group>"; };
@@ -177,6 +180,9 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		2F483AB01B1DBFEB00A914B4 /* Scintilla.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Scintilla.framework; path = ../lib/Scintilla.framework; sourceTree = "<group>"; };
+		2F7596BD19FE9E8C00AC1824 /* libiconv.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.dylib; path = ../../../../../../opt/local/lib/libiconv.2.dylib; sourceTree = "<group>"; };
+		2F7596BF19FE9F3500AC1824 /* libsybdb.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsybdb.5.dylib; path = ../lib/freetds/lib/libsybdb.5.dylib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Queries-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Queries-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Queries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Queries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -204,8 +210,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18FBFED614D458AE00B3AC8B /* libiconv.2.dylib in Frameworks */,
+				2F7596BE19FE9E8C00AC1824 /* libiconv.2.dylib in Frameworks */,
 				1877C67210A6122900BFA7AF /* PSMTabBarControl.framework in Frameworks */,
+				2F483AB51B1DC21300A914B4 /* Scintilla.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				18B04A1910B192630051D28E /* Sparkle.framework in Frameworks */,
 				18A44AD010CAF2C300584106 /* libicucore.dylib in Frameworks */,
@@ -248,6 +255,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2F483AB01B1DBFEB00A914B4 /* Scintilla.framework */,
 				1836B93710A20ED1007B0D87 /* SenTestingKit.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
@@ -448,6 +456,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2F7596BF19FE9F3500AC1824 /* libsybdb.5.dylib */,
+				2F7596BD19FE9E8C00AC1824 /* libiconv.2.dylib */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -473,7 +483,7 @@
 			name = Tests;
 			productName = Tests;
 			productReference = 1836B92B10A20E83007B0D87 /* Tests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 		187D3C9C10A572EA00415FDC /* ShellTest */ = {
 			isa = PBXNativeTarget;
@@ -517,7 +527,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0640;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Queries" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -834,20 +844,33 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/nevens/OsXProjects/Queries/trunk/lib,
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Queries_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					SCI_NAMESPACE,
+					SCI_LEXER,
+				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Queries-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/../lib/**",
 					"$(inherited)",
+					/opt/local/lib,
+					/Users/nevens/OsXProjects/Queries/trunk/lib/freetds/lib,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = Queries;
+				SDKROOT = macosx10.9;
 			};
 			name = Debug;
 		};
@@ -856,18 +879,31 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/nevens/OsXProjects/Queries/trunk/lib,
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Queries_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					SCI_NAMESPACE,
+					SCI_LEXER,
+				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Queries-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/../lib/**",
 					"$(inherited)",
+					/opt/local/lib,
+					/Users/nevens/OsXProjects/Queries/trunk/lib/freetds/lib,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = Queries;
+				SDKROOT = macosx10.9;
 			};
 			name = Release;
 		};

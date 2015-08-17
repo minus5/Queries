@@ -12,13 +12,12 @@
 
 #import "UKSyntaxColoredTextViewController.h"
 
-@class NoodleLineNumberView;
 @class ConnectionController;
 @class QueryResult;
                    
 #define COMPLETION_DELAY (0.5)
 
-@interface QueryController : NSViewController <NSSplitViewDelegate, UKSyntaxColoredTextViewDelegate> {
+@interface QueryControllers : NSViewController <NSSplitViewDelegate, UKSyntaxColoredTextViewDelegate> {
 
 	IBOutlet NSTabView *resultsTabView;
 	IBOutlet NSView *resultsContentView;
@@ -31,8 +30,7 @@
 	IBOutlet NSSplitView *splitView;
 	IBOutlet NSTextView	*textResultsTextView;
 	                                         
-	NoodleLineNumberView *queryTextLineNumberView;
-	NSSplitView *tablesSplitView;	
+	NSSplitView *tablesSplitView;
 	NSScrollView *tablesScrollView;    
 	NSTableView *firstTableView;	
 	ConnectionController *connection;
@@ -59,9 +57,6 @@
 //	NSString*									syntaxColoringReplacementString;	
 //	NSUndoManager							*syntaxColoringUndoManger;
 	NSDictionary							*syntaxColoringDictionary;	
-	
-	//novi syntax higlighter
-	UKSyntaxColoredTextViewController*	syntaxColoringController;	// This guy actually does the work of coloring the field.
 	
 }
 
@@ -108,7 +103,6 @@
 - (IBAction) maximizeResults: sender;
 - (IBAction) maximizeQueryText: sender;
 - (IBAction) maximizeQueryResults: sender;
-- (IBAction) nextResultsTab: (id) sender;
 - (void) ensureResultsAreVisible;
 - (void) ensureQueryTextIsVisible;
 

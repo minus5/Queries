@@ -1,9 +1,192 @@
-#import "QueryController.h"
+#import "Scintilla/ScintillaView.h"
+#import "Scintilla/InfoBar.h"
+
+#import <Cocoa/Cocoa.h>
+
+//#import <BWToolkitFramework/BWToolkitFramework.h>
+#import "NoodleLineNumberView.h"
+//#import "NoodleLineNumberMarker.h"
+//#import "MarkerLineNumberView.h"
+
+#import "TdsConnection.h"
+#import "ConnectionController.h"
+#import "QueryResult.h"
+#import "TableResultDataSource.h"
+
+#import "UKSyntaxColoredTextViewController.h"
+#import "Scintilla/ScintillaView.h"
+
+@class NoodleLineNumberView;
+@class ConnectionController;
+@class QueryResult;
+
+#define COMPLETION_DELAY (0.5)
+
+const char major_keywords[] =
+"accessible add all alter analyze and as asc asensitive "
+"before between bigint binary blob both by "
+"call cascade case change char character check collate column condition connection constraint "
+"continue convert create cross current_date current_time current_timestamp current_user cursor "
+"database databases day_hour day_microsecond day_minute day_second dec decimal declare default "
+"delayed delete desc describe deterministic distinct distinctrow div double drop dual "
+"each else elseif enclosed escaped exists exit explain "
+"false fetch float float4 float8 for force foreign from fulltext "
+"goto grant group "
+"having high_priority hour_microsecond hour_minute hour_second "
+"if ignore in index infile inner inout insensitive insert int int1 int2 int3 int4 int8 integer "
+"interval into is iterate "
+"join "
+"key keys kill "
+"label leading leave left like limit linear lines load localtime localtimestamp lock long "
+"longblob longtext loop low_priority "
+"master_ssl_verify_server_cert match mediumblob mediumint mediumtext middleint minute_microsecond "
+"minute_second mod modifies "
+"natural not no_write_to_binlog null numeric "
+"on optimize option optionally or order out outer outfile "
+"precision primary procedure purge "
+"range read reads read_only read_write real references regexp release rename repeat replace "
+"require restrict return revoke right rlike "
+"schema schemas second_microsecond select sensitive separator set show smallint spatial specific "
+"sql sqlexception sqlstate sqlwarning sql_big_result sql_calc_found_rows sql_small_result ssl "
+"starting straight_join "
+"table terminated then tinyblob tinyint tinytext to trailing trigger true "
+"undo union unique unlock unsigned update upgrade usage use using utc_date utc_time utc_timestamp "
+"values varbinary varchar varcharacter varying "
+"when where while with write "
+"xor "
+"year_month "
+"zerofill";
+
+const char procedure_keywords[] = // Not reserved words but intrinsic part of procedure definitions.
+"begin comment end";
+
+const char client_keywords[] = // Definition of keywords only used by clients, not the server itself.
+"delimiter";
+
+const char user_keywords[] = // Definition of own keywords, not used by MySQL.
+"edit";
+
+@interface QueryController : NSViewController <NSSplitViewDelegate, UKSyntaxColoredTextViewDelegate, ScintillaNotificationProtocol> {
+    
+    IBOutlet NSTabView *resultsTabView;
+    IBOutlet NSView *resultsContentView;
+    IBOutlet NSView *queryTextContentView;
+    IBOutlet NSSegmentedControl *resultsMessagesSegmentedControll;
+    IBOutlet NSTextView	*queryText;
+    IBOutlet NSTextView	*messagesTextView;
+    IBOutlet NSView *tableResultsContentView;
+    IBOutlet NSSplitView *splitView;
+    IBOutlet NSTextView	*textResultsTextView;
+    
+    NSSplitView *tablesSplitView;
+    NSScrollView *tablesScrollView;
+    NSTableView *firstTableView;
+    ConnectionController *connection;
+    QueryResult *queryResult;
+    int spliterPosition;
+    
+    BOOL isEdited;
+    BOOL isProcessing;
+    NSString *status;
+    NSString *fileName;
+    NSString *name;
+    NSString *database;
+    int lastResultsTabIndex;
+    TdsConnection *executingConnection;
+    NSMutableArray *dataSources;
+    
+    ////syntax highlighting internals
+    //	IBOutlet NSTextField*			syntaxColoringStatus;									// Status display for things like syntax coloring or background syntax checks.
+    //	NSTextView*								syntaxColoringTextView;
+    //	BOOL											syntaxColoringAuto;										// Automatically refresh syntax coloring when text is changed?
+    //	BOOL											syntaxColoringMaintainIndentation;	  // Keep new lines indented at same depth as their predecessor?
+    //	BOOL											syntaxColoringBusy;										// Set while recolorRange is busy, so we don't recursively call recolorRange.
+    //	NSRange										syntaxColoringAffectedCharRange;
+    //	NSString*									syntaxColoringReplacementString;
+    //	NSUndoManager							*syntaxColoringUndoManger;
+    NSDictionary							*syntaxColoringDictionary;
+    
+}
+
+@property BOOL isEdited;
+@property BOOL isProcessing;
+@property (copy) NSString *fileName;
+@property (copy) NSString *name;
+@property (copy) NSString *database;
+@property (copy) NSString *status;
+
+- (id) initWithConnection: (ConnectionController*) c;
+- (IBAction) resultsMessagesSegmentControlClicked:(id)sender;
+- (void) showResults;
+- (void) showTextResults;
+- (void) showMessages;
+
+- (NSString*) queryString;
+- (NSString*) queryParagraphString;
+- (void) setResult: (QueryResult*) r;
+
+- (void) reloadResults;
+- (void) reloadMessages;
+
+- (void) splitViewDidResize: (NSNotification *)aNotification;
+- (void) createTables;
+- (NSTableView*) createTable;
+- (void) createTablesPlaceholder;
+
+- (BOOL) saveQuery:(bool)saveAs;
+- (BOOL) openFile:(NSString*) fn;
+- (IBAction) saveDocument: (id) sender;
+- (IBAction) saveDocumentAs: (id) sender;
+
+- (void) setString: (NSString*) s;
+
+- (void) goToQueryText;
+- (void) goToResults;
+- (void) goToTextResults;
+- (void) goToMessages;
+
+
+- (IBAction) splitResultsAndQueryTextEqualy: sender;
+- (IBAction) maximizeResults: sender;
+- (IBAction) maximizeQueryText: sender;
+- (IBAction) maximizeQueryResults: sender;
+- (IBAction) nextResultsTab: (id) sender;
+- (void) ensureResultsAreVisible;
+- (void) ensureQueryTextIsVisible;
+
+- (void) processingStarted;
+- (IBAction) cancelExecutingQuery: (id) sender;
+- (void) setExecutingConnection: (TdsConnection*) tdsConnection;
+
+- (void) resizeTablesSplitView: (BOOL) andSubviews;
+- (void) displayTextResults;
+
+- (void) showErrorMessage: (NSString*) message;
+
+
+//novi syntax highlighter
+-(IBAction)	toggleAutoSyntaxColoring: (id)sender;
+-(IBAction)	toggleMaintainIndentation: (id)sender;
+-(IBAction) showGoToPanel: (id)sender;
+-(IBAction) indentSelection: (id)sender;
+-(IBAction) unIndentSelection: (id)sender;
+-(IBAction)	toggleCommentForSelection: (id)sender;
+-(IBAction)	recolorCompleteFile: (id)sender;
+
+-(NSStringEncoding)	stringEncoding;
+
+-(NSDictionary*)	syntaxDefinitionDictionaryForTextViewController: (id)sender;
+- (NSArray *)textView:(NSTextView *)textView completions:(NSArray *) words forPartialWordRange:(NSRange)charRange indexOfSelectedItem:(int *)index;
+- (void) textDidChange: (NSNotification *) aNotification;
+
+@end
 
 @implementation QueryController
 
 @synthesize isEdited, isProcessing, fileName, database, name, status;
-                           
+
+ScintillaView* mEditor;
+
 #pragma mark ---- properties ----
 
 - (void) processingStarted{
@@ -24,14 +207,13 @@
 	}
 }
 
-- (NSString*) queryString{          
-	NSRange selection = [queryText selectedRange]; 
-	NSString *query = [NSString stringWithString: [queryText string]];                
-	if(selection.length > 0){
-		return [query substringWithRange: selection];
-	}else{
-		return query;
-	}
+- (NSString*) queryString{
+    sptr_t nLen = [mEditor message:SCI_GETTEXTLENGTH];
+    char *query =  (char *) malloc(sizeof(char) * (nLen + 1));
+    [mEditor message:SCI_GETTEXT wParam:(uptr_t) (nLen + 1) lParam:(sptr_t) query];
+
+    NSString *str = [NSString stringWithFormat:@"%s", query];
+    return str;
 }
 
 
@@ -81,11 +263,7 @@
 	[queryResult release];                       
 	[dataSources release];
 	
-	[syntaxColoringController setDelegate: nil];
-	[syntaxColoringController release];
-	syntaxColoringController = nil;
-	
-	[super dealloc];	
+	[super dealloc];
 }
 
 - (NSString*) nibName{
@@ -99,30 +277,22 @@
 	[tv setMaxSize:NSMakeSize(FLT_MAX, FLT_MAX)];                                             
 }
 
-/**
- * Scrollview delegate after the command textView's view port was changed.
- * Manily used to render line numbering.
- */
-- (void)boundsDidChangeNotification:(NSNotification *)notification
-{
-	[queryTextScrollView display];
-}
-
 - (void) awakeFromNib{
-    queryTextLineNumberView = [[NoodleLineNumberView alloc] initWithScrollView:queryTextScrollView];
-    [queryTextScrollView setVerticalRulerView:queryTextLineNumberView];
-    [queryTextScrollView setHasHorizontalRuler:NO];
-    [queryTextScrollView setHasVerticalRuler:YES];
-    [queryTextScrollView setRulersVisible:YES];  
-    [queryTextScrollView setPostsBoundsChangedNotifications:YES];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(boundsDidChangeNotification:) name:NSViewBoundsDidChangeNotification object:[queryTextScrollView contentView]];
-  	
-    syntaxColoringController = [[UKSyntaxColoredTextViewController alloc] init];
-    [syntaxColoringController setDelegate: self];
-    [syntaxColoringController setView: queryText];
-	
-	[self setIsEdited: NO];  
-  
+//    [queryText setHidden:YES];
+    // Manually set up the scintilla editor. Create an instance and dock it to our edit host.
+    // Leave some free space around the new view to avoid overlapping with the box borders.
+    NSRect newFrame = queryTextContentView.frame;
+//    newFrame.size.width -= 2 * newFrame.origin.x;
+//    newFrame.size.height -= 3 * newFrame.origin.y;
+    mEditor = [[[ScintillaView alloc] initWithFrame: newFrame] autorelease];
+    
+    [queryTextContentView addSubview: mEditor];
+    [mEditor setAutoresizesSubviews: YES];
+    [mEditor setAutoresizingMask: NSViewWidthSizable | NSViewHeightSizable];
+	[self setupEditor];
+    
+	[self setIsEdited: NO];
+   
     //proportional font to all text views
 	[queryText setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];                                     
  	[messagesTextView setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
@@ -146,6 +316,149 @@
 																						 object: splitView];
 	
 }      
+
+/**
+ * Initialize scintilla editor (styles, colors, markers, folding etc.].
+ */
+- (void) setupEditor
+{
+    // Lexer type is SQL.
+    [mEditor setGeneralProperty: SCI_SETLEXER parameter:SCLEX_SQL value:0];
+    
+    // Number of styles we use with this lexer.
+    [mEditor setGeneralProperty: SCI_SETSTYLEBITS value: [mEditor getGeneralProperty: SCI_GETSTYLEBITSNEEDED]];
+
+    // Keywords to highlight. Indices are:
+    // 0 - Major keywords (reserved keywords)
+    // 1 - Normal keywords (everything not reserved but integral part of the language)
+    // 2 - Database objects
+    // 3 - Function keywords
+    // 4 - System variable keywords
+    // 5 - Procedure keywords (keywords used in procedures like "begin" and "end")
+    // 6..8 - User keywords 1..3
+    [mEditor setReferenceProperty: SCI_SETKEYWORDS parameter: 0 value: major_keywords];
+    [mEditor setReferenceProperty: SCI_SETKEYWORDS parameter: 5 value: procedure_keywords];
+    [mEditor setReferenceProperty: SCI_SETKEYWORDS parameter: 6 value: client_keywords];
+    [mEditor setReferenceProperty: SCI_SETKEYWORDS parameter: 7 value: user_keywords];
+    
+    // Colors and styles for various syntactic elements. First the default style.
+    [mEditor setStringProperty: SCI_STYLESETFONT parameter: STYLE_DEFAULT value: @"Helvetica"];
+    // [mEditor setStringProperty: SCI_STYLESETFONT parameter: STYLE_DEFAULT value: @"Monospac821 BT"]; // Very pleasing programmer's font.
+    [mEditor setGeneralProperty: SCI_STYLESETSIZE parameter: STYLE_DEFAULT value: 14];
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: STYLE_DEFAULT value: [NSColor blackColor]];
+    
+    [mEditor setGeneralProperty: SCI_STYLECLEARALL parameter: 0 value: 0];
+    
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_DEFAULT value: [NSColor blackColor]];
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_COMMENT fromHTML: @"#097BF7"];
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_COMMENTLINE fromHTML: @"#097BF7"];
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_HIDDENCOMMAND fromHTML: @"#097BF7"];
+    [mEditor setColorProperty: SCI_STYLESETBACK parameter: SCE_MYSQL_HIDDENCOMMAND fromHTML: @"#F0F0F0"];
+    
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_VARIABLE fromHTML: @"378EA5"];
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_SYSTEMVARIABLE fromHTML: @"378EA5"];
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_KNOWNSYSTEMVARIABLE fromHTML: @"#3A37A5"];
+    
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_NUMBER fromHTML: @"#7F7F00"];
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_SQSTRING fromHTML: @"#FFAA3E"];
+    
+    // Note: if we were using ANSI quotes we would set the DQSTRING to the same color as the
+    //       the back tick string.
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_DQSTRING fromHTML: @"#274A6D"];
+    
+    // Keyword highlighting.
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_MAJORKEYWORD fromHTML: @"#007F00"];
+    [mEditor setGeneralProperty: SCI_STYLESETBOLD parameter: SCE_MYSQL_MAJORKEYWORD value: 1];
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_KEYWORD fromHTML: @"#007F00"];
+    [mEditor setGeneralProperty: SCI_STYLESETBOLD parameter: SCE_MYSQL_KEYWORD value: 1];
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_PROCEDUREKEYWORD fromHTML: @"#56007F"];
+    [mEditor setGeneralProperty: SCI_STYLESETBOLD parameter: SCE_MYSQL_PROCEDUREKEYWORD value: 1];
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_USER1 fromHTML: @"#808080"];
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_USER2 fromHTML: @"#808080"];
+    [mEditor setColorProperty: SCI_STYLESETBACK parameter: SCE_MYSQL_USER2 fromHTML: @"#F0E0E0"];
+    
+    // The following 3 styles have no impact as we did not set a keyword list for any of them.
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_DATABASEOBJECT value: [NSColor redColor]];
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_FUNCTION value: [NSColor redColor]];
+    
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_IDENTIFIER value: [NSColor blackColor]];
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: SCE_MYSQL_QUOTEDIDENTIFIER fromHTML: @"#274A6D"];
+    [mEditor setGeneralProperty: SCI_STYLESETBOLD parameter: SCE_SQL_OPERATOR value: 1];
+    
+    // Line number style.
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: STYLE_LINENUMBER fromHTML: @"#F0F0F0"];
+    [mEditor setColorProperty: SCI_STYLESETBACK parameter: STYLE_LINENUMBER fromHTML: @"#808080"];
+    
+    [mEditor setGeneralProperty: SCI_SETMARGINTYPEN parameter: 0 value: SC_MARGIN_NUMBER];
+    [mEditor setGeneralProperty: SCI_SETMARGINWIDTHN parameter: 0 value: 35];
+    
+    // Markers.
+    [mEditor setGeneralProperty: SCI_SETMARGINWIDTHN parameter: 1 value: 16];
+    
+    // Some special lexer properties.
+    [mEditor setLexerProperty: @"fold" value: @"1"];
+    [mEditor setLexerProperty: @"fold.compact" value: @"0"];
+    [mEditor setLexerProperty: @"fold.comment" value: @"1"];
+    [mEditor setLexerProperty: @"fold.preprocessor" value: @"1"];
+    
+    // Folder setup.
+    [mEditor setGeneralProperty: SCI_SETMARGINWIDTHN parameter: 2 value: 16];
+    [mEditor setGeneralProperty: SCI_SETMARGINMASKN parameter: 2 value: SC_MASK_FOLDERS];
+    [mEditor setGeneralProperty: SCI_SETMARGINSENSITIVEN parameter: 2 value: 1];
+    [mEditor setGeneralProperty: SCI_MARKERDEFINE parameter: SC_MARKNUM_FOLDEROPEN value: SC_MARK_BOXMINUS];
+    [mEditor setGeneralProperty: SCI_MARKERDEFINE parameter: SC_MARKNUM_FOLDER value: SC_MARK_BOXPLUS];
+    [mEditor setGeneralProperty: SCI_MARKERDEFINE parameter: SC_MARKNUM_FOLDERSUB value: SC_MARK_VLINE];
+    [mEditor setGeneralProperty: SCI_MARKERDEFINE parameter: SC_MARKNUM_FOLDERTAIL value: SC_MARK_LCORNER];
+    [mEditor setGeneralProperty: SCI_MARKERDEFINE parameter: SC_MARKNUM_FOLDEREND value: SC_MARK_BOXPLUSCONNECTED];
+    [mEditor setGeneralProperty: SCI_MARKERDEFINE parameter: SC_MARKNUM_FOLDEROPENMID value: SC_MARK_BOXMINUSCONNECTED];
+    [mEditor setGeneralProperty
+     : SCI_MARKERDEFINE parameter: SC_MARKNUM_FOLDERMIDTAIL value: SC_MARK_TCORNER];
+    for (int n= 25; n < 32; ++n) // Markers 25..31 are reserved for folding.
+    {
+        [mEditor setColorProperty: SCI_MARKERSETFORE parameter: n value: [NSColor whiteColor]];
+        [mEditor setColorProperty: SCI_MARKERSETBACK parameter: n value: [NSColor blackColor]];
+    }
+    
+    // Init markers & indicators for highlighting of syntax errors.
+    [mEditor setColorProperty: SCI_INDICSETFORE parameter: 0 value: [NSColor redColor]];
+    [mEditor setGeneralProperty: SCI_INDICSETUNDER parameter: 0 value: 1];
+    [mEditor setGeneralProperty: SCI_INDICSETSTYLE parameter: 0 value: INDIC_SQUIGGLE];
+    
+    [mEditor setColorProperty: SCI_MARKERSETBACK parameter: 0 fromHTML: @"#B1151C"];
+    
+    [mEditor setColorProperty: SCI_SETSELBACK parameter: 1 value: [NSColor selectedTextBackgroundColor]];
+    
+    // Uncomment if you wanna see auto wrapping in action.
+    //[mEditor setGeneralProperty: SCI_SETWRAPMODE parameter: SC_WRAP_WORD value: 0];
+    
+    InfoBar* infoBar = [[[InfoBar alloc] initWithFrame: NSMakeRect(0, 0, 400, 0)] autorelease];
+    [infoBar setDisplay: IBShowAll];
+    [mEditor setInfoBar: infoBar top: NO];
+    [mEditor setStatusText: @"Operation complete"];
+    
+    [mEditor  setDelegate:self];
+}
+
+#pragma mark ---- Scintilla ----
+- (void)notification: (Scintilla::SCNotification*)notification{
+    switch (notification->nmhdr.code) {
+        case SCN_CHARADDED:
+            
+            break;
+        case SCN_MODIFIED:
+            [self showAutocompletion: notification->position+1];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void) showAutocompletion:(int)length
+{
+    const char *words = "select top";
+    [mEditor setGeneralProperty: SCI_AUTOCSETIGNORECASE parameter: 1 value:0];
+    [mEditor setGeneralProperty: SCI_AUTOCSHOW parameter: length value:(sptr_t)words];
+}
 
 #pragma mark ---- positioning ----
 
@@ -468,7 +781,7 @@
 	[tablesSplitView setDelegate: self];
 }      
 
-- (float) biggerOf: (float) a and: (float) b 
+- (float) biggerOf: (float) a andOf: (float) b
 {
 	if ( a > b )
 		return a;
@@ -501,7 +814,7 @@
 		minHeightOfAllTables += [self minHeightForTableAtIndex: i];
 	}
 	
-	float splitViewHeight = [self biggerOf: (minHeightOfAllTables + splitersHeight) and: [tablesScrollView frame].size.height];
+	float splitViewHeight = [self biggerOf: (minHeightOfAllTables + splitersHeight) andOf: [tablesScrollView frame].size.height];
 	
 	//resize split view
 	[tablesScrollView setHasVerticalScroller: splitViewHeight > [tablesScrollView contentSize].height];				
@@ -715,7 +1028,7 @@
 
 -(IBAction)	toggleAutoSyntaxColoring: (id)sender
 {
-	[syntaxColoringController toggleAutoSyntaxColoring: sender];
+    NSLog(@"%s", sel_getName(_cmd));
 }
 
 
@@ -726,7 +1039,7 @@
 
 -(IBAction)	toggleMaintainIndentation: (id)sender
 {
-	[syntaxColoringController toggleMaintainIndentation: sender];
+    NSLog(@"%s", sel_getName(_cmd));
 }
 
 
@@ -748,7 +1061,7 @@
 
 -(IBAction) indentSelection: (id)sender
 {
-	[syntaxColoringController indentSelection: sender];
+    NSLog(@"%s", sel_getName(_cmd));
 }
 
 
@@ -759,7 +1072,7 @@
 
 -(IBAction) unIndentSelection: (id)sender
 {
-	[syntaxColoringController unindentSelection: sender];
+    NSLog(@"%s", sel_getName(_cmd));
 }
 
 
@@ -770,7 +1083,7 @@
 
 -(IBAction)	toggleCommentForSelection: (id)sender
 {
-	[syntaxColoringController toggleCommentForSelection: sender];
+    NSLog(@"%s", sel_getName(_cmd));
 }
 
 
@@ -805,7 +1118,7 @@
 
 -(IBAction)	recolorCompleteFile: (id)sender
 {
-	[syntaxColoringController recolorCompleteFile: sender];
+    NSLog(@"%s", sel_getName(_cmd));
 }
 
 -(NSDictionary*)	syntaxDefinitionDictionaryForTextViewController: (id)sender{
