@@ -262,7 +262,7 @@ ScintillaView* mEditor;
 }
 
 - (void) setString: (NSString*) s{
-	[queryText setString: s];
+    [mEditor message:SCI_SETTEXT wParam:nil lParam:(long) [s UTF8String]];
 	[self setIsEdited: NO];
 }
 
