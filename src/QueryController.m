@@ -208,36 +208,57 @@ ScintillaView* mEditor;
 }
 
 - (NSString*) queryString{
-    sptr_t nLen = [mEditor message:SCI_GETTEXTLENGTH];
-    char *query =  (char *) malloc(sizeof(char) * (nLen + 1));
-    [mEditor message:SCI_GETTEXT wParam:(uptr_t) (nLen + 1) lParam:(sptr_t) query];
+
+    long startPos = [mEditor message:SCI_GETSELECTIONSTART];
+    long endPos = [mEditor message:SCI_GETSELECTIONEND];
+    char *query;
+    if (startPos == endPos) {
+        //nema selekcije, dohvati cijeli text
+        long length = [mEditor message:SCI_GETTEXTLENGTH];
+        query =  (char *) malloc(sizeof(char) * (length + 1));
+        [mEditor message:SCI_GETTEXT wParam:(u_long) (length + 1) lParam:(long) query];
+    }
+    else {
+        query =  (char *) malloc(sizeof(char) * (endPos - startPos + 1));
+        [mEditor message:SCI_GETSELTEXT wParam:nil lParam:(long) query];
+    }
 
     NSString *str = [NSString stringWithFormat:@"%s", query];
     return str;
 }
 
 
-- (NSString*) queryParagraphString{          
-	NSRange selection = [queryText selectedRange]; 
-	NSString *query = [NSString stringWithString: [queryText string]];                  
-  NSRange currentLine = [query lineRangeForRange: selection];
-  
-  NSRange startParagraph = currentLine;
-  NSRange endParagraph = currentLine;
-  while(startParagraph.location > 0 && startParagraph.length > 1){
-    startParagraph = [query lineRangeForRange: NSMakeRange(startParagraph.location - 1, 1)];
-  }
-  while((endParagraph.location + endParagraph.length) < [query length] && endParagraph.length > 1){
-    endParagraph = [query lineRangeForRange: NSMakeRange((endParagraph.location + endParagraph.length), 1)];
-  }
-  
-  NSRange paragraph = NSMakeRange(startParagraph.location, endParagraph.location - startParagraph.location + endParagraph.length);  
-	if(paragraph.length > 1){
-    //[queryText setSelectedRange: paragraph];
-		return [query substringWithRange: paragraph];
-	}else{
-		return NULL;
-	}
+- (NSString*) queryParagraphString {
+
+    long curLine = [mEditor message:SCI_LINEFROMPOSITION wParam:(u_long) [mEditor message:SCI_GETCURRENTPOS]];
+    long startLine = curLine;
+    long endLine = curLine;
+    //nađi početak paragrafa
+    while((([mEditor message:SCI_GETLINEENDPOSITION wParam:(u_long) curLine] - [mEditor message:SCI_POSITIONFROMLINE wParam:(u_long)curLine]) != 0) && curLine != 0) {
+        curLine --;
+    }
+    startLine = curLine;
+    curLine = endLine;
+
+    //nađi kraj paragrafa
+    while ([mEditor message:SCI_GETLINEENDPOSITION wParam:(u_long) curLine] - [mEditor message:SCI_POSITIONFROMLINE wParam:(u_long) curLine] != 0 && curLine != [mEditor message:SCI_GETLINECOUNT]) {
+        curLine++;
+    }
+    if(curLine == [mEditor message:SCI_GETLINECOUNT]) curLine--;
+    endLine = curLine;
+
+    long startPos = [mEditor message:SCI_POSITIONFROMLINE wParam:(u_long) startLine];
+    long endPos = [mEditor message:SCI_GETLINEENDPOSITION wParam:(u_long) endLine];
+    [mEditor message:SCI_SETSELECTIONSTART wParam:(u_long) startPos];
+    [mEditor message:SCI_SETSELECTIONEND wParam:(u_long) endPos];
+
+    char *query =  (char *) malloc(sizeof(char) * (endPos - startPos + 1));
+
+    [mEditor message:SCI_GETSELTEXT wParam:nil lParam:(long) query];
+
+    NSString *str = [NSString stringWithFormat:@"%s", query];
+    NSLog(str);
+    return str;
 }
 
 - (void) setString: (NSString*) s{
@@ -386,14 +407,14 @@ ScintillaView* mEditor;
     [mEditor setGeneralProperty: SCI_STYLESETBOLD parameter: SCE_SQL_OPERATOR value: 1];
     
     // Line number style.
-    [mEditor setColorProperty: SCI_STYLESETFORE parameter: STYLE_LINENUMBER fromHTML: @"#F0F0F0"];
-    [mEditor setColorProperty: SCI_STYLESETBACK parameter: STYLE_LINENUMBER fromHTML: @"#808080"];
+    [mEditor setColorProperty: SCI_STYLESETFORE parameter: STYLE_LINENUMBER fromHTML: @"#808080"];
+    [mEditor setColorProperty: SCI_STYLESETBACK parameter: STYLE_LINENUMBER fromHTML: @"#F0F0F0"];
     
     [mEditor setGeneralProperty: SCI_SETMARGINTYPEN parameter: 0 value: SC_MARGIN_NUMBER];
-    [mEditor setGeneralProperty: SCI_SETMARGINWIDTHN parameter: 0 value: 35];
+    [mEditor setGeneralProperty: SCI_SETMARGINWIDTHN parameter: 0 value: 15];
     
     // Markers.
-    [mEditor setGeneralProperty: SCI_SETMARGINWIDTHN parameter: 1 value: 16];
+    [mEditor setGeneralProperty: SCI_SETMARGINWIDTHN parameter: 1 value: 0];
     
     // Some special lexer properties.
     [mEditor setLexerProperty: @"fold" value: @"1"];
@@ -402,7 +423,7 @@ ScintillaView* mEditor;
     [mEditor setLexerProperty: @"fold.preprocessor" value: @"1"];
     
     // Folder setup.
-    [mEditor setGeneralProperty: SCI_SETMARGINWIDTHN parameter: 2 value: 16];
+    [mEditor setGeneralProperty: SCI_SETMARGINWIDTHN parameter: 2 value: 10];
     [mEditor setGeneralProperty: SCI_SETMARGINMASKN parameter: 2 value: SC_MASK_FOLDERS];
     [mEditor setGeneralProperty: SCI_SETMARGINSENSITIVEN parameter: 2 value: 1];
     [mEditor setGeneralProperty: SCI_MARKERDEFINE parameter: SC_MARKNUM_FOLDEROPEN value: SC_MARK_BOXMINUS];
@@ -430,7 +451,12 @@ ScintillaView* mEditor;
     
     // Uncomment if you wanna see auto wrapping in action.
     //[mEditor setGeneralProperty: SCI_SETWRAPMODE parameter: SC_WRAP_WORD value: 0];
-    
+
+    // Line endings
+//    [mEditor message:SCI_SETVIEWEOL wParam:1];
+//    [mEditor message:SCI_SETLINEENDTYPESALLOWED wParam:SC_LINE_END_TYPE_UNICODE];
+
+
     InfoBar* infoBar = [[[InfoBar alloc] initWithFrame: NSMakeRect(0, 0, 400, 0)] autorelease];
     [infoBar setDisplay: IBShowAll];
     [mEditor setInfoBar: infoBar top: NO];
