@@ -72,7 +72,6 @@ const char user_keywords[] = // Definition of own keywords, not used by MySQL.
     IBOutlet NSView *resultsContentView;
     IBOutlet NSView *queryTextContentView;
     IBOutlet NSSegmentedControl *resultsMessagesSegmentedControll;
-    IBOutlet NSTextView	*queryText;
     IBOutlet NSTextView	*messagesTextView;
     IBOutlet NSView *tableResultsContentView;
     IBOutlet NSSplitView *splitView;
@@ -299,7 +298,6 @@ ScintillaView* mEditor;
 }
 
 - (void) awakeFromNib{
-//    [queryText setHidden:YES];
     // Manually set up the scintilla editor. Create an instance and dock it to our edit host.
     // Leave some free space around the new view to avoid overlapping with the box borders.
     NSRect newFrame = queryTextContentView.frame;
@@ -315,12 +313,10 @@ ScintillaView* mEditor;
 	[self setIsEdited: NO];
    
     //proportional font to all text views
-	[queryText setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];                                     
  	[messagesTextView setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
 	[textResultsTextView setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
 	
 	[self setNoWrapToTextView:messagesTextView];
-	[self setNoWrapToTextView:queryText];
 	[self setNoWrapToTextView:textResultsTextView];
 	
 	[self splitViewDidResize: nil];  
@@ -544,7 +540,8 @@ ScintillaView* mEditor;
 	}
 }
 
-- (void) tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem{
+//TODO: ovo se ne koristi nigdje
+/*- (void) tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem{
 	int selectedIndex = [resultsTabView indexOfTabViewItem: tabViewItem];	
 	[resultsMessagesSegmentedControll setSelectedSegment: selectedIndex];  
 	switch(selectedIndex){
@@ -563,7 +560,7 @@ ScintillaView* mEditor;
 	} 
 	if (selectedIndex != 2)
 		lastResultsTabIndex = selectedIndex;
-}
+}*/
 
 - (void) displayTextResults{
 	int selectedIndex = [resultsTabView indexOfTabViewItem: [resultsTabView selectedTabViewItem]];
@@ -592,8 +589,8 @@ ScintillaView* mEditor;
 }
 
 - (IBAction) nextResultsTab: (id) sender{ 	
-	[self ensureResultsAreVisible]; 	
-	if (!([[connection window] firstResponder] == queryText)){
+	[self ensureResultsAreVisible];
+    if ([[connection window] firstResponder] != [mEditor content]){
 		if ([self lastTabSelected]){
 			[resultsTabView selectFirstTabViewItem: sender];
 		}else{
@@ -607,7 +604,7 @@ ScintillaView* mEditor;
 
 - (void) goToQueryText{ 
 	[self ensureQueryTextIsVisible];	
-	[[connection window] makeFirstResponder: queryText];
+	[[connection window] makeFirstResponder: [mEditor content] ];
 }
                                         
 - (void) goToResults{         
@@ -670,7 +667,7 @@ ScintillaView* mEditor;
 - (IBAction) maximizeQueryText: sender{
     [splitView setPosition: ([splitView frame].size.height) ofDividerAtIndex:0];
 	spliterPosition = 0;             
-	[[connection window] makeFirstResponder: queryText];
+	[[connection window] makeFirstResponder: [mEditor content]];
 }
                                      
 #pragma mark ---- show results ----
@@ -753,7 +750,7 @@ ScintillaView* mEditor;
 		prevoiusTableView = newTableView;    		                                               
 		if (i==0){      
 			firstTableView = newTableView;  
-			[queryText setNextKeyView: newTableView];
+			[[mEditor content] setNextKeyView: newTableView];
 		}
 	}
 }
@@ -897,9 +894,11 @@ ScintillaView* mEditor;
 		}                                                                      
 		[self setFileName: [panel URL].path];  
 		[self setName: [[fileName lastPathComponent] stringByDeletingPathExtension]];		
-	}	
-	[[queryText string] writeToFile: fileName atomically:YES encoding:NSUTF8StringEncoding error:NULL];
-  [[NSDocumentController sharedDocumentController] noteNewRecentDocumentURL:[NSURL fileURLWithPath:fileName]];		
+	}
+	[[mEditor string] writeToFile: fileName atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+    [mEditor setStatusText:@"Saved!"];
+
+    [[NSDocumentController sharedDocumentController] noteNewRecentDocumentURL:[NSURL fileURLWithPath:fileName]];
 	[self setIsEdited: NO];            	
 	return YES;
 }
@@ -908,8 +907,9 @@ ScintillaView* mEditor;
 	[self setFileName: fn];                       
 	[self setName: [[fileName lastPathComponent] stringByDeletingPathExtension]];
 	NSString *fileContents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
-	[queryText setString: fileContents];
-	[queryText setSelectedRange: NSMakeRange(0, 0)];
+	[mEditor setString: fileContents];
+    [mEditor setStatusText:@"Loaded!"];
+//	[queryText setSelectedRange: NSMakeRange(0, 0)];
 	[self setIsEdited: NO];
 	return YES;
 }
@@ -938,7 +938,7 @@ ScintillaView* mEditor;
 #pragma mark ---- auto compleletioin ---- 
 
 - (NSArray *)textView:(NSTextView *)textView completions:(NSArray *) words forPartialWordRange:(NSRange)charRange indexOfSelectedItem:(int *)index {
-	return [connection objectNamesForAutocompletionInDatabase: database withSearchString: [[queryText string] substringWithRange:charRange]];					                       
+	return [connection objectNamesForAutocompletionInDatabase: database withSearchString: [[mEditor string] substringWithRange:charRange]];
 }
 
 #pragma mark syntax highlighting delegates
