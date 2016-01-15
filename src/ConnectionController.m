@@ -340,7 +340,7 @@
 		return;		
 	}    
   @try {
-		[[self tdsConnection] executeInBackground: [queryController queryString] 
+		[[self tdsConnection] executeInBackground: [queryController queryString]
 																 withDatabase: [queryController database]
 															 returnToObject: queryController 
 																 withSelector: @selector(setResult:)];		
@@ -469,10 +469,9 @@
 			[self nextTab: nil];                                               
 		if ([theEvent keyCode] == 33)
 			[self previousTab: nil];		                                       
-		return;
 	}
 	//command-1 command-0 odabire odredjni tab
-	if ( [theEvent modifierFlags] & NSCommandKeyMask && [theEvent keyCode] > 17 && [theEvent keyCode] < 30)
+	else if ( [theEvent modifierFlags] & NSCommandKeyMask && [theEvent keyCode] > 17 && [theEvent keyCode] < 30)
 		{     
 			int tabIndex = [theEvent keyCode] - 18;
 			switch ([theEvent keyCode]) {
@@ -500,7 +499,10 @@
 			if ([[queryTabs tabViewItems] count] > tabIndex)
 				[queryTabs selectTabViewItemAtIndex:tabIndex];
 		}
-			
+    else{
+        [super keyDown:theEvent];
+    }
+    
 	NSLog(@"keyDown event keyCode %d modifierFlags: %lu window %@", [theEvent keyCode], [theEvent modifierFlags], [theEvent window]);	
 }               
 
@@ -627,8 +629,28 @@
     [dbObjectsByDatabaseCache setObject:dbObjectsResultsAll forKey:currentDatabase];
     
     [self filterDatabaseObjects];
+    
+    [self setAutocompletion];
 }
-		    
+
+- (void) setAutocompletion{
+    NSMutableDictionary* acTables = [NSMutableDictionary dictionary];
+
+    for(NSArray *row in dbObjectsResultsAll){
+        
+        NSString *type       = [row objectAtIndex: 1];
+        NSString *schema     = [row objectAtIndex: 2];
+        NSString *name       = [row objectAtIndex: 3];
+        
+        if([type isEqualToString:@"tables"]){
+            [acTables setValue:@"" forKey:[NSString stringWithFormat:@"%@.%@", schema, name]];
+        }
+        
+    }
+    
+    [queryController setAutocompleteData:acTables];
+}
+
 - (void) filterDatabaseObjects{		
 	
 	NSString *filterString				= [searchField stringValue]; 	
@@ -637,8 +659,8 @@
 	NSString *currentDatabase			= [databasesPopUp titleOfSelectedItem];	
 	NSString *regexFilterString		= [NSString stringWithFormat: @"(?im)%@", filterString];	
 	NSMutableSet *dbAllObjectsSet = [NSMutableSet set]; 
-  bool groupBySchema = [[[NSUserDefaults standardUserDefaults] objectForKey: QueriesGroupBySchema] boolValue];
-		
+    bool groupBySchema = [[[NSUserDefaults standardUserDefaults] objectForKey: QueriesGroupBySchema] boolValue];
+
 	for(NSArray *row in dbObjectsResultsAll){
                     
 		NSString *database   = [row objectAtIndex: 0];
@@ -646,20 +668,21 @@
 		NSString *schema     = [row objectAtIndex: 2];
 		NSString *name       = [row objectAtIndex: 3];                                       
 		NSString *parentName = [row objectAtIndex: 4];
-		
+        
+        
 		NSString *id = [NSString stringWithFormat: @"%@.%@.%@.%@", database, schema, type, name];
 		NSString *nameWithSchema = [NSString stringWithFormat: @"%@.%@", schema, name];
-    NSString *displayName = groupBySchema ? name : nameWithSchema;
-    if ([parentName length] > 0) {
-      displayName = [NSString stringWithFormat: @"%@.%@", parentName , displayName];
-    }
-    [dbAllObjectsSet addObject: [NSArray arrayWithObjects: database, name, schema, nameWithSchema, nil]];
+        NSString *displayName = groupBySchema ? name : nameWithSchema;
+        if ([parentName length] > 0) {
+            displayName = [NSString stringWithFormat: @"%@.%@", parentName , displayName];
+        }
+        [dbAllObjectsSet addObject: [NSArray arrayWithObjects: database, name, schema, nameWithSchema, nil]];
 				
-    if (!useFilter || ([database isEqualToString: currentDatabase] && [nameWithSchema isMatchedByRegex: regexFilterString])){			
+        if (!useFilter || ([database isEqualToString: currentDatabase] && [nameWithSchema isMatchedByRegex: regexFilterString])){
 			if (groupBySchema){
-				NSString *level1 = [NSString stringWithFormat: @"%@.%@", database, schema]; 
-		 	  NSString *level2 = [NSString stringWithFormat: @"%@.%@.%@", database, schema, type];
-        [dbObjectsSet addObject: [NSArray arrayWithObjects: level1, @"", schema,   @"+", nil]];
+                NSString *level1 = [NSString stringWithFormat: @"%@.%@", database, schema];
+                NSString *level2 = [NSString stringWithFormat: @"%@.%@.%@", database, schema, type];
+                [dbObjectsSet addObject: [NSArray arrayWithObjects: level1, @"", schema,   @"+", nil]];
 				[dbObjectsSet addObject: [NSArray arrayWithObjects: level2, level1, type,     @"+", nil]];
 				[dbObjectsSet addObject: [NSArray arrayWithObjects: id, 		level2, displayName,     @"",  database, type, schema, name, nameWithSchema, nil]];
 						
@@ -669,10 +692,11 @@
 				[dbObjectsSet addObject: [NSArray arrayWithObjects: id, 		level1, displayName, @"",  database, type, schema, name, nameWithSchema, nil]];
 			}
 		}
-	}			
+	}
+    
 	[self clearObjectsCache];       
 	dbObjectsResults = [[dbObjectsSet allObjects] retain]; 
-  dbAllObjects = [[dbAllObjectsSet allObjects] retain]; 
+    dbAllObjects = [[dbAllObjectsSet allObjects] retain];
 	
 	[outlineView reloadData];
 	[outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO]; 
